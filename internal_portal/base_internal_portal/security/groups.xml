@@ -1,0 +1,6 @@
+<odoo>
+    <record id="module_category_internal_portal" model="ir.module.category">
+        <field name="name">Internal Portal</field>
+        <field name="sequence">99</field>
+    </record>
+</odoo>

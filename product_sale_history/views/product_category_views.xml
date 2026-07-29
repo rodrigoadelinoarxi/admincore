@@ -1,0 +1,33 @@
+<odoo>
+    <record id="product_category_form_view_inherit_prod_hist" model="ir.ui.view">
+        <field name="model">product.category.form.view.inherit.prod.hist</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="stock.product_category_form_view_inherit"/>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='removal_strategy_id']" position="after">
+                <label for="buy_limit_category" string="Buying Limit for Category"/>
+                <div class="o_row">
+                    <field name="buy_limit_category"/>
+                    <span>
+                        <field name="buy_limit_quant" invisible="not buy_limit_category"/>
+                    </span>
+                </div>
+                <field name="buy_limit_product" invisible="not buy_limit_category"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_category_view_form_inherit_account_taxcloud_prod_hist" model="ir.ui.view">
+        <field name="model">product.category.view.form.inherit.account.taxcloud.prod.hist</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="account_taxcloud.product_category_view_form_inherit_account_taxcloud"/>
+        <field type="xml" name="arch">
+            <xpath expr="//group[@name='sale_taxcloud']" position="after">
+                <group string="Email">
+                    <field name="auto_validate_and_email"/>
+                    <field name="email_template_id" invisible="not auto_validate_and_email"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+<odoo>
+    <record id="account_batch_payment.menu_batch_payment_sales" model="ir.ui.menu">
+        <field name="action" eval="False"/>
+    </record>
+</odoo>

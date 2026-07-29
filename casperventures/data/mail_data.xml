@@ -1,0 +1,19 @@
+<odoo noupdate="1">
+    <record id="mail_act_hr_contract_to_renew" model="mail.activity.type">
+        <field name="name">Contract to Renew</field>
+        <field name="icon">fa-file</field>
+        <field name="res_model">hr.contract</field>
+    </record>
+
+    <record id="mail_act_fleet_to_register_data" model="mail.activity.type">
+        <field name="name">Enter Mileage data</field>
+        <field name="icon">fa-car</field>
+        <field name="res_model">fleet.vehicle</field>
+    </record>
+
+    <record id="mail_act_fleet_to_register_service" model="mail.activity.type">
+        <field name="name">Perform Service</field>
+        <field name="icon">fa-car</field>
+        <field name="res_model">fleet.vehicle</field>
+    </record>
+</odoo>

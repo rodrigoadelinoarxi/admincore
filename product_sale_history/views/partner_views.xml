@@ -1,0 +1,19 @@
+<odoo>
+    <record id="res_partner_form_inherit_purchase_limit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.purchase.limit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field type="xml" name="arch">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="purchase_limit" string="Purchase Quantity Limit">
+                    <field name="products_limit_ids">
+                        <tree editable="true" create = 'true' >
+                            <field name="product_id"/>
+                            <field name="quant"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

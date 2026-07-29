@@ -1,0 +1,20 @@
+#check_in_out_container {
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  #check_in_out_btn_container {
+    grid-row-start: 2;
+
+    #check_in_btn {
+      background-color: white !important;
+      color: #444B5A !important;
+      padding-left: 4rem;
+      padding-right: 4rem
+    }
+
+    #check_out_btn {
+      color: #444B5A;
+    }
+  }
+}

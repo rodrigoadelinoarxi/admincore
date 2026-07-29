@@ -1,0 +1,45 @@
+<odoo>
+    <template id="internal_portal_attendances_check_in_out" name="Create Leave">
+        <t t-call="portal.portal_layout">
+            <main class="mx-auto align-items-end" id="check_in_out_container">
+                <p class="text-center">
+                    <!--INTRODUCTION & STATE-->
+                    Hello <b><t t-esc="employee_id.name"/></b>,
+                    <span class="d-block">
+                        You are currently
+                        <b>
+                            <t t-if="attendance_state == 'checked_in'">checked in</t>
+                            <t t-else="">checked out</t>
+                        </b>
+                    </span>
+                    <!--ERRORS-->
+                    <div t-if="errors" class="alert alert-danger mt-2 pb-2" role="alert">
+                        <t t-esc="errors"/>
+                    </div>
+                </p>
+                <div id="check_in_out_btn_container">
+                    <!--CHECK IN-->
+                    <t t-if="attendance_state == 'checked_out'">
+                        <a href="/my/internal/attendance/check-in-out" class="btn py-4 rounded-lg shadow-lg" role="button"
+                           id="check_in_btn">
+                            <section>
+                                <i t-attf-class="fa fa-sign-in fa-7x"/>
+                            </section>
+                            <h3>CHECK IN</h3>
+                        </a>
+                    </t>
+                    <!--CHECK OUT-->
+                    <t t-else="">
+                        <a href="/my/internal/attendance/check-in-out" class="btn btn-warning px-5 py-4 rounded-lg shadow-lg"
+                           role="button" id="check_out_btn">
+                            <section>
+                                <i t-attf-class="fa fa-sign-out fa-7x"/>
+                            </section>
+                            <h3>CHECK OUT</h3>
+                        </a>
+                    </t>
+                </div>
+            </main>
+        </t>
+    </template>
+</odoo>

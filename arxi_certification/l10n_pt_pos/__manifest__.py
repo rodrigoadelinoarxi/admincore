@@ -1,0 +1,23 @@
+{
+    'name'          : 'Portugal - Certified Point of Sale',
+    'summary'       : """
+        Module for POS certification and exporting SAF-T""",
+
+    'author'        : "ARXILEAD",
+    'website'       : "https://www.arxi.pt",
+    'category'      : 'Sales/Point Of Sale',
+    'version'       : '17.0.0.0.3',
+    'license'       : 'OPL-1',
+    'depends'       : ['l10n_pt_certificate', 'l10n_pt_ao_pos'],
+    'data'          : [
+        'data/pos_qr_parameters.xml',
+    ],
+    'assets'        : {
+        'point_of_sale._assets_pos': [
+            'l10n_pt_pos/static/src/js/**/*',
+            'l10n_pt_pos/static/src/xml/**/*',
+        ],
+    },
+    'application'   : False,
+    'post_init_hook': '_post_init_hook'
+}

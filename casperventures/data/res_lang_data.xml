@@ -1,0 +1,6 @@
+<odoo>
+    <record id="base.lang_pt" model="res.lang">
+        <field name="grouping">[3,0]</field>
+        <field name="thousands_sep">.</field>
+    </record>
+</odoo>

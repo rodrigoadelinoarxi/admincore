@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* planning_automatic_timesheets
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-14 17:27+0000\n"
+"PO-Revision-Date: 2022-12-14 17:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model,name:planning_automatic_timesheets.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Linha Analítica"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model.fields,field_description:planning_automatic_timesheets.field_planning_slot__company_has_automatic_timesheets
+#: model:ir.model.fields,field_description:planning_automatic_timesheets.field_res_company__automatic_timesheets
+msgid "Automatic Timesheets"
+msgstr "Registos de Horas Automáticos"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model,name:planning_automatic_timesheets.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model.fields,help:planning_automatic_timesheets.field_planning_slot__company_has_automatic_timesheets
+#: model:ir.model.fields,help:planning_automatic_timesheets.field_res_company__automatic_timesheets
+msgid ""
+"If checked, timesheets will be created automatically when a planning slot is"
+" published or sent."
+msgstr ""
+"Se marcado, os registos de horas serão criados automaticamente quando um slot "
+"de planeamento é publicado ou enviado."
+
+#. module: planning_automatic_timesheets
+#: model:ir.model,name:planning_automatic_timesheets.model_planning_slot
+msgid "Planning Shift"
+msgstr "Planear Turno"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model.fields,field_description:planning_automatic_timesheets.field_account_analytic_line__planning_slot_id
+msgid "Planning Slot"
+msgstr "Slot de Planeamento"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model,name:planning_automatic_timesheets.model_planning_planning
+msgid "Schedule"
+msgstr "Planear"
+
+#. module: planning_automatic_timesheets
+#: model:ir.model,name:planning_automatic_timesheets.model_planning_send
+msgid "Send Planning"
+msgstr "Enviar Planeamento"
+
+#. module: planning_automatic_timesheets
+#: code:addons/planning_automatic_timesheets/models/planning.py:0
+#, python-format
+msgid "You need to allocate hours in order to proceed."
+msgstr "Precisa de alocar horas para prosseguir."
+
+#. module: planning_automatic_timesheets
+#: code:addons/planning_automatic_timesheets/models/planning.py:0
+#, python-format
+msgid "You need to select a project in order to proceed."
+msgstr "Precisa de selecionar um projeto para prosseguir."
+
+#. module: planning_automatic_timesheets
+#: code:addons/planning_automatic_timesheets/models/planning.py:0
+#, python-format
+msgid "You need to select a resource in order to proceed."
+msgstr "Precisa de selecionar um funcionário para prosseguir."

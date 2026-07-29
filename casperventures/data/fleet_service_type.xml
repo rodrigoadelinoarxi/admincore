@@ -1,0 +1,16 @@
+<odoo noupdate="1">
+    <record id="fleet_service_type_inspection" model="fleet.service.type">
+        <field name="name">Inspection</field>
+        <field name="category">service</field>
+    </record>
+
+    <record id="fleet_service_type_service" model="fleet.service.type">
+        <field name="name">Check-up</field>
+        <field name="category">service</field>
+    </record>
+
+    <record id="fleet_service_type_insurance" model="fleet.service.type">
+        <field name="name">Insurance</field>
+        <field name="category">contract</field>
+    </record>
+</odoo>

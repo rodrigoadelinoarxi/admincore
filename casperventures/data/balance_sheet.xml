@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="l10n_pt_reports_arxi.account_financial_report_line_pt_balanco_ativo_corrente_accionistas_socios" model="account.financial.html.report.line">-->
+<!--        <field name="formulas">C263 + C268 - C269 - C261</field>-->
+<!--    </record>-->
+
+<!--    <record id="l10n_pt_reports_arxi.account_financial_report_line_pt_balanco_ativo_nao_corrente_accionistas_socios" model="account.financial.html.report.line">-->
+<!--        <field name="formulas">C266 + C288 - C269 - C262</field>-->
+<!--    </record>-->
+
+<!--    <record id="l10n_pt_reports_arxi.account_financial_report_line_pt_balanco_capital_proprio_capital_realizado" model="account.financial.html.report.line">-->
+<!--        <field name="name">Capital subscrito</field>-->
+<!--        <field name="formulas">C51</field>-->
+<!--    </record>-->
+
+<!--    <record id="l10n_pt_reports_arxi.account_financial_report_line_pt_balanco" model="account.financial.html.report">-->
+<!--        <field name="analytic" eval="True"/>-->
+<!--    </record>-->
+
+<!--    <record id="l10n_pt_reports_arxi.account_financial_report_l10n_pt_ddr" model="account.financial.html.report">-->
+<!--        <field name="analytic" eval="True"/>-->
+<!--    </record>-->
+</odoo>

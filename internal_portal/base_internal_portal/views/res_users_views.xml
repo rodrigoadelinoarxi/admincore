@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="create_employee" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='action_create_employee']" position="attributes">
+                <attribute name="invisible">not create_employee</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_form_inherit_groups" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <page name="access_rights" position="inside"/>
+        </field>
+    </record>
+</odoo>

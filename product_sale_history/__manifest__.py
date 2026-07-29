@@ -1,0 +1,20 @@
+{
+    'name': 'Product Sale History',
+    'version': '17.0.0.1.5',
+    'author': 'Casperventures',
+    'summary': 'History for Product sales by Partner',
+    'category': 'Products/Sales',
+    'depends': ['mail', 'sale', 'sale_management', 'account_taxcloud', 'portal', 'stock', 'contacts'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/product_category_data.xml',
+        'data/res_partner_category_data.xml',
+        'data/email_template_data.xml',
+        'views/product_views.xml',
+        'views/product_category_views.xml',
+        'views/sale_product_history_views.xml',
+        'views/stock_lot_views.xml',
+        'views/partner_views.xml',
+    ],
+    'license': 'OPL-1',
+}

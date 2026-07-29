@@ -1,0 +1,64 @@
+<odoo>
+    <template id="external_layout_boxed" inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[@name='company_address']" position="attributes">
+            <attribute name="t-if">o and ((o._name != 'account.payment') or (
+                    o._name == 'account.payment' and not o.is_donation and not o.create_donation_extra_move))
+            </attribute>
+        </xpath>
+        <xpath expr="//div[@name='company_address']" position="after">
+            <t t-else="">
+                <div name="company_address" class="float-end mb4">
+                    <span>
+                        Redlx Club - Associação para a Promoção do Empreendedorismo entre Portugal e os EUA
+                    </span>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//div[@t-field='company.report_footer']" position="attributes">
+            <attribute name="t-if">o and ((o._name != 'account.payment') or (
+                    o._name == 'account.payment' and not o.is_donation and not o.create_donation_extra_move))
+            </attribute>
+        </xpath>
+        <xpath expr="//div[@t-field='company.report_footer']" position="after">
+            <t t-else="">
+                <div>
+                    <p>REDLX CLUB&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Zona Industrial da Zicofa Lote 4&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2415-314 Leiria | Portugal&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VAT: PT517283549</p>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="report_payment_inherit" inherit_id="account.report_payment_receipt_document">
+        <xpath expr="//p[@name='not_invoice']" position="attributes">
+            <attribute name="t-if">not o.is_donation and not o.create_donation_extra_move</attribute>
+        </xpath>
+        <xpath expr="//table[hasclass('table-sm')]" position="attributes">
+            <attribute
+                    name="t-if">not o.is_donation and not o.create_donation_extra_move and o.payment_type == 'inbound'</attribute>
+        </xpath>
+        <xpath expr="//table[hasclass('table-sm')]" position="after">
+            <table t-elif="o.is_donation or o.create_donation_extra_move" class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>
+                            <span>Description</span>
+                        </th>
+                        <th class="text-end">
+                            <span>Amount</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span t-field="o.journal_id.default_donation_description"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="o.amount"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+</odoo>

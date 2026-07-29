@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="l10n_pt_ao_pos.TicketScreen" t-inherit="point_of_sale.TicketScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('orders')]//div[hasclass('header-row')]/div[2]" position="after">
+            <div class="col wide p-2">Document Number</div>
+        </xpath>
+        <xpath expr="//div[hasclass('orders')]//div[hasclass('order-row')]/div[2]" position="after">
+            <div class="col wide p-2">
+                <div><t t-esc="order.account_move_name or ''"/></div>
+            </div>
+        </xpath>
+    </t>
+</templates>

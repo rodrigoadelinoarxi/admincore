@@ -1,0 +1,23 @@
+<odoo>
+    <template id="portal_my_home_attendance" name="Show Attendances" inherit_id="portal.portal_my_home" priority="45">
+       <xpath expr="//div[contains(@class, 'o_portal_my_home')]" position="before">
+            <div class="d-flex justify-content-between mb-2 align-items-stretch">
+                <h3>Documents</h3>
+                <t t-if="employee_id">
+                    <t t-if="attendance_state == 'checked_out'">
+                        <a href="/my/internal/attendance" role="button" class="btn btn-primary d-flex align-items-center">
+                            <i t-attf-class="fa fa-sign-in"/>
+                            <span class="ml-2">Check in</span>
+                        </a>
+                    </t>
+                    <t t-else="">
+                        <a href="/my/internal/attendance" role="button" class="btn btn-warning d-flex align-items-center">
+                            <i t-attf-class="fa fa-sign-out"/>
+                            <span class="ml-1">Check out</span>
+                        </a>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

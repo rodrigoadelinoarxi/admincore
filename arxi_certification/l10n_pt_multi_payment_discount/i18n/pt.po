@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_pt_multi_payment_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-23 16:23+0000\n"
+"PO-Revision-Date: 2022-11-23 16:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model,name:l10n_pt_multi_payment_discount.model_account_payment_line
+msgid "Account Payment Line"
+msgstr "Linha de Pagamento"
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model.fields,field_description:l10n_pt_multi_payment_discount.field_account_payment_register_line__can_use_financial_discount
+msgid "Can Use Financial Discount"
+msgstr ""
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model.fields,field_description:l10n_pt_multi_payment_discount.field_account_payment_register_line__financial_discount
+msgid "Financial Discount"
+msgstr "Desconto Financeiro"
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model.fields,field_description:l10n_pt_multi_payment_discount.field_account_payment_line__financial_discount_amount
+msgid "Financial Discount Amount"
+msgstr "Valor Desconto Financeiro"
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model,name:l10n_pt_multi_payment_discount.model_account_payment_register_line
+msgid "Payment Register Line"
+msgstr ""
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model,name:l10n_pt_multi_payment_discount.model_account_payment_register
+msgid "Register Payment"
+msgstr "Registar Pagamento"
+
+#. module: l10n_pt_multi_payment_discount
+#: model:ir.model.fields,field_description:l10n_pt_multi_payment_discount.field_account_payment_register_line__use_financial_discount
+msgid "Use Discount"
+msgstr ""

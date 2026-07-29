@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_hr_attendance_user_profile","access_hr_attendance_user_profile_ir_ui_view","website.model_ir_ui_view","base.group_user",1,0,0,0
+access_hr_employee_user_casper,access_hr_employee_user_casper,hr.model_hr_employee,base.group_user,1,1,1,0

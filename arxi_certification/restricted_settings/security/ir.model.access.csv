@@ -1,0 +1,11 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_ir_actions_group_basic_settings","ir_actions_group_basic_settings","base.model_ir_actions_actions","group_basic_settings",1,1,1,1
+"access_ir_actions_act_window_system","ir_actions_act_window_system","base.model_ir_actions_act_window","group_basic_settings",1,1,1,1
+"access_ir_actions_act_window_close_group_basic_settings","ir_actions_act_window_close_group_basic_settings","base.model_ir_actions_act_window_close","group_basic_settings",1,1,1,1
+"access_ir_actions_report_group_basic_settings","ir_actions_report_group_basic_settings","base.model_ir_actions_report","group_basic_settings",1,1,1,1
+"access_ir_actions_todo_group_basic_settings","ir_actions_todo group system","base.model_ir_actions_todo","group_basic_settings",1,1,1,1
+"access_ir_actions_act_window_view_group_basic_settings","ir_actions_act_window_view_group_basic_settings","base.model_ir_actions_act_window_view","group_basic_settings",1,1,1,1
+"access_ir_actions_act_url_group_basic_settings","ir_actions_act_url_group_basic_settings","base.model_ir_actions_act_url","group_basic_settings",1,1,1,1
+"access_ir_actions_server_group_basic_settings","ir_actions_server_group_basic_settings","base.model_ir_actions_server","group_basic_settings",1,1,1,1
+"access_ir_actions_client","ir_actions_client all","base.model_ir_actions_client","group_basic_settings",1,1,1,1
+"access_res_config_settings","access.res.config.settings","base.model_res_config_settings","group_basic_settings",1,1,1,0

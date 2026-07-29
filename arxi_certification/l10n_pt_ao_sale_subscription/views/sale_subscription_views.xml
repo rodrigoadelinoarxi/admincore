@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><record id="sale_subscription.sale_subscription_action" model="ir.actions.act_window"><field name="context">{
+            'search_default_my_subscription':1,
+            'search_default_is_subscriptions':1,
+            'search_default_stage':1,
+            'search_default_pending':1,
+            'default_sale_type': 'SUB',
+        }</field></record><record id="sale_subscription.sale_subscription_action_filtered" model="ir.actions.act_window"><field name="context">{
+            'search_default_sale_order_template_id': [active_id],
+            'default_sale_order_template_id': active_id,
+            'default_sale_type': 'SUB',
+        }</field></record><record id="sale_subscription.sale_subscription_action_pending" model="ir.actions.act_window"><field name="context">{
+            'search_default_my_subscription':1,
+            'search_default_is_subscriptions':1,
+            'search_default_stage':1,
+            'search_default_pending':1,
+            'default_sale_type': 'SUB',
+        }</field></record></odoo>

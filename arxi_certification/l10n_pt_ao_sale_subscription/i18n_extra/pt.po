@@ -1,0 +1,35 @@
+#. module: sale_subscription
+#. odoo-python
+#: code:addons/sale_subscription/models/sale_order.py:0
+#, python-format
+msgid ""
+"You cannot save a sale order with a subscription plan and no recurring "
+"product."
+msgstr "Não é possível guardar uma subscrição com um plano de subscrição e sem produto recorrente."
+
+#. module: sale_subscription
+#. odoo-python
+#: code:addons/sale_subscription/models/sale_order.py:0
+#, python-format
+msgid ""
+"You cannot save a sale order with recurring product and no subscription "
+"plan."
+msgstr "Não é possível guardar uma subscrição com produto recorrente e sem plano de subscrição."
+
+#. module: sale_subscription
+#. odoo-python
+#: code:addons/sale_subscription/models/sale_order.py:0
+#, python-format
+msgid ""
+"You cannot send a sale order with a subscription plan and no recurring "
+"product."
+msgstr "Não é possível enviar uma subscrição com um plano de subscrição e sem produto recorrente."
+
+#. module: sale_subscription
+#. odoo-python
+#: code:addons/sale_subscription/models/sale_order.py:0
+#, python-format
+msgid ""
+"You cannot send a sale order with recurring product and no subscription "
+"plan."
+msgstr "Não é possível enviar uma subscrição com produto recorrente e sem plano de subscrição."

@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<odoo><record id="res_config_settings_view_form" model="ir.ui.view"><field name="name">res.config.settings.view.form.inherit.point_of_sale</field><field name="model">res.config.settings</field><field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/><field name="arch" type="xml"><xpath expr="//field[@name='pos_journal_id']" position="attributes"><attribute name="domain">[('company_id', '=', company_id), ('type', 'in', ('general', 'sale', 'bank', 'cash'))]</attribute></xpath></field></record></odoo>

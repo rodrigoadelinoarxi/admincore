@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* internal_portal_attendances
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-27 14:11+0000\n"
+"PO-Revision-Date: 2022-12-27 14:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.portal_my_home_attendance
+msgid "<span class=\"ml-1\">Check out</span>"
+msgstr ""
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.portal_my_home_attendance
+msgid "<span class=\"ml-2\">Check in</span>"
+msgstr ""
+
+#. module: internal_portal_attendances
+#: model:res.groups,name:internal_portal_attendances.group_internal_portal_attendances
+msgid "Attendances"
+msgstr "Assiduidades"
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.internal_portal_attendances_check_in_out
+msgid "CHECK IN"
+msgstr ""
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.internal_portal_attendances_check_in_out
+msgid "CHECK OUT"
+msgstr ""
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.portal_my_home_attendance
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.internal_portal_attendances_check_in_out
+msgid "Hello"
+msgstr "Olá"
+
+#. module: internal_portal_attendances
+#: model:res.groups,comment:internal_portal_attendances.group_internal_portal_attendances
+msgid "Manage own attendances in portal."
+msgstr "Gerir as próprias assiduidades no portal."
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.internal_portal_attendances_check_in_out
+msgid "You are currently"
+msgstr "Neste momento está"
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.internal_portal_attendances_check_in_out
+msgid "checked in"
+msgstr ""
+
+#. module: internal_portal_attendances
+#: model_terms:ir.ui.view,arch_db:internal_portal_attendances.internal_portal_attendances_check_in_out
+msgid "checked out"
+msgstr ""

@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* invoice_shipping_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-19 15:13+0000\n"
+"PO-Revision-Date: 2022-12-19 15:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.report_invoice_document
+msgid ""
+"<span>Goods sent or made available to the purchaser at&amp;nbsp;</span>"
+msgstr ""
+"<span>Las mercancías enviadas o puestas a disposición del comprador en&amp;nbsp;</span>"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.report_invoice_document
+msgid "<strong>Gross Weight:&amp;nbsp;</strong>"
+msgstr "<strong>Peso Bruto:&amp;nbsp;</strong>"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.report_invoice_document
+msgid "<strong>Net Weight:&amp;nbsp;</strong>"
+msgstr "<strong>Peso Neto:&amp;nbsp;</strong>"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.report_invoice_document
+msgid "<strong>Number of Parcels:&amp;nbsp;</strong>"
+msgstr "<strong>Número de Parcelas:&amp;nbsp;</strong>"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,field_description:invoice_shipping_info.field_account_bank_statement_line__gross_weight
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.view_move_form
+msgid "Gross Weight"
+msgstr "Peso Bruto"
+
+#. module: invoice_shipping_info
+#: model:ir.model,name:invoice_shipping_info.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,help:invoice_shipping_info.field_account_bank_statement_line__tax_point_date
+msgid "Leave empty to use the invoice date"
+msgstr "Dejar en blanco para usar la fecha de la factura"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,field_description:invoice_shipping_info.field_account_bank_statement_line__net_weight
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.view_move_form
+msgid "Net Weight"
+msgstr "Peso Neto"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,field_description:invoice_shipping_info.field_account_bank_statement_line__number_of_parcels
+msgid "Number Of Parcels"
+msgstr "Número de Parcelas"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.view_move_form
+msgid "Number of Parcels"
+msgstr "Número de Parcelas"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.view_move_form
+msgid "Shipping"
+msgstr "Expedición"
+
+#. module: invoice_shipping_info
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.view_move_form
+msgid "Shipping Info"
+msgstr "Datos de Envío"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,field_description:invoice_shipping_info.field_account_bank_statement_line__show_shipping_info
+msgid "Show Shipping Info"
+msgstr "Información de Envío"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,field_description:invoice_shipping_info.field_account_bank_statement_line__tax_point_date
+#: model_terms:ir.ui.view,arch_db:invoice_shipping_info.view_move_form
+msgid "Tax Point Date"
+msgstr "Fecha de Envío de Mercancías"
+
+#. module: invoice_shipping_info
+#: model:ir.model.fields,field_description:invoice_shipping_info.field_account_bank_statement_line__weight_uom
+msgid "Weight Uom"
+msgstr ""

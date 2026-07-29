@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<odoo noupdate="1"><record id="multicert_edi_sequence" model="ir.sequence"><field name="name">Multicert Account EDI</field><field name="prefix">MCertEDI</field><field name="padding">6</field></record></odoo>

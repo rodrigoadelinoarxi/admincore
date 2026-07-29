@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* restrict_update_company_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-27 19:54+0000\n"
+"PO-Revision-Date: 2020-10-27 19:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: restrict_update_company_info
+#: model:ir.model,name:restrict_update_company_info.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: restrict_update_company_info
+#: model:ir.model.fields,field_description:restrict_update_company_info.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: restrict_update_company_info
+#: model:ir.model.fields,field_description:restrict_update_company_info.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: restrict_update_company_info
+#: model:ir.model.fields,field_description:restrict_update_company_info.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: restrict_update_company_info
+#: code:addons/l10n_pt/restrict_update_company_info/models/res_partner.py:0
+#: code:addons/restrict_update_company_info/models/res_partner.py:0
+#, python-format
+msgid "You cannot edit base fields for a partner record of a company"
+msgstr ""
+"Não é possível editar os campos base de um contacto associado a uma empresa"

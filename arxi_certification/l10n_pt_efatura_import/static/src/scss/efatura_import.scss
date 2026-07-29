@@ -1,0 +1,11 @@
+.o_efatura_selection_buttons {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    width: auto;
+}
+
+.o_efatura_selection_buttons > .btn {
+    white-space: nowrap;
+}

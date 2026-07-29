@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_pt_ao_pos_credit_note_reason
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-29 16:15+0000\n"
+"PO-Revision-Date: 2025-05-29 16:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar\t"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.js:0
+#, python-format
+msgid "Credit Reason"
+msgstr "Motivo do Crédito"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#: model:ir.model.fields,field_description:l10n_pt_ao_pos_credit_note_reason.field_pos_order__credit_reason_text
+msgid "Credit Reason Text"
+msgstr "Texto de Motivo do Crédito"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.js:0
+#, python-format
+msgid "Custom value is required"
+msgstr "Valor customizado é obrigatório"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.js:0
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.js:0
+#, python-format
+msgid "Other"
+msgstr "Outro"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#: model:ir.model,name:l10n_pt_ao_pos_credit_note_reason.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Ordens do Ponto de Venda"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#: model:ir.model,name:l10n_pt_ao_pos_credit_note_reason.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessão do Ponto de Venda"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#: model:ir.model,name:l10n_pt_ao_pos_credit_note_reason.model_account_move_refund_reason
+msgid "Refund Reason"
+msgstr "Motivo de Retificação"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.js:0
+#: model:ir.model.fields,field_description:l10n_pt_ao_pos_credit_note_reason.field_pos_order__refund_type
+#, python-format
+msgid "Refund Type"
+msgstr "Tipo de Retificação"
+
+#. module: l10n_pt_ao_pos_credit_note_reason
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos_credit_note_reason/static/src/app/credit_reason_popup/credit_reason_popup.xml:0
+#, python-format
+msgid "Save for future documents"
+msgstr "Guardar para documentos futuros"

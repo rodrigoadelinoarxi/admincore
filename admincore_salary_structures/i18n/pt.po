@@ -1,0 +1,486 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* admincore_salary_structures
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-27 17:17+0000\n"
+"PO-Revision-Date: 2024-05-27 17:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_advance_l
+msgid "Advance"
+msgstr "Adiantamento"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_advance_moe
+msgid "Advance MOE"
+msgstr "Adiantamento MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_pr_l
+msgid "Award"
+msgstr "Prémio"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_pr_moe
+msgid "Award MOE"
+msgstr "Prémio MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_balance_bonus_l
+msgid "Balance Sheet Bonus"
+msgstr "Gratificação do Balanço"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_balance_bonus_moe
+msgid "Balance Sheet Bonus MOE"
+msgstr "Gratificação do Balanço MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_base_correction_l
+msgid "Base Salary Correction"
+msgstr "Acerto Vencimento Base"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_base_correction_moe
+msgid "Base Salary Correction MOE"
+msgstr "Acerto Vencimento Base MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_base_l
+msgid "Basic Salary"
+msgstr "Vencimento Base"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_base_moe
+msgid "Basic Salary MOE"
+msgstr "Vencimento Base MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_child_val_l
+msgid "Childhood Valley"
+msgstr "Vale de Infância"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_child_val_moe
+msgid "Childhood Valley MOE"
+msgstr "Vale de Infância MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_input_chr_allw_l
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sn_l
+msgid "Christmas Allowance"
+msgstr "Sub.Natal"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_chr_allw_correction_l
+msgid "Christmas Allowance Correction"
+msgstr "Acerto Subsídio de Natal"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_chr_allw_correction_moe
+msgid "Christmas Allowance Correction MOE"
+msgstr "Acerto Subsídio de Natal MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_input_chr_allw_moe
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sn_moe
+msgid "Christmas Allowance MOE"
+msgstr "Sub.Natal MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_prop_sn_l
+msgid "Christmas Proportionals"
+msgstr "Proporcionais Subsídio de Natal"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_prop_sn_moe
+msgid "Christmas Proportionals MOE"
+msgstr "Proporcionais Subsídio de Natal MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_commissions_l
+msgid "Commissions"
+msgstr "Comissões"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_commissions_moe
+msgid "Commissions MOE"
+msgstr "Comissões MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_term_comp_l
+msgid "Compensation for Termination of Contract"
+msgstr "Compensação fim de contrato"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_term_comp_moe
+msgid "Compensation for Termination of Contract MOE"
+msgstr "Compensação fim de contrato MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ac_l
+msgid "Cost Allowances"
+msgstr "Ajudas de Custo"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ac_foreign_l
+msgid "Cost Allowances Foreign"
+msgstr "Ajudas Custo Estrangeiro"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ac_foreign_moe
+msgid "Cost Allowances Foreign MOE"
+msgstr "Ajudas Custo Estrangeiro MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ac_moe
+msgid "Cost Allowances MOE"
+msgstr "Ajudas de Custo MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_exp_edu_l
+msgid "Education Expenses"
+msgstr "Despesas de Educação"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_exp_edu_moe
+msgid "Education Expenses MOE"
+msgstr "Despesas de Educação MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ee_l
+msgid "Entity Charges"
+msgstr "Encargos Entidade"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ee_moe
+msgid "Entity Charges MOE"
+msgstr "Encargos Entidade MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ex_sch_ded_l
+msgid "Exemption Schedule Deduction"
+msgstr "Desconto IHT"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ex_sch_ded_moe
+msgid "Exemption Schedule Deduction MOE"
+msgstr "Desconto IHT MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ih_l
+msgid "Exemption schedule"
+msgstr "Isenção de Horário"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ih_moe
+msgid "Exemption schedule MOE"
+msgstr "Isenção de Horário MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_he_l
+msgid "Extra hours"
+msgstr "Horas Extra"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_he_moe
+msgid "Extra hours MOE"
+msgstr "Horas Extra MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_fail_allow_l
+msgid "Fail Allowance"
+msgstr "Abono Falhas"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_fail_allow_moe
+msgid "Fail Allowance MOE"
+msgstr "Abono Falhas MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_gross_l
+msgid "Gross Wage"
+msgstr "Salário Bruto"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_gross_moe
+msgid "Gross Wage MOE"
+msgstr "Salário Bruto MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_holiday_l
+msgid "Holiday"
+msgstr "Feriado"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_holiday_moe
+msgid "Holiday MOE"
+msgstr "Feriado MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irs_chr_sub_l
+msgid "IRS - Christmas Allowance"
+msgstr "IRS - Subsídio de Natal"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irs_chr_sub_moe
+msgid "IRS - Christmas Allowance MOE"
+msgstr "IRS - Subsídio de Natal MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irs_meal_sub_l
+msgid "IRS - Meal Allowance"
+msgstr "IRS - Subsídio de Refeição"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irs_meal_sub_moe
+msgid "IRS - Meal Allowance MOE"
+msgstr "IRS - Subsídio de Refeição MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irsvm_l
+msgid "IRS - Monthly Wage"
+msgstr "IRS - Vencimento Mensal"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irsvm_moe
+msgid "IRS - Monthly Wage MOE"
+msgstr "IRS - Vencimento Mensal MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irssub_l
+msgid "IRS - Vacation Allowance"
+msgstr "IRS - Subsídio de Férias"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_irssub_moe
+msgid "IRS - Vacation Allowance MOE"
+msgstr "IRS - Subsídio de Férias MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_km_company_vehicle_l
+msgid "Kms Company Vehicle"
+msgstr "KM's Veículo Empresa"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_km_company_vehicle_moe
+msgid "Kms Company Vehicle MOE"
+msgstr "KM's Veículo Empresa MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_km_l
+msgid "Kms Own Vehicle"
+msgstr "Kms Viatura Própria"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_km_moe
+msgid "Kms Own Vehicle MOE"
+msgstr "Kms Viatura Própria MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_learning_l
+msgid "Learning"
+msgstr "Formação"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_learning_moe
+msgid "Learning MOE"
+msgstr "Formação MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_refeicao_l
+msgid "Meal Allowance"
+msgstr "Subsídio de Refeição"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_meal_allw_correction_l
+msgid "Meal Allowance Correction"
+msgstr "Acerto Subsídio de Refeição"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_meal_allw_correction_moe
+msgid "Meal Allowance Correction MOE"
+msgstr "Acerto Subsídio de Refeição MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_refeicao_moe
+msgid "Meal Allowance MOE"
+msgstr "Subsídio de Refeição MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_valerefeicao_l
+msgid "Meal Card"
+msgstr "Cartão Refeição"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_valerefeicao_moe
+msgid "Meal Card MOE"
+msgstr "Cartão Refeição MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_net_l
+msgid "Net Salary"
+msgstr "Salário Líquido"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_net_moe
+msgid "Net Salary MOE"
+msgstr "Salário Líquido MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_night_work_l
+msgid "Night Work - 25%"
+msgstr "Trabalho Noturno - 25%"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_night_work_moe
+msgid "Night Work - 25% MOE"
+msgstr "Trabalho Noturno MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_perf_bonus_l
+msgid "Performance Bonus"
+msgstr "Prémio de Performance"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_perf_bonus_moe
+msgid "Performance Bonus MOE"
+msgstr "Prémio de Performance MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_retirement_l
+msgid "Retirement Savings Plan"
+msgstr "Plano Poupança Reforma"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_retirement_moe
+msgid "Retirement Savings Plan MOE"
+msgstr "Plano Poupança Reforma MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_deduction_l
+msgid "Salary Deduction"
+msgstr "Dedução Salarial"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_deduction_moe
+msgid "Salary Deduction MOE"
+msgstr "Dedução Salarial MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.payroll.structure,payslip_name:admincore_salary_structures.hr_payroll_structure_empregado_L
+#: model:hr.payroll.structure,payslip_name:admincore_salary_structures.hr_payroll_structure_empregado_moe
+msgid "Salary Slip"
+msgstr "Recibo de Vencimento"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_seniority_payments_l
+msgid "Seniority Payments"
+msgstr "Diuturnidades"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_seniority_payments_moe
+msgid "Seniority Payments MOE"
+msgstr "Diuturnidades MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sick_comp_l
+msgid "Sickness Allowance"
+msgstr "Complemento de Doença"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sick_comp_moe
+msgid "Sickness Allowance MOE"
+msgstr "Complemento de Doença MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ss_l
+msgid "Social Security"
+msgstr "Segurança Social"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_ss_moe
+msgid "Social Security MOE"
+msgstr "Segurança Social MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sub_comp_edu_l
+msgid "Sub Comp Enc Education"
+msgstr "Sub Comp Enc Educação"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sub_comp_edu_moe
+msgid "Sub Comp Enc Education MOE"
+msgstr "Sub Comp Enc Educação MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sunday_hours_l
+msgid "Sunday Hours - 100%"
+msgstr "Horas de Domingo - 100%"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sunday_hours_moe
+msgid "Sunday Hours - 100% MOE"
+msgstr "Horas de Domingo MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_union_l
+msgid "Union"
+msgstr "Sindicato"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_union_moe
+msgid "Union MOE"
+msgstr "Sindicato MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_input_vac_allw_l
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sf_l
+msgid "Vacation Allowance"
+msgstr "Subsídio de Férias"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_vac_allw_correction_l
+msgid "Vacation Allowance Correction"
+msgstr "Acerto Subsídio de Férias"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_vac_allw_correction_moe
+msgid "Vacation Allowance Correction MOE"
+msgstr "Acerto Subsídio de Férias MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_input_vac_allw_moe
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_sf_moe
+msgid "Vacation Allowance MOE"
+msgstr "Subsídio de Férias MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_prop_sf_days_not_used_l
+msgid "Vacation Days Not Used Proportionals"
+msgstr "Proporcionais Férias Não Gozadas"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_prop_sf_days_not_used_moe
+msgid "Vacation Days Not Used Proportionals MOE"
+msgstr "Proporcionais Férias Não Gozadas MOE"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_prop_sf_l
+msgid "Vacation Proportionals"
+msgstr "Proporcionais de Férias"
+
+#. module: admincore_salary_structures
+#: model:hr.salary.rule,name:admincore_salary_structures.hr_payroll_rules_prop_sf_moe
+msgid "Vacation Proportionals MOE"
+msgstr "Proporcionais de Férias MOE"

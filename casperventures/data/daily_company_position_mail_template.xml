@@ -1,0 +1,123 @@
+<odoo noupdate="0">
+    <record id="mail_template_daily_company_position" model="mail.template">
+        <field name="name">Company: Daily Company Position</field>
+        <field name="model_id" ref="resource.model_res_company"/>
+        <field name="subject">Report - Daily Position of {{ object.name }}</field>
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <div>
+                <h1>Daily Position
+                    <t t-out="datetime.date.today().strftime('%d/%m/%Y')" data-oe-t-inline="true">01/12/2023</t>
+                </h1>
+                <br/>
+                <h2><span>Sum of Availabilities</span>:
+                </h2>
+                <div style="font-weight: bold; font-size: 15px;">
+                    Total:
+                    <t t-out="object.get_sum_availabilities_total_to_eur()"
+                       t-options="{'widget': 'float', 'precision': 2}"></t>
+                    €
+                </div>
+
+                <t t-foreach="object.get_sum_availabilities_of_current_balances().values()" t-as="sum_data">
+                    <div style="margin-bottom: -3px; font-size: 15px;">
+
+                        <t t-out="sum_data['sum']" t-options="{'widget': 'float', 'precision': 2}"></t>
+                        <t t-out="sum_data['symbol']"></t>
+
+                    </div>
+                </t>
+                <br/>
+                <h3><span>Bank Account Details</span>:
+                </h3>
+                <t t-foreach="object.get_bank_journal_data()" t-as="journal_ids">
+                    <hr style="border-top: 1px solid black;"/>
+                    <t t-set="multiple_journals" t-value="len(journal_ids) > 1"/>
+
+                    <t t-if="not multiple_journals">
+                        <h3 t-att-style="'color:' + journal_ids[0].color_journal">
+                            <t t-out="journal_ids[0].name">Revolut2</t>
+                        </h3>
+                    </t>
+
+                    <t t-if="not multiple_journals">
+                        <span>Account Balance</span>:
+                        <span>
+                            <t t-out="journal_ids[0].get_journal_dashboard_datas().get('account_balance', 0)">
+                                100$
+                            </t>
+                        </span>
+                        <br/>
+                        <br/>
+                    </t>
+
+                    <t t-foreach="journal_ids" t-as="journal_id">
+                        <t t-set="journal_data" t-value="journal_id.get_journal_dashboard_datas()"/>
+                        <t t-set="has_at_least_one_statement" t-value="journal_data.get('has_at_least_one_statement')"/>
+
+                        <h3 t-if="multiple_journals" t-att-style="'color:' + journal_id.color_journal">
+                            <t t-out="journal_id.name">Revolut EUR</t>
+                        </h3>
+
+                        <p t-if="multiple_journals">
+                            <span>Account Balance</span>:
+                            <span>
+                                <t t-out="journal_data.get('account_balance', 0)">
+                                    100$
+                                </t>
+                            </span>
+                        </p>
+
+                        <t t-set="move_data" t-value="journal_id.get_today_move_data()"/>
+
+                        <table class="table table-striped" t-if="move_data">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <!--<th>Partner</th>-->
+                                    <th class="text-right">Value</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr t-foreach="move_data" t-as="move_data_id">
+                                    <td>
+                                        <t t-out="move_data_id.get('date')">01/12/2023</t>
+                                    </td>
+                                    <td>
+                                        <t t-out="move_data_id.get('description')">Referance Example</t>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-out="move_data_id.get('amount')"
+                                           t-options="{'widget': 'monetary', 'display_currency': move_data_id.get('currency_id')}">
+                                            100$
+                                        </t>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br/>
+                    </t>
+                </t>
+
+                <br/>
+
+            </div>
+        </field>
+    </record>
+
+    <record id="ir_cron_res_company_daily_position" model="ir.cron">
+        <field name="name">Company: Daily Company Position</field>
+        <field name="model_id" ref="model_res_company"/>
+        <field name="state">code</field>
+        <field name="code">model.run_daily_position_email()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+    </record>
+</odoo>

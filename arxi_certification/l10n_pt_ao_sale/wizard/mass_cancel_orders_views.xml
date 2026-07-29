@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><record id="mass_cancel_orders_view_form_inherit" model="ir.ui.view"><field name="name">sale.mass.cancel.orders.form.inherit</field><field name="model">sale.mass.cancel.orders</field><field name="inherit_id" ref="sale.mass_cancel_orders_view_form"/><field name="arch" type="xml"><xpath expr="//div[1]" position="after"><div><label for="reason"/><field name="reason" required="True"/></div></xpath></field></record></odoo>

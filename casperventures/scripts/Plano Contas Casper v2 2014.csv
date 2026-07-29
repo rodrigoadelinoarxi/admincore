@@ -1,0 +1,1066 @@
+Código,Nome,Conta Ascendente/Código,Conta Ascendente/Nome,Taxonomia,Tipo/Id.
+0,Your Company,FALSO,,0,tko_account_pt_accounting.data_account_type_view
+1,MEIOS FINANCEIROS LIQUIDOS,0,Your Company,1,tko_account_pt_accounting.data_account_type_view
+11,Caixa,1,MEIOS FINANCEIROS LIQUIDOS,1,tko_account_pt_accounting.data_account_type_view
+11001,Caixa despesas,11,Caixa,1,account.data_account_type_liquidity
+11002,Caixa recebimentos,11,Caixa,1,account.data_account_type_liquidity
+119,Transferência de Caixa,11,Caixa,0,account.data_account_type_current_assets
+12,Depósitos à Ordem,1,MEIOS FINANCEIROS LIQUIDOS,0,tko_account_pt_accounting.data_account_type_view
+12001,Santander Totta,12,Depósitos à Ordem,2,account.data_account_type_liquidity
+12010,Revolut,12,Depósitos à Ordem,2,account.data_account_type_liquidity
+12011,Coverflex/Pecunpay,12,Depósitos à Ordem,2,account.data_account_type_liquidity
+13,Outros depósitos bancários,1,MEIOS FINANCEIROS LIQUIDOS,3,account.data_account_type_liquidity
+14,Outros instrumentos financeiros,1,MEIOS FINANCEIROS LIQUIDOS,0,tko_account_pt_accounting.data_account_type_view
+141,Derivados,14,Outros instrumentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+1411,Potencialmente favoráveis,141,Derivados,4,account.data_account_type_liquidity
+1412,Potencialmente desfavoráveis,141,Derivados,5,account.data_account_type_liquidity
+142,Instrumentos financeiros detidos para negociação,14,Outros instrumentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+1421,Activos financeiros,142,Instrumentos financeiros detidos para negociação,6,account.data_account_type_liquidity
+1422,Passivos financeiros,142,Instrumentos financeiros detidos para negociação,7,account.data_account_type_liquidity
+143,Outros activos e passivos financeiros,14,Outros instrumentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+1431,Outros activos financeiros,143,Outros activos e passivos financeiros,8,account.data_account_type_liquidity
+1432,Outros passivos financeiros,143,Outros activos e passivos financeiros,9,account.data_account_type_liquidity
+2,CONTAS A RECEBER E A PAGAR,0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+21,Clientes,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+211,Clientes c/c,21,Clientes,0,tko_account_pt_accounting.data_account_type_view
+2111,Clientes gerais,211,Clientes c/c,0,tko_account_pt_accounting.data_account_type_view
+21111,Clientes Nacionais,211,Clientes c/c,10,account.data_account_type_receivable
+21112,Clientes Intracomunitários,211,Clientes c/c,10,account.data_account_type_receivable
+21113,Clientes Outros Mercados,211,Clientes c/c,10,account.data_account_type_receivable
+2113,Clientes - empresas subsidiarias,211,Clientes c/c,12,account.data_account_type_receivable
+2114,Clientes - empresas associadas,211,Clientes c/c,13,account.data_account_type_receivable
+2115,Clientes - empreendimentos conjuntos,211,Clientes c/c,14,account.data_account_type_receivable
+2116,Clientes - outras partes relacionadas,211,Clientes c/c,15,account.data_account_type_receivable
+212,Clientes - títulos a receber,21,Clientes,0,tko_account_pt_accounting.data_account_type_view
+2121,Clientes gerais,212,Clientes - títulos a receber,16,account.data_account_type_receivable
+2123,Clientes - empresas subsidiarias,212,Clientes - títulos a receber,18,account.data_account_type_receivable
+2124,Clientes - empresas associadas,212,Clientes - títulos a receber,19,account.data_account_type_receivable
+2125,Clientes - empreendimentos conjuntos,212,Clientes - títulos a receber,20,account.data_account_type_receivable
+2126,Clientes - outras partes relacionadas,212,Clientes - títulos a receber,21,account.data_account_type_receivable
+217,Clientes - Cobrança duvidosa,21,Clientes,0,tko_account_pt_accounting.data_account_type_view
+2171,Clientes - Cobrança duvidosa - clientes gerais,217,Clientes - Cobrança duvidosa,10,account.data_account_type_receivable
+2173,Clientes - Cobrança duvidosa - empresas subsidiárias,217,Clientes - Cobrança duvidosa,10,account.data_account_type_receivable
+2174,Clientes - Cobrança duvidosa - empresas associadas,217,Clientes - Cobrança duvidosa,10,account.data_account_type_receivable
+2175,Clientes - Cobrança duvidosa - empreendimentos conjuntos,217,Clientes - Cobrança duvidosa,10,account.data_account_type_receivable
+2176,Clientes - Cobrança duvidosa - outras partes relacionadas,217,Clientes - Cobrança duvidosa,10,account.data_account_type_receivable
+218,Adiantamentos de clientes,21,Clientes,0,tko_account_pt_accounting.data_account_type_view
+2181,Adiantamentos de clientes gerais,218,Adiantamentos de clientes,23,account.data_account_type_receivable
+2183,Adiantamentos de clientes - empresas subsidiarias,218,Adiantamentos de clientes,23,account.data_account_type_receivable
+2184,Adiantamentos de clientes - empresas associadas,218,Adiantamentos de clientes,23,account.data_account_type_receivable
+2185,Adiantamentos de clientes - empreendimentos conjuntos,218,Adiantamentos de clientes,23,account.data_account_type_receivable
+2186,Adiantamentos de clientes - outras partes relacionadas,218,Adiantamentos de clientes,23,account.data_account_type_receivable
+219,Perdas por imparidade acumuladas,21,Clientes,0,tko_account_pt_accounting.data_account_type_view
+2191,PIA - Clientes c/c,219,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+21911,PIA - Clientes c/c - clientes gerais,2191,PIA - Clientes c/c,24,account.data_account_type_receivable
+21913,PIA - Clientes c/c - empresas subsidiárias,2191,PIA - Clientes c/c,26,account.data_account_type_receivable
+21914,PIA - Clientes c/c - empresas associadas,2191,PIA - Clientes c/c,27,account.data_account_type_receivable
+21915,PIA - Clientes c/c - empreendimentos conjuntos,2191,PIA - Clientes c/c,28,account.data_account_type_receivable
+21916,PIA - Clientes c/c - outras partes relacionadas,2191,PIA - Clientes c/c,29,account.data_account_type_receivable
+2192,PIA - Clientes Titulos a Receber,219,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+21921,PIA - Tit. - clientes gerais,2192,PIA - Clientes Titulos a Receber,30,account.data_account_type_receivable
+21923,PIA - Tit. - empresas subsidiarias,2192,PIA - Clientes Titulos a Receber,32,account.data_account_type_receivable
+21924,PIA - Tit. - empresas associadas,2192,PIA - Clientes Titulos a Receber,33,account.data_account_type_receivable
+21925,PIA - Tit. - empreendimentos conjuntos,2192,PIA - Clientes Titulos a Receber,34,account.data_account_type_receivable
+21926,PIA - Tit. - outras partes relacionadas,2192,PIA - Clientes Titulos a Receber,35,account.data_account_type_receivable
+22,Fornecedores,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+221,Fornecedores c/c,22,Fornecedores,0,tko_account_pt_accounting.data_account_type_view
+2211,Fornecedores gerais,221,Fornecedores c/c,0,tko_account_pt_accounting.data_account_type_view
+22111,Fornecedores Nacionais,2211,Fornecedores gerais,37,account.data_account_type_payable
+22112,Fornecedores Intracomunitários,2211,Fornecedores gerais,37,account.data_account_type_payable
+22113,Fornecedores Outros Mercados,2211,Fornecedores gerais,37,account.data_account_type_payable
+2213,Fornecedores - empresas subsidiárias,221,Fornecedores c/c,39,account.data_account_type_payable
+2214,Fornecedores - empresas associadas,221,Fornecedores c/c,40,account.data_account_type_payable
+2215,Fornecedores - empreendimentos conjuntos,221,Fornecedores c/c,41,account.data_account_type_payable
+2216,Fornecedores - outras partes relacionadas,221,Fornecedores c/c,42,account.data_account_type_payable
+222,Fornecedores - títulos a pagar,22,Fornecedores,0,tko_account_pt_accounting.data_account_type_view
+2221,Fornecedores gerais,222,Fornecedores - títulos a pagar,43,account.data_account_type_payable
+2223,Fornecedores - empresas subsidiárias,222,Fornecedores - títulos a pagar,45,account.data_account_type_payable
+2224,Fornecedores - empresas associadas,222,Fornecedores - títulos a pagar,46,account.data_account_type_payable
+2225,Fornecedores - empreendimentos conjuntos,222,Fornecedores - títulos a pagar,47,account.data_account_type_payable
+2226,Fornecedores - outras partes relacionadas,222,Fornecedores - títulos a pagar,48,account.data_account_type_payable
+225,Facturas em recepção e conferencia,22,Fornecedores,50,account.data_account_type_payable
+228,Adiantamentos a fornecedores,22,Fornecedores,0,tko_account_pt_accounting.data_account_type_view
+2281,Adiantamentos a fornecedores gerais,228,Adiantamentos a fornecedores,51,account.data_account_type_payable
+2283,Adiantamentos a fornecedores - empresas subsidiárias,228,Adiantamentos a fornecedores,51,account.data_account_type_payable
+2284,Adiantamentos a fornecedores - empresas associadas,228,Adiantamentos a fornecedores,51,account.data_account_type_payable
+2285,Adiantamentos a fornecedores - empreendimentos conjuntos,228,Adiantamentos a fornecedores,51,account.data_account_type_payable
+2286,Adiantamentos a fornecedores - outras partes relacionadas,228,Adiantamentos a fornecedores,51,account.data_account_type_payable
+229,Perdas por imparidade acumuladas,22,Fornecedores,52,account.data_account_type_payable
+23,Pessoal,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+231,Remunerações a pagar,23,Pessoal,0,tko_account_pt_accounting.data_account_type_view
+2311,Aos órgãos sociais,231,Remunerações a pagar,53,account.data_account_type_current_liabilities
+2312,Ao pessoal,231,Remunerações a pagar,54,account.data_account_type_current_liabilities
+232,Adiantamentos,23,Pessoal,0,tko_account_pt_accounting.data_account_type_view
+2321,Aos órgãos sociais,232,Adiantamentos,55,account.data_account_type_current_liabilities
+2322,Ao pessoal,232,Adiantamentos,56,account.data_account_type_current_liabilities
+237,Cauções,23,Pessoal,0,tko_account_pt_accounting.data_account_type_view
+2371,De órgãos sociais,237,Cauções,0,tko_account_pt_accounting.data_account_type_view
+23711,De órgãos sociais - corrente,2371,De órgãos sociais,57,account.data_account_type_current_liabilities
+23712,De órgãos sociais - não corrente,2371,De órgãos sociais,58,account.data_account_type_current_liabilities
+2372,Do pessoal,237,Cauções,0,tko_account_pt_accounting.data_account_type_view
+23721,Do pessoal - corrente,2372,Do pessoal,63,account.data_account_type_current_liabilities
+23722,Do pessoal - não corrente,2372,Do pessoal,64,account.data_account_type_current_liabilities
+238,Outras operações,23,Pessoal,0,tko_account_pt_accounting.data_account_type_view
+2381,Com os órgãos sociais,238,Outras operações,0,tko_account_pt_accounting.data_account_type_view
+23811,Com os órgãos sociais - corrente,2381,Com os órgãos sociais,61,account.data_account_type_current_liabilities
+23812,Com os órgãos sociais - não corrente,2381,Com os órgãos sociais,62,account.data_account_type_current_liabilities
+2382,Com o pessoal,238,Outras operações,0,tko_account_pt_accounting.data_account_type_view
+23821,Com o pessoal - corrente,2382,Com o pessoal,63,account.data_account_type_current_liabilities
+23822,Com o pessoal - não corrente,2382,Com o pessoal,64,account.data_account_type_current_liabilities
+239,Perdas por imparidade acumuladas,23,Pessoal,0,tko_account_pt_accounting.data_account_type_view
+24,Estado e outras entidades públicas,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+241,Imposto sobre o rendimento,24,Estado e outras entidades públicas,0,tko_account_pt_accounting.data_account_type_view
+2411,IR - Imposto corrente,241,Imposto sobre o rendimento,71,account.data_account_type_current_liabilities
+2412,IR - Pagamentos por conta,241,Imposto sobre o rendimento,0,tko_account_pt_accounting.data_account_type_view
+24121,IR - Pagamento por conta,2412,IR - Pagamentos por conta,71,account.data_account_type_current_assets
+24122,IR - Pagamento especial por conta,2412,IR - Pagamentos por conta,71,account.data_account_type_current_assets
+24123,IR - Pagamento adicional por conta,2412,IR - Pagamentos por conta,71,account.data_account_type_current_assets
+2413,Retenção fonte terceiros,241,Imposto sobre o rendimento,0,tko_account_pt_accounting.data_account_type_view
+24131,Rendimentos de capitais,2413,Retenção fonte terceiros,71,account.data_account_type_current_assets
+24132,Rendimentos prediais,2413,Retenção fonte terceiros,71,account.data_account_type_current_assets
+2414,IRC estimado,241,Imposto sobre o rendimento,71,account.data_account_type_current_liabilities
+2415,IRC apuramento,241,Imposto sobre o rendimento,71,account.data_account_type_current_liabilities
+2416,IRC a pagar,241,Imposto sobre o rendimento,71,account.data_account_type_current_assets
+2417,IRC a recuperar,241,Imposto sobre o rendimento,71,account.data_account_type_current_liabilities
+242,Retenção de impostos sobre rendimentos,24,Estado e outras entidades públicas,0,tko_account_pt_accounting.data_account_type_view
+2421,Retenção trab. dependentes - categoria A,242,Retenção de impostos sobre rendimentos,72,account.data_account_type_current_liabilities
+2422,Retenção trab. independentes - categoria B,242,Retenção de impostos sobre rendimentos,72,account.data_account_type_current_liabilities
+2423,Retenção rendimentos de capitais - categoria E,242,Retenção de impostos sobre rendimentos,72,account.data_account_type_current_liabilities
+2424,Retenção rendimentos prediais - categoria F,242,Retenção de impostos sobre rendimentos,72,account.data_account_type_current_liabilities
+2425,Retenção outros redimentos - categoria R,242,Retenção de impostos sobre rendimentos,72,account.data_account_type_current_liabilities
+243,Imposto sobre valor acrescrescentado (IVA),24,Estado e outras entidades públicas,0,tko_account_pt_accounting.data_account_type_view
+2432,IVA - Dedutível,243,Imposto sobre valor acrescrescentado (IVA),24,tko_account_pt_accounting.data_account_type_view
+24321,IVA - Dedutível - Existências,243,Imposto sobre valor acrescrescentado (IVA),74,account.data_account_type_current_assets
+24322,IVA - Dedutível - Ativos,2432,IVA - Dedutível,74,account.data_account_type_current_assets
+24323,IVA - Dedutível - Outros bens e serviços,2432,IVA - Dedutível,74,account.data_account_type_current_assets
+2433,IVA - Liquidado,243,Imposto sobre valor acrescrescentado (IVA),0,tko_account_pt_accounting.data_account_type_view
+24331,IVA - Liquidado - Operações gerais,243,Imposto sobre valor acrescrescentado (IVA),75,account.data_account_type_current_liabilities
+24332,IVA - Liquidado - Autoconsumos,2433,IVA - Liquidado,75,account.data_account_type_current_liabilities
+24333,IVA - Liquidado - Aquisições intracomunitárias,2433,IVA - Liquidado,75,account.data_account_type_current_liabilities
+24334,IVA - Liquidado - Autoliquidação,2433,IVA - Liquidado,75,account.data_account_type_current_liabilities
+2434,IVA - Regularizações,243,Imposto sobre valor acrescrescentado (IVA),0,tko_account_pt_accounting.data_account_type_view
+24341,Iva regularizações a favor da empresa,2434,IVA - Regularizações,76,account.data_account_type_current_assets
+24342,Iva regularizações a favor do estado,2434,IVA - Regularizações,76,account.data_account_type_current_liabilities
+2435,IVA - Apuramento,243,Imposto sobre valor acrescrescentado (IVA),77,account.data_account_type_current_liabilities
+2436,IVA -  A Pagar,243,Imposto sobre valor acrescrescentado (IVA),78,account.data_account_type_current_liabilities
+2437,IVA - A recuperar,243,Imposto sobre valor acrescrescentado (IVA),79,account.data_account_type_current_assets
+2438,IVA - Reembolsos pedidos,243,Imposto sobre valor acrescrescentado (IVA),80,account.data_account_type_current_liabilities
+2439,IVA - Liquidações oficiosas,243,Imposto sobre valor acrescrescentado (IVA),81,account.data_account_type_current_liabilities
+244,Outros impostos,24,Estado e outras entidades públicas,82,account.data_account_type_current_liabilities
+245,Segurança social,24,Estado e outras entidades públicas,0,tko_account_pt_accounting.data_account_type_view
+2451,TSU - Taxa social única,245,Segurança social,83,account.data_account_type_current_liabilities
+2452,Taxa contributiva entidades contratantes,245,Segurança social,83,account.data_account_type_current_liabilities
+246,Tributos das autarquias locais,24,Estado e outras entidades públicas,84,account.data_account_type_current_liabilities
+248,Outras tributações,24,Estado e outras entidades públicas,0,tko_account_pt_accounting.data_account_type_view
+2481,FCT/FGCT,248,Outras tributações,85,account.data_account_type_current_liabilities
+2489,Outras tributações,248,Outras tributações,85,account.data_account_type_current_liabilities
+25,Financiamento obtidos,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+251,Instituições de credito e sociedades financeiras,25,Financiamento obtidos,0,tko_account_pt_accounting.data_account_type_view
+2511,Emprestimos bancarios,251,Instituições de credito e sociedades financeiras,0,tko_account_pt_accounting.data_account_type_view
+25111,Empréstimos bancários - Corrente,2511,Emprestimos bancarios,0,tko_account_pt_accounting.data_account_type_view
+251111,Mútuos,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251111001,Banco A,251111,Mútuos,86,account.data_account_type_current_liabilities
+251112,Papel comercial,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251112001,Banco A,251112,Papel comercial,86,account.data_account_type_current_liabilities
+251113,Contas caucionadas,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251113001,Banco A,251113,Contas caucionadas,86,account.data_account_type_current_liabilities
+251114,Titulos descontados,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251114001,Banco A,251114,Titulos descontados,86,account.data_account_type_current_liabilities
+251115,Cartão de crédito,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251115001,Banco A,251115,Cartão de crédito,86,account.data_account_type_current_liabilities
+251116,Confirming,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251116001,Banco A,251116,Confirming,86,account.data_account_type_current_liabilities
+251119,Outros emprestimos,25111,Empréstimos bancários - Corrente,0,tko_account_pt_accounting.data_account_type_view
+251119001,Banco A,251119,Outros emprestimos,86,account.data_account_type_current_liabilities
+25112,Empréstimos bancários - Não corrente,2511,Emprestimos bancarios,0,tko_account_pt_accounting.data_account_type_view
+251121,Mútuos,25112,Empréstimos bancários - Não corrente,0,tko_account_pt_accounting.data_account_type_view
+251121001,Banco A,251121,Mútuos,87,account.data_account_type_current_liabilities
+251122,Papel comercial,25112,Empréstimos bancários - Não corrente,0,tko_account_pt_accounting.data_account_type_view
+251122001,Banco A,251122,Papel comercial,87,account.data_account_type_current_liabilities
+251129,Outros emprestimos,25112,Empréstimos bancários - Não corrente,0,tko_account_pt_accounting.data_account_type_view
+251129001,Banco A,251129,Outros emprestimos,87,account.data_account_type_current_liabilities
+2512,Descobertos bancarios,251,Instituições de credito e sociedades financeiras,0,tko_account_pt_accounting.data_account_type_view
+25121,Descobertos bancários - Corrente,2512,Descobertos bancarios,0,tko_account_pt_accounting.data_account_type_view
+25121001,Banco A,25121,Descobertos bancários - Corrente,88,account.data_account_type_current_liabilities
+25122,Descobertos bancários - Não corrente,2512,Descobertos bancarios,0,tko_account_pt_accounting.data_account_type_view
+25122001,Banco A,25122,Descobertos bancários - Não corrente,89,account.data_account_type_current_liabilities
+2513,Locações financeiras,251,Instituições de credito e sociedades financeiras,0,tko_account_pt_accounting.data_account_type_view
+25131,Locações financeiras - Corrente,2513,Locações financeiras,0,tko_account_pt_accounting.data_account_type_view
+25131001,Entidade A,25131,Locações financeiras - Corrente,90,account.data_account_type_current_liabilities
+25132,Locações financeiras - Não corrente,2513,Locações financeiras,0,tko_account_pt_accounting.data_account_type_view
+25132001,Entidade A,25132,Locações financeiras - Não corrente,91,account.data_account_type_current_liabilities
+2519,Outros financiamentos,251,Instituições de credito e sociedades financeiras,0,tko_account_pt_accounting.data_account_type_view
+25191,Outros financiamentos - Corrente,2519,Outros financiamentos,0,tko_account_pt_accounting.data_account_type_view
+25191001,Entidade A,25191,Outros financiamentos - Corrente,92,account.data_account_type_current_liabilities
+25192,Outros financiamentos - Não corrente,2519,Outros financiamentos,0,tko_account_pt_accounting.data_account_type_view
+25192001,Entidade A,25192,Outros financiamentos - Não corrente,93,account.data_account_type_current_liabilities
+253,Participantes de capital,25,Financiamento obtidos,0,tko_account_pt_accounting.data_account_type_view
+2532,Outros participantes- Suprimentos e outros mútuos,253,Participantes de capital,0,tko_account_pt_accounting.data_account_type_view
+25321,Outros participantes- Suprimentos e outros mútuos - Corrente,2532,Outros participantes- Suprimentos e outros mútuos,100,account.data_account_type_payable
+25322,Outros participantes- Suprimentos e outros mútuos - Não corrente,2532,Outros participantes- Suprimentos e outros mútuos,101,account.data_account_type_payable
+254,"Subsidiarias, associadas e empreendimentos  conjuntos",25,Financiamento obtidos,0,tko_account_pt_accounting.data_account_type_view
+2541,"Subs., assoc. e empreend. conj.- Corrente",254,"Subsidiarias, associadas e empreendimentos  conjuntos",102,account.data_account_type_payable
+2542,"Subs., assoc. e empreend. conj.- Não corrente",254,"Subsidiarias, associadas e empreendimentos  conjuntos",103,account.data_account_type_payable
+258,Outros financiadores,25,Financiamento obtidos,0,tko_account_pt_accounting.data_account_type_view
+2581,Outros financiadores - Corrente,258,Outros financiadores,104,account.data_account_type_payable
+2582,Outros financiadores - Não corrente,258,Outros financiadores,105,account.data_account_type_payable
+26,Accionistas/sócios,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+261,Accionistas c/ subscrição (ativo),26,Accionistas/sócios,106,account.data_account_type_payable
+26101,Paulo A.F. Gaspar,261,Accionistas c/ subscrição (ativo),,
+26102,Mariana Mota Gaspar,261,Accionistas c/ subscrição (ativo),,
+26103,Francisco M.M. Gaspar,261,Accionistas c/ subscrição (ativo),,
+26104,Hugo Filipe C. Gaspar,261,Accionistas c/ subscrição (ativo),,
+26105,Jorge M. Moura Alves,261,Accionistas c/ subscrição (ativo),,
+262,Quotas não liberadas (ativo),26,Accionistas/sócios,107,account.data_account_type_payable
+263,Adiantamentos por conta lucros,26,Accionistas/sócios,0,tko_account_pt_accounting.data_account_type_view
+2631,Adiantamentos por conta lucros - optica beneficiario,263,Adiantamentos por conta lucros,108,account.data_account_type_payable
+2632,Adiantamentos por conta lucros - optica pagador,263,Adiantamentos por conta lucros,108,account.data_account_type_payable
+264,Resultados atribuídos,26,Accionistas/sócios,0,tko_account_pt_accounting.data_account_type_view
+2641,Resultados atribuídos - optica beneficiario,264,Resultados atribuídos,109,account.data_account_type_payable
+2642,Resultados atribuídos - optica pagador,264,Resultados atribuídos,0,tko_account_pt_accounting.data_account_type_view
+26421,Resultados atribuídos - optica pagador (parceiro),2642,Resultados atribuídos - optica pagador,109,account.data_account_type_payable
+26422,Resultados atribuídos - optica pagador (outros),2642,Resultados atribuídos - optica pagador,109,account.data_account_type_current_liabilities
+265,Lucros disponíveis,26,Accionistas/sócios,0,tko_account_pt_accounting.data_account_type_view
+2651,Lucros disponíveis - optica beneficiario,265,Lucros disponíveis,110,account.data_account_type_payable
+2652,Lucros disponíveis - optica pagador,265,Lucros disponíveis,110,account.data_account_type_payable
+267,Financiamentos concedidos - outros accionistas,26,Accionistas/sócios,0,tko_account_pt_accounting.data_account_type_view
+2671,Empréstimos concedidos - outros accionistas - Corrente,267,Financiamentos concedidos - outros accionistas,113,account.data_account_type_payable
+2672,Empréstimos concedidos - outros accionistas - Não corrente,267,Financiamentos concedidos - outros accionistas,114,account.data_account_type_payable
+268,Outras operações,26,Accionistas/sócios,0,tko_account_pt_accounting.data_account_type_view
+2681,Outras operações - Corrente,268,Outras operações,113,account.data_account_type_payable
+2682,Outras operações - Não corrente,268,Outras operações,114,account.data_account_type_payable
+269,Perdas por Imparidade Acumuladas,26,Accionistas/sócios,0,tko_account_pt_accounting.data_account_type_view
+2691,PIA - Acionista c/ subscrição,269,Perdas por Imparidade Acumuladas,115,account.data_account_type_payable
+2692,PIA - Quotas não liberadas,269,Perdas por Imparidade Acumuladas,116,account.data_account_type_payable
+2693,PIA - Em adiantamentos por conta de Lucros,269,Perdas por Imparidade Acumuladas,117,account.data_account_type_payable
+2694,PIA - Resultados atribuidos,269,Perdas por Imparidade Acumuladas,118,account.data_account_type_payable
+2695,PIA - Lucros disponíveis,269,Perdas por Imparidade Acumuladas,119,account.data_account_type_payable
+2697,PIA - Outras operações,269,Perdas por Imparidade Acumuladas,0,tko_account_pt_accounting.data_account_type_view
+26971,PIA - Outras operações - Corrente,2697,PIA - Outras operações,122,account.data_account_type_payable
+26972,PIA - Outras operações - Não corrente,2697,PIA - Outras operações,123,account.data_account_type_payable
+2698,PIA - Em empréstimos concedidos - outros accionistas,269,Perdas por Imparidade Acumuladas,0,tko_account_pt_accounting.data_account_type_view
+26981,PIA - Em empréstimos concedidos - outros accionistas - Corrente,2698,PIA - Em empréstimos concedidos - outros accionistas,122,account.data_account_type_current_liabilities
+26982,PIA - Em empréstimos concedidos - outros accionistas - Não Corrente,2698,PIA - Em empréstimos concedidos - outros accionistas,123,account.data_account_type_current_liabilities
+27,Outras contas a receber e a pagar,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+271,Fornecedores de investimentos,27,Outras contas a receber e a pagar,0,tko_account_pt_accounting.data_account_type_view
+2711,Fornecedores investimentos - contas gerais,271,Fornecedores de investimentos,0,tko_account_pt_accounting.data_account_type_view
+27111,Fornecedores investimentos - contas gerais - Corrente,2711,Fornecedores investimentos - contas gerais,124,account.data_account_type_payable
+27112,Fornecedores investimentos - contas gerais - Não corrente,2711,Fornecedores investimentos - contas gerais,125,account.data_account_type_payable
+2712,Facturas em recep. e conferência,271,Fornecedores de investimentos,0,tko_account_pt_accounting.data_account_type_view
+27121,Facturas em recep. e conferência - Corrente,2712,Facturas em recep. e conferência,126,account.data_account_type_payable
+27122,Facturas em recep. e conferência - Não corrente,2712,Facturas em recep. e conferência,127,account.data_account_type_payable
+2713,Adiantamentos a fornecedores e investimentos,271,Fornecedores de investimentos,0,tko_account_pt_accounting.data_account_type_view
+27131,Adiant. a fornecedores e investimentos - Corrente,2713,Adiantamentos a fornecedores e investimentos,128,account.data_account_type_payable
+27132,Adiant. a fornecedores e investimentos - Não corrente,2713,Adiantamentos a fornecedores e investimentos,129,account.data_account_type_payable
+272,Devedores e credores por acréscimos,27,Outras contas a receber e a pagar,0,tko_account_pt_accounting.data_account_type_view
+2721,Devedores por acréscimos de rendimentos,272,Devedores e credores por acréscimos,0,tko_account_pt_accounting.data_account_type_view
+27211,Juros a receber,2721,Devedores por acréscimos de rendimentos,130,account.data_account_type_current_assets
+27212,Facturação a emitir,2721,Devedores por acréscimos de rendimentos,130,account.data_account_type_current_liabilities
+27219,Outros devedores por acréscimos de proveitos,2721,Devedores por acréscimos de rendimentos,130,account.data_account_type_current_assets
+2722,Credores por acréscimos de gastos,272,Devedores e credores por acréscimos,0,tko_account_pt_accounting.data_account_type_view
+27221,Seguros a liquidar,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27222,Remunerações a liquidar,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27223,Juros a liquidar,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27225,Electricidade,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27226,Agua,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27227,Comunicação,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27228,Trabalhos especializados,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+27229,Outros credores por acréscimos de gastos,2722,Credores por acréscimos de gastos,131,account.data_account_type_current_liabilities
+273,Benefícios pós-emprego,27,Outras contas a receber e a pagar,132,account.data_account_type_current_liabilities
+274,Impostos diferidos,27,Outras contas a receber e a pagar,0,tko_account_pt_accounting.data_account_type_view
+2741,Activos por impostos diferidos,274,Impostos diferidos,133,account.data_account_type_current_assets
+2742,Passivos por impostos diferidos,274,Impostos diferidos,0,account.data_account_type_non_current_liabilities
+27421,Passivos p/ imp. diferidos - Reav Legais,2742,Passivos por impostos diferidos,134,account.data_account_type_non_current_liabilities
+27422,Passivos p/ imp. diferidos - Reav Livres,2742,Passivos por impostos diferidos,134,account.data_account_type_non_current_liabilities
+275,Credores por subscrições não liberadas,27,Outras contas a receber e a pagar,0,tko_account_pt_accounting.data_account_type_view
+2751,Credores por subscrições não liberadas - Corrente,275,Credores por subscrições não liberadas,135,account.data_account_type_payable
+2752,Credores por subscrições não liberadas - Não corrente,275,Credores por subscrições não liberadas,136,account.data_account_type_payable
+276,Adiantamentos por conta de vendas,27,Outras contas a receber e a pagar,137,account.data_account_type_payable
+278,Outros devedores e credores,27,Outras contas a receber e a pagar,0,tko_account_pt_accounting.data_account_type_view
+2781,Outros devedores e credores - Corrente,278,Outros devedores e credores,0,tko_account_pt_accounting.data_account_type_view
+27811,Outros devedores - Corrente ,2781,Outros devedores e credores - Corrente,0,tko_account_pt_accounting.data_account_type_view
+278111,Outros devedores - Corrente (por parceiro),27811,Outros devedores - Corrente ,138,account.data_account_type_payable
+278119,Outros devedores - Corrente (outros),27811,Outros devedores - Corrente ,138,account.data_account_type_current_liabilities
+27812,Outros credores - Corrente,2781,Outros devedores e credores - Corrente,0,tko_account_pt_accounting.data_account_type_view
+278121,Outros credores - Corrente (por parceiro),27812,Outros credores - Corrente,138,account.data_account_type_payable
+278129,Outros credores - Corrente (outros),27812,Outros credores - Corrente,138,account.data_account_type_current_liabilities
+2782,Outros devedores e credores - Não corrente,278,Outros devedores e credores,0,tko_account_pt_accounting.data_account_type_view
+27821,Outros devedores - Não corrente,2782,Outros devedores e credores - Não corrente,0,tko_account_pt_accounting.data_account_type_view
+278211,Outros devedores - Não corrente (por parceiro),27821,Outros devedores - Não corrente,139,account.data_account_type_payable
+278219,Outros devedores - Não corrente (outros),27821,Outros devedores - Não corrente,139,account.data_account_type_current_liabilities
+27822,Outros credores - Não corrente,2782,Outros devedores e credores - Não corrente,0,tko_account_pt_accounting.data_account_type_view
+278221,Outros credores - Não corrente (por parceiro),27822,Outros credores - Não corrente,139,account.data_account_type_payable
+278229,Outros credores - Não corrente (outros),27822,Outros credores - Não corrente,139,account.data_account_type_current_liabilities
+279,Perdas por imparidade acumuladas,27,Outras contas a receber e a pagar,0,tko_account_pt_accounting.data_account_type_view
+2791,PIA - Adiantamentos a fornecedores de investimentos,279,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+27911,PIA - Adiant. a fornecedores de investimentos - Corrente,2791,PIA - Adiantamentos a fornecedores de investimentos,140,account.data_account_type_payable
+27912,PIA - Adiant. a fornecedores de investimentos - Não corrente,2791,PIA - Adiantamentos a fornecedores de investimentos,141,account.data_account_type_payable
+2792,PIA - Devedores por acréscimos de rendimento,279,Perdas por imparidade acumuladas,142,account.data_account_type_current_assets
+2793,PIA - Activos por impostos diferidos,279,Perdas por imparidade acumuladas,143,account.data_account_type_current_assets
+2794,PIA - Outros devedores,279,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+27941,PIA - Outros devedores - Corrente,2794,PIA - Outros devedores,144,account.data_account_type_current_assets
+27942,PIA - Outros devedores -  Não corrente,2794,PIA - Outros devedores,145,account.data_account_type_current_assets
+28,Diferimentos,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+281,Gastos a reconhecer,28,Diferimentos,0,tko_account_pt_accounting.data_account_type_view
+2811,Encargos com desconto de obrigações,281,Gastos a reconhecer,146,account.data_account_type_current_assets
+2812,Juros,281,Gastos a reconhecer,146,account.data_account_type_current_assets
+2813,Seguros,281,Gastos a reconhecer,146,account.data_account_type_current_assets
+2814,Rendas,281,Gastos a reconhecer,146,account.data_account_type_current_assets
+2819,Outros,281,Gastos a reconhecer,146,account.data_account_type_current_assets
+282,Rendimentos a reconhecer,28,Diferimentos,0,tko_account_pt_accounting.data_account_type_view
+2821,Juros a receber,282,Rendimentos a reconhecer,147,account.data_account_type_current_liabilities
+2822,Subsidios a receber,282,Rendimentos a reconhecer,147,account.data_account_type_current_liabilities
+2829,Outros acréscimos de rendimentos,282,Rendimentos a reconhecer,147,account.data_account_type_current_liabilities
+29,Provisões,2,CONTAS A RECEBER E A PAGAR,0,tko_account_pt_accounting.data_account_type_view
+291,Impostos,29,Provisões,148,account.data_account_type_current_liabilities
+292,Garantias a clientes,29,Provisões,149,account.data_account_type_current_liabilities
+293,Processos judiciais em curso,29,Provisões,150,account.data_account_type_current_liabilities
+294,Acidentes trab. e doenç. prof.,29,Provisões,151,account.data_account_type_current_liabilities
+295,Matérias ambientais,29,Provisões,152,account.data_account_type_current_liabilities
+296,Contratos onerosos,29,Provisões,153,account.data_account_type_current_liabilities
+297,Reestruturação,29,Provisões,154,account.data_account_type_current_liabilities
+298,Outras provisões,29,Provisões,155,account.data_account_type_current_liabilities
+3,INVENTÁRIO E ACTIVOS BIOLÓGICOS,0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+31,Compras,3,INVENTÁRIO E ACTIVOS BIOLÓGICOS,0,tko_account_pt_accounting.data_account_type_view
+311,Mercadorias,31,Compras,156,account.data_account_type_current_assets
+317,Devoluções de compras,31,Compras,0,tko_account_pt_accounting.data_account_type_view
+3171,Devoluções de compras - Mercadorias,317,Devoluções de compras,159,account.data_account_type_current_assets
+318,Descontos e abatimentos em compras,31,Compras,0,tko_account_pt_accounting.data_account_type_view
+3181,Descontos e abatimentos em compras - Mercadorias,318,Descontos e abatimentos em compras,162,account.data_account_type_current_assets
+32,Mercadorias,3,INVENTÁRIO E ACTIVOS BIOLÓGICOS,0,tko_account_pt_accounting.data_account_type_view
+321,Mercadorias,32,Mercadorias,165,account.data_account_type_current_assets
+325,Mercadorias em trânsito,32,Mercadorias,166,account.data_account_type_current_assets
+326,Mercadorias em poder terceiros,32,Mercadorias,167,account.data_account_type_current_assets
+329,Perdas por imparidade acumuladas,32,Mercadorias,0,tko_account_pt_accounting.data_account_type_view
+3291,PIA - Mercadorias,329,Perdas por imparidade acumuladas,168,account.data_account_type_current_assets
+3295,PIA - Mercadorias em trânsito,329,Perdas por imparidade acumuladas,169,account.data_account_type_current_assets
+3296,PIA - Mercadorias em poder terceiros,329,Perdas por imparidade acumuladas,170,account.data_account_type_current_assets
+36,Produtos e trabalho em curso,3,INVENTÁRIO E ACTIVOS BIOLÓGICOS,0,tko_account_pt_accounting.data_account_type_view
+361,Produtos e trabalhos em curso,36,Produtos e trabalho em curso,193,account.data_account_type_current_assets
+369,Perdas por imparidade acumuladas,36,Produtos e trabalho em curso,194,account.data_account_type_current_assets
+38,Reclassificação e Regularização de Inventários,3,INVENTÁRIO E ACTIVOS BIOLÓGICOS,0,tko_account_pt_accounting.data_account_type_view
+382,Mercadorias,38,Reclassificação e Regularização de Inventários,203,account.data_account_type_current_assets
+386,Produtos e trabalho em curso,38,Reclassificação e Regularização de Inventários,207,account.data_account_type_current_assets
+39,Adiantamento por conta de compras,3,INVENTÁRIO E ACTIVOS BIOLÓGICOS,0,tko_account_pt_accounting.data_account_type_view
+391,Ad.p/cmp - Mercadorias,39,Adiantamento por conta de compras,209,account.data_account_type_current_assets
+395,Ad.p/cmp - Produtos e trabalhos em curso,39,Adiantamento por conta de compras,213,account.data_account_type_current_assets
+4,INVESTIMENTOS,0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+41,Investimentos financeiros,4,INVESTIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+411,Investimentos em subsidiárias,41,Investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+4111,Participações capital - método da equivalência patrimonial,411,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+41111,Participação de capital,4111,Participações capital - método da equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+41111001,"Fnyhow, Lda",41111,Participação de capital,216,account.data_account_type_non_current_assets
+41111002,"Advanced Marathon, Lda",41111,Participação de capital,216,
+41111003,Gal Ventures SA,41111,Participação de capital,216,
+41111004,"Um Software Espetacular, SA",41111,Participação de capital,216,
+41111005,"Patachou Retail, Lda",41111,Participação de capital,216,
+41112,Goodwill,4111,Participações capital - método da equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+41112001,"Fnyhow, Lda",41112,Goodwill,217,account.data_account_type_non_current_assets
+4112,Participações capital - outros métodos,411,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+4112001,"Comave Zêzere, SA",4112,Participações capital - outros métodos,218,account.data_account_type_non_current_assets
+4112002,"Chicken Shop, Lda",,,,
+4113,Empréstimos concedidos,411,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+4113001,Empresa AAA,4113,Empréstimos concedidos,219,account.data_account_type_non_current_assets
+4119,Outros investimentos financeiros,411,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+4119001,Empresa AAA,4119,Outros investimentos financeiros,220,account.data_account_type_non_current_assets
+412,Investimentos em associadas,41,Investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+4121,Participações capital - método equivalência patrimonial,412,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+41211,Participação de capital,4121,Participações capital - método equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+41211001,Empresa AAA,41211,Participação de capital,221,account.data_account_type_non_current_assets
+41212,Goodwill,4121,Participações capital - método equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+41212001,Empresa AAA,41212,Goodwill,222,account.data_account_type_non_current_assets
+4122,Participações capital- outros métodos,412,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+4122001,Empresa AAA,4122,Participações capital- outros métodos,223,account.data_account_type_non_current_assets
+4123,Empréstimos concedidos,412,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+4123001,Empresa AAA,4123,Empréstimos concedidos,224,account.data_account_type_non_current_assets
+4129,Outros investimento financeiros,412,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+4129001,Empresa AAA,4129,Outros investimento financeiros,225,account.data_account_type_non_current_assets
+413,Investimentos em entidade conjuntamente controladas,41,Investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+4131,Participações capital- metodo equivalencia patrimonial,413,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+41311,Participação de capital,4131,Participações capital- metodo equivalencia patrimonial,0,tko_account_pt_accounting.data_account_type_view
+41311001,Empresa AAA,41311,Participação de capital,226,account.data_account_type_non_current_assets
+41312,Goodwill,4131,Participações capital- metodo equivalencia patrimonial,0,tko_account_pt_accounting.data_account_type_view
+41312001,Empresa AAA,41312,Goodwill,227,account.data_account_type_non_current_assets
+4132,Participações capital - outros metodos,413,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+4132001,Empresa AAA,4132,Participações capital - outros metodos,228,account.data_account_type_non_current_assets
+4133,Empréstimos concedidos,413,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+4133001,Empresa AAA,4133,Empréstimos concedidos,229,account.data_account_type_non_current_assets
+4139,Outros investimento financeiros,413,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+4139001,Empresa AAA,4139,Outros investimento financeiros,230,account.data_account_type_non_current_assets
+414,Investimentos noutras empresas,41,Investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+4141,Participações de capital,414,Investimentos noutras empresas,0,tko_account_pt_accounting.data_account_type_view
+4141001,Empresa AAA,4141,Participações de capital,231,account.data_account_type_non_current_assets
+4142,Empréstimos concedidos,414,Investimentos noutras empresas,0,tko_account_pt_accounting.data_account_type_view
+4142001,Empresa AAA,4142,Empréstimos concedidos,232,account.data_account_type_non_current_assets
+4149,Outros investimento financeiros,414,Investimentos noutras empresas,0,tko_account_pt_accounting.data_account_type_view
+4149001,Empresa AAA,4149,Outros investimento financeiros,233,account.data_account_type_non_current_assets
+415,Outros investimentos financeiros,41,Investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+4151,Detidos até à maturidade,415,Outros investimentos financeiros,234,account.data_account_type_non_current_assets
+4152,Fundos,415,Outros investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+41521,Fundo Compensação Trabalho,4152,Fundos,235,account.data_account_type_non_current_assets
+4158,Outros,415,Outros investimentos financeiros,235,tko_account_pt_accounting.data_account_type_view
+419,Perdas por imparidade acumuladas,41,Investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+4191,Investimentos em subsidiárias,419,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+41911,Participações capital - método equivalência patrimonial,4191,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+419111,Participação de capital,41911,Participações capital - método equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+419111001,Empresa AAA,419111,Participação de capital,239,account.data_account_type_non_current_assets
+419112,Goodwill,41911,Participações capital - método equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+419112001,Empresa AAA,419112,Goodwill,240,account.data_account_type_non_current_assets
+41912,Participações capital - outros métodos,4191,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+41912001,Empresa AAA,41912,Participações capital - outros métodos,241,account.data_account_type_non_current_assets
+41913,Empréstimos concedidos,4191,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+41913001,Empresa AAA,41913,Empréstimos concedidos,242,account.data_account_type_non_current_assets
+41919,Outros investimentos financeiros,4191,Investimentos em subsidiárias,0,tko_account_pt_accounting.data_account_type_view
+41919001,Empresa AAA,41919,Outros investimentos financeiros,243,account.data_account_type_non_current_assets
+4192,Investimentos em associadas,419,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+41921,Participações capital - método equivalência patrimonial,4192,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+419211,Participação de capital,41921,Participações capital - método equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+419211001,Empresa AAA,419211,Participação de capital,244,account.data_account_type_non_current_assets
+419212,Goodwill,41921,Participações capital - método equivalência patrimonial,0,tko_account_pt_accounting.data_account_type_view
+419212001,Empresa AAA,419212,Goodwill,245,account.data_account_type_non_current_assets
+41922,Participações capital- outros métodos,4192,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+41922001,Empresa AAA,41922,Participações capital- outros métodos,246,account.data_account_type_non_current_assets
+41923,Empréstimos concedidos,4192,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+41923001,Empresa AAA,41923,Empréstimos concedidos,247,account.data_account_type_non_current_assets
+41929,Outros investimento financeiros,4192,Investimentos em associadas,0,tko_account_pt_accounting.data_account_type_view
+41929001,Empresa AAA,41929,Outros investimento financeiros,248,account.data_account_type_non_current_assets
+4193,Investimentos em entidade conjuntamente controladas,419,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+41931,Participações capital- metodo equivalencia patrimonial,4193,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+419311,Participação de capital,41931,Participações capital- metodo equivalencia patrimonial,0,tko_account_pt_accounting.data_account_type_view
+419311001,Empresa AAA,419311,Participação de capital,249,account.data_account_type_non_current_assets
+419312,Goodwill,41931,Participações capital- metodo equivalencia patrimonial,0,tko_account_pt_accounting.data_account_type_view
+419312001,Empresa AAA,419312,Goodwill,250,account.data_account_type_non_current_assets
+41932,Participações capital - outros metodos,4193,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+41932001,Empresa AAA,41932,Participações capital - outros metodos,251,account.data_account_type_non_current_assets
+41933,Empréstimos concedidos,4193,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+41933001,Empresa AAA,41933,Empréstimos concedidos,252,account.data_account_type_non_current_assets
+41939,Outros investimento financeiros,4193,Investimentos em entidade conjuntamente controladas,0,tko_account_pt_accounting.data_account_type_view
+41939001,Empresa AAA,41939,Outros investimento financeiros,253,account.data_account_type_non_current_assets
+4194,Investimentos noutras empresas,419,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+41941,Participações de capital,4194,Investimentos noutras empresas,0,tko_account_pt_accounting.data_account_type_view
+41941001,Empresa AAA,41941,Participações de capital,254,account.data_account_type_non_current_assets
+41942,Empréstimos concedidos,4194,Investimentos noutras empresas,0,tko_account_pt_accounting.data_account_type_view
+41942001,Empresa AAA,41942,Empréstimos concedidos,255,account.data_account_type_non_current_assets
+41949,Outros investimento financeiros,4194,Investimentos noutras empresas,0,tko_account_pt_accounting.data_account_type_view
+41949001,Empresa AAA,41949,Outros investimento financeiros,256,account.data_account_type_non_current_assets
+4195,Outros investimentos financeiros,419,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+41951,Detidos até à maturidade,4195,Outros investimentos financeiros,257,account.data_account_type_non_current_assets
+41952,Fundos,4195,Outros investimentos financeiros,0,tko_account_pt_accounting.data_account_type_view
+419521,Fundo compensação trabalho,41952,Fundos,258,account.data_account_type_non_current_assets
+41958,Outros,4195,Outros investimentos financeiros,258,account.data_account_type_non_current_assets
+42,Propriedades de investimento,4,INVESTIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+421,Terrenos e recursos naturais,42,Propriedades de investimento,259,account.data_account_type_non_current_assets
+422,Edifícios e outras construções,42,Propriedades de investimento,260,account.data_account_type_non_current_assets
+426,Outras propriedades investimento,42,Propriedades de investimento,261,account.data_account_type_non_current_assets
+428,Depreciações acumuladas,42,Propriedades de investimento,0,tko_account_pt_accounting.data_account_type_view
+4281,Terrenos e recursos naturais,42,Propriedades de investimento,262,account.data_account_type_non_current_assets
+4282,Edificios e outras construções,42,Propriedades de investimento,263,account.data_account_type_non_current_assets
+4286,Outras propriedades de investimento,42,Propriedades de investimento,264,account.data_account_type_non_current_assets
+429,Perdas por imparidade acumuladas,42,Propriedades de investimento,0,tko_account_pt_accounting.data_account_type_view
+4291,Terrenos e recursos naturais,42,Propriedades de investimento,265,account.data_account_type_non_current_assets
+4292,Edifícios e outras construções,42,Propriedades de investimento,266,account.data_account_type_non_current_assets
+4296,Outras propriedades de investimento,42,Propriedades de investimento,267,account.data_account_type_non_current_assets
+43,Activos Fixos Tangíveis,4,INVESTIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+431,Terrenos e recursos naturais,43,Activos Fixos Tangíveis,268,account.data_account_type_non_current_assets
+432,Edifícios e outras construções,43,Activos Fixos Tangíveis,269,account.data_account_type_non_current_assets
+433,Equipamento básico,43,Activos Fixos Tangíveis,270,account.data_account_type_non_current_assets
+434,Equipamento de transporte,43,Activos Fixos Tangíveis,0,tko_account_pt_accounting.data_account_type_view
+4341,Equipamento de transporte - VLP,434,Equipamento de transporte,271,account.data_account_type_non_current_assets
+4342,Equipamento de transporte - V Elect,434,Equipamento de transporte,271,account.data_account_type_non_current_assets
+4343,Equipamento de transporte - Outros,434,Equipamento de transporte,271,account.data_account_type_non_current_assets
+435,Equipamento administrativo,43,Activos Fixos Tangíveis,272,account.data_account_type_non_current_assets
+437,Outros activos fixos tangíveis,43,Activos Fixos Tangíveis,274,account.data_account_type_non_current_assets
+438,Depreciações acumuladas,43,Activos Fixos Tangíveis,0,tko_account_pt_accounting.data_account_type_view
+4381,Terrenos e recursos naturais,438,Depreciações acumuladas,275,account.data_account_type_non_current_assets
+4382,Edificios e outras construções,438,Depreciações acumuladas,276,account.data_account_type_non_current_assets
+4383,Equipamento básico,438,Depreciações acumuladas,277,account.data_account_type_non_current_assets
+4384,Equipamento de transporte,438,Depreciações acumuladas,0,tko_account_pt_accounting.data_account_type_view
+43841,Equipamento de transporte - VLP,4384,Equipamento de transporte,278,account.data_account_type_non_current_assets
+43842,Equipamento de transporte - V Elect,4384,Equipamento de transporte,278,account.data_account_type_non_current_assets
+43843,Equipamento de transporte - Outros,4384,Equipamento de transporte,278,account.data_account_type_non_current_assets
+4385,Equipamento administrativo,438,Depreciações acumuladas,279,account.data_account_type_non_current_assets
+4387,Outros activos fixos tangíveis,438,Depreciações acumuladas,281,account.data_account_type_non_current_assets
+439,Perdas por imparidade acumuladas,43,Activos Fixos Tangíveis,0,tko_account_pt_accounting.data_account_type_view
+4391,Terrenos e recursos naturais,438,Depreciações acumuladas,282,account.data_account_type_non_current_assets
+4392,Edifícios e Outras Construções,439,Perdas por imparidade acumuladas,283,account.data_account_type_non_current_assets
+4393,Equipamento Básico,438,Depreciações acumuladas,284,account.data_account_type_non_current_assets
+4394,Equipamento de Transporte,439,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+43941,Equipamento de transporte - VLP,4394,Equipamento de Transporte,285,account.data_account_type_non_current_assets
+43942,Equipamento de transporte - Outros,4394,Equipamento de Transporte,285,account.data_account_type_non_current_assets
+4395,Equipamento Administrativo,439,Perdas por imparidade acumuladas,286,account.data_account_type_non_current_assets
+4397,Outros Activos Fixos Tangíveis,439,Perdas por imparidade acumuladas,288,account.data_account_type_non_current_assets
+44,Activos intangíveis,4,INVESTIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+441,Goodwill,44,Activos intangíveis,289,account.data_account_type_non_current_assets
+442,Projectos de desenvolvimento,44,Activos intangíveis,290,account.data_account_type_non_current_assets
+443,Programas de computador,44,Activos intangíveis,291,account.data_account_type_non_current_assets
+444,Propriedade industrial,44,Activos intangíveis,292,account.data_account_type_non_current_assets
+446,Outros activos intangíveis,44,Activos intangíveis,293,account.data_account_type_non_current_assets
+448,Amortizações acumuladas,44,Activos intangíveis,0,tko_account_pt_accounting.data_account_type_view
+4481,Goodwill,448,Amortizações acumuladas,294,account.data_account_type_non_current_assets
+4482,Projetos de desenvolvimento,448,Amortizações acumuladas,295,account.data_account_type_non_current_assets
+4483,Programas computador,448,Amortizações acumuladas,296,account.data_account_type_non_current_assets
+4484,Propriedade industrial,448,Amortizações acumuladas,297,account.data_account_type_non_current_assets
+4486,Outros activos intangíveis,448,Amortizações acumuladas,298,account.data_account_type_non_current_assets
+449,Perdas por imparidade acumuladas,44,Activos intangíveis,0,tko_account_pt_accounting.data_account_type_view
+4491,Goodwill,449,Perdas por imparidade acumuladas,299,account.data_account_type_non_current_assets
+4492,Projetos de desenvolvimento,449,Perdas por imparidade acumuladas,300,account.data_account_type_non_current_assets
+4493,Programas computador,449,Perdas por imparidade acumuladas,301,account.data_account_type_non_current_assets
+4494,Propriedade industrial,449,Perdas por imparidade acumuladas,302,account.data_account_type_non_current_assets
+4496,Outros activos intangíveis,449,Perdas por imparidade acumuladas,303,account.data_account_type_non_current_assets
+45,Investimento em curso,4,INVESTIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+451,Investimentos financeiros em curso,45,Investimento em curso,304,account.data_account_type_non_current_assets
+452,Propriedades de investimento em curso,45,Investimento em curso,305,account.data_account_type_non_current_assets
+453,Activos fixos tangiveis em curso,45,Investimento em curso,306,account.data_account_type_non_current_assets
+454,Activos intangíveis em curso,45,Investimento em curso,307,account.data_account_type_non_current_assets
+455,Adiantamentos por conta investimentos,45,Investimento em curso,0,tko_account_pt_accounting.data_account_type_view
+4551,Investimentos financeiros em curso,455,Adiantamentos por conta investimentos,308,account.data_account_type_non_current_assets
+4552,Propriedades de investimento em curso,455,Adiantamentos por conta investimentos,309,account.data_account_type_non_current_assets
+4553,Ativos fixos tangiveis em curso,455,Adiantamentos por conta investimentos,310,account.data_account_type_non_current_assets
+4554,Ativos Intangíveis em curso,455,Adiantamentos por conta investimentos,311,account.data_account_type_non_current_assets
+459,Perdas por imparidade acumuladas,45,Investimento em curso,0,tko_account_pt_accounting.data_account_type_view
+4591,PIA - Investimentos financeiros em curso,459,Perdas por imparidade acumuladas,312,account.data_account_type_non_current_assets
+4592,PIA - Propriedades de investimento em curso,459,Perdas por imparidade acumuladas,313,account.data_account_type_non_current_assets
+4593,PIA - Ativos fixos tangíveis em curso,459,Perdas por imparidade acumuladas,314,account.data_account_type_non_current_assets
+4594,PIA -  Ativos fixos intangíveis em curso,459,Perdas por imparidade acumuladas,315,account.data_account_type_non_current_assets
+4595,PIA - Adiantamentos por conta de investimentos,459,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+45951,PIA - Adiantamentos - Investimentos financeiros em curso,4595,PIA - Adiantamentos por conta de investimentos,316,account.data_account_type_non_current_assets
+45952,PIA - Adiantamentos - Propriedades de investimento em curso,4595,PIA - Adiantamentos por conta de investimentos,317,account.data_account_type_non_current_assets
+45953,PIA - Adiantamentos - Ativos fixos tangíveis em curso,4595,PIA - Adiantamentos por conta de investimentos,318,account.data_account_type_non_current_assets
+45954,PIA - Adiantamentos - Ativos fixos intangíveis em curso,4595,PIA - Adiantamentos por conta de investimentos,319,account.data_account_type_non_current_assets
+46,Activos não correntes detidos para venda,4,INVESTIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+461,Investimentos financeiros,46,Activos não correntes detidos para venda,320,account.data_account_type_non_current_assets
+462,Propriedades de investimento,46,Activos não correntes detidos para venda,321,account.data_account_type_non_current_assets
+463,Ativos fixos tangiveis,46,Activos não correntes detidos para venda,0,tko_account_pt_accounting.data_account_type_view
+4631,Terrenos e recursos naturais,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+4632,Edifícios e outras construções,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+4633,Equipamento básico,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+4634,Equipamento de transporte,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+4635,Equipamento administrativo,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+4636,Equipamento biológico,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+4637,Outros ativos fixos tangíveis,463,Ativos fixos tangiveis,322,account.data_account_type_non_current_assets
+464,Activos intangiveis,46,Activos não correntes detidos para venda,323,account.data_account_type_non_current_assets
+465,Outros,46,Activos não correntes detidos para venda,324,account.data_account_type_non_current_assets
+466,Passivos não correntes detidos para venda,46,Activos não correntes detidos para venda,325,account.data_account_type_non_current_assets
+469,Perdas por imparidade acumuladas,46,Activos não correntes detidos para venda,0,tko_account_pt_accounting.data_account_type_view
+4691,PIA - Em Investimentos financeiros,469,Perdas por imparidade acumuladas,326,account.data_account_type_non_current_assets
+4692,PIA - Em Propriedades de investimento,469,Perdas por imparidade acumuladas,327,account.data_account_type_non_current_assets
+4693,PIA - Em Activos fixos tangiveis,469,Perdas por imparidade acumuladas,0,tko_account_pt_accounting.data_account_type_view
+46931,PIA - Em Terrenos e recursos naturais,4693,PIA - Em Activos fixos tangiveis,326,account.data_account_type_non_current_assets
+46932,PIA - Em Edifícios e outras construções,4693,PIA - Em Activos fixos tangiveis,327,account.data_account_type_non_current_assets
+46933,PIA - Em Equipamento básico,4693,PIA - Em Activos fixos tangiveis,328,account.data_account_type_non_current_assets
+46934,PIA - Em Equipamento de transporte,4693,PIA - Em Activos fixos tangiveis,328,account.data_account_type_non_current_assets
+46935,PIA - Em Equipamento administrativo,4693,PIA - Em Activos fixos tangiveis,328,account.data_account_type_non_current_assets
+46936,PIA - Em Equipamento biológicos,4693,PIA - Em Activos fixos tangiveis,328,account.data_account_type_non_current_assets
+46937,PIA - Em outros activos fixos tangiveis,4693,PIA - Em Activos fixos tangiveis,328,account.data_account_type_non_current_assets
+4694,PIA - Em Activos intangiveis,469,Perdas por imparidade acumuladas,329,account.data_account_type_non_current_assets
+4695,PIA - Outros,469,Perdas por imparidade acumuladas,330,account.data_account_type_non_current_assets
+5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+51,Capital subscrito,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+511,Capital subscrito - acções,51,Capital subscrito,331,account.data_account_type_equity
+52,Acções (quotas) próprias,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+521,Valor nominal,52,Acções (quotas) próprias,332,account.data_account_type_equity
+522,Descontos e prémios,52,Acções (quotas) próprias,333,account.data_account_type_equity
+53,Outros instrumentos capital próprio,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+531,Outros instrumentos capital próprio,53,Outros instrumentos capital próprio,334,account.data_account_type_equity
+54,Prémios de emissão,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+541,Prémios de emissão,54,Prémios de emissão,335,account.data_account_type_equity
+55,Reservas,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+551,Reservas legais,55,Reservas,336,account.data_account_type_equity
+552,Outras reservas,55,Reservas,337,account.data_account_type_equity
+56,Resultados transitados,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+561,Resultados transitados,56,Resultados transitados,338,account.data_account_type_equity
+57,Ajustamentos activos financeiros,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+571,Relac. mét. equiv. patrimonial,57,Ajustamentos activos financeiros,0,tko_account_pt_accounting.data_account_type_view
+5711,Ajustamentos de transição,571,Relac. mét. equiv. patrimonial,339,account.data_account_type_equity
+5712,Lucros não atribuídos,571,Relac. mét. equiv. patrimonial,340,account.data_account_type_equity
+5713,Decorrentes de outras variações nos cap. próprios das participadas,571,Relac. mét. equiv. patrimonial,341,account.data_account_type_equity
+579,Outros ajustamentos em activos financeiros,57,Ajustamentos activos financeiros,342,account.data_account_type_equity
+58,Excedentes reavaliação de ativos ficos tangíveis e intangíveis,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+581,Reavaliações decorrentes de diplomas legais,58,Excedentes reavaliação de ativos ficos tangíveis e intangíveis,0,tko_account_pt_accounting.data_account_type_view
+5811,Antes de imposto sobre rendimento,581,Reavaliações decorrentes de diplomas legais,343,account.data_account_type_equity
+5812,Impostos diferidos,581,Reavaliações decorrentes de diplomas legais,344,account.data_account_type_equity
+589,Outros excedentes,58,Excedentes reavaliação de ativos ficos tangíveis e intangíveis,0,tko_account_pt_accounting.data_account_type_view
+5891,Antes de imposto sobre rendimento,589,Outros excedentes,345,account.data_account_type_equity
+5892,Impostos diferidos,589,Outros excedentes,346,account.data_account_type_equity
+59,Outras variações no capital próprio,5,"CAPITAL, RESERVAS E RESULTADOS TRANSITADOS",0,tko_account_pt_accounting.data_account_type_view
+591,Diferenças de conversão de demonstrações financeiras,59,Outras variações no capital próprio,347,account.data_account_type_equity
+592,Ajustamento por impostos diferidos,59,Outras variações no capital próprio,348,account.data_account_type_equity
+593,Subsídios,59,Outras variações no capital próprio,0,tko_account_pt_accounting.data_account_type_view
+5931,Subsídios atribuidos,593,Subsídios,349,account.data_account_type_equity
+5932,Ajustamentos em subsídios,593,Subsídios,350,account.data_account_type_equity
+594,Doações,59,Outras variações no capital próprio,351,account.data_account_type_equity
+599,Outras variações capital próprio,59,Outras variações no capital próprio,352,account.data_account_type_equity
+6,GASTOS,0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+61,Custo das mercadorias vendidas e matérias consumidas,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+611,Mercadorias,61,Custo das mercadorias vendidas e matérias consumidas,0,tko_account_pt_accounting.data_account_type_view
+6111,Custo das mercadorias,61,Custo das mercadorias vendidas e matérias consumidas,353,account.data_account_type_direct_costs
+6112,Custo das mercadorias - outros,611,Mercadorias,353,account.data_account_type_direct_costs
+62,Fornecimentos e serviços externos,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+621,Subcontratos,62,Fornecimentos e serviços externos,0,tko_account_pt_accounting.data_account_type_view
+6211,Mão de obra subcontratada,62,Fornecimentos e serviços externos,356,account.data_account_type_expenses
+6212,Outros subcontratos,621,Subcontratos,356,account.data_account_type_expenses
+622,Serviços especializados,62,Fornecimentos e serviços externos,0,tko_account_pt_accounting.data_account_type_view
+6221,Trabalhos especializados,622,Serviços especializados,0,account.data_account_type_expenses
+62211,Trabalhos especializados - VLP,6221,Trabalhos especializados,357,account.data_account_type_expenses
+62212,Trabalhos especializados - Outros,6221,Trabalhos especializados,357,account.data_account_type_expenses
+6222,Publicidade e propaganda,622,Serviços especializados,358,account.data_account_type_expenses
+6223,Vigilância e segurança,622,Serviços especializados,359,account.data_account_type_expenses
+6224,Honorários,622,Serviços especializados,360,account.data_account_type_expenses
+6225,Comissões,622,Serviços especializados,361,account.data_account_type_expenses
+6226,Conservação e reparação,622,Serviços especializados,0,tko_account_pt_accounting.data_account_type_view
+62261,Conservação e reparação - VLP,6226,Conservação e reparação,362,account.data_account_type_expenses
+62262,Conservação e reparação - Outros veículos,6226,Conservação e reparação,362,account.data_account_type_expenses
+62263,Conservação e reparação - Outros,6226,Conservação e reparação,362,account.data_account_type_expenses
+6227,Serviços bancários,622,Serviços especializados,363,account.data_account_type_expenses
+6228,Outros serviços especializados,622,Serviços especializados,0,tko_account_pt_accounting.data_account_type_view
+62281,Outros serviços especializados - VLP,6228,Outros serviços especializados,363,account.data_account_type_expenses
+62282,Outros serviços especializados - Outros,6228,Outros serviços especializados,363,account.data_account_type_expenses
+623,Materiais,62,Fornecimentos e serviços externos,0,tko_account_pt_accounting.data_account_type_view
+6231,Ferramentas e utensílios desgaste rápido,623,Materiais,364,account.data_account_type_expenses
+6232,Livros e documentação tecnica,623,Materiais,365,account.data_account_type_expenses
+6233,Material de escritório,623,Materiais,366,account.data_account_type_expenses
+6234,Artigos para oferta,623,Materiais,367,account.data_account_type_expenses
+6238,Outros materiais,623,Materiais,368,account.data_account_type_expenses
+624,Energia e fluidos,62,Fornecimentos e serviços externos,0,tko_account_pt_accounting.data_account_type_view
+6241,Electricidade,624,Energia e fluidos,0,tko_account_pt_accounting.data_account_type_view
+62411,Electricidade - VLP,6241,Electricidade,369,account.data_account_type_expenses
+62412,Electricidade - Outros,6241,Electricidade,369,account.data_account_type_expenses
+6242,Combustíveis,624,Energia e fluidos,0,tko_account_pt_accounting.data_account_type_view
+62421,Combustiveis - VLP,6242,Combustíveis,0,tko_account_pt_accounting.data_account_type_view
+624211,Combustiveis - VLP - Gasóleo,62421,Combustiveis - VLP,370,account.data_account_type_expenses
+624212,Combustiveis - VLP - Gasolina,62421,Combustiveis - VLP,370,account.data_account_type_expenses
+624213,Combustiveis - VLP - Outros,62421,Combustiveis - VLP,370,account.data_account_type_expenses
+62422,Combustiveis - Outros,6242,Combustíveis,0,tko_account_pt_accounting.data_account_type_view
+624221,Combustiveis - Outros - Gasóleo,62422,Combustiveis - Outros,370,account.data_account_type_expenses
+624222,Combustiveis - Outros - Gasolina,62422,Combustiveis - Outros,370,account.data_account_type_expenses
+624223,Combustiveis - Outros - Outros,62422,Combustiveis - Outros,370,account.data_account_type_expenses
+6243,Água,624,Energia e fluidos,371,account.data_account_type_expenses
+6248,Outros,624,Energia e fluidos,372,account.data_account_type_expenses
+625,"Deslocações,estadas e transportes",62,Fornecimentos e serviços externos,0,tko_account_pt_accounting.data_account_type_view
+6251,Deslocações e estadas,625,"Deslocações,estadas e transportes",0,tko_account_pt_accounting.data_account_type_view
+62511,Estadias,6251,Deslocações e estadas,373,account.data_account_type_expenses
+62512,Refeições,6251,Deslocações e estadas,373,account.data_account_type_expenses
+62514,Portagens,6251,Deslocações e estadas,0,tko_account_pt_accounting.data_account_type_view
+62515,Estacionamentos,6251,Deslocações e estadas,0,tko_account_pt_accounting.data_account_type_view
+6252,Transportes de pessoal,625,"Deslocações,estadas e transportes",374,account.data_account_type_expenses
+6253,Transportes de mercadorias,625,"Deslocações,estadas e transportes",375,account.data_account_type_expenses
+6258,Outras deslocações e estadas,625,"Deslocações,estadas e transportes",376,account.data_account_type_expenses
+626,Serviços diversos,62,Fornecimentos e serviços externos,0,tko_account_pt_accounting.data_account_type_view
+6261,Rendas e alugueres,626,Serviços diversos,0,account.data_account_type_expenses
+62611,Rendas e alugueres - VLP,6261,Rendas e alugueres,377,account.data_account_type_expenses
+62612,Rendas e alugueres - Outros veiculos,6261,Rendas e alugueres,377,account.data_account_type_expenses
+62613,Rendas e alugueres - Equipamentos / Outros,6261,Rendas e alugueres,377,account.data_account_type_expenses
+6262,Comunicação,626,Serviços diversos,379,account.data_account_type_expenses
+6263,Seguros,626,Serviços diversos,0,tko_account_pt_accounting.data_account_type_view
+62632,Seguro multiriscos,626,Serviços diversos,379,account.data_account_type_expenses
+62633,Seguro responsabilidade civil,626,Serviços diversos,379,account.data_account_type_expenses
+62639,Outros seguros,626,Serviços diversos,379,account.data_account_type_expenses
+6264,Royalties,626,Serviços diversos,380,account.data_account_type_expenses
+6265,Contencioso e notariado,626,Serviços diversos,381,account.data_account_type_expenses
+6266,Despesas de representação,626,Serviços diversos,382,account.data_account_type_expenses
+6267,"Limpeza, higiene e conforto",626,Serviços diversos,383,account.data_account_type_expenses
+6268,Outros serviços,626,Serviços diversos,0,tko_account_pt_accounting.data_account_type_view
+62681,Outros serviços,6268,Outros serviços,384,account.data_account_type_expenses
+62682,Outras despesas não aceites fiscalmente,6268,Outros serviços,384,account.data_account_type_expenses
+63,Gastos com o Pessoal,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+631,Remunerações aos Orgãos Sociais,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+631001,Ordenado,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631002,I.H.T,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631003,Subsídio de alimentação,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631004,Subsídio de férias,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631005,Subsidio de natal,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631006,Diuturnidades,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631007,Prémios,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631008,Ajudas de custo,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631098,Gratificações de balanço,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+631099,Outras remunerações,631,Remunerações aos Orgãos Sociais,385,account.data_account_type_expenses
+632,Remunerações do pessoal,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+632001,Ordenado,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632002,I.H.T,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632003,Subsídio de alimentação,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632004,Subsídio de férias,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632005,Subsidio de natal,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632006,Diuturnidades,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632007,Prémios,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632008,Ajudas de custos,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632009,Comissões,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632010,Horas extras,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632011,Abono para falhas,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632012,Subsídio de transporte,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632013,Estágio profissional,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632098,Gratificações de balanço,632,Remunerações do pessoal,386,account.data_account_type_expenses
+632099,Outras remunerações,632,Remunerações do pessoal,386,account.data_account_type_expenses
+633,Benefícios pós-emprego,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+6331,Prémios para pensões,633,Benefícios pós-emprego,0,tko_account_pt_accounting.data_account_type_view
+63311,Prémios para pensões - Órgão sociais,6331,Prémios para pensões,387,account.data_account_type_expenses
+63312,Prémios para pensões - Pessoal,6331,Prémios para pensões,387,account.data_account_type_expenses
+6332,Outros benefícios,633,Benefícios pós-emprego,0,tko_account_pt_accounting.data_account_type_view
+63321,Outros benefícios - Órgão sociais,6332,Outros benefícios,388,account.data_account_type_expenses
+63322,Outros benefícios - Pessoal,6332,Outros benefícios,388,account.data_account_type_expenses
+634,Indeminizações,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+6341,Indeminizações - Orgãos Sociais,634,Indeminizações,389,account.data_account_type_expenses
+6342,Indeminizações - Pessoal,634,Indeminizações,389,account.data_account_type_expenses
+635,Encargos sobre remunerações,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+6351,ER - Órgãos sociais,635,Encargos sobre remunerações,390,account.data_account_type_expenses
+6352,ER - Pessoal,635,Encargos sobre remunerações,390,account.data_account_type_expenses
+6353,ER - Fundo de garantia de compensação trabalho (FGCT),635,Encargos sobre remunerações,390,account.data_account_type_expenses
+636,Seguro de acidentes no trabalho e doenças profissionais,63,Gastos com o Pessoal,391,account.data_account_type_expenses
+637,Gastos de acção social,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+6371,Órgãos sociais,637,Gastos de acção social,0,tko_account_pt_accounting.data_account_type_view
+63711,Tickets,6371,Órgãos sociais,392,account.data_account_type_expenses
+63712,Cheques Creche,6371,Órgãos sociais,392,account.data_account_type_expenses
+6372,Pessoal,637,Gastos de acção social,0,tko_account_pt_accounting.data_account_type_view
+63721,Tickets,6372,Pessoal,392,account.data_account_type_expenses
+63722,Cheques Creche,6372,Pessoal,392,account.data_account_type_expenses
+638,Outros gastos com o pessoal,63,Gastos com o Pessoal,0,tko_account_pt_accounting.data_account_type_view
+6381,Órgãos sociais,638,Outros gastos com o pessoal,0,tko_account_pt_accounting.data_account_type_view
+63811,Higiene e segurança no trabalho,6381,Órgãos sociais,393,account.data_account_type_expenses
+63812,Formação,6381,Órgãos sociais,393,account.data_account_type_expenses
+63813,Seguro saude / vida,6381,Órgãos sociais,393,account.data_account_type_expenses
+63819,Outros,6381,Órgãos sociais,393,account.data_account_type_expenses
+6382,Pessoal,638,Outros gastos com o pessoal,0,tko_account_pt_accounting.data_account_type_view
+63821,Higiene e segurança no trabalho,6382,Pessoal,393,account.data_account_type_expenses
+63822,Formação,6382,Pessoal,393,account.data_account_type_expenses
+63823,Seguro saude / vida,6382,Pessoal,393,account.data_account_type_expenses
+63829,Outros,6382,Pessoal,393,account.data_account_type_expenses
+64,Gastos de depreciação e amortização,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+641,Propriedades de investimento,64,Gastos de depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+6411,Terrenos e recursos naturais,641,Propriedades de investimento,394,account.data_account_type_expenses
+6412,Edifícios e outras construções,641,Propriedades de investimento,395,account.data_account_type_expenses
+6413,Outras propriedades de investimento,641,Propriedades de investimento,396,account.data_account_type_expenses
+642,Activos fixos tangiveis,64,Gastos de depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+6421,Terrenos e recursos naturais,642,Activos fixos tangiveis,397,account.data_account_type_expenses
+6422,Edificios e outras construções,642,Activos fixos tangiveis,398,account.data_account_type_expenses
+6423,Equipamento básico,642,Activos fixos tangiveis,399,account.data_account_type_expenses
+6424,Equipamento transporte,642,Activos fixos tangiveis,0,tko_account_pt_accounting.data_account_type_view
+64241,Equipamento transporte - VLP,6424,Equipamento transporte,400,account.data_account_type_expenses
+64242,Equipamento transporte - V Elect,6424,Equipamento transporte,400,account.data_account_type_expenses
+64243,Equipamento transporte - Outros,6424,Equipamento transporte,400,account.data_account_type_expenses
+6425,Equipamento administrativo,642,Activos fixos tangiveis,401,account.data_account_type_expenses
+6427,Outros activos fixos tangíveis,642,Activos fixos tangiveis,403,account.data_account_type_expenses
+643,Activos intangíveis,64,Gastos de depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+6431,Goodwill,643,Activos intangíveis,404,account.data_account_type_expenses
+6432,Projetos de desenvolvimento,643,Activos intangíveis,405,account.data_account_type_expenses
+6433,Programas de computador,643,Activos intangíveis,406,account.data_account_type_expenses
+6434,Propriedade industrial,643,Activos intangíveis,407,account.data_account_type_expenses
+6435,Outros activos intangíveis,643,Activos intangíveis,408,account.data_account_type_expenses
+645,Investimentos financeiros,64,Gastos de depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+6451,Goodwill,645,Investimentos financeiros,411,account.data_account_type_expenses
+65,Perdas por imparidade,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+651,Em Dívidas a receber,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6511,PI - Clientes,651,Em Dívidas a receber,413,account.data_account_type_expenses
+6512,PI - Outros devedores,651,Em Dívidas a receber,414,account.data_account_type_expenses
+652,Em Inventários,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6521,PI - Mercadorias,652,Em Inventários,415,account.data_account_type_expenses
+6525,PI - Produtos e trabalhos em curso,652,Em Inventários,419,account.data_account_type_expenses
+653,Em Investimentos financeiros,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6531,PI - Participações de capital,653,Em Investimentos financeiros,422,account.data_account_type_expenses
+6532,PI - Empréstimos concedidos,653,Em Investimentos financeiros,423,account.data_account_type_expenses
+6533,PI - Outros investimentos financerios,653,Em Investimentos financeiros,424,account.data_account_type_expenses
+6534,PI - Goodwill,653,Em Investimentos financeiros,425,account.data_account_type_expenses
+654,Em Propriedades de investimento,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6541,PI - Terrenos e recursos naturais,654,Em Propriedades de investimento,426,account.data_account_type_expenses
+6542,PI - Edifícios e outras construções,654,Em Propriedades de investimento,427,account.data_account_type_expenses
+6543,PI - Outras propriedades de investimento,654,Em Propriedades de investimento,428,account.data_account_type_expenses
+655,Em Activos fixos tangíveis,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6551,PI - Terrenos e recursos naturais,655,Em Activos fixos tangíveis,429,account.data_account_type_expenses
+6552,PI - Edifícios outras construções,655,Em Activos fixos tangíveis,430,account.data_account_type_expenses
+6553,PI - Equipamento básico,655,Em Activos fixos tangíveis,431,account.data_account_type_expenses
+6554,PI - Equipamento de transporte,655,Em Activos fixos tangíveis,432,account.data_account_type_expenses
+6555,PI - Equipamento administrativo,655,Em Activos fixos tangíveis,433,account.data_account_type_expenses
+6557,PI - Outros ativos fixos tangíveis,655,Em Activos fixos tangíveis,435,account.data_account_type_expenses
+656,Em Activos intangíveis,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6561,PI - Goodwill,656,Em Activos intangíveis,436,account.data_account_type_expenses
+6562,PI - Projectos de desenvolvimento,656,Em Activos intangíveis,437,account.data_account_type_expenses
+6563,PI - Programas de computador,656,Em Activos intangíveis,438,account.data_account_type_expenses
+6564,PI - Propriedade industrial,656,Em Activos intangíveis,439,account.data_account_type_expenses
+6565,PI - Outros activos intangíveis,656,Em Activos intangíveis,440,account.data_account_type_expenses
+657,Em Investimento em curso,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6571,PI - Investimentos financeiros em curso,657,Em Investimento em curso,441,account.data_account_type_expenses
+6572,PI - Propriedades de investimento em curso,657,Em Investimento em curso,442,account.data_account_type_expenses
+6573,PI - Ativos fixos tangíveis em curso,657,Em Investimento em curso,443,account.data_account_type_expenses
+6574,PI - Ativos intangíveis em curso,657,Em Investimento em curso,444,account.data_account_type_expenses
+6575,PI - Adiantamentos por conta de investimentos em curso,657,Em Investimento em curso,0,tko_account_pt_accounting.data_account_type_view
+65751,PI - Adiantamentos - Investimentos financerios em curso,6575,PI - Adiantamentos por conta de investimentos em curso,445,account.data_account_type_expenses
+65752,PI - Adiantamentos - Propriedades de investimento em curso,6575,PI - Adiantamentos por conta de investimentos em curso,446,account.data_account_type_expenses
+65753,PI - Adiantamentos - Ativos fixos tangíveis em curso,6575,PI - Adiantamentos por conta de investimentos em curso,447,account.data_account_type_expenses
+65754,PI - Adiantamentos - Ativos intangíveis em curso,6575,PI - Adiantamentos por conta de investimentos em curso,448,account.data_account_type_expenses
+658,Em activos não correntes detidos para venda,65,Perdas por imparidade,0,tko_account_pt_accounting.data_account_type_view
+6581,PI - Investimentos financeiros,658,Em activos não correntes detidos para venda,449,account.data_account_type_expenses
+6582,PI - Propriedades de investimento,658,Em activos não correntes detidos para venda,450,account.data_account_type_expenses
+6583,PI - Ativos fixos tangíveis,658,Em activos não correntes detidos para venda,451,account.data_account_type_expenses
+6584,PI - Ativos intangíveis,658,Em activos não correntes detidos para venda,452,account.data_account_type_expenses
+6585,PI - Outros,658,Em activos não correntes detidos para venda,453,account.data_account_type_expenses
+66,Perdas por redução de justo valor,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+661,Em instrumentos financeiros,66,Perdas por redução de justo valor,0,tko_account_pt_accounting.data_account_type_view
+6611,Acções,661,Em instrumentos financeiros,454,account.data_account_type_expenses
+6612,Obrigações e títulos de participações,661,Em instrumentos financeiros,454,account.data_account_type_expenses
+6613,Títulos de divida publica,661,Em instrumentos financeiros,454,account.data_account_type_expenses
+6614,Outros títulos,661,Em instrumentos financeiros,454,account.data_account_type_expenses
+662,Em investimentos financeiros,66,Perdas por redução de justo valor,0,tko_account_pt_accounting.data_account_type_view
+6621,Participações de capital,662,Em investimentos financeiros,455,account.data_account_type_expenses
+6622,Outros investimentos financeiros,662,Em investimentos financeiros,456,account.data_account_type_expenses
+663,Em Propriedades de investImentos,66,Perdas por redução de justo valor,0,tko_account_pt_accounting.data_account_type_view
+6631,Terrenos e recurso naturais,663,Em Propriedades de investImentos,457,account.data_account_type_expenses
+6632,Edificios e outras construções,663,Em Propriedades de investImentos,458,account.data_account_type_expenses
+6633,Outras propriedades de investimento,663,Em Propriedades de investImentos,459,account.data_account_type_expenses
+6634,Propriedades de investimento em curso,663,Em Propriedades de investImentos,460,account.data_account_type_expenses
+67,Provisões do período,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+671,Impostos,67,Provisões do período,463,account.data_account_type_expenses
+672,Garantias a clientes,67,Provisões do período,464,account.data_account_type_expenses
+673,Processos judiciais em curso,67,Provisões do período,465,account.data_account_type_expenses
+674,Acidentes no trabalho e doenças profissionais,67,Provisões do período,466,account.data_account_type_expenses
+675,Matérias ambientais,67,Provisões do período,467,account.data_account_type_expenses
+676,Contratos onerosos,67,Provisões do período,468,account.data_account_type_expenses
+677,Reestruturação,67,Provisões do período,469,account.data_account_type_expenses
+678,Outras provisões,67,Provisões do período,470,account.data_account_type_expenses
+68,Outros gastos e perdas,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+681,Impostos,68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6811,Impostos directos,681,Impostos,0,tko_account_pt_accounting.data_account_type_view
+68111,Imposto municipal s/ imóveis,6811,Impostos directos,471,account.data_account_type_expenses
+68119,Outros impostos indirectos,6811,Impostos directos,471,account.data_account_type_expenses
+6812,Impostos indirectos,681,Impostos,0,tko_account_pt_accounting.data_account_type_view
+68121,Direitos aduaneiros,6812,Impostos indirectos,472,account.data_account_type_expenses
+68122,Imposto s/ valor acrescentado,6812,Impostos indirectos,472,account.data_account_type_expenses
+68123,Imposto do selo,6812,Impostos indirectos,472,account.data_account_type_expenses
+68124,IUC,6812,Impostos indirectos,0,tko_account_pt_accounting.data_account_type_view
+681241,IUC - VLP,68124,IUC,472,account.data_account_type_expenses
+681242,IUC - Outros,68124,IUC,472,account.data_account_type_expenses
+68129,Outros impostos indirectos,6812,Impostos indirectos,472,account.data_account_type_expenses
+6813,Taxas,681,Impostos,473,account.data_account_type_expenses
+682,Descontos pronto pagamentos concedidos,68,Outros gastos e perdas,474,account.data_account_type_expenses
+683,Dívidas incobráveis,68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6831,Dívidas incobráveis - Clientes,683,Dívidas incobráveis,475,account.data_account_type_expenses
+6832,Dívidas incobráveis - Outros devedores,683,Dívidas incobráveis,475,account.data_account_type_expenses
+684,Perdas em inventários,68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6841,Sinistros,684,Perdas em inventários,476,account.data_account_type_expenses
+6842,Quebras,684,Perdas em inventários,477,account.data_account_type_expenses
+6848,Outras perdas,684,Perdas em inventários,478,account.data_account_type_expenses
+685,"Gastos em subsidiárias, associadas e emp. conjuntos",68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6851,Cobertura de prejuizos,685,"Gastps em subsidiárias, associadas e emp. conjuntos",479,account.data_account_type_expenses
+6852,Aplicação método equivalência patrimonial,685,"Gastps em subsidiárias, associadas e emp. conjuntos",480,account.data_account_type_expenses
+6853,Alienações,685,"Gastps em subsidiárias, associadas e emp. conjuntos",481,account.data_account_type_expenses
+6858,Outros gastos e perdas,685,"Gastps em subsidiárias, associadas e emp. conjuntos",482,account.data_account_type_expenses
+686,Gastos nos restantes investimentos financeiros,68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6861,Cobertura de prejuizos,686,Gastos nos restantes investimentos financeiros,483,account.data_account_type_expenses
+6862,Alienações,686,Gastos nos restantes investimentos financeiros,484,account.data_account_type_expenses
+6863,Diferenças de câmbio desfavoraveis investimento,686,Gastos nos restantes investimentos financeiros,485,account.data_account_type_expenses
+6868,Outros gastos,686,Gastos nos restantes investimentos financeiros,486,account.data_account_type_expenses
+687,Gastos e perdas investimentos não financeiros,68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6871,Alienações não financeiras,687,Gastos e perdas investimentos não financeiros,487,account.data_account_type_expenses
+6872,Sinistros,687,Gastos e perdas investimentos não financeiros,488,account.data_account_type_expenses
+6873,Abates,687,Gastos e perdas investimentos não financeiros,489,account.data_account_type_expenses
+6874,Gastos em propriedades investimento,687,Gastos e perdas investimentos não financeiros,490,account.data_account_type_expenses
+6878,Outros gastos,687,Gastos e perdas investimentos não financeiros,491,account.data_account_type_expenses
+688,Outro,68,Outros gastos e perdas,0,tko_account_pt_accounting.data_account_type_view
+6881,Correcções relativos a períodos anteriores,688,Outro,492,account.data_account_type_expenses
+6882,Donativos,688,Outro,0,tko_account_pt_accounting.data_account_type_view
+68821,Donativos - Aceites fiscalmente,6882,Donativos,493,account.data_account_type_expenses
+68822,Donativos - Não aceites fiscalmente,6882,Donativos,493,account.data_account_type_expenses
+6883,Quotizações,688,Outro,0,tko_account_pt_accounting.data_account_type_view
+68831,Quotizações com majoração,6883,Quotizações,494,account.data_account_type_expenses
+68832,Outras quotizações,6883,Quotizações,494,account.data_account_type_expenses
+6884,Ofertas e amostras de inventarios,688,Outro,495,account.data_account_type_expenses
+6885,Insuficiência estimativa para impostos,688,Outro,496,account.data_account_type_expenses
+6886,Perdas em instrumentos financeiros,688,Outro,497,account.data_account_type_expenses
+6887,Diferenças de câmbio desfavoráveis,688,Outro,498,account.data_account_type_expenses
+6888,Outros não especificados,688,Outro,0,tko_account_pt_accounting.data_account_type_view
+68881,Penalidades,6888,Outros não especificados,0,tko_account_pt_accounting.data_account_type_view
+688811,Multas fiscais,68881,Penalidades,499,account.data_account_type_expenses
+688812,Outras penalidades,68881,Penalidades,499,account.data_account_type_expenses
+68882,Despesas não documentadas,6888,Outros não especificados,499,account.data_account_type_expenses
+68883,Despesas não devidamente documentadas,6888,Outros não especificados,499,account.data_account_type_expenses
+68888,Outros não especificados,6888,Outros não especificados,499,account.data_account_type_expenses
+69,Gastos de finaciamento,6,GASTOS,0,tko_account_pt_accounting.data_account_type_view
+691,Juros Suportados,69,Gastos de finaciamento,0,tko_account_pt_accounting.data_account_type_view
+6911,Juros de financiamento obtido,691,Juros Suportados,500,account.data_account_type_expenses
+6912,Juros de papel comercial,691,Juros Suportados,501,account.data_account_type_expenses
+6913,Juros de leasing,691,Juros Suportados,501,account.data_account_type_expenses
+6914,Juros de emprestimos obrigacionistas,691,Juros Suportados,501,account.data_account_type_expenses
+6915,Juros desconto titulos,691,Juros Suportados,501,account.data_account_type_expenses
+6916,Juros de mora e compensatórios,691,Juros Suportados,501,account.data_account_type_expenses
+6917,Juros de acordos,691,Juros Suportados,501,account.data_account_type_expenses
+6918,Outros juros,691,Juros Suportados,0,tko_account_pt_accounting.data_account_type_view
+69181,Juros devedores d.o.,6918,Outros juros,501,account.data_account_type_expenses
+69182,Juros c/ confirming,6918,Outros juros,501,account.data_account_type_expenses
+69183,Juros c/ entidades relacionadas,6918,Outros juros,501,account.data_account_type_expenses
+69189,Outros juros suportados,6918,Outros juros,501,account.data_account_type_expenses
+692,Diferença câmbio desfavoráveis,69,Gastos de finaciamento,0,tko_account_pt_accounting.data_account_type_view
+6921,Financiamento obtidos,692,Diferença câmbio desfavoráveis,502,account.data_account_type_expenses
+6928,Outras diferenças,692,Diferença câmbio desfavoráveis,503,account.data_account_type_expenses
+698,Outros gastos financiamento,69,Gastos de finaciamento,0,tko_account_pt_accounting.data_account_type_view
+6981,Relacionados c/ financiamentos obtidos,698,Outros gastos financiamento,0,tko_account_pt_accounting.data_account_type_view
+69811,Garantias bancárias,6981,Relacionados c/ financiamentos obtidos,504,account.data_account_type_expenses
+69812,Comisões bancárias,6981,Relacionados c/ financiamentos obtidos,504,account.data_account_type_expenses
+69813,Outros encargos c/ financiamentos,6981,Relacionados c/ financiamentos obtidos,504,account.data_account_type_expenses
+6988,Outros gastos financeiros operacionais,698,Outros gastos financiamento,505,account.data_account_type_expenses
+7,RENDIMENTOS,0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+71,Vendas,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+711,Mercadorias,71,Vendas,506,account.data_account_type_revenue
+716,Iva das vendas com imposto incluído,71,Vendas,510,account.data_account_type_revenue
+717,Devoluções vendas,71,Vendas,0,tko_account_pt_accounting.data_account_type_view
+7171,Devoluções vendas - Mercadorias,71,Vendas,511,account.data_account_type_revenue
+718,Descontos e abatimentos em vendas,71,Vendas,0,tko_account_pt_accounting.data_account_type_view
+7181,Descontos e abatimentos - Mercadorias,718,Descontos e abatimentos em vendas,512,account.data_account_type_revenue
+72,Prestações de Serviços,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+721,Serviços principais,72,Prestações de Serviços,513,account.data_account_type_revenue
+725,Serviços secundarios,72,Prestações de Serviços,516,account.data_account_type_revenue
+726,Iva dos serviços com imposto incluido,72,Prestações de Serviços,517,account.data_account_type_revenue
+728,Descontos e abatimentos,72,Prestações de Serviços,0,tko_account_pt_accounting.data_account_type_view
+7281,Descontos e abatimentos - Serviços principais,728,Descontos e abatimentos,518,account.data_account_type_revenue
+7285,Descontos e abatimentos - Serviços secundarios,728,Descontos e abatimentos,518,account.data_account_type_revenue
+73,Variação inventário produção,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+733,Produtos e trabalho em curso,73,Variação inventário produção,521,account.data_account_type_revenue
+74,Trabalhos para própria entidade,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+741,Activos fixos tangiveis,74,Trabalhos para própria entidade,523,account.data_account_type_revenue
+742,Em activos intangíveis,74,Trabalhos para própria entidade,524,account.data_account_type_revenue
+743,Propriedades de investimento,74,Trabalhos para própria entidade,525,account.data_account_type_revenue
+744,Activos por gastos diferidos,74,Trabalhos para própria entidade,526,account.data_account_type_revenue
+75,Subsídios à exploração,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+751,Estado e outros entidades públicas,75,Subsídios à exploração,527,account.data_account_type_revenue
+752,Outros tributos entidades,75,Subsídios à exploração,528,account.data_account_type_revenue
+76,Reversões,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+761,De Depreciação e amortização,76,Reversões,0,tko_account_pt_accounting.data_account_type_view
+7611,Propriedades de Investimento,761,De Depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+76111,Rev. - Terrenos e recursos naturais,7611,Propriedades de Investimento,529,account.data_account_type_revenue
+76112,Rev. - Edificios e outras construções,7611,Propriedades de Investimento,530,account.data_account_type_revenue
+76113,Rev. - Outras propriedades de investimento,7611,Propriedades de Investimento,531,account.data_account_type_revenue
+7612,Activos fixos tangíveis,761,De Depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+76121,Rev. - Terrenos e recursos naturais,7612,Activos fixos tangíveis,532,account.data_account_type_revenue
+76122,Rev. - Edifícios e outras construções,7612,Activos fixos tangíveis,533,account.data_account_type_revenue
+76123,Rev. - Equipamento básico,7612,Activos fixos tangíveis,534,account.data_account_type_revenue
+76124,Rev. - Equipamento de transporte,7612,Activos fixos tangíveis,535,account.data_account_type_revenue
+76125,Rev. - Equipamento administrativo,7612,Activos fixos tangíveis,536,account.data_account_type_revenue
+76127,Rev.- Outros activos fixos tangiveis,7612,Activos fixos tangíveis,538,account.data_account_type_revenue
+7613,Activos intangíveis,761,De Depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+76131,Rev. - Goodwill,7613,Activos intangíveis,539,account.data_account_type_revenue
+76132,Rev. - Projectos de desenvolvimento,7613,Activos intangíveis,540,account.data_account_type_revenue
+76133,Rev. - Programas de computador,7613,Activos intangíveis,541,account.data_account_type_revenue
+76134,Rev. - Propriedade industrial,7613,Activos intangíveis,542,account.data_account_type_revenue
+76135,Rev. - Outros activos intangíveis,7613,Activos intangíveis,543,account.data_account_type_revenue
+7615,Investimentos Financeiros,761,De Depreciação e amortização,0,tko_account_pt_accounting.data_account_type_view
+76151,Rev. - Goodwill,7615,Investimentos Financeiros,546,account.data_account_type_revenue
+762,De Perdas por Imparidade,76,Reversões,0,tko_account_pt_accounting.data_account_type_view
+7621,Dívidas a receber,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76211,Clientes,7621,Dívidas a receber,547,account.data_account_type_revenue
+76212,Outros devedores,7621,Dívidas a receber,548,account.data_account_type_revenue
+7622,Inventários,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76221,Rev. - Mercadorias,7622,Inventários,549,account.data_account_type_revenue
+76225,Rev. - Produtos e trabalhos em curso,7622,Inventários,553,account.data_account_type_revenue
+7623,Em investimentos financeiros,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76231,Rev. - Participações de capital,7623,Em investimentos financeiros,556,account.data_account_type_revenue
+76232,Rev. - Empréstimos concedidos,7623,Em investimentos financeiros,557,account.data_account_type_revenue
+76233,Rev. - Outros investimentos financeiros,7623,Em investimentos financeiros,558,account.data_account_type_revenue
+7624,Em Propriedade de Investimento,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76241,Rev. - Terrenos e recurso naturais,7624,Em Propriedade de Investimento,559,account.data_account_type_revenue
+76242,Rev. - Edificios e outras construções,7624,Em Propriedade de Investimento,560,account.data_account_type_revenue
+76243,Rev. - Outras propriedades de investimento,7624,Em Propriedade de Investimento,561,account.data_account_type_revenue
+7625,Em Activos Fixos Tangíveis,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76251,Rev. - Terrenos e recursos naturais,7625,Em Activos Fixos Tangíveis,562,account.data_account_type_revenue
+76252,Rev. - Edficios e outras construções,7625,Em Activos Fixos Tangíveis,563,account.data_account_type_revenue
+76253,Rev. - Equipamento básico,7625,Em Activos Fixos Tangíveis,564,account.data_account_type_revenue
+76254,Rev. - Equipamento de transporte,7625,Em Activos Fixos Tangíveis,565,account.data_account_type_revenue
+76255,Rev. - Equipamento administrativo,7625,Em Activos Fixos Tangíveis,566,account.data_account_type_revenue
+76257,Rev. - Outros ativos tangíveis,7625,Em Activos Fixos Tangíveis,568,account.data_account_type_revenue
+7626,Em Activos Intangíveis,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76261,Rev. - Projetos de desenvolvimento,7626,Em Activos Intangíveis,569,account.data_account_type_revenue
+76262,Rev. - Programas de computador,7626,Em Activos Intangíveis,570,account.data_account_type_revenue
+76263,Rev. - Propriedade industrial,7626,Em Activos Intangíveis,571,account.data_account_type_revenue
+76264,Rev. - Outros ativos intangíveis,7626,Em Activos Intangíveis,572,account.data_account_type_revenue
+7627,Em Investimentos em curso,7626,Em Activos Intangíveis,0,tko_account_pt_accounting.data_account_type_view
+76271,Rev. - Investimentos financeiros em curso,7627,Em Investimentos em curso,573,account.data_account_type_revenue
+76272,Rev. - Propriedades de investimento em curso,7627,Em Investimentos em curso,574,account.data_account_type_revenue
+76273,Rev. - Activos fixos tangíveis em curso,7627,Em Investimentos em curso,575,account.data_account_type_revenue
+76274,Rev. - Ativos intangíveis em curso,7627,Em Investimentos em curso,576,account.data_account_type_revenue
+76275,Rev - Adiantamentos por conta de investimentos em curso,7627,Em Investimentos em curso,0,tko_account_pt_accounting.data_account_type_view
+762751,Rev. - Adiant. - Investimentos financeiros em curso,76275,Rev - Adiantamentos por conta de investimentos em curso,577,account.data_account_type_revenue
+762752,Rev. - Adiant. - Propriedades de investimento em curso,76275,Rev - Adiantamentos por conta de investimentos em curso,578,account.data_account_type_revenue
+762753,Rev. - Adiant. - Activos fixos tangíveis em curso,76275,Rev - Adiantamentos por conta de investimentos em curso,579,account.data_account_type_revenue
+762754,Rev. - Adiant. - Ativos intangíveis em curso,76275,Rev - Adiantamentos por conta de investimentos em curso,580,account.data_account_type_revenue
+7628,Em Activos não correntes detidos para venda,762,De Perdas por Imparidade,0,tko_account_pt_accounting.data_account_type_view
+76281,Rev. - Investimentos financeiros,7628,Em Activos não correntes detidos para venda,581,account.data_account_type_revenue
+76282,Rev. - Propriedades de investimento,7628,Em Activos não correntes detidos para venda,582,account.data_account_type_revenue
+76283,Rev. - Ativos fixos tangíveis,7628,Em Activos não correntes detidos para venda,583,account.data_account_type_revenue
+76284,Rev. - Ativos intangíveis,7628,Em Activos não correntes detidos para venda,584,account.data_account_type_revenue
+76285,Rev. - Outros,7628,Em Activos não correntes detidos para venda,585,account.data_account_type_revenue
+763,De provisões,76,Reversões,0,tko_account_pt_accounting.data_account_type_view
+7631,Impostos,763,De provisões,586,account.data_account_type_revenue
+7632,Garantias a clientes,763,De provisões,587,account.data_account_type_revenue
+7633,Processos judiciais em curso,763,De provisões,588,account.data_account_type_revenue
+7634,Acidentes trabalho e doenças profissionais,763,De provisões,589,account.data_account_type_revenue
+7635,Matérias ambientais,763,De provisões,590,account.data_account_type_revenue
+7636,Contratos onerosos,763,De provisões,591,account.data_account_type_revenue
+7637,Restruturação,763,De provisões,592,account.data_account_type_revenue
+7638,Outras provisões,763,De provisões,593,account.data_account_type_revenue
+77,Ganhos por aumentos de justo valor,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+771,Em Instrumentos financeiros,77,Ganhos por aumentos de justo valor,594,account.data_account_type_revenue
+772,Em Investimentos financeiros,77,Ganhos por aumentos de justo valor,0,tko_account_pt_accounting.data_account_type_view
+7721,P/ aumentos justo valor - Participações de capital,772,Em Investimentos financeiros,595,account.data_account_type_revenue
+7722,P/ aumentos justo valor - Outros investimentos financeiros,772,Em Investimentos financeiros,595,account.data_account_type_revenue
+773,Em Propriedades de investimentos,77,Ganhos por aumentos de justo valor,0,tko_account_pt_accounting.data_account_type_view
+7731,P/ aumentos justo valor - Terrenos e recurso naturais,773,Em Propriedades de investimentos,597,account.data_account_type_revenue
+7732,P/ aumentos justo valor - Edificios e outras construções,773,Em Propriedades de investimentos,598,account.data_account_type_revenue
+7733,P/ aumentos justo valor - Outras propriedades de investimento,773,Em Propriedades de investimentos,599,account.data_account_type_revenue
+7734,P/ aumentos justo valor - Propriedades de investimento em curso,773,Em Propriedades de investimentos,600,account.data_account_type_revenue
+78,Outros rendimentos,7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+781,Rendimentos suplementares,78,Outros rendimentos,0,tko_account_pt_accounting.data_account_type_view
+7811,Serviços sociais,781,Rendimentos suplementares,603,account.data_account_type_revenue
+7812,Aluguer de equipamento,781,Rendimentos suplementares,604,account.data_account_type_revenue
+7813,"Estudos, projectos e assistência tecnológica",781,Rendimentos suplementares,605,account.data_account_type_revenue
+7814,Royalties,781,Rendimentos suplementares,606,account.data_account_type_revenue
+7815,Desempenho de cargos sociais noutras empresas,781,Rendimentos suplementares,607,account.data_account_type_revenue
+7816,Outros rendimentos suplementeres,781,Rendimentos suplementares,608,account.data_account_type_revenue
+782,Descontos pronto pagamentos obtidos,78,Outros rendimentos,609,account.data_account_type_revenue
+783,Recuperação de dívidas a receber,78,Outros rendimentos,610,account.data_account_type_revenue
+784,Ganhos em inventários,78,Outros rendimentos,0,tko_account_pt_accounting.data_account_type_view
+7841,Sinistros,784,Ganhos em inventários,611,account.data_account_type_revenue
+7842,Sobras,784,Ganhos em inventários,612,account.data_account_type_revenue
+7848,Outros ganhos,784,Ganhos em inventários,613,account.data_account_type_revenue
+785,"Rendimentos em subsidiárias, associadas e emp. Conjuntos",78,Outros rendimentos,0,tko_account_pt_accounting.data_account_type_view
+7851,Aplicação Mét. Equivalência Patrimonial,785,"Rendimentos em subsidiárias, associadas e emp. Conjuntos",614,account.data_account_type_revenue
+7852,Alienações,785,"Rendimentos em subsidiárias, associadas e emp. Conjuntos",615,account.data_account_type_revenue
+7858,Outros rendimentos,785,"Rendimentos em subsidiárias, associadas e emp. Conjuntos",616,account.data_account_type_revenue
+786,Rendimentos nos restantes activos financeiros,78,Outros rendimentos,0,tko_account_pt_accounting.data_account_type_view
+7861,Diferenças câmbio favoráveis,786,Rendimentos nos restantes activos financeiros,617,account.data_account_type_revenue
+7862,Alienações,786,Rendimentos nos restantes activos financeiros,618,account.data_account_type_revenue
+7868,Outros rendimentos e ganhos,786,Rendimentos nos restantes activos financeiros,619,account.data_account_type_revenue
+787,Rendimentos em investimentos não financeiros,78,Outros rendimentos,0,tko_account_pt_accounting.data_account_type_view
+7871,Alienações,787,Rendimentos em investimentos não financeiros,620,account.data_account_type_revenue
+7872,Sinistros,787,Rendimentos em investimentos não financeiros,621,account.data_account_type_revenue
+7873,Rendas e outros rend. propredades investimento,787,Rendimentos em investimentos não financeiros,622,account.data_account_type_revenue
+7878,Outros rendimentos e ganhos,787,Rendimentos em investimentos não financeiros,623,account.data_account_type_revenue
+788,Outros,78,Outros rendimentos,0,tko_account_pt_accounting.data_account_type_view
+7881,Correcções relativas a períodos anteriores,788,Outros,624,account.data_account_type_revenue
+7882,Excesso da estimativa,788,Outros,625,account.data_account_type_revenue
+7883,Imputação subsidios p/ investimento,788,Outros,626,account.data_account_type_revenue
+7884,Ganhos noutros instrumentos financeiros,788,Outros,627,account.data_account_type_revenue
+7885,Restituição de impostos,788,Outros,628,account.data_account_type_revenue
+7886,Recuperação de coimas,788,Outros,630,account.data_account_type_revenue
+7887,Diferenças de Câmbio Favoraveis,788,Outros,629,account.data_account_type_revenue
+7888,Outros não especificados,788,Outros,630,account.data_account_type_revenue
+79,"Juros, dividendos e outros",7,RENDIMENTOS,0,tko_account_pt_accounting.data_account_type_view
+791,Juro obtido,79,"Juros, dividendos e outros",0,tko_account_pt_accounting.data_account_type_view
+7911,De depósitos,791,Juro obtido,631,account.data_account_type_revenue
+7912,De outras aplicações de meios financeiros líquidos,791,Juro obtido,632,account.data_account_type_revenue
+7913,De financiamentos concedidos a associadas,791,Juro obtido,633,account.data_account_type_revenue
+7914,De financiamento concedidos a subsidiarias,791,Juro obtido,634,account.data_account_type_revenue
+7915,De financiamentos obtidos,791,Juro obtido,635,account.data_account_type_revenue
+7918,De outros financiamentos concedidos,791,Juro obtido,636,account.data_account_type_revenue
+792,Dividendos obtidos,79,"Juros, dividendos e outros",0,tko_account_pt_accounting.data_account_type_view
+7921,De aplicações meios financeiros líquidos,792,Dividendos obtidos,637,account.data_account_type_revenue
+7922,De associadas e empreendimentos conjuntos,792,Dividendos obtidos,638,account.data_account_type_revenue
+7923,De subsidiárias,792,Dividendos obtidos,639,account.data_account_type_revenue
+7928,Outras,792,Dividendos obtidos,640,account.data_account_type_revenue
+793,Diferenças de câmbio favoráveis de financiamento,79,"Juros, dividendos e outros",641,account.data_account_type_revenue
+798,Outros rendimentos similares,79,"Juros, dividendos e outros",642,account.data_account_type_revenue
+8,Resultados,0,Your Company,0,tko_account_pt_accounting.data_account_type_view
+81,Resultado líquido do período,8,Resultados,0,tko_account_pt_accounting.data_account_type_view
+811,Resultado antes de imposto,81,Resultado líquido do período,643,account.data_account_type_revenue
+812,Imposto sobre o rendimento do período,81,Resultado líquido do período,0,tko_account_pt_accounting.data_account_type_view
+8121,Imposto estimado para o período,812,Imposto sobre o rendimento do período,644,account.data_account_type_revenue
+8122,Imposto diferido,812,Imposto sobre o rendimento do período,645,account.data_account_type_revenue
+818,Resultado líquido,81,Resultado líquido do período,646, 
+89,Dividendos Antecipados,8,Resultados,647,account.data_account_type_revenue
+9,Analítica,FALSO,,0,tko_account_pt_accounting.data_account_type_view
+99,Saldos de Abertura,9,Analítica,0,tko_account_pt_accounting.data_account_type_view
+999,Saldos de Abertura,99,Saldos de Abertura,0,account.data_account_type_other_income

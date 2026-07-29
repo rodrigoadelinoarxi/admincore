@@ -1,0 +1,8 @@
+<odoo noupdate="1">
+    <record id="l10n_pt_certificate.demo_company_pt" model="res.company">
+        <field name="multicert_active" eval="True"/>
+        <field name="multicert_client_id">PRT.513942220-PRT.505348004-8b0e51b7-2528-47ab-b174-898b2fc31cf8</field>
+        <field name="multicert_client_secret">K-W>,$hmz+xU3sPr!v(mFPc</field>
+        <field name="multicert_test_env" eval="True"/>
+    </record>
+</odoo>

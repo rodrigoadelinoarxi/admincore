@@ -1,0 +1,754 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_pt_ao_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-08 14:10+0000\n"
+"PO-Revision-Date: 2025-10-08 14:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.report_option_products
+msgid "% discount"
+msgstr "% desconto"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.report_option_products
+msgid "<span>Optional Products</span>"
+msgstr "<span>Artigos Opcionais</span>"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_order_form
+msgid "A Line Description was shortened to 200 characters."
+msgstr "A descrição de uma ou mais linhas foi reduzida a 200 caracteres."
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_account_move_reversal
+msgid "Account Move Reversal"
+msgstr "Reversão de Movimento Contabilístico"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.res_config_settings_view_form
+msgid "Adds the possibility of applying two discounts on sale lines"
+msgstr ""
+"Adiciona a possibilidade de aplicar dois descontos nas linhas de venda"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_alert_wizard
+msgid "Alert Wizard that shows when cancelling a Certified Sale Order"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid "Amount must a positive value."
+msgstr "Valor deve ser Positivo."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid ""
+"Amount must be lower than the total untaxed amount of the refunded invoices."
+msgstr "Valor deve ser inferior ao Total das Faturas Revertidas."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#: code:addons/l10n_pt_ao_sale/wizard/sale_order_cancel.py:0
+#, python-format
+msgid "Archived Taxes have been eliminated from lines."
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_sale_alert_wizard
+msgid "Cancel document"
+msgstr "Cancelar documento"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_mass_cancel_orders
+msgid "Cancel multiple quotations"
+msgstr "Cancelar vários orçamentos"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.res_config_settings_view_form
+msgid ""
+"Change the description of Sale Order Lines from Website to Product Name."
+msgstr ""
+"Alterar a descrição das linhas de OR criadas a partir do Website para o Nome"
+" do Artigo"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.res_config_settings_view_form
+msgid ""
+"Changes the description of Sale Order Lines from Website to Product Name"
+msgstr ""
+"Altera a descrição das linhas de OR criadas a partir do Website para o Nome "
+"do Artigo"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_sale_alert_wizard
+msgid "Close"
+msgstr "Fechar"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configurações"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_sale_alert_wizard
+msgid "Confirmar"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model:account.document.type,name:l10n_pt_ao_sale.fatura_consignacao
+msgid "Consignment Invoice"
+msgstr "Fatura de Consignação"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_cancel__convert_proforma
+msgid "Convert Proforma"
+msgstr "Converter em Pró-Forma"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.actions.server,name:l10n_pt_ao_sale.convert_to_proforma
+msgid "Convert to Proforma"
+msgstr "Converter em Pró-Forma"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#: code:addons/l10n_pt_ao_sale/wizard/sale_order_cancel.py:0
+#, python-format
+msgid "Converted Into Proforma"
+msgstr "Convertido a Pró-Forma"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "Converted into proforma"
+msgstr "Convertido a Pró-Forma"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__create_uid
+msgid "Created by"
+msgstr "Criado Por"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,help:l10n_pt_ao_sale.field_res_config_settings__sale_discount_product_id
+msgid "Default product used for discounts"
+msgstr "Produto predefinido usado para descontos"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.report_option_products
+msgid "Description"
+msgstr "Descrição"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.report_option_products
+msgid "Disc.%"
+msgstr "Desc.%s"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_res_config_settings__sale_discount_product_id
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.sale_res_config_settings_view_form
+msgid "Discount Product"
+msgstr "Produto de Desconto"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_discount
+msgid "Discount Wizard"
+msgstr "Assistente de Descontos"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_order_discount.py:0
+#, python-format
+msgid "Discount amount should be positive."
+msgstr "O Valor do Desconto deve ser positivo."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_order_discount.py:0
+#, python-format
+msgid ""
+"Discount amount should not be greater than the total amount of the sale "
+"order."
+msgstr "O Valor do Desconto não deve ser superior ao Total do Orçamento."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_order_discount.py:0
+#, python-format
+msgid "Discount percentage should be positive."
+msgstr "A Percentagem de Desconto deve ser positiva."
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__display_name
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_account_bank_statement_line__document_shipping_address_id
+msgid "Document Shipping Address"
+msgstr "Endereço de Envio do Documento"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_account_bank_statement_line__downpayment_move
+msgid "Downpayment Move"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_account_bank_statement_line__downpayment_origin
+msgid "Downpayment Origin"
+msgstr "Origem do Pagamento Inicial"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.actions.server,name:l10n_pt_ao_sale.duplicate_to_proforma
+msgid "Duplicate to Proforma"
+msgstr "Duplicar para Pró-Forma"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "Error parsing report."
+msgstr "Erro a gerar report."
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_sale_alert_wizard
+msgid ""
+"Está a cancelar um documento com faturas/notas de crédito emitidas, pretende"
+" avançar?"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/account_move.py:0
+#, python-format
+msgid "Invoice date is behind the Sale Order date."
+msgstr "A Data da Fatura não deve ser anterior à Data do Orçamento."
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_line__line_is_editable
+msgid "Is Editable"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_cancel__is_rewrite
+msgid "Is a Rewrite"
+msgstr "É uma Correção"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_account_move
+msgid "Journal Entry"
+msgstr "Entrada do Diário"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_account_move_line
+msgid "Journal Item"
+msgstr "Item do Diário"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_journal__l10n_pt_ao_certified
+msgid "L10N Pt Ao Certified"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Ultima atualização por"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__write_date
+msgid "Last Updated on"
+msgstr "Ultima atualização em"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_line__line_warning
+msgid "Line Warning"
+msgstr ""
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.res_config_settings_view_form
+msgid "Make possible the option to have two discount on a single sale line."
+msgstr "Possibilita a opção de ter dois descontos numa única linha de venda."
+
+#. module: l10n_pt_ao_sale
+#: model:account.document.type,name:l10n_pt_ao_sale.encomenda
+msgid "Order"
+msgstr "Ordem"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "Order already posted, can not change lines"
+msgstr "Documento já publicado, não é possível alterar linhas"
+
+#. module: l10n_pt_ao_sale
+#: model:account.document.type,name:l10n_pt_ao_sale.outros_docs
+msgid "Other"
+msgstr "Outro"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "Please change archived taxes first."
+msgstr "Por Favor altere os Impostos Arquivados."
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_order_form
+msgid "Post"
+msgstr "Publicar"
+
+#. module: l10n_pt_ao_sale
+#: model:account.document.type,name:l10n_pt_ao_sale.proforma
+msgid "Proforma Invoice"
+msgstr "Fatura Pró-Forma"
+
+#. module: l10n_pt_ao_sale
+#: model:account.document.type,name:l10n_pt_ao_sale.orcamentos
+msgid "Quotation"
+msgstr "Orçamento"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_mass_cancel_orders__reason
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_cancel__reason
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid "Reverse Moves"
+msgstr "Reverter Movimentos"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.actions.server,name:l10n_pt_ao_sale.rewrite
+msgid "Rewrite"
+msgstr "Corrigir"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_journal
+msgid "Sale Journal"
+msgstr "Diário de Venda"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_option
+msgid "Sale Options"
+msgstr "Opção de Venda"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_alert_wizard__sale_order_id
+msgid "Sale Order"
+msgstr "Orçamento"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "Sale Order %s"
+msgstr "Ordem de Venda %s"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.actions.act_window,name:l10n_pt_ao_sale.sale_alert_wizard_action
+msgid "Sale Order Cancel Alert"
+msgstr "Alerta Cancelar Orçamento"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/mass_cancel_orders.py:0
+#, python-format
+msgid "Sale orders in draft state can not be cancelled."
+msgstr "Orçamentos em rascunho não podem ser cancelados."
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Fatura de Pagamentos de Adiantamento das Vendas"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Ordem de Venda"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_cancel
+msgid "Sales Order Cancel"
+msgstr "Cancelar Ordem de Venda"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Linhas da Ordem de Vendas"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.report_terms_and_conditions
+msgid "Terms &amp; Conditions"
+msgstr "Termos &amp; Condições"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "The discount field must be a value between 0 and 100."
+msgstr "O Desconto deve ter um valor entre 0 e 100."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_advance_payment_inv.py:0
+#, python-format
+msgid ""
+"The downpayment amount can't exceed the total amount of the sale order."
+msgstr ""
+"Os valores dos Adiantamentos não podem ser superiores ao Total do Orçamento."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_advance_payment_inv.py:0
+#, python-format
+msgid ""
+"The downpayment amount must be less or equal to the total amount of the sale"
+" order."
+msgstr "O valor do Adiantamento não pode ser superior ao Total do Orçamento."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_advance_payment_inv.py:0
+#, python-format
+msgid ""
+"The downpayment percentage can't exceed the total amount of the sale order."
+msgstr ""
+"A Percentagem de Adiantamento não pode ser superior ao Total do Orçamento."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_advance_payment_inv.py:0
+#, python-format
+msgid "The downpayment percentage must be between 0 and 100."
+msgstr "A Percentagem de Adiantamento deve ter um valor entre 0 e 100."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"The price unit field must be a non-negative value. If you want to register a"
+" discount, you should use the discount product [%s]%s. If you want to "
+"register a downpayment, you should use the downpayment product [%s]%s."
+msgstr ""
+"O Preço Unitário não deve ser negativo.\n"
+" Se pretende registar um desconto, deve utilizar o artigo de desconto: [%s]%s.\n"
+" Se pretende registar um adiantamento, deve utilizar o artigo de adiantamento: [%s]%s.\n"
+" Este artigo pode ser definido nas Configurações do Módulo de Vendas."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/account_move.py:0
+#, python-format
+msgid "The price unit field must not have a negative value."
+msgstr "O Preço Unitário não deve ser negativo."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "The quantity field must be a non-negative value."
+msgstr "A Quantidade não deve ser negativa."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/account_move.py:0
+#, python-format
+msgid "The quantity field must not have a negative value."
+msgstr "A Quantidade não deve ser negativa."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"The selected partner doesn't have a commercial entity with a reference code."
+msgstr ""
+"O Parceiro Selecionado não tem Entidade Comercial com Código de Referência."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "The selected product does not have an Internal Reference."
+msgstr "O Artigo selecionado não tem Referência Interna."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/sale_advance_payment_inv.py:0
+#, python-format
+msgid ""
+"There are draft invoices for this Sale Order. Please confirm them before "
+"creating a new one."
+msgstr ""
+"Existem faturas em rascunho para este Orçamento. Por favor confirme-as antes"
+" de criar uma nova."
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_res_config_settings__module_sale_second_discount
+msgid "Two Discounts on Sale Lines"
+msgstr "Dois Descontos numa Linha de Venda (PT)"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.res_config_settings_view_form
+msgid "Two Discounts on Sale Lines (PT)"
+msgstr "Dois Descontos numa Linha de Venda (PT)"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.report_option_products
+msgid "Unit Price"
+msgstr "Preço Unitário"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "Warning!"
+msgstr "Aviso!"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.res_config_settings_view_form
+msgid "Website Sale Order Line Description as Product Name"
+msgstr "Nome de Artigo na Descrição das Linhas de OR a partir de Website"
+
+#. module: l10n_pt_ao_sale
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_res_config_settings__module_l10n_pt_ao_sale_ws
+msgid "Website Sale Order Line Name as Product Name"
+msgstr "Nome de Artigo na Descrição das Linhas de OR a partir de Website"
+
+#. module: l10n_pt_ao_sale
+#: model:account.document.type,name:l10n_pt_ao_sale.folha_obra
+msgid "Worksheet"
+msgstr "Folha de Obra"
+
+#. module: l10n_pt_ao_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao_sale.view_order_form
+msgid "You are using a base Odoo Journal"
+msgstr "Está a utilizar um Diário Base Odoo"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You can not confirm an order without any lines"
+msgstr "Não é possível publicar um Orçamento sem linhas."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#: code:addons/l10n_pt_ao_sale/wizard/sale_order_cancel.py:0
+#, python-format
+msgid "You can not convert a proforma."
+msgstr "Não é possível converter uma Pró-Forma."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid ""
+"You can not create credit notes for different move types in the same "
+"journal."
+msgstr ""
+"Não é possível criar Notas de Crédito para diferentes Tipos de Movimento no "
+"mesmo Diário."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid ""
+"You can not create credit notes in a sale journal from non-invoice moves."
+msgstr ""
+"Não é possível criar Notas de Crédito Rappel num Diário de Venda a partir de"
+" movimentos que não sejam Faturas."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You can not delete a line from a posted document."
+msgstr "Não é possível eliminar uma linha de um Documento publicado."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You can not delete a sent quotation or a confirmed sales order."
+msgstr "Não é possível eliminar um Orçamento publicado ou enviado."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You can not have a document with a total higher than 9999999999999.99"
+msgstr "Não é possível ter um documento com total superior a 9999999999999.99"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/account_move.py:0
+#, python-format
+msgid ""
+"You can not post invoice documents with negative lines.\n"
+" If you want to register a discount, you should use the discount product: [%s]%s.\n"
+" If you want to register a downpayment, you should use the downpayment product: [%s]%s.\n"
+" This product can be defined in the Sale App Settings."
+msgstr ""
+"Não é possível publicar a fatura, pois contém linhas com valores negativos.\n"
+" Se pretende registar um desconto, deve utilizar o artigo de desconto: [%s]%s.\n"
+" Se pretende registar um adiantamento, deve utilizar o artigo de adiantamento: [%s]%s.\n"
+" Este artigo pode ser definido nas Configurações do Módulo de Vendas."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"You can not validate quotations with products without Internal Reference."
+msgstr ""
+"Não é possível publicar orçamentos com Artigos sem Referência Interna."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"You can not validate sale orders for a commercial entity without a reference"
+" code."
+msgstr ""
+"Não é possível publicar orçamentos para Entidades Comerciais sem Código de "
+"Referência."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid ""
+"You can only create rappel credit notes from invoices of the same company."
+msgstr ""
+"Apenas é possível criar Notas de Crédito Rappel a partir de Faturas da mesma"
+" Empresa."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid ""
+"You can only create rappel credit notes from invoices with the same partner."
+msgstr ""
+"Apenas é possível criar Notas de Crédito Rappel a partir de Faturas com o "
+"mesmo Parceiro."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/wizard/account_move_reversal.py:0
+#, python-format
+msgid "You can only create rappel credit notes from invoices."
+msgstr "Apenas é possível criar Notas de Crédito Rappel a partir de Faturas."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You cannot add options to a posted order."
+msgstr "Não é possível adicionar opções a um Orçamento publicado."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You cannot convert to proforma a draft quotation."
+msgstr "Não é possível converter um Orçamento em rascunho em Pró-forma."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You cannot duplicate to proforma a draft quotation."
+msgstr "Não é possível duplicar um Orçamento em rascunho para Pró-forma."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You cannot edit a line from a certified posted document."
+msgstr "Não é possível editar linhas de Documentos certificados publicados."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/res_partner.py:0
+#, python-format
+msgid "You cannot modify the VAT of a partner with posted documents."
+msgstr ""
+"Não é possível alterar o NIF de um Parceiro com documentos publicados."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/res_partner.py:0
+#, python-format
+msgid "You cannot modify the country of a partner with posted documents."
+msgstr ""
+"Não é possível alterar o país de um Parceiro com documentos publicados."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/res_partner.py:0
+#, python-format
+msgid ""
+"You cannot modify the name of a partner without a VAT number and with posted"
+" documents."
+msgstr ""
+"Não é possível alterar o nome de um Parceiro sem NIF e com documentos "
+"publicados."
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+#, python-format
+msgid "You cannot rewrite a draft quotation."
+msgstr "Não é possível reescrever um Orçamento em rascunho"
+
+#. module: l10n_pt_ao_sale
+#. odoo-python
+#: code:addons/l10n_pt_ao_sale/models/sale_order.py:0
+msgid "You can not validate a document with a negative total."
+msgstr "Não é possível publicar um documento com total negativo."

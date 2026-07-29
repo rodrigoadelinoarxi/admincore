@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Form view-->
+    <record id="sale_order_journal_casper_view_form" model="ir.ui.view">
+        <field name="name">sale.order.journal.view.form.inherit.casper</field>
+        <field name="model">sale.order.journal</field>
+        <field name="inherit_id" ref="l10n_pt_sale.sale_order_journal_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='l10n_pt_cert']" position="after">
+                <field name="default_invoice_journal" groups="base.group_system"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

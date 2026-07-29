@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_attendance_autoclose
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-27 09:00+0000\n"
+"PO-Revision-Date: 2022-07-27 09:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_attendance
+msgid "Attendance"
+msgstr "Assiduidade"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_res_company__attendance_maximum_hours_per_day
+msgid "Attendance Maximum Hours Per Day"
+msgstr "Assiduidade Horas Máximas Por Dia"
+
+#. module: hr_attendance_autoclose
+#: model_terms:ir.ui.view,arch_db:hr_attendance_autoclose.view_company_inherit_form
+msgid "Attendances"
+msgstr "Assiduidades"
+
+#. module: hr_attendance_autoclose
+#: model:ir.actions.server,name:hr_attendance_autoclose.check_attendance_cron_ir_actions_server
+#: model:ir.cron,cron_name:hr_attendance_autoclose.check_attendance_cron
+#: model:ir.cron,name:hr_attendance_autoclose.check_attendance_cron
+msgid "Check Attendance"
+msgstr "Verificar Assiduidades"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_employee__no_autoclose
+msgid "Don't Autoclose Attendances"
+msgstr "Não faça Check-out Automáticamente"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_employee
+msgid "Employee"
+msgstr "Funcionário"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance__open_worked_hours
+msgid "Worked hours"
+msgstr "Horas Trabalhadas"

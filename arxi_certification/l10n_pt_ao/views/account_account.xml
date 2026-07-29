@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<odoo><record id="l10n_pt_ao_view_account_list" model="ir.ui.view"><field name="name">account.account.list.inherit.l10n_pt_ao</field><field name="model">account.account</field><field name="inherit_id" ref="account.view_account_list"/><field name="arch" type="xml"><xpath expr="//field[@name='currency_id']" position="after"><field name="deprecated" optional="hide" groups="l10n_pt_ao_access.group_allow_cert_settings"/></xpath></field></record></odoo>

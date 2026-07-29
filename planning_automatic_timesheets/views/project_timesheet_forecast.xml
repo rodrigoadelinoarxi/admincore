@@ -1,0 +1,17 @@
+<odoo>
+    <record id="lumatek_project_forecast_view_form_inherit_project_timesheet_forecast" model="ir.ui.view">
+        <field name="name">lumatek.project.forecast.view.form.inherit.project.timesheet.forecast</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="project_timesheet_forecast.project_forecast_view_form_inherit_project_timesheet_forecast"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_open_timesheets']" position="before">
+                <field name="company_has_automatic_timesheets" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='action_open_timesheets']" position="attributes">
+                <attribute name="invisible">
+                    not can_open_timesheets or not project_id or not allow_timesheets or not employee_id or not company_has_automatic_timesheets
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

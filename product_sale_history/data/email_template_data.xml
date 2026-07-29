@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_template_sale_order_tickets" model="mail.template">
+        <field name="name">Sale: Tickets Sale</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Bilhetes NOS Alive 2024</field>
+        <field name="email_from">info@funnyhow.pt</field>
+        <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+        <field name="description">Bilhetes NOS Alive 2024</field>
+        <field name="body_html" type="html">
+            <div>
+                <p style="font-size:1rem; font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49); color:rgb(49,49,49)">
+                    Na sequência da tua reserva de bilhetes para o NOS Alive 24, segue junto o link para realizares o
+                    pagamento e receberes o(s) teu(s) bilhetes no teu email profissional.
+                    <u style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)"></u>
+                </p>
+                <p style="font-size:1rem; font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49); color:rgb(49,49,49)">
+                    Alguma dúvida, contacta Ricardo Caseiro, através do email:
+                    <a href="mailto:ricardo.caseiro@centralcervejas.pt" target="_blank"
+                       style="font-size:1rem; font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(66,133,244)">
+                        ricardo.caseiro@centralcervejas.pt
+                    </a>
+                    ou pelo 937790009.
+                    <u style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)"></u>
+                </p>
+                <p style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49); color:rgb(49,49,49)">
+                    <u style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)"></u>
+                    <u style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)"></u>
+                </p>
+                <div style="border-width:medium medium 1.5pt; border-style:none none solid; padding:0cm 0cm 1pt; font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49) rgb(49,49,49) rgb(0,0,0); color:rgb(49,49,49)"
+                     dir="auto">
+                    <p style="border:rgb(49,49,49); padding:0cm; font-family:-apple-system,&quot;Helvetica Neue&quot;">
+                        <span lang="EN-US"
+                              style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)">
+                            <u style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)"></u>
+                            <u style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)"></u>
+                        </span>
+                    </p>
+                </div>
+
+                <p style="font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49); color:rgb(49,49,49)">
+                    <span lang="EN-US"
+                          style="font-size:1rem; font-family:-apple-system,&quot;Helvetica Neue&quot;; border-color:rgb(49,49,49)">
+                        Preço
+                        <t t-out="format_amount(object.amount_total, object.currency_id) or ''"/>
+                        (iva incluido)
+                    </span>
+                </p>
+            </div>
+        </field>
+<!--        <field name="report_template_ids" ref="sale.action_report_saleorder"/>-->
+<!--        <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>-->
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="auto_delete" eval="False"/>
+    </record>
+
+    <record id="mail_template_stock_picking_tickets" model="mail.template">
+        <field name="name">Picking: Tickets Sale</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="subject">Bilhetes NOS Alive 2024</field>
+        <field name="email_from">info@funnyhow.pt</field>
+        <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+        <field name="description">Bilhetes NOS Alive 2024</field>
+        <field name="body_html" type="html">
+            <div>
+                <p>Obrigado pela confirmação e pagamento.</p>
+                <p>Seguem os teus bilhetes em anexo neste email.</p>
+                <br/>
+                <p>Rock on e bom festival!</p>
+            </div>
+        </field>
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="auto_delete" eval="False"/>
+    </record>
+</odoo>

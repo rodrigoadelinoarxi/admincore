@@ -1,0 +1,32 @@
+<odoo>
+    <record id="account_followup_journal_dashboard_kanban_view" model="ir.ui.view">
+        <field name="name">account.journal.dashboard.kanban.reports.inherit</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//a[@name='%(account_followup.action_view_list_customer_statements)d']" position="replace">
+                <a type="action" name="%(account_followup.action_view_list_customer_statements)d"
+                   groups="account.group_account_invoice">
+                    Billing Reports
+                </a>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_journal_form_view" model="ir.ui.view">
+        <field name="name">account.journal.form.inherit</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="default_ecommerce_analytic_account" invisible="type not in ['sale']"/>
+                <field name="default_analytic_account" invisible="type not in ['bank', 'cash', 'general']"/>
+                <field name="color_journal" widget="color"/>
+                <field name="nos_alive_default" groups="base.group_system"/>
+            </xpath>
+            <xpath expr="//field[@name='country_code']" position="after">
+                <field name="default_donation_description"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

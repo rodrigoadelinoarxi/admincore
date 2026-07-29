@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom Report Brainr -->
+    <template id="report_custom_brainr" inherit_id="l10n_pt_certificate.report_invoice_document">
+
+        <!-- Adicionar coluna Reference antes da descrição -->
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_product_code" class="text-start" t-if="o.company_id.use_custom_report">
+                <span>Reference</span>
+            </th>
+        </xpath>
+
+        <!-- Linha do código do produto -->
+        <xpath expr="//td[@name='account_invoice_line_name']" position="before">
+            <td name="account_invoice_line_code" class="text-start" t-if="o.company_id.use_custom_report">
+                <span t-if="line.product_id.default_code"
+                      t-field="line.product_id.default_code"/>
+            </td>
+        </xpath>
+
+        <!-- Substituir a descrição (sem código quando em modo custom) -->
+        <xpath expr="//td[@name='account_invoice_line_name']/span" position="replace">
+            <span t-if="o.company_id.use_custom_report"
+                  t-field="line.name"
+                  t-options="{'widget': 'text'}"/>
+            <span t-if="not o.company_id.use_custom_report"
+                  t-out="'[%s] %s' % (line.product_id.default_code, line.name)"
+                  t-options="{'widget': 'text'}"/>
+        </xpath>
+
+        <!-- Preço unitário com símbolo € -->
+        <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+            <span t-if="o.company_id.use_custom_report" class="text-nowrap">
+                <span t-field="line.price_unit"/>
+                €
+            </span>
+            <span t-if="not o.company_id.use_custom_report"
+                  class="text-nowrap"
+                  t-field="line.price_unit"/>
+        </xpath>
+
+        <!-- Trocar cabeçalhos: Taxes ↔ Amount -->
+        <xpath expr="//th[@name='th_taxes']/span" position="replace">
+            <span t-if="o.company_id.use_custom_report">Amount</span>
+            <span t-if="not o.company_id.use_custom_report">Tax</span>
+        </xpath>
+
+        <xpath expr="//th[@name='th_subtotal']/span" position="replace">
+            <span t-if="o.company_id.use_custom_report">Taxes</span>
+            <span t-if="not o.company_id.use_custom_report">Subtotal</span>
+        </xpath>
+
+        <!-- Coluna Amount (só valores €) -->
+        <xpath expr="//td[span[@id='line_tax_ids']]" position="replace">
+            <td name="account_invoice_line_amount" class="text-end">
+                <span t-if="o.company_id.use_custom_report"
+                      class="text-nowrap"
+                      t-field="line.price_subtotal"
+                      groups="l10n_pt_ao.group_show_line_subtotals_tax_excluded"/>
+                <span t-if="o.company_id.use_custom_report"
+                      class="text-nowrap"
+                      t-field="line.price_total"
+                      groups="l10n_pt_ao.group_show_line_subtotals_tax_included"/>
+                <span t-if="not o.company_id.use_custom_report"
+                      t-out="', '.join(map(lambda x: (x.invoice_label or x.description or x.name), line.tax_ids))"
+                      id="line_tax_ids"/>
+            </td>
+        </xpath>
+
+        <!-- Coluna Taxes (só nomes dos impostos) -->
+        <xpath expr="//td[@class='text-end o_price_total']" position="replace">
+            <td name="account_invoice_line_taxes" class="text-end">
+                <span t-if="o.company_id.use_custom_report"
+                      t-out="', '.join(map(lambda x: (x.invoice_label or x.description or x.name), line.tax_ids))"/>
+                <span t-if="not o.company_id.use_custom_report"
+                      class="text-nowrap"
+                      t-field="line.price_subtotal"
+                      groups="l10n_pt_ao.group_show_line_subtotals_tax_excluded"/>
+                <span t-if="not o.company_id.use_custom_report"
+                      class="text-nowrap"
+                      t-field="line.price_total"
+                      groups="l10n_pt_ao.group_show_line_subtotals_tax_included"/>
+            </td>
+        </xpath>
+
+        <!-- Comunicação pagamento original escondida quando custom -->
+        <xpath expr="//p[@name='payment_communication']" position="attributes">
+            <attribute name="t-if">not o.company_id.use_custom_report</attribute>
+        </xpath>
+
+        <!-- Bank Details in original position -->
+        <xpath expr="//p[@name='payment_communication']" position="after">
+            <div class="mb-3"
+                 t-if="o and o._name == 'account.move'
+                        and o.company_id.use_custom_report
+                        and o.move_type in ('out_invoice', 'in_refund')
+                        and o.payment_reference"
+                 style="line-height: 1.2;">
+                <h4 class="fw-bold mb-2">Bank Details:</h4>
+                <p name="payment_communication_custom">
+                    <strong>Payment Reference:</strong>
+                    <span t-field="o.payment_reference"/>
+                    <br/>
+                    <strong>Bank Account:</strong>
+                    <span t-field="o.partner_bank_id.acc_number"/>
+                    <br/>
+                    <strong>Bank Name:</strong>
+                    <span t-field="o.partner_bank_id.bank_id.name"/>
+                    <br/>
+                    <strong>SWIFT/BIC:</strong>
+                    <span t-field="o.partner_bank_id.bank_id.bic"/>
+                    <br/>
+                    <strong>Address:</strong>
+                    <span t-if="o.partner_bank_id.bank_id.street"
+                          t-field="o.partner_bank_id.bank_id.street"/>
+                    <span t-if="o.partner_bank_id.bank_id.street2">
+                        <span t-if="o.partner_bank_id.bank_id.street">,</span>
+                        <span t-field="o.partner_bank_id.bank_id.street2"/>
+                    </span>
+                    <span t-if="o.partner_bank_id.bank_id.zip">
+                        <span t-if="o.partner_bank_id.bank_id.street or o.partner_bank_id.bank_id.street2">,</span>
+                        <span t-field="o.partner_bank_id.bank_id.zip"/>
+                    </span>
+                    <span t-if="o.partner_bank_id.bank_id.city">
+                        <span t-if="o.partner_bank_id.bank_id.street or o.partner_bank_id.bank_id.street2 or o.partner_bank_id.bank_id.zip">
+                            ,
+                        </span>
+                        <span t-field="o.partner_bank_id.bank_id.city"/>
+                    </span>
+                    <span t-if="o.partner_bank_id.bank_id.state">
+                        <span t-if="o.partner_bank_id.bank_id.street or o.partner_bank_id.bank_id.street2 or o.partner_bank_id.bank_id.zip or o.partner_bank_id.bank_id.city">
+                            ,
+                        </span>
+                        <span t-field="o.partner_bank_id.bank_id.state"/>
+                    </span>
+                    <span t-if="o.partner_bank_id.bank_id.country">
+                        <span t-if="o.partner_bank_id.bank_id.street or o.partner_bank_id.bank_id.street2 or o.partner_bank_id.bank_id.zip or o.partner_bank_id.bank_id.city or o.partner_bank_id.bank_id.state">
+                            ,
+                        </span>
+                        <span t-field="o.partner_bank_id.bank_id.country"/>
+                    </span>
+                </p>
+            </div>
+
+            <!-- QR Code Bottom Position - after bank details -->
+            <div t-if="o and o._name == 'account.move' and o.qr_code_position == 'bottom'"
+                 class="row mt-4"
+                 style="page-break-inside: avoid;">
+                <div class="col-6">
+                    <!-- Left side empty or bank details if needed -->
+                </div>
+                <div class="col-6 text-end">
+                    <t t-set="visible_row_div"
+                       t-value="(o.inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt) or o.has_mb_reference()"/>
+                    <span t-if="o.inalterable_hash and o.is_sale_document()" class="small d-block text-end mb-2">
+                        ATCUD:
+                        <t t-out="o.atcud or '0'"/>
+                    </span>
+                    <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
+                        <div id="qrcode_pt" name="qrcode_pt_bottom"
+                             t-if="o.inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt"
+                             style="height: 150px; width: 150px"
+                             class="border border-dark rounded">
+                            <img t-att-src="image_data_uri(o.build_qr_code())"
+                                 style="height: 100%; width: 100%;"/>
+                        </div>
+                    </div>
+                    <span t-if="o.inalterable_hash and not o.company_id.use_custom_report"
+                          class="small d-block text-end mt-2">
+                        <span t-translation="off" class="small text-nowrap"
+                              t-out="''.join([o.inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by certified
+                        software no. 2790/AT
+                    </span>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+    <!-- Tax totals customization moved to shared_tax_totals_brainr.xml -->
+
+    <!-- Remove hash text from all sections and move to footer -->
+    <template id="report_hash_footer_brainr" inherit_id="l10n_pt_certificate.report_invoice_document">
+        <!-- Remove spans with t-translation='off' containing hash from all locations -->
+        <xpath expr="//span[@t-translation='off'][contains(@t-out, 'inalterable_hash')]" position="replace"
+               optional="1"/>
+
+        <!-- Remove the entire span element that contains both hash and certification text -->
+        <xpath expr="//span[@t-if='o.inalterable_hash'][@class='small']" position="replace" optional="1"/>
+
+        <!-- Remove original ATCUD spans that don't have custom report condition -->
+        <xpath expr="//span[@t-if='o.inalterable_hash and o.is_sale_document()'][@class='small'][contains(., 'ATCUD')][not(ancestor::*[@id='address_block_anchor'])]"
+               position="replace" optional="1"/>
+    </template>
+
+    <!-- Remove goods available from original location and move to footer -->
+    <template id="report_goods_available_brainr" inherit_id="invoice_shipping_info.report_invoice_document">
+        <!-- Remove goods available from original location when using custom report -->
+        <xpath expr="//div[@name='goods_available']" position="attributes">
+            <attribute name="t-if">not o.company_id.use_custom_report</attribute>
+        </xpath>
+    </template>
+
+
+    <!-- Add hash text and goods available to footer via web.external_layout_standard -->
+    <template id="report_hash_footer_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[@t-field='company.report_footer']/parent::ul/following-sibling::div" position="before">
+            <!-- For invoices (uses 'o' variable) -->
+            <div t-if="o and o._name == 'account.move' and o.inalterable_hash and o.company_id.use_custom_report"
+                 class="small mb-3 text-muted"
+                 name="hash_footer"
+                 style="position: relative; bottom: 0; margin-top: auto; clear: both; float: none; display: block; width: 100%; text-align: center;">
+                <span t-translation="off" class="small text-nowrap text-muted"
+                      t-out="''.join([o.inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by certified
+                software ndoc. 2790/AT
+                <br t-if="o.move_type == 'out_invoice' and o.tax_point_date and o.company_id.country_id.code == 'PT'"/>
+                <span t-if="o.move_type == 'out_invoice' and o.tax_point_date and o.company_id.country_id.code == 'PT'"
+                      class="text-muted">
+                    <t t-set="o_tz"
+                       t-value="o.with_context(tz='Europe/Lisbon') if o.company_id.country_id.code == 'PT' else o"/>
+                    Products / Services are delivered as per contract agreement.
+<!--                    <span t-field="o_tz.tax_point_date" class="text-muted"/>-->
+                </span>
+            </div>
+            <!-- For sale orders (uses 'doc' variable) -->
+            <div t-if="doc and doc._name == 'sale.order' and doc.inalterable_hash and doc.company_id.use_custom_report"
+                 class="small mb-3 text-muted"
+                 name="hash_footer_sale"
+                 style="position: relative; bottom: 0; margin-top: auto; clear: both; float: none; display: block; width: 100%; text-align: center;">
+                <span t-translation="off" class="small text-nowrap text-muted"
+                      t-out="''.join([doc.inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by certified
+                software ndoc. 2790/AT
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Swap address blocks only when using custom report -->
+    <template id="report_invoice_swap_blocks"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="230">
+
+        <!-- Only modify the address block when using custom report -->
+        <xpath expr="//div[@class='row'][1]" position="attributes">
+            <attribute name="t-if">not o.company_id.use_custom_report</attribute>
+        </xpath>
+
+        <!-- Add custom address block after original (shown only when use_custom_report is true) -->
+        <xpath expr="//div[@class='row'][1]" position="after">
+            <div class="row" t-if="o.company_id.use_custom_report" id="address_block_anchor">
+                <t t-if="o.partner_shipping_id and (o.partner_shipping_id != o.partner_id)">
+                    <!-- Billing à esquerda -->
+                    <div class="col-6" id="billing_address">
+                        <h4 class="mb-2" style="font-size: 18px; font-weight: bold;">Billing Address:</h4>
+                        <address class="mb-0"
+                                 t-out="o.document_address_id or o.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["name", "address"], "no_marker": True}'/>
+                        <div t-if="(o.document_address_id or o.partner_id).vat">
+                            <span>VAT: </span>
+                            <span t-field="(o.document_address_id or o.partner_id).vat"/>
+                        </div>
+                    </div>
+                    <!-- Shipping à direita -->
+                    <div class="col-6" id="shipping_address" groups="account.group_delivery_invoice_address">
+                        <h4 class="mb-2" style="font-size: 18px; font-weight: bold;">Shipping Address:</h4>
+                        <div t-field="o.partner_shipping_id"
+                             t-options='{"widget": "contact", "fields": ["name", "address"], "no_marker": True}'/>
+<!--                        <div t-if="o.partner_shipping_id.vat">-->
+<!--                            <span>VAT: </span>-->
+<!--                            <span t-field="o.partner_shipping_id.vat"/>-->
+<!--                        </div>-->
+                    </div>
+                </t>
+                <t t-else="">
+                    <!-- Só Billing -->
+                    <div class="col-6" id="billing_address">
+                        <h4 class="mb-2" style="font-size: 18px; font-weight: bold;">Billing Address:</h4>
+                        <address class="mb-0"
+                                 t-out="o.document_address_id or o.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["name", "address"], "no_marker": True}'/>
+                        <div t-if="(o.document_address_id or o.partner_id).vat">
+                            <span>VAT: </span>
+                            <span t-field="(o.document_address_id or o.partner_id).vat"/>
+                        </div>
+                    </div>
+                    <div class="col-6"/>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_invoice_qrcode_fix"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="250">
+
+        <!-- Inserir o QR Code depois do bloco de moradas -->
+        <xpath expr="//div[@id='address_block_anchor']" position="after">
+            <t t-if="o.qr_code_position == 'top'">
+
+                <!-- Caso exista Shipping address -->
+                <t t-if="o.partner_shipping_id and (o.partner_shipping_id != o.partner_id) and env.user.has_group('account.group_delivery_invoice_address')">
+                    <div class="row" style="margin:30px 0px 50px 0px;">
+                        <div class="col-6">
+                            <t t-set="visible_row_div"
+                               t-value="(o.inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt) or o.has_mb_reference()"/>
+                            <span t-if="o.inalterable_hash and o.is_sale_document()" class="small">
+                                ATCUD:
+                                <t t-out="o.atcud or '0'"/>
+                            </span>
+                            <div id="row_div" t-if="visible_row_div" class="d-flex flex-row">
+                                <div id="qrcode_pt" name="qrcode_pt_top_with_shipping"
+                                     t-if="o.inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt"
+                                     style="height: 150px; width: 150px"
+                                     class="border border-dark rounded">
+                                    <img t-att-src="image_data_uri(o.build_qr_code())"
+                                         style="height: 100%; width: 100%;"/>
+                                </div>
+                            </div>
+                            <span t-if="o.inalterable_hash and not o.company_id.use_custom_report" class="small">
+                                <span t-translation="off" class="small text-nowrap"
+                                      t-out="''.join([o.inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by
+                                certified
+                                software no. 2790/AT
+                            </span>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- Caso NÃO exista Shipping address -->
+                <t t-else="">
+                    <div class="row" style="margin:30px 0px 50px 0px;">
+                        <div class="col-6">
+                            <t t-set="visible_row_div"
+                               t-value="(o.inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt) or o.has_mb_reference()"/>
+                            <span t-if="o.inalterable_hash and o.is_sale_document()" class="small">
+                                ATCUD:
+                                <t t-out="o.atcud or '0'"/>
+                            </span>
+                            <div id="row_div" t-if="visible_row_div" class="d-flex flex-row">
+                                <div id="qrcode_pt" name="qrcode_pt_top_without_shipping"
+                                     t-if="o.inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt"
+                                     style="height: 150px; width: 150px"
+                                     class="border border-dark rounded">
+                                    <img t-att-src="image_data_uri(o.build_qr_code())"
+                                         style="height: 100%; width: 100%;"/>
+                                </div>
+                            </div>
+                            <span t-if="o.inalterable_hash and not o.company_id.use_custom_report" class="small">
+                                <span t-translation="off" class="small text-nowrap"
+                                      t-out="''.join([o.inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by
+                                certified
+                                software no. 2790/AT
+                            </span>
+                        </div>
+                    </div>
+                </t>
+
+            </t>
+        </xpath>
+    </template>
+
+    <template id="report_invoice_remove_original_qr"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="240">
+
+        <!-- Remove original top QR codes from base template -->
+        <xpath expr="//div[@id='qrcode_pt'][@name='qrcode_pt_top_with_shipping'][not(ancestor::*[@id='address_block_anchor'])]"
+               position="replace" optional="1"/>
+
+        <xpath expr="//div[@id='qrcode_pt'][@name='qrcode_pt_top_without_shipping'][not(ancestor::*[@id='address_block_anchor'])]"
+               position="replace" optional="1"/>
+
+        <!-- Remove original QR do fundo -->
+        <xpath expr="//div[@name='atcud_qr_code']"
+               position="replace" optional="1"/>
+
+
+    </template>
+
+    <template id="remove_atcud_from_external_layouts"
+              inherit_id="web.external_layout_standard"
+              priority="310">
+        <xpath expr="//span[contains(text(), 'ATCUD')]" position="replace" optional="1"/>
+    </template>
+
+    <template id="remove_atcud_from_external_layouts_striped"
+              inherit_id="web.external_layout_striped"
+              priority="310">
+        <xpath expr="//span[contains(text(), 'ATCUD')]" position="replace" optional="1"/>
+    </template>
+
+    <template id="remove_atcud_from_external_layouts_boxed"
+              inherit_id="web.external_layout_boxed"
+              priority="310">
+        <xpath expr="//span[contains(text(), 'ATCUD')]" position="replace" optional="1"/>
+    </template>
+
+    <template id="remove_atcud_from_external_layouts_bold"
+              inherit_id="web.external_layout_bold"
+              priority="310">
+        <xpath expr="//span[contains(text(), 'ATCUD')]" position="replace" optional="1"/>
+    </template>
+
+    <template id="remove_original_block_after_shipping"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="241">
+
+        <!-- Remove todo o bloco original que injeta ATCUD/QR depois do shipping -->
+        <xpath expr="//span[contains(text(),'ATCUD')]/ancestor::div[@class='row']"
+               position="replace"
+               optional="1"/>
+    </template>
+
+
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//span[@name='document_name']/parent::div/following-sibling::div" position="after">
+            <div class="col-4" t-if="0"/>
+        </xpath>
+    </template>
+
+    <!-- Override Customer Code for custom reports -->
+    <template id="customer_code_override" inherit_id="account.report_invoice_document" priority="260">
+        <xpath expr="//div[@name='customer_code']" position="replace">
+            <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2"
+                 t-if="o.partner_id.ref" name="customer_code">
+                <strong t-if="o and o.company_id.use_custom_report">Client Code:</strong>
+                <strong t-else="">Customer Code:</strong>
+                <br/>
+                <span t-field="o.partner_id.ref"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Remove fiscal position note (terms) for custom reports -->
+    <template id="remove_fiscal_position_note" inherit_id="account.report_invoice_document" priority="270">
+        <xpath expr="//p[@name='note'][not(ancestor::*[@name='comment'])]" position="attributes">
+            <attribute name="t-if">not is_html_empty(o.fiscal_position_id.note) and not o.company_id.use_custom_report</attribute>
+        </xpath>
+    </template>
+
+    <!-- Remove the separate Terms & Conditions page for custom reports -->
+    <template id="remove_terms_conditions_page" inherit_id="l10n_pt_ao.report_terms_and_conditions" priority="270">
+        <xpath expr="//div[@class='page']" position="replace">
+            <div class="page" t-if="not o.company_id.use_custom_report">
+                <p class="fake_h3 mb-0">Terms &amp; Conditions</p>
+                <hr class="mt-0 mb-1"/>
+                <span name="comment" t-field="o.narration"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Override l10n_pt_ao's narration handling to add custom report condition -->
+    <template id="override_narration_custom_report" inherit_id="l10n_pt_ao.report_custom_invoice_document" priority="110">
+        <xpath expr="//span[@name='comment'][@t-field='o.narration']" position="replace">
+            <span name="comment" t-field="o.narration" t-if="not o.company_id.use_custom_report"/>
+        </xpath>
+    </template>
+
+    <!-- Override print_conf_copies to prevent T&C page for custom reports -->
+    <template id="override_print_copies_tc_page" inherit_id="account.report_invoice_document" priority="999">
+        <xpath expr="//t[@t-call='l10n_pt_ao.report_terms_and_conditions']" position="attributes">
+            <attribute name="t-if">not is_html_empty(o.narration) and o.needs_separate_comment_report and not o.company_id.use_custom_report</attribute>
+        </xpath>
+    </template>
+
+</odoo>

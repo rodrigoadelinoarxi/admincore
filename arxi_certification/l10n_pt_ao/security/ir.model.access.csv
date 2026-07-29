@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_document_address,access_document_address,model_document_address,base.group_user,1,0,1,0
+access_document_address_system,access_document_address,model_document_address,base.group_system,1,1,1,0
+access_document_status_type,access_document_status_type,model_document_status_type,base.group_user,1,0,0,0
+access_document_status_type_system,access_document_status_type,model_document_status_type,base.group_system,1,1,1,1
+access_account_document_type,access_account_document_type,model_account_document_type,,1,0,0,0
+access_account_document_type_system,access_account_document_type,model_account_document_type,base.group_system,1,1,1,1
+access_payment_mechanism,access_payment_mechanism,model_payment_mechanism,account.group_account_invoice,1,0,0,0
+access_payment_mechanism_manager,access_payment_mechanism,model_payment_mechanism,base.group_system,1,1,1,1
+access_account_payment_line,access_account_payment_line,model_account_payment_line,,1,1,1,1
+access_tax_report_refund_type,access_tax_report_refund_type,model_tax_report_refund_type,base.group_user,1,0,0,0
+access_tax_report_refund_type_admin,access_tax_report_refund_type_admin,model_tax_report_refund_type,base.group_system,1,1,1,1
+l10n_pt_ao.access_warning_wizard,access_warning_wizard,l10n_pt_ao.model_warning_wizard,base.group_user,1,1,1,1

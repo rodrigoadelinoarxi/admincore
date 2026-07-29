@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_production_lot_form_inherit_prod_hist" model="ir.ui.view">
+        <field name="model">view.production.lot.form.inherit.prod.hist</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='ref']" position="after">
+                <field name="file_name" invisible="1"/>
+                <field name="file_data" filename="file_name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_production_lot_tree_inherit_prod_hist" model="ir.ui.view">
+        <field name="model">view.production.lot.tree.inherit.prod.hist</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="file_name" invisible="1"/>
+                <field name="file_data" widget="binary" filename="file_name"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

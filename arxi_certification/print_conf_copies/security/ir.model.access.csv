@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+print_conf_copies.access_res_company_print_line,access_res_company_print_line,print_conf_copies.model_res_company_print_line,base.group_user,1,1,1,1
+print_conf_copies.access_print_conf_mixer,access_print_conf_mixer,print_conf_copies.model_print_conf_mixer,base.group_user,1,1,1,1

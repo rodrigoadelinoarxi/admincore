@@ -1,0 +1,36 @@
+<odoo noupdate="1">
+    <record id="mail_template_record_approved" model="mail.template">
+        <field name="name">Record Approved Notification</field>
+        <field name="model_id" ref="base.model_ir_ui_view"/>
+        <field name="subject">Record Approved: {{ object.name or object.id }}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px; font-family: Arial, sans-serif;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px; line-height: 1.6;">
+                    Hello,
+                    <br/>
+                    <br/>
+                    We are pleased to inform you that the following record has been <span style="font-weight: bold; color: #28a745;">approved</span>:
+                    <br/>
+                    <br/>
+                    <div style="padding: 12px; background-color: #f8f9fa; border-left: 4px solid #28a745; border-radius: 4px; margin: 12px 0px;">
+                        <p style="margin: 8px 0px;">
+                            <strong>Record Name:</strong> RECORD_NAME_PLACEHOLDER
+                            <br/>
+                            <strong>Type:</strong> RECORD_TYPE_PLACEHOLDER
+                            <br/>
+                            <strong>Status:</strong> RECORD_STATUS_PLACEHOLDER
+                        </p>
+                    </div>
+                    <br/>
+                    <div style="text-align: center; padding: 16px 0px;">
+                        <a href="PORTAL_URL_PLACEHOLDER" target="_blank" style="background-color: #28a745; color: white; padding: 12px 28px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; font-size: 14px;">
+                            View Approved Record
+                        </a>
+                    </div>
+                    <br/>
+                    If you have any questions regarding this approval, please do not hesitate to contact us.
+                </p>
+            </div>
+        </field>
+    </record>
+</odoo>

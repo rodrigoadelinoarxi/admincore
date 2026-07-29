@@ -1,0 +1,232 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* deferrals_option
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-09 10:54+0000\n"
+"PO-Revision-Date: 2024-09-09 10:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "(incl."
+msgstr ""
+
+#. module: deferrals_option
+#: model:ir.model,name:deferrals_option.model_account_account
+msgid "Account"
+msgstr "Conta"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Accounting"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Asset Model"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Asset Values"
+msgstr ""
+
+#. module: deferrals_option
+#: model:ir.model,name:deferrals_option.model_account_asset
+msgid "Asset/Revenue Recognition"
+msgstr "Reconhecimento de Ativo/Receita"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Compute Expenses"
+msgstr "Calcular Despesas"
+
+#. module: deferrals_option
+#: model_terms:ir.actions.act_window,help:deferrals_option.action_account_asset_deferral_tree
+#: model_terms:ir.actions.act_window,help:deferrals_option.action_account_asset_deferred_revenues_tree
+msgid "Create new asset"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.actions.act_window,help:deferrals_option.action_account_asset_deferral_form
+#: model_terms:ir.actions.act_window,help:deferrals_option.action_account_asset_revenue_form
+msgid "Create new deferral model"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Current Values"
+msgstr ""
+
+#. module: deferrals_option
+#. odoo-python
+#: code:addons/deferrals_option/models/account_move.py:0
+#, python-format
+msgid "Deferral"
+msgstr "Diferimento"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferrals_tree
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_revenue_tree
+msgid "Deferral Account"
+msgstr "Conta de Diferimento"
+
+#. module: deferrals_option
+#: model:ir.model.fields,field_description:deferrals_option.field_account_bank_statement_line__deferral_exists
+msgid "Deferral Exists"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferrals_tree
+msgid "Deferral Model"
+msgstr "Modelo de Diferimento"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferrals_tree
+msgid "Deferral Model Name"
+msgstr "Nome do Diferimento"
+
+#. module: deferrals_option
+#: model:ir.actions.act_window,name:deferrals_option.action_account_asset_deferral_form
+#: model:ir.ui.menu,name:deferrals_option.menu_action_account_asset_deferral_form
+msgid "Deferral Models"
+msgstr "Modelo de Diferimento"
+
+#. module: deferrals_option
+#: model:ir.model.fields,field_description:deferrals_option.field_account_asset__deferral_type
+msgid "Deferral Type"
+msgstr "Tipo de Diferimento"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_move_form_asset_deferral_inherit
+msgid "Deferral(s)"
+msgstr "Diferimentos"
+
+#. module: deferrals_option
+#: model:ir.actions.act_window,name:deferrals_option.action_account_asset_deferral_tree
+#: model:ir.ui.menu,name:deferrals_option.menu_action_account_asset_deferral_tree
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_tree
+msgid "Deferred Expenses"
+msgstr "Diferimentos"
+
+#. module: deferrals_option
+#: model:ir.actions.act_window,name:deferrals_option.action_account_asset_deferred_revenues_tree
+#: model:ir.ui.menu,name:deferrals_option.menu_action_account_deferred_revenues_tree
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_revenues_tree
+msgid "Deferred Revenues"
+msgstr "Acréscimos"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Depreciated Amount"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Depreciation"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Depreciation Date"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Depreciation Lines"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Depreciation Method"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Duration"
+msgstr ""
+
+#. module: deferrals_option
+#: model:ir.model.fields.selection,name:deferrals_option.selection__account_asset__deferral_type__expense
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_tree
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Expense"
+msgstr "Despesa"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Expense Board"
+msgstr "Quadro de Despesa"
+
+#. module: deferrals_option
+#: model:ir.model,name:deferrals_option.model_account_move
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Journal Entry"
+msgstr "Entrada do Diário"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Modify Expenses"
+msgstr "Modificar Diferimento"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+msgid "Modify Revenue"
+msgstr "Modificar Acréscimo"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferrals_tree
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_revenue_tree
+msgid "Number of Depreciations"
+msgstr "Número de Depreciações"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferrals_tree
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_revenue_tree
+msgid "Period length"
+msgstr "Duração do período"
+
+#. module: deferrals_option
+#: model:ir.model.fields.selection,name:deferrals_option.selection__account_asset__deferral_type__revenue
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_revenues_tree
+msgid "Revenue"
+msgstr "Acréscimos"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_revenue_tree
+msgid "Revenue Model"
+msgstr "Modelo de Acréscimo"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferral_form
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_revenue_tree
+msgid "Revenue Model Name"
+msgstr "Nome do Acréscimos"
+
+#. module: deferrals_option
+#: model:ir.actions.act_window,name:deferrals_option.action_account_asset_revenue_form
+#: model:ir.ui.menu,name:deferrals_option.menu_action_account_asset_revenue_form
+msgid "Revenue Models"
+msgstr "Modelos de Acréscimo"
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "Value at Import"
+msgstr ""
+
+#. module: deferrals_option
+#: model_terms:ir.ui.view,arch_db:deferrals_option.view_account_asset_deferred_expenses_form
+msgid "depreciable)"
+msgstr ""

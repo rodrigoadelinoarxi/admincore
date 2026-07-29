@@ -1,0 +1,926 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* casperventures
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-04 11:32+0000\n"
+"PO-Revision-Date: 2025-12-04 11:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.8\n"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_invoice_qrcode_fix
+msgid ""
+"- Processed by\n"
+"                                certified\n"
+"                                software no. 2790/AT"
+msgstr ""
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid ""
+"- Processed by certified\n"
+"                        software no. 2790/AT"
+msgstr ""
+"- Processado por\n"
+"                       programa\n"
+"                       certificado nº2790/AT"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_hash_footer_standard
+msgid ""
+"- Processed by certified\n"
+"                software ndoc. 2790/AT"
+msgstr ""
+"- Processado por\n"
+"                       programa\n"
+"                       certificado nº2790/AT"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_signature_page_after_terms
+msgid ""
+"<br/>\n"
+"                                    Date: ___/___/______"
+msgstr ""
+"<br/>\n"
+"                                    Data: ___/___/______"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid ""
+"<br/>\n"
+"                    <strong>Address:</strong>"
+msgstr ""
+"<br/>\n"
+"                    <strong>Endereço:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid ""
+"<br/>\n"
+"                    <strong>Bank Account:</strong>"
+msgstr ""
+"<br/>\n"
+"                    <strong>Conta Bancária:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid ""
+"<br/>\n"
+"                    <strong>Bank Name:</strong>"
+msgstr ""
+"<br/>\n"
+"                    <strong>Nome do Banco:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid ""
+"<br/>\n"
+"                    <strong>SWIFT/BIC:</strong>"
+msgstr ""
+
+#. module: casperventures
+#: model:mail.template,body_html:casperventures.mail_template_daily_company_position
+msgid ""
+"<div>\n"
+"                <h1>Daily Position\n"
+"                    <t t-out=\"datetime.date.today().strftime('%d/%m/%Y')\" data-oe-t-"
+"inline=\"true\">01/12/2023</t>\n"
+"                </h1>\n"
+"                <br>\n"
+"                <h2><span>Sum of Availabilities</span>:\n"
+"                </h2>\n"
+"                <div style=\"font-weight: bold; font-size: 15px;\">\n"
+"                    Total:\n"
+"                    <t t-out=\"object.get_sum_availabilities_total_to_eur()\" t-options=\"{'widget': "
+"'float', 'precision': 2}\"></t>\n"
+"                    €\n"
+"                </div>\n"
+"\n"
+"                <t t-foreach=\"object.get_sum_availabilities_of_current_balances().values()\" t-"
+"as=\"sum_data\">\n"
+"                    <div style=\"margin-bottom: -3px; font-size: 15px;\">\n"
+"\n"
+"                        <t t-out=\"sum_data['sum']\" t-options=\"{'widget': 'float', 'precision': 2}\"></"
+"t>\n"
+"                        <t t-out=\"sum_data['symbol']\"></t>\n"
+"\n"
+"                    </div>\n"
+"                </t>\n"
+"                <br>\n"
+"                <h3><span>Bank Account Details</span>:\n"
+"                </h3>\n"
+"                <t t-foreach=\"object.get_bank_journal_data()\" t-as=\"journal_ids\">\n"
+"                    <hr style=\"border-top: 1px solid black;\">\n"
+"                    <t t-set=\"multiple_journals\" t-value=\"len(journal_ids) &gt; 1\"></t>\n"
+"\n"
+"                    <t t-if=\"not multiple_journals\">\n"
+"                        <h3 t-att-style=\"'color:' + journal_ids[0].color_journal\">\n"
+"                            <t t-out=\"journal_ids[0].name\">Revolut2</t>\n"
+"                        </h3>\n"
+"                    </t>\n"
+"\n"
+"                    <t t-if=\"not multiple_journals\">\n"
+"                        <span>Account Balance</span>:\n"
+"                        <span>\n"
+"                            <t t-"
+"out=\"journal_ids[0].get_journal_dashboard_datas().get('account_balance', 0)\">\n"
+"                                100$\n"
+"                            </t>\n"
+"                        </span>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                    </t>\n"
+"\n"
+"                    <t t-foreach=\"journal_ids\" t-as=\"journal_id\">\n"
+"                        <t t-set=\"journal_data\" t-value=\"journal_id.get_journal_dashboard_datas()\"></"
+"t>\n"
+"                        <t t-set=\"has_at_least_one_statement\" t-"
+"value=\"journal_data.get('has_at_least_one_statement')\"></t>\n"
+"\n"
+"                        <h3 t-if=\"multiple_journals\" t-att-style=\"'color:' + "
+"journal_id.color_journal\">\n"
+"                            <t t-out=\"journal_id.name\">Revolut EUR</t>\n"
+"                        </h3>\n"
+"\n"
+"                        <p t-if=\"multiple_journals\">\n"
+"                            <span>Account Balance</span>:\n"
+"                            <span>\n"
+"                                <t t-out=\"journal_data.get('account_balance', 0)\">\n"
+"                                    100$\n"
+"                                </t>\n"
+"                            </span>\n"
+"                        </p>\n"
+"\n"
+"                        <t t-set=\"move_data\" t-value=\"journal_id.get_today_move_data()\"></t>\n"
+"\n"
+"                        <table class=\"table table-striped\" t-if=\"move_data\">\n"
+"                            <thead>\n"
+"                                <tr>\n"
+"                                    <th>Date</th>\n"
+"                                    <th>Description</th>\n"
+"                                    <!--<th>Partner</th>-->\n"
+"                                    <th class=\"text-right\">Value</th>\n"
+"                                </tr>\n"
+"                            </thead>\n"
+"\n"
+"                            <tbody>\n"
+"                                <tr t-foreach=\"move_data\" t-as=\"move_data_id\">\n"
+"                                    <td>\n"
+"                                        <t t-out=\"move_data_id.get('date')\">01/12/2023</t>\n"
+"                                    </td>\n"
+"                                    <td>\n"
+"                                        <t t-out=\"move_data_id.get('description')\">Referance Example</"
+"t>\n"
+"                                    </td>\n"
+"                                    <td class=\"text-right\">\n"
+"                                        <t t-out=\"move_data_id.get('amount')\" t-options=\"{'widget': "
+"'monetary', 'display_currency': move_data_id.get('currency_id')}\">\n"
+"                                            100$\n"
+"                                        </t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </tbody>\n"
+"                        </table>\n"
+"\n"
+"                        <br>\n"
+"                    </t>\n"
+"                </t>\n"
+"\n"
+"                <br>\n"
+"\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div>\n"
+"                <h1 style=\"margin:0px 0 6px 0;box-sizing:border-box;font-size:31.2px;color:#212529;line-"
+"height:1.2;font-weight:500;font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', "
+"Roboto, 'Helvetica Neue', Ubuntu, 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI "
+"Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';\">Posição Diária\n"
+"                    <t t-out=\"datetime.date.today().strftime('%d/%m/%Y')\">01/12/2023</t>\n"
+"                </h1>\n"
+"                <br>\n"
+"                <h2 style=\"margin:0px 0 6px 0;box-sizing:border-box;font-size:19.5px;color:#212529;line-"
+"height:1.2;font-weight:500;font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', "
+"Roboto, 'Helvetica Neue', Ubuntu, 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI "
+"Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';\">Valor em Caixa:\n"
+"                </h2>\n"
+"                <div style=\"font-weight: bold; font-size: 15px;\">\n"
+"                    Total:\n"
+"                    <t t-out=\"object.get_sum_availabilities_total_to_eur()\" t-options=\"{'widget': "
+"'float', 'precision': 2}\"></t>\n"
+"                    €\n"
+"                </div>\n"
+"\n"
+"                <t t-foreach=\"object.get_sum_availabilities_of_current_balances().values()\" t-"
+"as=\"sum_data\">\n"
+"                    <div style=\"margin-bottom: -3px; font-size: 15px;\">\n"
+"\n"
+"                        <t t-out=\"sum_data['sum']\" t-options=\"{'widget': 'float', 'precision': 2}\"></"
+"t>\n"
+"                        <t t-out=\"sum_data['symbol']\"></t>\n"
+"\n"
+"                    </div>\n"
+"                </t>\n"
+"                <br>\n"
+"                <h3 style=\"margin:0px 0 6px 0;box-sizing:border-box;font-size:16.9px;color:#212529;line-"
+"height:1.2;font-weight:500;font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', "
+"Roboto, 'Helvetica Neue', Ubuntu, 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI "
+"Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';\">Detalhe por Conta Bancária:\n"
+"                </h3>\n"
+"                <t t-foreach=\"object.get_bank_journal_data()\" t-as=\"journal_ids\">\n"
+"                    <hr style=\"border-image-width:1;border-image-source:none;border-image-"
+"slice:100%;border-image-repeat:stretch;border-image-outset:0;border-left-color:currentcolor;border-left-"
+"width:0px;border-bottom-color:currentcolor;border-bottom-width:0px;border-right-"
+"color:currentcolor;border-right-width:0px;border-top-color:black;border-top-width:1px;border-style: "
+"solid none none; margin: 12px 0px; box-sizing: border-box; height: 1px; opacity: 0.25; border-image: "
+"none; border-color: black currentcolor currentcolor; border-width: 1px 0px 0px; background-color: "
+"currentcolor; color: #4a4f59;\">\n"
+"                    <t t-set=\"multiple_journals\" t-value=\"len(journal_ids) > 1\"></t>\n"
+"\n"
+"                    <t t-if=\"not multiple_journals\">\n"
+"                        <h3 t-att-style=\"'color:' + journal_ids[0].color_journal\" style=\"margin:0px 0 "
+"6px 0;box-sizing:border-box;font-size:16.9px;color:#212529;line-height:1.2;font-weight:500;font-"
+"family:'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', "
+"Ubuntu, 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', "
+"'Noto Color Emoji';\">\n"
+"                            <t t-out=\"journal_ids[0].name\">Revolut2</t>\n"
+"                        </h3>\n"
+"                    </t>\n"
+"\n"
+"                    <t t-if=\"not multiple_journals\">\n"
+"                        Account Balance:\n"
+"                        \n"
+"                            <t t-"
+"out=\"journal_ids[0].get_journal_dashboard_datas().get('account_balance', 0)\">\n"
+"                                100$\n"
+"                            </t>\n"
+"                        \n"
+"                        <br>\n"
+"                        <br>\n"
+"                    </t>\n"
+"\n"
+"                    <t t-foreach=\"journal_ids\" t-as=\"journal_id\">\n"
+"                        <t t-set=\"journal_data\" t-value=\"journal_id.get_journal_dashboard_datas()\"></"
+"t>\n"
+"                        <t t-set=\"has_at_least_one_statement\" t-"
+"value=\"journal_data.get('has_at_least_one_statement')\"></t>\n"
+"\n"
+"                        <h3 t-if=\"multiple_journals\" t-att-style=\"'color:' + "
+"journal_id.color_journal\" style=\"margin:0px 0 6px 0;box-sizing:border-box;font-"
+"size:16.9px;color:#212529;line-height:1.2;font-weight:500;font-family:'SF Pro Display', -apple-system, "
+"BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, 'Liberation Sans', Arial, sans-serif, "
+"'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';\">\n"
+"                            <t t-out=\"journal_id.name\">Revolut EUR</t>\n"
+"                        </h3>\n"
+"\n"
+"                        <p t-if=\"multiple_journals\" style=\"margin:0px 0 12px 0;box-sizing:border-box;"
+"\">\n"
+"                            Account Balance:\n"
+"                            \n"
+"                                <t t-out=\"journal_data.get('account_balance', 0)\">\n"
+"                                    100$\n"
+"                                </t>\n"
+"                            \n"
+"                        </p>\n"
+"\n"
+"                        <t t-set=\"move_data\" t-value=\"journal_id.get_today_move_data()\"></t>\n"
+"\n"
+"                        <table class=\"table table-striped\" t-if=\"move_data\" "
+"style=\"color:#cdcdce;margin:0 0 12px 0;box-sizing:border-box;border-left-color:#e0e2e6;border-bottom-"
+"color:#e0e2e6;border-right-color:#e0e2e6;border-top-color:#e0e2e6;vertical-align:top;width:100%;border-"
+"collapse:collapse;caption-side:bottom;\" width=\"100%\">\n"
+"                            <thead style=\"border-style:none;box-sizing:border-box;vertical-"
+"align:bottom;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-"
+"width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-"
+"color:inherit;\">\n"
+"                                <tr style=\"border-style:none;box-sizing:border-box;border-left-"
+"width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-"
+"color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;\">\n"
+"                                    <th style=\"border-left-width:0px;border-bottom-width:1px;border-"
+"right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-"
+"color:inherit;border-top-color:inherit;border-style: solid; padding: 9px; box-sizing: border-box; box-"
+"shadow: #ffffff 0px 0px 0px 9999px inset; background-color: transparent; border-width: 0px 0px 1px; "
+"border-color: inherit; text-align: start; font-weight: 500;\">Date</th>\n"
+"                                    <th style=\"border-left-width:0px;border-bottom-width:1px;border-"
+"right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-"
+"color:inherit;border-top-color:inherit;border-style: solid; padding: 9px; box-sizing: border-box; box-"
+"shadow: #ffffff 0px 0px 0px 9999px inset; background-color: transparent; border-width: 0px 0px 1px; "
+"border-color: inherit; text-align: start; font-weight: 500;\">Description</th>\n"
+"                                    \n"
+"                                    <th class=\"text-right\" style=\"border-left-width:0px;border-bottom-"
+"width:1px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-"
+"color:inherit;border-right-color:inherit;border-top-color:inherit;border-style: solid; padding: 9px; box-"
+"sizing: border-box; box-shadow: #ffffff 0px 0px 0px 9999px inset; background-color: transparent; border-"
+"width: 0px 0px 1px; border-color: inherit; text-align: start; font-weight: 500;\">Value</th>\n"
+"                                </tr>\n"
+"                            </thead>\n"
+"\n"
+"                            <tbody style=\"border-style:solid;box-sizing:border-box;vertical-"
+"align:inherit;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-"
+"width:2px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-"
+"color:#e0e2e6;\">\n"
+"                                <tr t-foreach=\"move_data\" t-as=\"move_data_id\" style=\"border-"
+"style:none;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-"
+"width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-"
+"color:inherit;border-top-color:inherit;\">\n"
+"                                    <td style=\"border-left-width:0px;border-bottom-width:1px;border-"
+"right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-"
+"color:inherit;border-top-color:inherit;border-style: solid; padding: 9px; box-sizing: border-box; color: "
+"#4a4f59; box-shadow: #fcfcfc 0px 0px 0px 9999px inset; background-color: transparent; border-width: 0px "
+"0px 1px; border-color: inherit;\">\n"
+"                                        <t t-out=\"move_data_id.get('date')\">01/12/2023</t>\n"
+"                                    </td>\n"
+"                                    <td style=\"border-left-width:0px;border-bottom-width:1px;border-"
+"right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-"
+"color:inherit;border-top-color:inherit;border-style: solid; padding: 9px; box-sizing: border-box; color: "
+"#4a4f59; box-shadow: #fcfcfc 0px 0px 0px 9999px inset; background-color: transparent; border-width: 0px "
+"0px 1px; border-color: inherit;\">\n"
+"                                        <t t-out=\"move_data_id.get('description')\">Referance Example</"
+"t>\n"
+"                                    </td>\n"
+"                                    <td class=\"text-right\" style=\"border-left-width:0px;border-bottom-"
+"width:1px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-"
+"color:inherit;border-right-color:inherit;border-top-color:inherit;border-style: solid; padding: 9px; box-"
+"sizing: border-box; color: #4a4f59; box-shadow: #fcfcfc 0px 0px 0px 9999px inset; background-color: "
+"transparent; border-width: 0px 0px 1px; border-color: inherit;\">\n"
+"                                        <t t-out=\"move_data_id.get('amount')\" t-options=\"{'widget': "
+"'monetary', 'display_currency': move_data_id.get('currency_id')}\">\n"
+"                                            100$\n"
+"                                        </t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </tbody>\n"
+"                        </table>\n"
+"\n"
+"                        <br>\n"
+"                    </t>\n"
+"                </t>\n"
+"\n"
+"                <br>\n"
+"\n"
+"            </div>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">End Date Contract Alert</span>"
+msgstr "<span class=\"o_form_label\">Alerta de Fim de Contrato</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Service Alert</span>"
+msgstr "<span class=\"o_form_label\">Alertas de Revisão</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_footer_standard
+msgid "<span class=\"small\">This document is not an invoice.</span>"
+msgstr "<span class=\"small\">Este documento não serve de fatura.</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_custom_report_brainr
+msgid ""
+"<span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                    <span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_excluded\">Total Price</span>"
+msgstr ""
+"<span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_excluded\">Valor</span>\n"
+"                    <span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_excluded\">Valor Total</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.external_layout_boxed
+msgid ""
+"<span>\n"
+"                        Redlx Club - Associação para a Promoção do Empreendedorismo entre Portugal e os "
+"EUA\n"
+"                    </span>"
+msgstr ""
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_payment_inherit
+msgid "<span>Amount</span>"
+msgstr "<span>Montante</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_payment_inherit
+msgid "<span>Description</span>"
+msgstr "<span>Descrição</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_custom_report_brainr
+msgid "<span>Reference</span>"
+msgstr "<span>Referência</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span>Send an alert when there's less than</span>"
+msgstr "<span>Envia um alerta quando existem menos de </span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span>Send an alert</span>"
+msgstr "<span>Envia um alerta </span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span>days before the contract or service check-up end date.</span>"
+msgstr "<span> dias antes do final do contrato ou do serviço de revisão.</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span>days before the end date</span>"
+msgstr "<span> dias antes da data final</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "<span>kilometers to the next car service.</span>"
+msgstr "<span> Kilómetros até à próxima revisão.</span>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "<strong>Auto renewal:</strong>"
+msgstr "<strong>Renova Automático:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_signature_page_after_terms
+msgid "<strong>Client</strong>"
+msgstr "<strong>Cliente</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_signature_page_after_terms
+msgid "<strong>Company Representative</strong>"
+msgstr "<strong>Representante</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "<strong>Emission Date:</strong>"
+msgstr "<strong>Data de Emissão:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "<strong>End Date:</strong>"
+msgstr "<strong>Data de Final:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "<strong>End Subscription:</strong>"
+msgstr "<strong>Fim Subscrição:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid "<strong>Payment Reference:</strong>"
+msgstr "<strong>Referência de pagamento:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid ""
+"<strong>Purchase Order:</strong>\n"
+"                <br/>"
+msgstr ""
+"<strong>Ordem de Compra:</strong>\n"
+"                <br/>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "<strong>Start Date:</strong>"
+msgstr "<strong>Início Subscrição:</strong>"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+#: model_terms:ir.ui.view,arch_db:casperventures.report_invoice_qrcode_fix
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_qrcode_position_fix
+msgid "ATCUD:"
+msgstr ""
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_custom_report_brainr
+msgid "Amount"
+msgstr "Valor"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Conta Analítica"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_project_project__analytic_group_id
+msgid "Analytic Group"
+msgstr "Grupo Analítico"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Linha Analítica"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_analytic_line__auto_account_partner_id
+msgid "Auto Account Partner"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_analytic_line__auto_account_partner_id_value
+msgid "Auto Account Partner Id Value"
+msgstr ""
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid "Bank Details:"
+msgstr "Conta Bancária"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_bank_rec_widget
+msgid "Bank reconciliation widget for a single statement line"
+msgstr "Widget de reconciliação bancária para linhas individuais de extrato"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_batch_payment
+msgid "Batch Payment"
+msgstr "Pagamento em Série"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_invoice_swap_blocks
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_address_headers
+msgid "Billing Address:"
+msgstr "Dados do Cliente:"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.account_followup_journal_dashboard_kanban_view
+msgid "Billing Reports"
+msgstr "Relatórios de Cobrança"
+
+#. module: casperventures
+#: model:ir.actions.server,name:casperventures.ir_cron_sync_auto_account_partner_id_ir_actions_server
+msgid "Casper: Sync Auto Account Partner Analytic"
+msgstr ""
+
+#. module: casperventures
+#: model:fleet.service.type,name:casperventures.fleet_service_type_service
+msgid "Check-up"
+msgstr "Revisão"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.customer_code_override
+msgid "Client Code:"
+msgstr "Referência de Cliente:"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_journal__color_journal
+msgid "Color"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_edi_common
+msgid "Common functions for EDI documents: generate the data, the constraints, etc"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: casperventures
+#: model:ir.actions.server,name:casperventures.ir_cron_res_company_daily_position_ir_actions_server
+#: model:mail.template,name:casperventures.mail_template_daily_company_position
+msgid "Company: Daily Company Position"
+msgstr "Empresa: Posição Diária da Empresa"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configurações"
+
+#. module: casperventures
+#: model:mail.activity.type,name:casperventures.mail_act_hr_contract_to_renew
+msgid "Contract to Renew"
+msgstr "Contrato para Renovar"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.customer_code_override
+msgid "Customer Code:"
+msgstr "Referência de  Cliente:"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_journal__default_analytic_account
+msgid "Default Analytic Account"
+msgstr "Conta Analítica Padrão"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_journal__default_ecommerce_analytic_account
+msgid "Default Ecommerce Analytic Account"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_sale_order_journal__default_invoice_journal
+msgid "Default Invoice Journal"
+msgstr "Diário de Fatura Padrão"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_journal__default_donation_description
+msgid "Default description"
+msgstr "Descrição predefinida"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_res_config_settings__delay_alert_hr_contract
+msgid "Delay Alert HR Contract Outdated"
+msgstr "Alerta de Prazo para Contratos RH"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_res_config_settings__fleet_km_between_services
+msgid "Delay alert service outdated"
+msgstr "Alerta de prazo para revisão"
+
+#. module: casperventures
+#: model:mail.activity.type,summary:casperventures.mail_act_fleet_to_register_service
+msgid "Efetuar Revisão"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_res_company__email_partner_ids
+msgid "Email Partner"
+msgstr "Parceiro Email"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_hr_contract
+msgid "Employee Contract"
+msgstr "Contrato do Funcionário"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.res_config_settings_view_form
+msgid "Employees Contract Alerts"
+msgstr "Alertas Contratos de Funcionários"
+
+#. module: casperventures
+#: model:ir.model.fields,help:casperventures.field_res_company__use_custom_report
+msgid "Enable this option to use custom reports for this company"
+msgstr "Usar relatórios próprios para esta empresa."
+
+#. module: casperventures
+#: model:mail.activity.type,name:casperventures.mail_act_fleet_to_register_data
+msgid "Enter Mileage data"
+msgstr "Introduzir dados de Quilometragem"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_hr_expense
+msgid "Expense"
+msgstr "Despesa"
+
+#. module: casperventures
+#: model:ir.actions.server,name:casperventures.ir_cron_fleet_alerts_ir_actions_server
+msgid "Fleet: Generate fleet alerts"
+msgstr "Frota: Gerar alertas de frota"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_analytic_line__has_set_auto_account_partner
+msgid "Has Set Auto Account Partner"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.actions.server,name:casperventures.ir_cron_hr_contract_alerts_ir_actions_server
+msgid "Hr Contract: Generate contracts alerts for contracts to expire"
+msgstr "Contrato RH: Gera alertas para contratos que estão para expirar"
+
+#. module: casperventures
+#: model:fleet.service.type,name:casperventures.fleet_service_type_inspection
+msgid "Inspection"
+msgstr "Inspeção"
+
+#. module: casperventures
+#: model:fleet.service.type,name:casperventures.fleet_service_type_insurance
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Estatísticas de Faturas"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_invoice_shipping_spacing
+msgid "Invoicing and Shipping Address:"
+msgstr "Endereço de Entrega:"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_journal
+msgid "Journal"
+msgstr "Diário"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_account_move
+msgid "Journal Entry"
+msgstr "Entrada do Diário"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_fleet_vehicle__km_warning
+msgid "Km Warning"
+msgstr "Aviso de Km"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_fleet_vehicle__insurance
+msgid "Last Insurance Date"
+msgstr "Última data de Seguro"
+
+#. module: casperventures
+#: model:ir.model.fields,help:casperventures.field_fleet_vehicle__insurance
+msgid "Last insurance date of the vehicle at the moment of this log"
+msgstr "Última data de seguro do veículo no momento deste registo"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_journal__nos_alive_default
+msgid "NOS Alive default journal"
+msgstr "Diário padrão do NOS Alive"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "No"
+msgstr "Não"
+
+#. module: casperventures
+#. odoo-python
+#: code:addons/casperventures/models/account_payment_batch.py:0
+#, python-format
+msgid "Não foi possível cancelar alguns pagamentos removidos do lote."
+msgstr ""
+
+#. module: casperventures
+#. odoo-python
+#: code:addons/casperventures/models/account_journal.py:0
+#, python-format
+msgid "Only one journal can be the default NOS Alive journal."
+msgstr "Apenas um diário pode ser o diário padrão do NOS Alive."
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_footer_standard
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_form_title
+msgid "Order Form"
+msgstr "Encomenda"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_account_invoice_report__partner_id_value
+msgid "Partner ID (Technical)"
+msgstr "ID de Parceiro (Técnico)"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "Transação de Pagamento"
+
+#. module: casperventures
+#: model:mail.activity.type,name:casperventures.mail_act_fleet_to_register_service
+msgid "Perform Service"
+msgstr "Efetuar Revisão"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_product_template
+msgid "Product"
+msgstr "Produto"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_hash_footer_standard
+msgid "Products / Services are delivered as per contract agreement."
+msgstr "Os produtos/serviços são entregues de acordo com o contrato."
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_project_project
+msgid "Project"
+msgstr "Projeto"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_form_title
+msgid "Quotation"
+msgstr "Orçamento"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.external_layout_boxed
+msgid ""
+"REDLX CLUB&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Zona "
+"Industrial da Zicofa Lote "
+"4&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2415-314 Leiria | "
+"Portugal&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VAT: PT517283549"
+msgstr ""
+
+#. module: casperventures
+#: model:ir.model.fields,help:casperventures.field_account_invoice_report__partner_id_value
+msgid "Raw partner ID from the account move"
+msgstr "ID de parceiro bruto do movimento de conta"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.view_res_partner_filter_casper
+msgid "Related Company"
+msgstr "Empresa Relacionada"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.view_employee_form_inherited_casper
+msgid "Related User"
+msgstr "Utilizador Relacionado"
+
+#. module: casperventures
+#: model:mail.template,subject:casperventures.mail_template_daily_company_position
+msgid "Report - Daily Position of {{ object.name }}"
+msgstr "Relatório - Posição Diária de {{ object.name }}"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.view_company_form_inherit_custom_report
+msgid "Report Settings"
+msgstr "Opções Relatórios"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_sale_order_journal
+msgid "Sale Journal"
+msgstr "Diário de Venda"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_sale_order
+msgid "Sales Order"
+msgstr "Ordem de Venda"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_fleet_vehicle__service_mileage_interval
+msgid "Service Mileage Interval"
+msgstr "Intervalo Entre Revisões"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_invoice_swap_blocks
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_invoice_shipping_spacing
+msgid "Shipping Address:"
+msgstr "Endereço de Entrega:"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_signature_page_after_terms
+msgid "Signatures"
+msgstr "Assinaturas"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid "Subtotal"
+msgstr ""
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_custom_report_brainr
+#: model_terms:ir.ui.view,arch_db:casperventures.shared_tax_groups_totals_inherit
+msgid "Tax"
+msgstr "Total IVA"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_custom_report_brainr
+msgid "Taxes"
+msgstr "IVA"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.remove_terms_conditions_page
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_signature_page_after_terms
+msgid "Terms &amp; Conditions"
+msgstr "Termos  e Condições"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_signature_page_after_terms
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_terms_conditions_title
+msgid ""
+"Terms &amp; Conditions  <span class=\"text-muted\" style=\"font-size: 13px;\">  (Legal and commercial "
+"terms)</span>"
+msgstr ""
+"Termos e Condições <span class=\"text-muted\" style=\"font-size: 13px;\">(Termos legais e comerciais)</"
+"span>"
+
+#. module: casperventures
+#. odoo-python
+#: code:addons/casperventures/models/account_move.py:0
+#: code:addons/casperventures/models/bank_rec_widget.py:0
+#, python-format
+msgid "To post this invoice, you'll need to have an analytic account on every line!"
+msgstr "Para validar esta fatura, vai precisar de uma conta analítica em todas as linhas!"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.shared_document_tax_totals_template_inherit
+msgid "Untaxed Amount"
+msgstr "Total Bruto"
+
+#. module: casperventures
+#: model:ir.model.fields,field_description:casperventures.field_res_company__use_custom_report
+msgid "Use Custom Report"
+msgstr "Relatório Brainr"
+
+#. module: casperventures
+#: model:ir.model,name:casperventures.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "Veículo"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.sale_order_deadline_after_salesperson
+msgid "Yes"
+msgstr "Sim"
+
+#. module: casperventures
+#: model_terms:ir.ui.view,arch_db:casperventures.report_custom_brainr
+msgid "VAT:"
+msgstr "NIF:"

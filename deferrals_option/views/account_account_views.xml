@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_account_form_asset_inherit_deferral">
+        <field name="name">view.account.form.asset.inherit.deferral</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account_asset.view_account_form_asset_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='asset_model']" position="before">
+                <field name="account_asset_type" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='asset_model']" position="attributes">
+                <attribute name="domain">[('state', '=', 'model'), ('deferral_type', '=', account_asset_type)]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

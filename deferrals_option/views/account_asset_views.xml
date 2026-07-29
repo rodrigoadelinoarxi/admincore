@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_account_asset_deferral_form">
+        <field name="name">account.asset.form.deferrals.inherit</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='account_asset_law_id']" position="attributes">
+                <attribute name="invisible">deferral_type</attribute>
+            </xpath>
+            <xpath expr="//label[@name='model_name_label']" position="after">
+                <field name="deferral_type" invisible="True"/>
+                <label for="name" name="model_name_label" string="Deferral Model Name"
+                       invisible="state != 'model' or deferral_type != 'expense'"/>
+            </xpath>
+            <xpath expr="//label[@name='model_name_label']" position="after">
+                <label for="name" name="model_name_label" string="Revenue Model Name"
+                       invisible="state != 'model' or deferral_type != 'revenue'"/>
+            </xpath>
+            <xpath expr="//label[@name='model_name_label']" position="attributes">
+                <!--                <attribute name="invisible">state != 'model' or deferral_type == 'expense'</attribute>-->
+                <attribute name="invisible">state != 'model' or deferral_type in ['expense','revenue']</attribute>
+            </xpath>
+
+            <xpath expr="//label[@name='name_label']" position="after">
+                <field name="deferral_type" invisible="True"/>
+                <label for="name" name="name_label" string="Deferral Model Name"
+                       invisible="state == 'model' or deferral_type != 'expense'"/>
+            </xpath>
+            <xpath expr="//label[@name='name_label']" position="after">
+                <field name="deferral_type" invisible="True"/>
+                <label for="name" name="name_label" string="Revenue Model Name"
+                       invisible="state == 'model' or deferral_type != 'revenue'"/>
+            </xpath>
+            <xpath expr="//label[@name='name_label']" position="attributes">
+                <!--                <attribute name="invisible">state == 'model' or deferral_type == 'expense'</attribute>-->
+                <attribute name="invisible">state == 'model' or deferral_type in ['expense','revenue']</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_id']" position="attributes">
+                <attribute name="invisible">deferral_type == 'expense'</attribute>
+                <attribute name="domain">[('account_type', 'in', ['asset_fixed', 'asset_non_current', 'asset_current',
+                    'liability_current'])]
+                </attribute>
+                <attribute name="contex">{
+                    'default_account_type': 'asset_non_current',
+                    'hide_model_on_account': state == 'model' and not id,
+                    'account_type_domain': [('account_type', 'in', (
+                    'asset_fixed',
+                    'asset_non_current',
+                    'asset_current',
+                    'liability_current'))]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_id']" position="after">
+                <field
+                        name="account_depreciation_id"
+                        string="Deferral Account"
+                        domain="[('account_type', 'in', (
+                            'asset_fixed',
+                            'asset_non_current',
+                            'asset_current',
+                            'liability_current'))]"
+                        context="{
+                            'default_account_type': 'asset_non_current',
+                            'hide_model_on_account': state == 'model' and not id,
+                            'account_type_domain': [('account_type', 'in', (
+                                'asset_fixed',
+                                'asset_non_current',
+                                'asset_current',
+                                'liability_current'))]}"
+                        required="1"
+                        readonly="state == 'close'"
+                        invisible="deferral_type != 'expense'"/>
+            </xpath>
+
+
+            <xpath expr="//field[@name='method']" position="attributes">
+                <attribute name="invisible">deferral_type == 'expense'</attribute>
+            </xpath>
+
+            <!--            <xpath expr="//field[@name='account_asset_law_id']" position="attributes">-->
+            <!--                <attribute name="invisible">deferral_type == 'expense'</attribute>-->
+            <!--            </xpath>-->
+
+            <xpath expr="//page[@name='depreciation_board']" position="attributes">
+                <attribute name="invisible">total_depreciation_entries_count == 0 or deferral_type == 'expense'
+                </attribute>
+            </xpath>
+            <xpath expr="//page[@name='depreciation_board']" position="after">
+                <page string="Expense Board" name="depreciation_board"
+                      invisible="total_depreciation_entries_count == 0 or deferral_type != 'expense'">
+                    <field name="depreciation_move_ids" mode="tree" options="{'reload_whole_on_button': true}"
+                           readonly="state not in ['draft', 'open', 'paused']">
+                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"
+                              default_order="date asc, id asc" editable="top">
+                            <field name="currency_id" column_invisible="True" readonly="state in ['cancel', 'posted']"/>
+                            <field name="date" string="Depreciation Date" readonly="state in ['cancel', 'posted']"/>
+                            <field name="ref" invisible="0"/>
+                            <field name="reversal_move_id" widget="deprec_lines_reversed"/>
+                            <field name="depreciation_value" widget="monetary" string="Depreciation"
+                                   options="{'currency_field': 'currency_id'}" readonly="state == 'posted'"/>
+                            <field name="asset_depreciated_value" readonly="1" force_save="1"
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="asset_remaining_value" readonly="1" widget="monetary" force_save="1"
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="name" readonly="1" string="Journal Entry"/>
+                            <field name="state" column_invisible="True"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+            <xpath expr="//button[@name='compute_depreciation_board']" position="attributes">
+                <attribute name="invisible">state != 'draft' or deferral_type == 'expense'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='compute_depreciation_board']" position="after">
+                <button type="object" name="compute_depreciation_board" string="Compute Expenses"
+                        invisible="state != 'draft' or deferral_type != 'expense'"/>
+            </xpath>
+
+            <xpath expr="//button[@name='set_to_cancelled']" position="attributes">
+                <attribute name="invisible">state != 'draft' and deferral_type in ['expense','revenue']</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_asset_modify']" position="attributes">
+                <attribute name="invisible">state != 'open' or deferral_type in ['expense', 'revenue']</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_asset_modify']" position="after">
+                <button name="action_asset_modify" invisible="state != 'open' or deferral_type != 'expense'"
+                        string="Modify Expenses" type="object" data-hotkey="e" class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//button[@name='action_asset_modify']" position="after">
+                <button name="action_asset_modify" invisible="state != 'open' or deferral_type != 'revenue'"
+                        string="Modify Revenue" type="object" data-hotkey="e" class="oe_highlight"/>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_expense_id']" position="attributes">
+                <attribute name="invisible">deferral_type in ['revenue', 'expense']</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_expense_id']" position="after">
+                <field name="account_depreciation_id_account_type" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_expense_id']" position="after">
+                <field
+                        name="account_depreciation_expense_id"
+                        domain="[('account_type', 'in', (
+                        'income',
+                        'income_other'))]"
+                        context="{
+                        'default_account_type': 'income',
+                        'hide_model_on_account': state == 'model' and not id,
+                        'account_type_domain': [('account_type', 'in', (
+                            'income',
+                            'income_other'))]}"
+                        required="1"
+                        readonly="state == 'close'"
+                        invisible="deferral_type != 'revenue' or account_depreciation_id_account_type != 'asset_current'"/>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_expense_id']" position="after">
+                <field
+                        name="account_depreciation_expense_id"
+                        domain="[('account_type', 'in', (
+                        'expense_depreciation',
+                        'expense'))]"
+                        context="{
+                        'default_account_type': 'expense_depreciation',
+                        'hide_model_on_account': state == 'model' and not id,
+                        'account_type_domain': [('account_type', 'in', (
+                            'expense_depreciation',
+                            'expense'))]}"
+                        required="1"
+                        readonly="state == 'close'"
+                        invisible="deferral_type != 'revenue' or account_depreciation_id_account_type != 'liability_current'"/>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_expense_id']" position="after">
+                <field
+                        name="account_depreciation_expense_id"
+                        domain="[('account_type', 'in', ('income', 'income_other'))]"
+                        context="{
+                        'default_account_type': 'expense_depreciation',
+                        'hide_model_on_account': state == 'model' and not id,
+                        'account_type_domain': [('account_type', 'in', (
+                             'income', 'income_other'))]}"
+                        required="1"
+                        invisible="deferral_type != 'expense' or account_depreciation_id_account_type != 'liability_current'"
+                        readonly="state == 'close'"/>
+            </xpath>
+
+            <xpath expr="//field[@name='account_depreciation_expense_id']" position="after">
+                <field
+                        name="account_depreciation_expense_id"
+                        domain="[('account_type', 'in', (
+                        'expense_depreciation',
+                        'expense'))]"
+                        context="{
+                        'default_account_type': 'expense_depreciation',
+                        'hide_model_on_account': state == 'model' and not id,
+                        'account_type_domain': [('account_type', 'in', (
+                            'expense_depreciation',
+                            'expense'))]}"
+                        required="1"
+                        invisible="deferral_type != 'expense' or account_depreciation_id_account_type != 'asset_current'"
+                        readonly="state == 'close'"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_deferrals_tree">
+        <field name="name">view.account.asset.deferrals.tree</field>
+        <field name="model">account.asset</field>
+        <field name="arch" type="xml">
+            <tree string="Deferral Model">
+                <field name="name" string="Deferral Model Name"/>
+                <field name="account_depreciation_id" readonly="state == 'close'" string="Deferral Account"/>
+                <field name="method_number" string="Number of Depreciations"
+                       readonly="state not in ['draft', 'model']"/>
+                <field name="method_period" string="Period length" readonly="state not in ['draft', 'model']"/>
+                <field name="company_id" column_invisible="True" readonly="state != 'draft'"/>
+                <field name="state" column_invisible="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_asset_deferral_form">
+        <field name="name">Deferred Expense Models</field>
+        <field name="res_model">account.asset</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_deferrals_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
+        <field name="search_view_id" ref="account_asset.view_account_asset_search"/>
+        <field name="domain">[('state', '=', 'model'), ('deferral_type','=','expense')]</field>
+        <field name="context">{'default_state': 'model'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new deferral model
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_revenue_tree">
+        <field name="name">view.account.asset.revenue.tree</field>
+        <field name="model">account.asset</field>
+        <field name="arch" type="xml">
+            <tree string="Revenue Model">
+                <field name="name" string="Revenue Model Name"/>
+                <field name="account_depreciation_id" readonly="state == 'close'" string="Deferral Account"/>
+                <field name="method_number" string="Number of Depreciations"
+                       readonly="state not in ['draft', 'model']"/>
+                <field name="method_period" string="Period length" readonly="state not in ['draft', 'model']"/>
+                <field name="company_id" column_invisible="True" readonly="state != 'draft'"/>
+                <field name="state" column_invisible="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_asset_revenue_form">
+        <field name="name">Deferred Revenue Models</field>
+        <field name="res_model">account.asset</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_revenue_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
+        <field name="search_view_id" ref="account_asset.view_account_asset_search"/>
+        <field name="domain">[('state', '=', 'model'), ('deferral_type','=','revenue')]</field>
+        <field name="context">{'default_state': 'model'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new deferral model
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="account_asset.action_account_asset_model_form">
+        <field name="domain">[('state', '=', 'model'), ('deferral_type','=', False)]</field>
+    </record>
+
+    <menuitem parent="account.account_management_menu" id="menu_action_account_asset_deferral_form"
+              action="action_account_asset_deferral_form" sequence="1" groups="account.group_account_readonly"/>
+    <menuitem parent="account.account_management_menu" id="menu_action_account_asset_revenue_form"
+              action="action_account_asset_revenue_form" sequence="1" groups="account.group_account_readonly"/>
+
+
+    <!--DEFERRAL MENU TREE-->
+    <record model="ir.ui.view" id="view_account_asset_deferral_tree">
+        <field name="name">account.asset.deferral.tree</field>
+        <field name="model">account.asset</field>
+        <field name="arch" type="xml">
+            <tree string="Deferred Expenses" decoration-info="(state == 'draft')" decoration-muted="(state == 'close')"
+                  sample="1">
+                <field name="name" string="Expense"/>
+                <field name="acquisition_date"/>
+                <field name="book_value"/>
+                <field name="value_residual"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_account_asset_deferred_expenses_form" model="ir.ui.view">
+        <field name="name">account.asset.form.deferral</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='main_page']//field[@name='account_depreciation_id']" position="attributes">
+                <attribute name="domain">[('account_type', 'in', ['asset_fixed', 'asset_non_current', 'asset_current',
+                    'liability_current'])]
+                </attribute>
+                <attribute name="contex">{
+                    'default_account_type': 'asset_non_current',
+                    'hide_model_on_account': state == 'model' and not id,
+                    'account_type_domain': [('account_type', 'in', (
+                    'asset_fixed',
+                    'asset_non_current',
+                    'asset_current',
+                    'liability_current'))]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='main_page']" position="attributes">
+                <attribute name="invisible">deferral_type in ['expense','revenue']</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='main_page']//group//field[@name='model_id']" position="attributes">
+                <attribute name="domain">[('state', '=', 'model'), ('deferral_type', '=', False)]</attribute>
+            </xpath>
+
+            <!--EXPENSE-->
+            <xpath expr="//page[@name='main_page']" position="after">
+                <page string="Expense" name="main_page" invisible="deferral_type != 'expense'">
+                    <group>
+                        <field name="active" invisible="1"/>
+                        <group string="Asset Values" invisible="state == 'model'" name="asset_values">
+                            <field name="original_value" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                   invisible="state == 'model'" readonly="state != 'draft'"/>
+                            <field name="gross_increase_value" widget="monetary"
+                                   invisible="state == 'model' or gross_increase_value == 0"
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="acquisition_date" invisible="state == 'model'" readonly="state != 'draft'"/>
+                            <field name="model_id"
+                                   string="Asset Model"
+                                   domain="[('state', '=', 'model'), ('deferral_type', '=', deferral_type)]"
+                                   options="{'no_quick_create': True}"
+                                   context="{
+                                        'default_state': 'model',
+                                        'default_account_asset_id': account_asset_id,
+                                        'default_account_depreciation_id': account_depreciation_id,
+                                        'default_account_depreciation_expense_id': account_depreciation_expense_id
+                                    }" readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Current Values" invisible="state == 'model'" name="current_values">
+                            <field name="salvage_value" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                   readonly="state != 'draft'"/>
+                            <label for="book_value"/>
+                            <span>
+                                <field name="book_value" class="oe_inline" widget="monetary" required="1"
+                                       invisible="state == 'model'" options="{'currency_field': 'currency_id'}"/>
+                                <span invisible="salvage_value == 0">
+                                    (incl.
+                                    <field name="value_residual" nolabel="1" force_save="1" widget="monetary"
+                                           invisible="state == 'model'" options="{'currency_field': 'currency_id'}"/>
+                                    depreciable)
+                                </span>
+                            </span>
+                        </group>
+                        <group string="Depreciation Method">
+                            <field name="method" required="1" readonly="state not in ['draft', 'model']"/>
+                            <field name="method_progress_factor" widget="percentage" invisible="method == 'linear'"
+                                   readonly="state not in ['draft', 'model']"
+                                   required="method in ('degressive', 'degressive_then_linear')"/>
+                            <label for="method_number" string="Duration"/>
+                            <div class="o_row">
+                                <field name="method_number" required="1" readonly="state not in ['draft', 'model']"
+                                       class="oe_inline"/>
+                                <field name="method_period" required="1" readonly="state not in ['draft', 'model']"
+                                       nolabel="1"/>
+                            </div>
+                            <field name="prorata_computation_type" readonly="state not in ['draft', 'model']"/>
+                            <field name="prorata_date" invisible="prorata_computation_type == 'none'"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Accounting">
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"
+                                   readonly="state != 'draft'"/>
+                            <field name="movement_type"/>
+                            <field
+                                    name="account_asset_id"
+                                    domain="[('account_type', 'in', (
+                                    'asset_fixed',
+                                    'asset_non_current',
+                                    'asset_current'))]"
+                                    context="{
+                                    'default_account_type': 'asset_fixed',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'asset_fixed',
+                                        'asset_non_current'))]}"
+                                    invisible="1"
+                                    readonly="state == 'close'"/>
+                            <!--                                invisible="not display_account_asset_id"-->
+                            <field
+                                    name="account_depreciation_id"
+                                    domain="[('account_type', 'in', (
+                                    'asset_fixed',
+                                    'asset_non_current',
+                                    'asset_current',
+                                    'liability_current'))]"
+                                    context="{
+                                    'default_account_type': 'asset_non_current',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'asset_fixed',
+                                        'asset_non_current',
+                                        'asset_current',
+                                        'liability_current'))]}"
+                                    required="1"
+                                    readonly="state == 'close'"/>
+                            <field
+                                    name="account_depreciation_expense_id"
+                                    domain="[('account_type', 'in', (
+                                    'expense_depreciation',
+                                    'expense'))]"
+                                    context="{
+                                    'default_account_type': 'expense_depreciation',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'expense_depreciation',
+                                        'expense'))]}"
+                                    required="1"
+                                    invisible="deferral_type != 'expense' or account_depreciation_id_account_type != 'asset_current'"
+                                    readonly="state == 'close'"/>
+
+                            <field
+                                    name="account_depreciation_expense_id"
+                                    domain="[('account_type', 'in', ('income', 'income_other'))]"
+                                    context="{
+                                    'default_account_type': 'expense_depreciation',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                         'income', 'income_other'))]}"
+                                    required="1"
+                                    invisible="deferral_type != 'expense' or account_depreciation_id_account_type != 'liability_current'"
+                                    readonly="state == 'close'"/>
+
+                            <field name="journal_id" required="1" readonly="state not in ['draft', 'model']"/>
+                            <field name="analytic_distribution" groups="analytic.group_analytic_accounting"
+                                   widget="analytic_distribution"
+                                   options="{'account_field': 'account_depreciation_expense_id', 'business_domain': 'general'}"
+                                   readonly="0"/>
+                        </group>
+                        <group string="Value at Import" groups="base.group_no_one" invisible="state == 'model'">
+                            <field name="already_depreciated_amount_import" string="Depreciated Amount"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <!--REVENUE-->
+            <xpath expr="//page[@name='main_page']" position="after">
+                <page string="Revenue" name="main_page" invisible="deferral_type != 'revenue'">
+                    <group>
+                        <field name="active" invisible="1"/>
+                        <group string="Asset Values" invisible="state == 'model'" name="asset_values">
+                            <field name="original_value" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                   invisible="state == 'model'" readonly="state != 'draft'"/>
+                            <field name="gross_increase_value" widget="monetary"
+                                   invisible="state == 'model' or gross_increase_value == 0"
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="acquisition_date" invisible="state == 'model'" readonly="state != 'draft'"/>
+                            <field name="model_id"
+                                   string="Asset Model"
+                                   domain="[('state', '=', 'model'), ('deferral_type', '=', deferral_type)]"
+                                   options="{'no_quick_create': True}"
+                                   context="{
+                                        'default_state': 'model',
+                                        'default_account_asset_id': account_asset_id,
+                                        'default_account_depreciation_id': account_depreciation_id,
+                                        'default_account_depreciation_expense_id': account_depreciation_expense_id
+                                    }" readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Current Values" invisible="state == 'model'" name="current_values">
+                            <field name="salvage_value" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                   readonly="state != 'draft'"/>
+                            <label for="book_value"/>
+                            <span>
+                                <field name="book_value" class="oe_inline" widget="monetary" required="1"
+                                       invisible="state == 'model'" options="{'currency_field': 'currency_id'}"/>
+                                <span invisible="salvage_value == 0">
+                                    (incl.
+                                    <field name="value_residual" nolabel="1" force_save="1" widget="monetary"
+                                           invisible="state == 'model'" options="{'currency_field': 'currency_id'}"/>
+                                    depreciable)
+                                </span>
+                            </span>
+                        </group>
+                        <group string="Depreciation Method">
+                            <field name="method" required="1" readonly="state not in ['draft', 'model']"/>
+                            <field name="method_progress_factor" widget="percentage" invisible="method == 'linear'"
+                                   readonly="state not in ['draft', 'model']"
+                                   required="method in ('degressive', 'degressive_then_linear')"/>
+                            <label for="method_number" string="Duration"/>
+                            <div class="o_row">
+                                <field name="method_number" required="1" readonly="state not in ['draft', 'model']"
+                                       class="oe_inline"/>
+                                <field name="method_period" required="1" readonly="state not in ['draft', 'model']"
+                                       nolabel="1"/>
+                            </div>
+                            <field name="prorata_computation_type" readonly="state not in ['draft', 'model']"/>
+                            <field name="prorata_date" invisible="prorata_computation_type == 'none'"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Accounting">
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"
+                                   readonly="state != 'draft'"/>
+                            <field name="movement_type"/>
+                            <field
+                                    name="account_asset_id"
+                                    domain="[('account_type', 'in', (
+                                    'asset_fixed',
+                                    'asset_non_current',
+                                    'asset_current'))]"
+                                    context="{
+                                    'default_account_type': 'asset_fixed',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'asset_fixed',
+                                        'asset_non_current'))]}"
+                                    invisible="1"
+                                    readonly="state == 'close'"/>
+                            <!--                            invisible="not display_account_asset_id"-->
+                            <field
+                                    name="account_depreciation_id"
+                                    domain="[('account_type', 'in', (
+                                    'asset_fixed',
+                                    'asset_non_current',
+                                    'asset_current', 'liability_current'))]"
+                                    context="{
+                                    'default_account_type': 'asset_non_current',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'asset_fixed',
+                                        'asset_non_current'))]}"
+                                    required="1"
+                                    readonly="state == 'close'"/>
+                            <field
+                                    name="account_depreciation_expense_id"
+                                    domain="[('account_type', 'in', (
+                                    'income',
+                                    'income_other'))]"
+                                    context="{
+                                    'default_account_type': 'income',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'income',
+                                        'income_other'))]}"
+                                    required="1"
+                                    readonly="state == 'close'"
+                                    invisible="deferral_type != 'revenue' or account_depreciation_id_account_type != 'asset_current'"/>
+
+                            <field
+                                    name="account_depreciation_expense_id"
+                                    domain="[('account_type', 'in', (
+                                    'expense_depreciation',
+                                    'expense'))]"
+                                    context="{
+                                    'default_account_type': 'expense_depreciation',
+                                    'hide_model_on_account': state == 'model' and not id,
+                                    'account_type_domain': [('account_type', 'in', (
+                                        'expense_depreciation',
+                                        'expense'))]}"
+                                    required="1"
+                                    readonly="state == 'close'"
+                                    invisible="deferral_type != 'revenue' or account_depreciation_id_account_type != 'liability_current'"/>
+
+                            <field name="journal_id" required="1" readonly="state not in ['draft', 'model']"/>
+                            <field name="analytic_distribution" groups="analytic.group_analytic_accounting"
+                                   widget="analytic_distribution"
+                                   options="{'account_field': 'account_depreciation_expense_id', 'business_domain': 'general'}"
+                                   readonly="0"/>
+                        </group>
+                        <group string="Value at Import" groups="base.group_no_one" invisible="state == 'model'">
+                            <field name="already_depreciated_amount_import" string="Depreciated Amount"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_asset_deferral_tree">
+        <field name="name">Deferred Expenses</field>
+        <field name="res_model">account.asset</field>
+        <field name="view_mode">tree</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_deferral_tree')}),
+            (0, 0, {'view_mode': 'kanban'}),
+            (0, 0, {'view_mode': 'activity'}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
+        <field name="domain">[
+            ('state', '!=', 'model'),
+            ('parent_id', '=', False),
+            ('account_depreciation_id', 'ilike', '28%')]
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new asset
+            </p>
+        </field>
+    </record>
+
+    <menuitem parent="account.menu_finance_entries_management" id="menu_action_account_asset_deferral_tree"
+              action="action_account_asset_deferral_tree" sequence="99" groups="account.group_account_readonly"/>
+
+    <!--Deferred Revenues-->
+    <record model="ir.ui.view" id="view_account_asset_deferred_revenues_tree">
+        <field name="name">account.asset.deferral.revenues.tree</field>
+        <field name="model">account.asset</field>
+        <field name="arch" type="xml">
+            <tree string="Deferred Revenues" decoration-info="(state == 'draft')" decoration-muted="(state == 'close')"
+                  sample="1">
+                <field name="name" string="Revenue"/>
+                <field name="acquisition_date"/>
+                <field name="book_value"/>
+                <field name="value_residual"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_asset_deferred_revenues_tree">
+        <field name="name">Deferred Revenue</field>
+        <field name="res_model">account.asset</field>
+        <field name="view_mode">tree</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_deferred_revenues_tree')}),
+            (0, 0, {'view_mode': 'kanban'}),
+            (0, 0, {'view_mode': 'activity'}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
+        <field name="domain">[
+            ('state', '!=', 'model'),
+            ('parent_id', '=', False),
+            ('account_depreciation_id', 'ilike', '272%')]
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new asset
+            </p>
+        </field>
+    </record>
+
+    <menuitem parent="account.menu_finance_entries_management" id="menu_action_account_deferred_revenues_tree"
+              action="action_account_asset_deferred_revenues_tree" sequence="99"
+              groups="account.group_account_readonly"/>
+
+    <!--REPLACE DOMAIN FOR ASSETS-->
+    <record id="account_asset.action_account_asset_form" model="ir.actions.act_window">
+        <field name="domain">
+            [('state', '!=', 'model'),
+            ('parent_id', '=', False),
+            ('account_depreciation_id', 'ilike', '4%')]
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <record id="group_internal_portal_attendances" model="res.groups">
+        <field name="name">Attendances</field>
+        <field name="category_id" ref="base_internal_portal.module_category_internal_portal"/>
+        <field name="comment">Manage own attendances in portal.</field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="l10n_pt_ao_pos.ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <xpath expr="//div[@class='cashier']" position="replace">
+            <div t-if="props.data.cashier" class="cashier">
+                <div>--------------------------------</div>
+                <div>Served by <t t-esc="props.data.cashier_name"/></div>
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="l10n_pt_pos.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//img[@id='posqrcode']" position="attributes">
+            <attribute name="t-att-style">props.data.qr_style</attribute>
+        </xpath>
+
+        <xpath expr="//img[@id='posqrcode']//preceding-sibling::div" position="replace"/>
+
+        <xpath expr="//div[hasclass('before-footer')]" position="after">
+            <br/>
+            <div name="cert_receipt" t-if="props.data.qr_code">
+            <div style="word-wrap:break-word;">ATCUD: <t t-esc="props.data.atcud or '0'"/></div>
+            <div id="qrcode_pt" class="mb-2">
+                <img class="border border-dark rounded pos-receipt-logo" t-att-style="props.data.qr_style" t-att-src="props.data.qr_code"/>
+            </div>
+                <div style="word-wrap:break-word;"><t t-esc="props.data.inalterable_hash[0] + props.data.inalterable_hash[10] + props.data.inalterable_hash[20] + props.data.inalterable_hash[30]"/>
+                    - Processed by certified
+                    software no. 2790/AT</div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

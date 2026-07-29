@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Delivery Date and Client Order Reference in informations section -->
+    <template id="sale_order_deadline_after_salesperson"
+              inherit_id="l10n_pt_sale.report_saleorder_document"
+              priority="999">
+        <xpath expr="//div[@id='informations']//div[@name='informations_date']" position="replace">
+            <t t-if="doc and doc.company_id.use_custom_report and doc.is_subscription">
+                <div t-if="doc.start_date" class="col-auto col-3 mw-100 mb-2" name="informations_date">
+                    <strong>Start Date:</strong>
+                    <p class="m-0" t-field="doc.start_date" t-options='{"widget": "date"}'/>
+                </div>
+            </t>
+            <t t-else="">
+                <div t-if="doc.date_order" class="col-auto col-3 mw-100 mb-2" name="informations_date">
+                    <strong>Emission Date:</strong>
+                    <p class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}'/>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//div[@t-if='doc.user_id.name']" position="before">
+            <!-- Deadline -->
+            <div t-if="doc.end_date and doc.is_subscription and doc.company_id.use_custom_report"
+                 class="col-auto col-3 mw-100 mb-2"
+                 name="end_date">
+                <t t-if="doc.is_subscription">
+                    <strong>End Subscription:</strong>
+                </t>
+                <br/>
+                <span class="m-0"
+                      t-field="doc.end_date"
+                      t-options='{"widget": "date"}'/>
+            </div>
+            <div t-if="doc and doc.is_subscription and doc.company_id.use_custom_report and doc.end_date" class="col-auto col-3 mw-100 mb-2" name="renewal">
+                <strong>Auto renewal:</strong>
+                <p t-if="doc.end_date">Yes</p>
+                <p t-else="">No</p>
+            </div>
+
+            <!-- Purchase Order -->
+            <div t-if="doc.x_studio_char_field_7ga_1j8lnlbkh and doc.company_id.use_custom_report"
+                 class="col-auto col-3 mw-100 mb-2"
+                 name="purchase_order">
+                <strong>Purchase Order:</strong>
+                <br/>
+                <span class="m-0" t-field="doc.x_studio_char_field_7ga_1j8lnlbkh"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[@name='expiration_date']" position="attributes">
+            <attribute name="t-if">not doc.is_subscription and doc.validity_date and doc.state in ['draft', 'sent']</attribute>
+        </xpath>
+    </template>
+
+    <!-- Override vat_for_address for subscriptions with custom report to show full VAT -->
+    <template id="subscription_vat_for_address" inherit_id="l10n_pt_sale.report_saleorder_document" priority="998">
+        <xpath expr="//p[@name='vat_for_address']" position="replace">
+            <p name="vat_for_address" t-if="doc.partner_id.vat">
+                <!-- For subscriptions with custom report, show full VAT without masking -->
+                <t t-if="doc.is_subscription and doc.company_id.use_custom_report">
+                    <t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>:
+                    <span t-field="doc.partner_id.vat"/>
+                </t>
+                <!-- For all other cases, use the standard l10n_pt representation -->
+                <t t-else="">
+                    <t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>:
+                    <span t-out="doc.document_address_id.get_l10n_pt_vat_repr()"/>
+                </t>
+            </p>
+        </xpath>
+    </template>
+
+</odoo>

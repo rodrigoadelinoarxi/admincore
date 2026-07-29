@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<odoo><template id="report_deliveryslip" inherit_id="stock.report_deliveryslip" priority="30"><xpath expr="//t[@t-call='#{ o._get_name_stock_report() }']" position="replace"><t t-set="copies" t-value="int(o.print_copies)"/><t t-foreach="range(1, copies + 1)" t-as="print_type"><t t-call="#{ o._get_name_stock_report() }" t-lang="o._get_report_lang()"/></t></xpath></template></odoo>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="account_tax_exemption_menu_action" name="Tax Exemptions" groups="base.group_system" action="account_tax_exemption_action" parent="account.account_account_menu" sequence="3"/></odoo>

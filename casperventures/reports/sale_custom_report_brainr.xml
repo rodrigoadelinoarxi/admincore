@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom Sale Report Brainr -->
+    <template id="sale_custom_report_brainr" inherit_id="l10n_pt_sale.report_saleorder_document" priority="300">
+
+        <!-- Adicionar coluna Reference antes da descrição -->
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_product_code" class="text-start" t-if="doc.company_id.use_custom_report">
+                <span>Reference</span>
+            </th>
+        </xpath>
+
+        <!-- Linha do código do produto -->
+        <xpath expr="//td[@name='td_name']" position="before">
+            <td name="td_product_code" class="text-start" t-if="doc.company_id.use_custom_report">
+                <span t-if="line.product_id.default_code"
+                      t-field="line.product_id.default_code"/>
+            </td>
+        </xpath>
+
+        <!-- Substituir a descrição -->
+        <xpath expr="//td[@name='td_name']/span" position="replace">
+            <span t-if="doc.company_id.use_custom_report"
+                  t-field="line.name"
+                  t-options="{'widget': 'text'}"/>
+            <span t-if="not doc.company_id.use_custom_report"
+                  t-out="line._get_report_name()"
+                  t-options="{'widget': 'text'}"/>
+        </xpath>
+
+        <!-- Preço unitário com símbolo € -->
+        <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+            <span t-if="doc.company_id.use_custom_report" class="text-nowrap">
+                <span t-field="line.price_unit"/>
+                €
+            </span>
+            <span t-if="not doc.company_id.use_custom_report"
+                  class="text-nowrap"
+                  t-field="line.price_unit"/>
+        </xpath>
+
+        <!-- Trocar cabeçalhos: Taxes ↔ Amount -->
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+            <th name="th_taxes" class="text-end">
+                <span t-if="doc.company_id.use_custom_report">Amount</span>
+                <span t-if="not doc.company_id.use_custom_report">Tax</span>
+            </th>
+        </xpath>
+
+        <xpath expr="//th[@name='th_subtotal']" position="replace">
+            <th name="th_subtotal" class="text-end">
+                <span t-if="doc.company_id.use_custom_report">Taxes</span>
+                <span t-if="not doc.company_id.use_custom_report">
+                    <span groups="l10n_pt_ao.group_show_line_subtotals_tax_excluded">Amount</span>
+                    <span groups="l10n_pt_ao.group_show_line_subtotals_tax_excluded">Total Price</span>
+                </span>
+            </th>
+        </xpath>
+
+        <!-- Coluna Amount -->
+        <xpath expr="//td[@name='td_taxes']" position="replace">
+            <td name="td_taxes" class="text-end">
+                <span t-if="doc.company_id.use_custom_report">
+                    <span class="text-nowrap" t-field="line.price_subtotal"
+                          groups="l10n_pt_ao.group_show_line_subtotals_tax_excluded"/>
+                    <span class="text-nowrap" t-field="line.price_total"
+                          groups="l10n_pt_ao.group_show_line_subtotals_tax_included"/>
+                </span>
+                <span t-if="not doc.company_id.use_custom_report"
+                      t-out="', '.join(map(lambda x: (x.invoice_label or x.description or x.name), line.tax_id))"/>
+            </td>
+        </xpath>
+
+        <!-- Coluna Taxes -->
+        <xpath expr="//td[hasclass('o_price_total')]" position="replace">
+            <td class="text-end o_price_total">
+                <span t-if="doc.company_id.use_custom_report"
+                      t-out="', '.join(map(lambda x: (x.invoice_label or x.description or x.name), line.tax_id))"/>
+                <span t-if="not doc.company_id.use_custom_report">
+                    <span class="text-nowrap" t-field="line.price_subtotal"
+                          groups="l10n_pt_ao.group_show_line_subtotals_tax_excluded"/>
+                    <span class="text-nowrap" t-field="line.price_total"
+                          groups="l10n_pt_ao.group_show_line_subtotals_tax_included"/>
+                </span>
+            </td>
+        </xpath>
+
+        <!-- Hide signature when using custom report (signature moved to separate page) -->
+        <xpath expr="//div[@name='signature']" position="attributes">
+            <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
+        </xpath>
+    </template>
+
+    <!-- Tax totals handled by account template to avoid conflicts -->
+
+    <!-- Remove "Document Not Certified" text -->
+    <template id="sale_remove_not_certified" inherit_id="l10n_pt_sale.report_saleorder_document" priority="310">
+        <xpath expr="//span[@t-if='not doc.inalterable_hash'][@class='font-weight-bold']" position="replace">
+            <!-- Document Not Certified text removed -->
+        </xpath>
+    </template>
+
+    <!-- Remove "This document is not an invoice" from body and move to footer (only when using custom report) -->
+    <template id="sale_remove_not_invoice_from_body" inherit_id="l10n_pt_sale.report_saleorder_document" priority="310">
+        <xpath expr="//span[@name='not_invoice'][@class='small']" position="attributes">
+            <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
+        </xpath>
+    </template>
+
+    <!-- Replace document name in footer to show Subscription/Order Form with sequence like in title -->
+    <template id="sale_footer_standard" inherit_id="l10n_pt_ao.external_layout_standard" priority="320">
+        <xpath expr="//span[@name='document_name']" position="replace">
+            <span class="text-start" name="document_name"
+                  t-if="o and all(f in o._fields for f in ('company_id', 'inalterable_hash')) and o.company_id.country_id.code in ['PT', 'AO']">
+                <t t-if="o._name == 'sale.order' and o.company_id.use_custom_report">
+                    <t t-if="o.is_subscription">Order Form </t>
+                    <t t-if="not o.is_subscription">Order Form </t>
+                    <t t-esc="o.name"/>
+                </t>
+                <t t-if="not (o._name == 'sale.order' and o.company_id.use_custom_report)" t-esc="o._get_report_base_filename()"/>
+            </span>
+        </xpath>
+
+        <!-- Add "This document is not an invoice" above pagination for sale orders with custom report -->
+        <xpath expr="//div[@class='text-muted row']" position="before">
+            <div class="text-muted row text-center" t-if="report_type == 'pdf' and o._name == 'sale.order' and o.company_id.use_custom_report">
+                <div class="col-12">
+                    <span class="small">This document is not an invoice.</span>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Add Billing Address headers for sale orders -->
+    <template id="sale_address_headers" inherit_id="l10n_pt_sale.report_saleorder_document" priority="320">
+        <!-- Add Billing Address header before billing address -->
+        <xpath expr="//t[@t-set='address']/div" position="before">
+            <div t-if="doc.company_id.use_custom_report">
+                <h4 class="mb-2" style="font-size: 16px; font-weight: bold;">Billing Address:</h4>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Add spacing between Invoicing and Shipping addresses -->
+    <template id="sale_invoice_shipping_spacing" inherit_id="l10n_pt_sale.report_saleorder_document" priority="330">
+        <xpath expr="//t[@t-set='information_block']//t[@t-if='doc.partner_shipping_id != doc.partner_invoice_id']/strong"
+               position="replace">
+            <strong t-attf-class="{{doc.company_id.use_custom_report and 'd-block mt-3' or ''}}">
+                <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                    Invoicing and Shipping Address:
+                </t>
+                <t t-else="">
+                    Shipping Address:
+                </t>
+            </strong>
+        </xpath>
+    </template>
+
+    <!-- Change document title based on type and custom report setting -->
+    <template id="sale_order_form_title" inherit_id="l10n_pt_sale.report_saleorder_document" priority="370">
+        <xpath expr="//h2[span[@t-field='doc.name']]" position="replace">
+            <h2 t-attf-class="mt-4 {{doc.company_id.use_custom_report and 'mb-4' or ''}}">
+                <span t-if="doc.is_subscription and doc.company_id.use_custom_report">Order Form</span>
+                <span t-if="not doc.is_subscription and doc.company_id.use_custom_report">Order Form</span>
+                <span t-if="not doc.company_id.use_custom_report" t-field="doc.type_name">
+                    Quotation
+                </span>
+                <span> </span>
+                <span t-field="doc.name"/>
+            </h2>
+        </xpath>
+    </template>
+
+    <!-- Template removed - hash text conditional logic now handled in sale_qrcode_position_fix -->
+
+    <!-- Reposition QR Code to match invoice layout (right aligned) - only when using custom report -->
+    <template id="sale_qrcode_position_fix" inherit_id="l10n_pt_sale.report_saleorder_document" priority="350">
+
+        <!-- Hide original Bottom QR Code when using custom report -->
+        <xpath expr="//div[@name='atcud_qr_code']" position="attributes">
+            <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
+        </xpath>
+
+        <!-- Add custom Bottom QR Code position - align right (only when using custom report) -->
+        <xpath expr="//div[@name='atcud_qr_code']" position="after">
+            <div name="atcud_qr_code_custom" t-if="doc.company_id.use_custom_report" class="row mt-4" style="page-break-inside: avoid;">
+                <div class="col-6">
+                    <!-- Left side empty -->
+                </div>
+                <div class="col-6 text-end">
+                    <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                       class="mb-0 mt-0 small d-block text-end mb-2">
+                        ATCUD:
+                        <t t-out="doc.atcud or '0'"/>
+                    </p>
+                    <t t-set="visible_row_div"
+                       t-value="(doc.inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
+                    <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
+                        <div id="qrcode_pt" name="qrcode_pt_sale_bottom"
+                             t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                             style="height: 150px; width: 150px"
+                             class="border border-dark rounded">
+                            <img t-att-src="image_data_uri(doc.build_qr_code())" style="height: 100%; width: 100%;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Hide original Top QR Code (with shipping) when using custom report -->
+        <xpath expr="//p[@name='vat_for_address']/following-sibling::t[1]//div[@class='col-6']" position="attributes">
+            <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
+        </xpath>
+
+        <!-- Add custom Top QR Code (with shipping) - align right (only when using custom report) -->
+        <xpath expr="//p[@name='vat_for_address']/following-sibling::t[1]//div[@class='col-6']" position="after">
+            <div class="col-6 text-end" t-if="doc.company_id.use_custom_report">
+                <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                   class="mb-0 mt-0 small d-block text-end mb-2">
+                    ATCUD:
+                    <t t-out="doc.atcud or '0'"/>
+                </p>
+                <t t-set="visible_row_div"
+                   t-value="(doc.inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
+                <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
+                    <div id="qrcode_pt" name="qrcode_pt_sale_top"
+                         t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                         style="height: 150px; width: 150px"
+                         class="border border-dark rounded">
+                        <img t-att-src="image_data_uri(doc.build_qr_code())" style="height: 100%; width: 100%;"/>
+                    </div>
+                </div>
+             </div>
+        </xpath>
+
+        <!-- Hide original Top QR Code (without shipping) when using custom report -->
+        <xpath expr="//div[@class='col-6 qr_code_on_top']" position="attributes">
+            <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
+        </xpath>
+
+        <!-- Add custom Top QR Code (without shipping) - align right (only when using custom report) -->
+        <xpath expr="//div[@class='col-6 qr_code_on_top']" position="after">
+            <div class="col-6 qr_code_on_top text-end" t-if="doc.company_id.use_custom_report">
+                <div style="margin-top: -50px;">
+                    <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                       class="mb-0 mt-0 small d-block text-end mb-2">
+                        ATCUD:
+                        <t t-out="doc.atcud or '0'"/>
+                    </p>
+                    <t t-set="visible_row_div"
+                       t-value="(doc.inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
+                    <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
+                        <div id="qrcode_pt" name="qrcode_pt_sale_top_without_shipping"
+                             t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                             style="height: 150px; width: 150px"
+                             class="border border-dark rounded">
+                            <img t-att-src="image_data_uri(doc.build_qr_code())" style="height: 100%; width: 100%;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+    <!-- Force partner language when calling Terms & Conditions template -->
+    <template id="sale_terms_force_partner_lang" inherit_id="l10n_pt_ao_sale.report_saleorder_document_tweaks" priority="110">
+        <xpath expr="//t[@t-call='l10n_pt_ao_sale.report_terms_and_conditions']" position="attributes">
+            <attribute name="t-lang">doc.partner_id.lang</attribute>
+        </xpath>
+    </template>
+
+    <!-- Override sale order Terms & Conditions title -->
+    <template id="sale_terms_conditions_title" inherit_id="l10n_pt_ao_sale.report_terms_and_conditions" priority="270">
+        <xpath expr="//p[@class='fake_h3 mb-0']" position="replace">
+            <p class="fake_h3 mb-0">Terms &amp; Conditions  <span class="text-muted" style="font-size: 13px;">  (Legal and commercial terms)</span></p>
+        </xpath>
+    </template>
+
+    <!-- Replace Terms & Conditions page div to remove page break for custom reports -->
+    <template id="sale_signature_page_after_terms" inherit_id="l10n_pt_ao_sale.report_terms_and_conditions" priority="280">
+        <xpath expr="//div[@class='page']" position="replace">
+            <!-- For custom reports: Terms & Conditions continuous, Signatures on separate page -->
+            <t t-if="doc.company_id.use_custom_report">
+                <!-- Terms & Conditions without page break -->
+                <div class="mt-5">
+                    <p class="fake_h3 mb-0">Terms &amp; Conditions  <span class="text-muted" style="font-size: 13px;">  (Legal and commercial terms)</span></p>
+                    <hr class="mt-0 mb-1"/>
+                    <span name="comment" t-field="doc.note"/>
+                </div>
+
+                <!-- Signature section on separate page -->
+                <div class="page" style="page-break-before: always;">
+                    <h3 class="text-center mb-5">Signatures</h3>
+
+                    <div class="row mt-5">
+                        <!-- Company Signature -->
+                        <div class="col-6">
+                            <div class="text-center">
+                                <p class="mb-5"><strong>Company Representative</strong></p>
+                                <div class="mb-2" style="border-bottom: 1px solid black; width: 80%; margin: 0 auto; padding-bottom: 60px;">
+                                    <!-- Signature space -->
+                                    <img t-att-src="image_data_uri(env['res.users'].sudo().browse(7).sign_signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                                </div>
+                                <p class="small mt-2">
+                                    <span>Paulo Gaspar (CEO)</span>
+                                    <br/>
+                                    <span t-field="doc.company_id.name"/>
+                                    <br/>
+                                    Date: <t t-out="datetime.date.today().strftime('%d/%m/%Y')" data-oe-t-inline="true">01/12/2025</t>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Client Signature -->
+                        <div class="col-6">
+                            <div class="text-center">
+                                <p class="mb-5"><strong>Client</strong></p>
+                                <div class="mb-2" style="border-bottom: 1px solid black; width: 80%; margin: 0 auto; padding-bottom: 60px;">
+                                    <t t-if="doc.signature">
+                                        <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                                    </t>
+                                </div>
+                                <p class="small mt-2">
+                                    <span t-field="doc.partner_id.name"/>
+                                    <br/>
+                                    <t t-if="doc.signature">
+                                        Date: <t t-out="datetime.date.today().strftime('%d/%m/%Y')" data-oe-t-inline="true">01/12/2025</t>
+                                    </t>
+                                    <t t-else="">
+                                        Date: ___/___/______
+                                    </t>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+
+            <!-- For standard reports: keep original page break -->
+            <div t-if="not doc.company_id.use_custom_report" class="page" style="page-break-before: always;">
+                <p class="fake_h3 mb-0">Terms &amp; Conditions</p>
+                <hr class="mt-0 mb-1"/>
+                <span name="comment" t-field="doc.note"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Hide subscription proof text when using custom report -->
+    <template id="hide_subscription_proof_text" inherit_id="l10n_pt_ao_sale_subscription.report_saleorder_document_tweaks" priority="280">
+        <xpath expr="//div[hasclass('page')]/p" position="attributes">
+            <attribute name="t-if">doc.is_subscription and doc.company_id.account_fiscal_country_id.code in ('PT', 'AO') and not doc.company_id.use_custom_report</attribute>
+        </xpath>
+    </template>
+
+</odoo>

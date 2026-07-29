@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_res_partner_filter_casper" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field type="xml" name="arch">
+            <xpath expr="//filter[@name='type_company']" position="attributes">
+                <attribute name="string">Related Company</attribute>
+            </xpath>
+
+            <xpath expr="//filter[@name='group_company']" position="attributes">
+                <attribute name="string">Related Company</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

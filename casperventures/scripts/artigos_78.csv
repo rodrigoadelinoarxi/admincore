@@ -1,0 +1,268 @@
+Categoria de Artigo;Nome;Referência Interna;Artigos já existem em Odoo?;Pode ser Vendido;Pode ser Comprado;Pode ser Gasto;Favorito;Impostos a Cliente;Impostos de Fornecedor;Preço de Vendas;Custo;Unidade de medida;Purchase UoM;Tipo de Artigo;Conta de Gastos;Conta de rendimentos;Política de Controlo
+Materiais de IT;Access Point Wireless Antenna;SERV172;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Acessorios de Rede;SERV173;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Auscultadores/Headphones;SERV174;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Bateria Para Portátil;SERV175;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Cabo Rede;SERV176;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Cabos Diversos de Multimedia;SERV177;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Caixa PC;SERV178;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Caneta Touch;SERV179;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Capa Para Tablet;SERV180;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Capa Para Telemovel;SERV181;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Carregador Para Portátil;SERV182;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Carregador Para Telemóvel/Tablet;SERV183;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Cartão de Memória;SERV184;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Colunas Computador;SERV223;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Disco Rígido;SERV185;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Fita Impressora Matricial;SERV186;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Impressora Laser Multifuncoes;SERV190;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Impressora Termica;SERV191;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Leitor Biometrico de Secretaria;SERV192;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Mac Mini;SERV188;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Mac Studio;SERV189;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Monitor PC;SERV193;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;PC Desktop;SERV195;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;PC Portátil;SERV196;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Pasta Para  Portatil;SERV194;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Pelicula de Vidro Para Telemovel/Tablet;SERV197;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Portátil Macbook;SERV198;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Portátil Macbook Air;SERV199;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Portátil Macbook Pro;SERV200;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Rato Apple Computador;SERV201;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Rato Computador;SERV202;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Router;SERV203;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Smarphone Android;SERV204;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Smartphone Iphone;SERV205;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Suporte Monitor Mesa Standard;SERV207;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Suporte Para Tablet;SERV208;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Suporte Para Telemóvel;SERV209;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Suporte de Parede TV;SERV206;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Switch;SERV210;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;TV Led;SERV221;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Tablet Android;SERV211;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Tablet Ipad;SERV212;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de IT;Tambor Impressora;SERV213;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Teclado Apple Computador;SERV214;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Teclado Computador;SERV215;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Terminal Biolite Net Biometrico;SERV216;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Terminal de Leitura de Cartões;SERV217;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Tinteiro Impressora;SERV218;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Toner Cor Impressora;SERV219;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Toner Preto Impressora;SERV220;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;Webcam Computador;SERV222;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Materiais de IT;iMac 24';SERV187;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Materiais de Marketing;Agenda Personalizada;SERV224;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Arranjo Flores;SERV225;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Autocolantes com Publicidade;SERV226;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Calendário Personalizado;SERV227;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Cartões de Visita;SERV228;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Chocolate - Brinde;SERV229;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Consola Xbox;SERV230;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Esferografica Personalizada;SERV231;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Flyers Cartazes E Folhetos;SERV232;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Guarda Chuva;SERV233;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Livro - Brinde;SERV234;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Material de Merchandising;SERV235;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Pen USB;SERV236;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Planning Secretária;SERV237;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Power Bank;SERV238;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Saco Papel;SERV239;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Tapete Rato ;SERV240;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Trofeu Personalizado;SERV241;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Vinho - Brinde;SERV242;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Materiais de Marketing;Voucher Oferta;SERV243;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Material & Serviços HST;Artigos de Farmacia;SERV281;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;638211 Higiene e segurança no trabalho PT;;Nas quantidades recebidas
+Material & Serviços HST;Extintor;SERV280;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62231 Vigilância e segurança PT;;Nas quantidades recebidas
+Material & Serviços HST;Testes Covid;SERV483;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;1;0;Unidades;Unidades;Serviço;638191 Outros PT;;Nas quantidades recebidas
+Material de Escritório;Afiadores, Borrachas e Minas;SERV244;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Canetas e Apagadores de Quadro;SERV245;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Canetas, Lápis, Lapiseiras e Marcadores;SERV246;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Carimbos e Cargas de Carimbos;SERV247;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Carregador de Pilhas;SERV248;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Cartoes de Visita FNY;SERV249;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Cartões e Cartolinas;SERV250;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Cavalete;SERV251;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Chaves ;SERV252;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Clips, Agrafes, Pioneses, Elásticos E Molas;SERV253;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Cofres;SERV254;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Material de Escritório;Colas E Fitas;SERV255;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Consumíveis de Impressão;SERV256;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Dossiers, Cadernos E Pastas;SERV257;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Envelopes e Caixas;SERV258;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Etiquetas Autocolante;SERV259;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Ferramentas;SERV260;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62311 Ferramentas e utensílios de desgaste rápido PT;;Nas quantidades recebidas
+Material de Escritório;Fita-Métrica, Réguas e Esquadros;SERV261;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Folhas Papel;SERV262;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Furador/Agrafador;SERV263;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Guilhotina de Papel;SERV265;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Gás Pluma - Botija;SERV264;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6242231 Combustiveis - Outros - Outros PT;;Nas quantidades recebidas
+Material de Escritório;Livro de Reclamações;SERV266;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62321 Livros e documentação técnica PT;;Nas quantidades recebidas
+Material de Escritório;Material Limpeza Escritório ;SERV269;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62671 Limpeza, higiene e conforto PT;;Nas quantidades recebidas
+Material de Escritório;Material de Pintura;SERV268;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Micas e Separadores;SERV270;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Máquina Etiquetagem E Recargas;SERV267;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Pilhas;SERV271;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Pistola de Cola Quente;SERV272;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Porta Chaves;SERV274;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Post-Its;SERV275;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Quadro Magnético;SERV276;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Scanner;SERV479;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Televisores;SERV561;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Tesouras e X-Actos;SERV277;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Tintas e Sprays;SERV278;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material de Escritório;Tubos de Cola para Pistola de Cola Quente;SERV273;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62331 Material de escritório PT;;Nas quantidades recebidas
+Material Mobiliário;Armário Persianas;SERV282;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Material Mobiliário;Bloco de Gavetas Metálico;SERV283;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Material Mobiliário;Cadeira Basica;SERV284;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Material Mobiliário;Estante Plástico;SERV285;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Material Mobiliário;Mesa de Centro;SERV286;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Material Mobiliário;Secretária (mesa);SERV287;sim;0;1;1;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Material Mobiliário;Sofa;SERV288;sim;0;1;0;Normal;;CIMOMN-IVA23;0;0;Unidades;Unidades;Serviço;435 Equipamento administrativo;;Nas quantidades recebidas
+Meios digitais;Investimento em Facebook Ads;SERV010;sim;0;1;0;Normal;VOBSMN-IVA23;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6212 Subcontratos UE;;Nas quantidades recebidas
+Meios digitais;Investimento em Google Ads;SERV294;sim;0;1;0;Normal;VOBSMN-IVA23;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6212 Subcontratos UE;;Nas quantidades recebidas
+Meios digitais;Investimento em Instagram Ads;SERV011;sim;0;1;0;Normal;VOBSMN-IVA23;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6212 Subcontratos UE;;Nas quantidades recebidas
+Meios digitais;Investimento em Linkedin Ads;SERV012;sim;0;1;0;Normal;VOBSMN-IVA23;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6212 Subcontratos UE;;Nas quantidades recebidas
+Meios digitais;Investimento em Tiktok Ads;SERV298;sim;0;1;0;Normal;VOBSMN-IVA23;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6212 Subcontratos UE;;Nas quantidades recebidas
+Meios digitais;Investimento em Waze;SERV299;sim;0;1;0;Normal;VOBSMN-IVA23;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6212 Subcontratos UE;;Nas quantidades recebidas
+Office;Serviços de Manutenção Imóvel;SERV548;sim;0;1;1;Normal;;COBSMN-IVA23 ;100;0;Unidades;Unidades;Serviço;622631 Conservação e reparação - Outros PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Câmara Fotográfica;SERV363;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Dispensador de Água;SERV364;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Equipamentos Higiene;SERV365;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;62671 Limpeza, higiene e conforto PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Holofotes;SERV366;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Material Audiovisual;SERV367;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Mesas de Mistura;SERV368;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Microfone;SERV369;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Multifunções;SERV370;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Projetores;SERV371;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Sistemas Som;SERV372;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Aluguer Viaturas;SERV373;sim;0;1;0;Normal;;COBSMN-IVA23 ;0;0;Unidades;Unidades;Serviço;626121 Rendas e alugueres - Outros veículos PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Arrendamento Imóveis;SERV361;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;626141 Rendas e alugueres - Imóveis PT;;Nas quantidades recebidas
+Serviços  Aluguer;Serviços Seguro Franquia Sinistro;SERV374;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;626391 Outros Seguros PT;;Nas quantidades recebidas
+Serviços  Frota;Alinhamento Ligeiro;SERV375;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Combustível - Eletricidade;SERV378;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;624111 Electricidade - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Combustível - Gasolina;SERV377;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6242121 Combustiveis - VLP - Gasolina PT;;Nas quantidades recebidas
+Serviços  Frota;Combustível - Gasóleo;SERV376;sim;0;1;1;Normal;;50%GASÓLEO(IVA23);0;0;Unidades;Unidades;Serviço;6242111 Combustiveis - VLP - Gasóleo PT;;Nas quantidades recebidas
+Serviços  Frota;Deslocação para Manutenção Auto;SERV379;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Estacionamento Frota;SERV545;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6251511 Estacionamentos - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Imposto Único de Circulação;SERV380;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;681241 IUC - VLP;;Nas quantidades recebidas
+Serviços  Frota;Inspeção Periódica;SERV381;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Lavagem de Viatura;SERV382;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Manutenção Auto;SERV383;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Mao Obra Eletricista Auto;SERV384;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Mao Obra Mecanica Auto;SERV385;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Portagens Frota;SERV386;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6251411 Portagens - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Reparação Pneu Ligeiro;SERV387;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Serviço Reboque;SERV388;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Serviços Manutencao Preventiva;SERV390;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Serviços Reinspeção Ligeiro;SERV391;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Serviços Revisao Programada - Ligeiros;SERV392;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Serviços Seguro Auto;SERV362;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;62631 Seguros Frota;;Nas quantidades recebidas
+Serviços  Frota;Serviços Subs Pneus Novos;SERV393;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622611 Conservação e reparação - VLP PT;;Nas quantidades recebidas
+Serviços  Frota;Serviços de Geolocalização Viaturas;SERV389;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Implementação Odoo Quickstart;SERV566;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Odoo Hosting;SERV542;sim;0;1;0;Normal;;COBSMN-IVA23;4;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Odoo User All Apps;SERV541;sim;0;1;0;Normal;;COBSMN-IVA23;28;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Certific Digital SSL;SERV394;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268122 Outros Serviços - Licenças UE;;Nas quantidades recebidas
+Serviços  IT;Hotspot Rede;SERV395;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Licença Adobe Creative Cloud;SERV396;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268122 Outros Serviços - Licenças UE;;Nas quantidades recebidas
+Serviços  IT;Licença Myfonts;SERV397;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268123 Outros Serviços - Licenças EX;;Nas quantidades recebidas
+Serviços  IT;Licença Shutterstock;SERV426;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268122 Outros Serviços - Licenças UE;;Nas quantidades recebidas
+Serviços  IT;Licença Wetransfer;SERV398;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268122 Outros Serviços - Licenças UE;;Nas quantidades recebidas
+Serviços  IT;Licença iCloud;SERV537;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268121 Outros Serviços - Licenças PT;;Nas quantidades recebidas
+Serviços  IT;Registo Dominio;SERV399;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;SaaS Basecamp;SERV400;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268113 Outros Serviços - Software as a Service EX;;Nas quantidades recebidas
+Serviços  IT;SaaS Getresponse;SERV538;sim;0;1;0;Normal;;COBSMC-IVA23 ISP;0;0;Unidades;Unidades;Serviço;6268112 Outros Serviços - Software as a Service UE;;Nas quantidades recebidas
+Serviços  IT;SaaS Google Workspace;SERV551;sim;0;1;0;Normal;;COBSMC-IVA23 ISP;0;0;Unidades;Unidades;Serviço;6268112 Outros Serviços - Software as a Service UE;;Nas quantidades recebidas
+Serviços  IT;SaaS Linode;SERV401;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268113 Outros Serviços - Software as a Service EX;;Nas quantidades recebidas
+Serviços  IT;SaaS Mailchimp;SERV402;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268113 Outros Serviços - Software as a Service EX;;Nas quantidades recebidas
+Serviços  IT;SaaS Outbrain;SERV403;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268113 Outros Serviços - Software as a Service EX;;Nas quantidades recebidas
+Serviços  IT;SaaS Pipedrive;SERV404;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268112 Outros Serviços - Software as a Service UE;;Nas quantidades recebidas
+Serviços  IT;SaaS Segurança Arlo;SERV405;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268111 Outros Serviços - Software as a Service PT;;Nas quantidades recebidas
+Serviços  IT;SaaS Supermetrics;SERV406;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268112 Outros Serviços - Software as a Service UE;;Nas quantidades recebidas
+Serviços  IT;SaaS Swonkie;SERV407;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268111 Outros Serviços - Software as a Service PT;;Nas quantidades recebidas
+Serviços  IT;SaaS Zoho Corporation;SERV408;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268112 Outros Serviços - Software as a Service UE;;Nas quantidades recebidas
+Serviços  IT;Serviços Alojamento/Hosting;SERV409;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Aluguer Equipamentos de Rede;SERV410;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;626131 Rendas e alugueres - Equipamentos PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Aluguer Hotspot Rede;SERV411;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações E2MPLS;SERV564;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Fixo;SERV412;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Aditivo Dados 10Gb;SERV413;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Aditivo Dados 1Gb;SERV414;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Aditivo Dados 5Gb;SERV415;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Aditivo Dados 75Gb;SERV552;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Aditivo Dados Romng;SERV416;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Adtivo Dados 2Gb;SERV417;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Adtivo Dados 500Mb;SERV418;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Comunicações Móveis Voz;SERV419;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Consultoria IT;SERV535;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Consultoria Soft Desenv à Medida;SERV420;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Instalação de Rede;SERV421;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Reparação Computador;SERV422;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Reparação Telemovel / Tablet;SERV423;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622631 Conservação e reparação - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Reparação/Manutenção Impressora;SERV424;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622631 Conservação e reparação - Outros PT;;Nas quantidades recebidas
+Serviços  IT;Serviços Subscr Plataforma Compras Publicas;SERV425;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6268121 Outros Serviços - Licenças PT;;Nas quantidades recebidas
+Serviços  Logísticos;Serviços de Estafeta;SERV427;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62531 Transportes de mercadorias PT;;Nas quantidades recebidas
+Serviços  Logísticos;Transporte de Mercadorias;SERV428;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6211 Subcontratos PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Outros Serviços ao Pessoal;SERV554;sim;0;1;1;Normal;;COBSMN-NDED23;0;0;Unidades;Unidades;Serviço;638291 Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Admissão Colaboradores;SERV429;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Cessação Contratos;SERV430;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Elaboração Relatório Único;SERV431;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Formação;SERV432;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;638221 Formação PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Gestão Da Formacão;SERV433;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Gestão Medidas de Apoio RH;SERV434;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Medicina No Trabalho;SERV435;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;638211 Higiene e segurança no trabalho PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Payroll;SERV436;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Recrutamento E Seleção;SERV443;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Segurança E Saude No Trabalho;SERV437;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;638211 Higiene e segurança no trabalho PT;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Seguro Acidentes de Trabalho - Estágio;SERV438;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;6361 Seguros de acidentes no trabalho e doenças profissionais;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Seguro Acidentes de Trabalho - Org Sociais;SERV439;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;6361 Seguros de acidentes no trabalho e doenças profissionais;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Seguro Acidentes de Trabalho - Pessoal;SERV440;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;6361 Seguros de acidentes no trabalho e doenças profissionais;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Seguro Saúde;SERV441;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;63823 Seguro saúde / vida;;Nas quantidades recebidas
+Serviços  Recursos Humanos;Serviços Seguro Vida Risco;SERV442;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;63823 Seguro saúde / vida;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Ação Team Building;SERV536;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;63723 Outros Gastos de Ação Social;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Inscrições em Prémios;SERV484;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6268191 Outros Serviços - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Quotas Associações;SERV444;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;68832 Outras quotizações;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Abertura Processo Cobranca;SERV445;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Auditoria;SERV446;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Autenticação de Documentos;SERV447;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Consultoria Administrativa e Financeira;SERV448;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Contabilidade;SERV449;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Correio;SERV450;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62621 Comunicação PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Emissao de declaracao;SERV452;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Extensão de Garantia;SERV453;sim;0;1;1;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;626391 Outros Seguros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Fornecimento de Eletricidade;SERV455;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;624121 Electricidade - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Fornecimento de Água;SERV454;sim;0;1;0;Normal;;COBSMN-IVA6;0;0;Unidades;Unidades;Serviço;62431 Água PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Juridico-Legal;SERV456;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Notário;SERV457;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;62651 Contencioso e notariado PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Registo Automovel;SERV458;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62651 Contencioso e notariado PT;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Seguro Crédito Cliente;SERV459;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;62634 Seguro faturação a clientes;;Nas quantidades recebidas
+Serviços Administrativos e Financeiros;Serviços Seguro Multiriscos;SERV460;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;62632 Seguro multiriscos;;
+Serviços Administrativos e Financeiros;Serviços Seguro Responsabilidade Civil Geral;SERV461;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;62633 Seguro responsabilidade civil;;
+Serviços Administrativos e Financeiros;Serviços de Assessoria à gestão, financeira e contabilidade;SERV547;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços Bancários;Comissão Bancária - CCC;SERV491;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;69812 Comisões bancárias;;Nas quantidades recebidas
+Serviços Bancários;Comissão Bancária - Empréstimo;SERV488;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;69812 Comisões bancárias;;Nas quantidades recebidas
+Serviços Bancários;Comissão Bancária - Leasing;SERV489;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;69812 Comisões bancárias;;Nas quantidades recebidas
+Serviços Bancários;Comissão de Gestão de Conta;SERV494;sim;0;1;0;Normal;;;12.5;0;Unidades;Unidades;Serviço;62271 Serviços Bancários PT;;Nas quantidades recebidas
+Serviços Bancários;Comissões Bancárias - Transferências;SERV562;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62271 Serviços Bancários PT;;Nas quantidades recebidas
+Serviços Bancários;Imposto de Selo s/Comissões;SERV495;sim;0;1;0;Normal;;;0.5;0;Unidades;Unidades;Serviço;68123 Imposto do selo;;Nas quantidades recebidas
+Serviços Bancários;Juros Bancários - CCC;SERV490;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6911 Juros de financiamento obtidos;;Nas quantidades recebidas
+Serviços Bancários;Juros Bancários - Empréstimo;SERV492;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6911 Juros de financiamento obtidos;;Nas quantidades recebidas
+Serviços Bancários;Juros Bancários - Leasing;SERV493;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;6913 Juros de leasing;;Nas quantidades recebidas
+Serviços Bancários;Portes Bancários;SERV534;sim;0;1;0;Normal;;COBSMN-IVA23;1;0;Unidades;Unidades;Serviço;69881 Outros;;Nas quantidades recebidas
+Serviços de Escritório;Serviços Controlo Pragas;SERV462;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços de Escritório;Serviços Jardinagem;SERV463;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622631 Conservação e reparação - Outros PT;;Nas quantidades recebidas
+Serviços de Escritório;Serviços Taxa de Saneamento;SERV464;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;6813 Taxas;;Nas quantidades recebidas
+Serviços de Escritório;Serviços Vigilância;SERV465;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62231 Vigilância e segurança PT;;Nas quantidades recebidas
+Serviços de Marketing;Serviços Estudo de Mercado;SERV466;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;622121 Trabalhos especializados - Outros PT;;Nas quantidades recebidas
+Serviços de Marketing;Serviços Patrocinio;SERV467;sim;0;1;0;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62221 Publicidade e propaganda PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Dormidas;SERV563;sim;0;1;0;Normal;;COBSMN-IVA6;0;0;Unidades;Unidades;Serviço;6211 Subcontratos PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Estacionamentos;SERV469;sim;0;1;1;Normal;;COBSMN-NDED23;0;0;Unidades;Unidades;Serviço;6251511 Estacionamentos - VLP PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Portagens;SERV470;sim;0;1;1;Normal;;COBSMN-NDED23;0;0;Unidades;Unidades;Serviço;6251411 Portagens - VLP PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Quilómetros;SERV471;sim;0;1;1;Normal;;COBSMN-NDED23;0;0;Unidades;Unidades;Serviço;625131 Quilómetros PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Refeições;SERV553;sim;0;1;1;Normal;;COBSMN-NDED23;100;0;Unidades;Unidades;Serviço;625121 Refeições PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Serviços Bolt;SERV472;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62521 Transportes de pessoal PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Serviços Táxi;SERV473;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62521 Transportes de pessoal PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Serviços Uber;SERV474;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62521 Transportes de pessoal PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Viagens Aéreas;SERV475;sim;0;1;1;Normal;;;0;0;Unidades;Unidades;Serviço;625111 Estadias PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Deslocações - Viagens Outros Transportes Públicos Terrestres;SERV476;sim;0;1;1;Normal;;COBSMN-IVA23;0;0;Unidades;Unidades;Serviço;62521 Transportes de pessoal PT;;Nas quantidades recebidas
+Serviços deslocações e Estadas;Serviços Seguro Viagens;SERV540;sim;0;1;0;Normal;;COBSMN-ISENTO 9º;0;0;Unidades;Unidades;Serviço;626391 Outros Seguros PT;;Nas quantidades recebidas
