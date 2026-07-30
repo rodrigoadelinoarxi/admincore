@@ -21,7 +21,6 @@ class IrUiMenu(models.Model):
         return res - set(self.env.user.hidden_menu_ids.ids)
 
     @api.model
-    @api.returns('self')
     def get_user_roots(self):
         menu_ids = super(IrUiMenu, self).get_user_roots()
         return menu_ids - self.env.user.hidden_menu_ids
