@@ -17,7 +17,11 @@
     'website': 'https://arxi.pt',
     'depends': ['l10n_pt_certificate'],
     'data': [],
-    'installable': True,
+    # Desativado temporariamente na migracao 17->19 (2026-07-30): depende de
+    # l10n_pt_certificate, que por sua vez esta desativado por ter o mesmo
+    # problema de binario PyArmor incompativel com Python 3.12 (ver nota em
+    # arxi_certification/l10n_pt_certificate/__manifest__.py).
+    'installable': False,
     'auto_install': False,
     'application': False,
     'license': 'LGPL-3',
