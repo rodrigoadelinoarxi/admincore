@@ -32,7 +32,7 @@ class IrUiMenu(models.Model):
         return res
 
     @api.model
-    @tools.ormcache_context('self._uid', 'debug', keys=('lang',))
+    @tools.ormcache('self._uid', 'debug', 'self.env.context.get("lang")')
     def load_menus(self, debug):
         ir_act_report = self.env['ir.actions.report'].sudo().with_user(self.env.user).search(
             [('users_ids', '=', self.env.user.id), ('protected', '=', False)])
