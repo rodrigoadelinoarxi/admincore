@@ -40,7 +40,7 @@ from lxml import etree
 from werkzeug import urls
 from xmlrpc import client as xmlrpclib
 
-from odoo import _, api, exceptions, fields, models, tools, registry, SUPERUSER_ID
+from odoo import _, api, exceptions, fields, models, tools, SUPERUSER_ID
 from odoo.exceptions import MissingError
 from odoo.osv import expression
 from odoo.tools import remove_accents
