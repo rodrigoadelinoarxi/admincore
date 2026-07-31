@@ -1,7 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 from datetime import datetime, timedelta
-from odoo.addons.resource.models.utils import Intervals
+from odoo.tools.intervals import Intervals
 from odoo.osv import expression
 
 import pytz
