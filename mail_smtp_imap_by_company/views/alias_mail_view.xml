@@ -22,17 +22,17 @@
             <field name="name">alias.mail.tree</field>
             <field name="model">alias.mail</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="domain_name"/>
                     <field name="company_id"/>
-                </tree>
+                </list>
             </field>
         </record>
         
         <record id="action_alias_mail" model="ir.actions.act_window">
             <field name="name">Alias Domains</field>
             <field name="res_model">alias.mail</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="target">current</field>
         </record>
         

@@ -92,9 +92,9 @@
             <xpath expr="//page[@name='depreciation_board']" position="after">
                 <page string="Expense Board" name="depreciation_board"
                       invisible="total_depreciation_entries_count == 0 or deferral_type != 'expense'">
-                    <field name="depreciation_move_ids" mode="tree" options="{'reload_whole_on_button': true}"
+                    <field name="depreciation_move_ids" mode="list" options="{'reload_whole_on_button': true}"
                            readonly="state not in ['draft', 'open', 'paused']">
-                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"
+                        <list string="Depreciation Lines" decoration-info="state == 'draft'" create="0"
                               default_order="date asc, id asc" editable="top">
                             <field name="currency_id" column_invisible="True" readonly="state in ['cancel', 'posted']"/>
                             <field name="date" string="Depreciation Date" readonly="state in ['cancel', 'posted']"/>
@@ -108,7 +108,7 @@
                                    options="{'currency_field': 'currency_id'}"/>
                             <field name="name" readonly="1" string="Journal Entry"/>
                             <field name="state" column_invisible="True"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>
@@ -217,7 +217,7 @@
         <field name="name">view.account.asset.deferrals.tree</field>
         <field name="model">account.asset</field>
         <field name="arch" type="xml">
-            <tree string="Deferral Model">
+            <list string="Deferral Model">
                 <field name="name" string="Deferral Model Name"/>
                 <field name="account_depreciation_id" readonly="state == 'close'" string="Deferral Account"/>
                 <field name="method_number" string="Number of Depreciations"
@@ -225,16 +225,16 @@
                 <field name="method_period" string="Period length" readonly="state not in ['draft', 'model']"/>
                 <field name="company_id" column_invisible="True" readonly="state != 'draft'"/>
                 <field name="state" column_invisible="True"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="action_account_asset_deferral_form">
         <field name="name">Deferred Expense Models</field>
         <field name="res_model">account.asset</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_ids" eval="[(5, 0, 0),
-            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_deferrals_tree')}),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_asset_deferrals_tree')}),
             (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
         <field name="search_view_id" ref="account_asset.view_account_asset_search"/>
         <field name="domain">[('state', '=', 'model'), ('deferral_type','=','expense')]</field>
@@ -250,7 +250,7 @@
         <field name="name">view.account.asset.revenue.tree</field>
         <field name="model">account.asset</field>
         <field name="arch" type="xml">
-            <tree string="Revenue Model">
+            <list string="Revenue Model">
                 <field name="name" string="Revenue Model Name"/>
                 <field name="account_depreciation_id" readonly="state == 'close'" string="Deferral Account"/>
                 <field name="method_number" string="Number of Depreciations"
@@ -258,16 +258,16 @@
                 <field name="method_period" string="Period length" readonly="state not in ['draft', 'model']"/>
                 <field name="company_id" column_invisible="True" readonly="state != 'draft'"/>
                 <field name="state" column_invisible="True"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="action_account_asset_revenue_form">
         <field name="name">Deferred Revenue Models</field>
         <field name="res_model">account.asset</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_ids" eval="[(5, 0, 0),
-            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_revenue_tree')}),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_asset_revenue_tree')}),
             (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
         <field name="search_view_id" ref="account_asset.view_account_asset_search"/>
         <field name="domain">[('state', '=', 'model'), ('deferral_type','=','revenue')]</field>
@@ -294,14 +294,14 @@
         <field name="name">account.asset.deferral.tree</field>
         <field name="model">account.asset</field>
         <field name="arch" type="xml">
-            <tree string="Deferred Expenses" decoration-info="(state == 'draft')" decoration-muted="(state == 'close')"
+            <list string="Deferred Expenses" decoration-info="(state == 'draft')" decoration-muted="(state == 'close')"
                   sample="1">
                 <field name="name" string="Expense"/>
                 <field name="acquisition_date"/>
                 <field name="book_value"/>
                 <field name="value_residual"/>
                 <field name="state"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -601,9 +601,9 @@
     <record model="ir.actions.act_window" id="action_account_asset_deferral_tree">
         <field name="name">Deferred Expenses</field>
         <field name="res_model">account.asset</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
         <field name="view_ids" eval="[(5, 0, 0),
-            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_deferral_tree')}),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_asset_deferral_tree')}),
             (0, 0, {'view_mode': 'kanban'}),
             (0, 0, {'view_mode': 'activity'}),
             (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>
@@ -627,23 +627,23 @@
         <field name="name">account.asset.deferral.revenues.tree</field>
         <field name="model">account.asset</field>
         <field name="arch" type="xml">
-            <tree string="Deferred Revenues" decoration-info="(state == 'draft')" decoration-muted="(state == 'close')"
+            <list string="Deferred Revenues" decoration-info="(state == 'draft')" decoration-muted="(state == 'close')"
                   sample="1">
                 <field name="name" string="Revenue"/>
                 <field name="acquisition_date"/>
                 <field name="book_value"/>
                 <field name="value_residual"/>
                 <field name="state"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="action_account_asset_deferred_revenues_tree">
         <field name="name">Deferred Revenue</field>
         <field name="res_model">account.asset</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
         <field name="view_ids" eval="[(5, 0, 0),
-            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_asset_deferred_revenues_tree')}),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_asset_deferred_revenues_tree')}),
             (0, 0, {'view_mode': 'kanban'}),
             (0, 0, {'view_mode': 'activity'}),
             (0, 0, {'view_mode': 'form', 'view_id': ref('account_asset.view_account_asset_form')})]"/>

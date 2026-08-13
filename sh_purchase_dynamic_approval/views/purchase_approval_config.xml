@@ -26,10 +26,10 @@
                             <group>
                                 <field name="purchase_approval_line_ids" nolabel="1"
                                        context="{'form_view_ref': 'sh_purchase_dynamic_approval.sh_purchase_approval_line_form'}">
-                                    <tree>
+                                    <list>
                                         <field name="level"/>
                                         <field name="approve_by"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </page>
@@ -43,11 +43,11 @@
         <field name="name">sh.purchase.approval.config.view.tree</field>
         <field name="model">sh.purchase.approval.config</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle"/>
                 <field name="name" string="Approval Configuration"/>
                 <field name="min_amount"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -55,7 +55,7 @@
         <field name="name">Approval Configuration</field>
         <field name="res_model">sh.purchase.approval.config</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create A New Approval Configuration</p>
         </field>
