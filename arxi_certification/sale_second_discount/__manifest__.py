@@ -4,11 +4,11 @@
         Module that adds discount fields to sale order line
     """,
 
-    'author': 'Arxi',
+    'author': "ARXILEAD",
     'website': 'https://www.arxi.pt',
     'category': 'Accounting & Finance',
     'sequence': 151,
-    'version': '17.0.0.0.10',
+    'version': '1.0',
     'license': 'OPL-1',
     'depends': ['l10n_pt_ao_sale', 'display_total_discount'],
     'data': [

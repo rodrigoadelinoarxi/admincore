@@ -1,5 +1,8 @@
-from . import account_move
-from . import pos_order
-from . import product
-from . import pos_config
-from . import res_partner
+from . import (
+    account_move,
+    pos_config,
+    pos_order,
+    product,
+    res_config_settings,
+    res_partner,
+)

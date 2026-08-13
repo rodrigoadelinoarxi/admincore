@@ -8,8 +8,8 @@ def migrate(cr, version):
     env = api.Environment(cr, SUPERUSER_ID, {})
     journals = env['account.journal'].search([('type', '=', 'sale'), ('l10n_pt_cert', '=', True)])
     for journal in journals:
-        invs = env['account.move'].search([('validated_date', '!=', False),
-                                           ('journal_id', '=', journal.id)], order='validated_date asc')
+        invs = env['account.move'].search([('pt_arxi_validated_date', '!=', False),
+                                           ('journal_id', '=', journal.id)], order='pt_arxi_validated_date asc')
         vals = {'restrict_mode_hash_table': True}
         journal.write(vals)
         for inv in invs:

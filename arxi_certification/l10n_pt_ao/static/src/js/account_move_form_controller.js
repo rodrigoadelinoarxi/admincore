@@ -69,7 +69,11 @@ patch(FormController.prototype, {
 
     _removePostingOverlay() {
         if (this._postingOverlay) {
-            document.body.removeChild(this._postingOverlay);
+            try {
+                document.body.removeChild(this._postingOverlay);
+            } catch (e) {
+                // Overlay might already be removed
+            }
             this._postingOverlay = null;
         }
     }

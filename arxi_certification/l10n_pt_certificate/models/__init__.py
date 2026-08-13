@@ -1,3 +1,4 @@
+# isort: skip_file
 from . import account_account
 from . import account_mixin
 from . import res_partner
@@ -15,3 +16,7 @@ from . import res_config_settings
 from . import account_income
 from . import account_taxonomy
 from . import product_template
+from . import payment_method_line
+from . import template_pt_arxi
+from . import chart_template
+from . import account_report_line

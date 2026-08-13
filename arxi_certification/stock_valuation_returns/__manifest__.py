@@ -5,7 +5,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Inventory/Inventory',
-    'version': '17.0.0.0.1',
+    'version': '1.0',
     'license': 'OPL-1',
     'depends': [
         'stock_account'

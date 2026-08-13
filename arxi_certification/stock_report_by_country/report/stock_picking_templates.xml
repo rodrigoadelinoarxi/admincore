@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><template id="stock_report_by_country.report_deliveryslip" inherit_id="stock.report_deliveryslip"><t t-foreach="docs" t-as="o"><t t-call="#{ o._get_name_stock_report() }" t-lang="o.partner_id.lang"/></t></template></odoo>

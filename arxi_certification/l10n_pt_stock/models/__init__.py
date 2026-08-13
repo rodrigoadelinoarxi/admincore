@@ -2,6 +2,7 @@ from . import at_transport_mixin
 from . import pt_transport
 from . import pt_transport_journal
 from . import product_transport_line
+from . import stock_picking_base
 from . import stock_picking
 from . import stock_move_line
 from . import stock_picking_type

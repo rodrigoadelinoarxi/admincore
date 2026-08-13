@@ -4,10 +4,10 @@
         Module for Defir Integration
     """,
 
-    'author': 'Arxi',
+    'author': "ARXILEAD",
     'website': 'https://www.arxi.pt',
     'category': 'Accounting & Finance',
-    'version': '17.0.0.1.6',
+    'version': '1.1',
     'license': 'OPL-1',
     'depends': ['account', 'account_accountant', 'web'],
     'data': [

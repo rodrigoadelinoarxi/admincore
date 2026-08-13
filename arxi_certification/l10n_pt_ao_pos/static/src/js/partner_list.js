@@ -1,10 +1,10 @@
 /** @odoo-module **/
 
 import { patch } from "@web/core/utils/patch";
-import {PartnerListScreen} from '@point_of_sale/app/screens/partner_list/partner_list';
+import { PartnerList } from "@point_of_sale/app/screens/partner_list/partner_list";
 
 
-patch(PartnerListScreen.prototype,  {
+patch(PartnerList.prototype,  {
     async getNewPartners() {
         let domain = [];
         const limit = 30;
@@ -16,11 +16,10 @@ patch(PartnerListScreen.prototype,  {
             ];
         }
         // FIXME POSREF timeout
-        const result = await this.orm.silent.call(
-            "pos.session",
-            "get_pos_ui_res_partner_by_params",
-            [[odoo.pos_session_id], { domain, limit: limit, offset: this.state.currentOffset }]
-        );
+        const result = await this.pos.data.searchRead("res.partner", domain, [], {
+            limit: limit,
+            offset: this.state.currentOffset,
+        });
         return result;
     }
 });

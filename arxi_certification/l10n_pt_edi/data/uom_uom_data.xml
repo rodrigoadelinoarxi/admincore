@@ -1,2 +1,0 @@
-<?xml version="1.0"?>
-<odoo noupdate="1"><function model="uom.uom" name="fill_unece_code"/></odoo>

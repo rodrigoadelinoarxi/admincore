@@ -3,10 +3,10 @@
     'summary': """
         Module responsible for fixing valuation account moves account mapping from Purchase Module
     """,
-    'author': 'Arxi',
+    'author': "ARXILEAD",
     'website': 'https://www.arxi.pt',
     'category': 'Hidden',
-    'version': '17.0.1.0.0',
+    'version': '1.0',
     'license': 'OPL-1',
     'depends': ['purchase_stock'],
     'data': [],

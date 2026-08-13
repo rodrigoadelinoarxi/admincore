@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><template id="report_saleorder" inherit_id="sale.report_saleorder_raw"><xpath expr="//t[@t-call='sale.report_saleorder_document']" position="replace"><t t-call="#{ doc._get_name_sale_report() }" t-lang="doc.partner_id.lang"/></xpath></template></odoo>

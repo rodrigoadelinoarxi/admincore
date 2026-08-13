@@ -1,6 +1,11 @@
-from . import account_invoice_send
-from . import account_move_reversal
-from . import mail_compose_message
-from . import account_resequence
-from . import account_register_payment
-from . import warning_wizard
+# isort: skip_file
+from . import (
+    account_cancel_wizard,
+    account_invoice_send,
+    account_move_reversal,
+    account_move_send_wizard,
+    account_register_payment,
+    account_resequence,
+    mail_compose_message,
+    warning_wizard,
+)

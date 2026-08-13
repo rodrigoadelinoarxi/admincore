@@ -4,7 +4,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Accounting & Finance',
-    'version': '17.0.0.0.4',
+    'version': '1.1',
     'license': 'OPL-1',
     'depends': ['l10n_pt_total_discount_reports', 'account_second_discount', 'sale_second_discount'],
     'data': [

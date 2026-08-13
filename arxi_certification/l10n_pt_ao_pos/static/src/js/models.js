@@ -1,11 +1,8 @@
 /** @odoo-module **/
-
-import { Order, Orderline } from "@point_of_sale/app/store/models";
+import { PosOrder } from "@point_of_sale/app/models/pos_order";
 import { patch } from "@web/core/utils/patch";
-import { ErrorPopup } from "@point_of_sale/app/errors/popups/error_popup";
-import { _t } from "@web/core/l10n/translation";
 
-patch(Order.prototype, {
+patch(PosOrder.prototype, {
     setup() {
         super.setup(...arguments);
         this.to_invoice = true;
@@ -14,172 +11,108 @@ patch(Order.prototype, {
         this.document_name = this.document_name || false;
         this.credit_reason = this.credit_reason || false;
         this.reversed_entry_name = this.reversed_entry_name || false;
-        this.account_move_state = this.account_move_state || false;
         this.cashier_name = this.cashier_name || false;
         this.customer_name = this.customer_name || false;
         this.customer_vat = this.customer_vat || false;
-        this.exemption_codes = this.exemption_codes || false;
+        this.account_move_state = this.account_move_state || false;
         this.doc_printed = this.doc_printed || false;
-        this.save_to_db();
+        this.document_type = this.document_type || false;
     },
-    init_from_JSON(json) {
-        super.init_from_JSON(...arguments);
-        if (this.pos.is_pt_ao_country()) {
-            this.inalterable_hash = json.inalterable_hash;
-            this.account_move_name = json.account_move_name;
-            this.document_name = json.document_name;
-            this.credit_reason = json.credit_reason;
-            this.reversed_entry_name = json.reversed_entry_name;
-            this.account_move_state = json.account_move_state;
-            this.cashier_name = json.cashier_name;
-            this.customer_name = json.customer_name;
-            this.customer_vat = json.customer_vat;
-            this.exemption_codes = json.exemption_codes;
-            this.doc_printed = json.doc_printed || false;
-        }
+
+    // Document type FS/FT/FR/NC (absorbed from l10n_pt_ao_pos_document_type).
+    set_document_type(document_type) { this.document_type = document_type; },
+    get_document_type() { return this.document_type; },
+    isSimplifiedInvoice() { return this.document_type === 'FS'; },
+    isNormalInvoice() { return this.document_type === 'FT'; },
+    isInvoiceReceipt() { return this.document_type === 'FR'; },
+
+    // v19: the native `isRefund` is now a getter (is_refund === true); the old
+    // v18 satellite defined an isRefund() *method* which shadowed it and made
+    // every order look like a refund. Renamed here to avoid the collision while
+    // keeping the certification refund-detection logic (amount / refunded lines).
+    isRefundDoc() {
+        const total = this.amount_total;
+        const isNegativeTotal = total < 0 || Object.is(total, -0);
+        const hasRefundedLines = this.lines && this.lines.some(line => line.refunded_orderline_id);
+        return this.refunded_order_id || hasRefundedLines || isNegativeTotal;
     },
-    set_cashier_name(cashier_name) {
-        this.cashier_name = cashier_name;
-    },
-    get_cashier_name() {
-        return this.cashier_name;
-    },
-    set_customer_name(customer_name) {
-        this.customer_name = customer_name;
-    },
-    get_customer_name() {
-        return this.customer_name;
-    },
-    set_customer_vat(customer_vat) {
-        this.customer_vat = customer_vat;
-    },
-    get_customer_vat() {
-        if (this.pos.company.country.code === 'PT' && (this.customer_vat === '999999990' || !this.customer_vat)) {
-            return '---------'
-        }
-        if (this.pos.company.country.code === 'AO' && (this.customer_vat === '999999999' || !this.customer_vat)) {
-            return '---------'
-        }
-        return this.customer_vat;
-    },
-    set_to_invoice(to_invoice) {
-        this.assert_editable();
-        this.to_invoice = true;
-    },
-    set_inalterable_hash(inalterable_hash) {
-        this.inalterable_hash = inalterable_hash;
-    },
-    get_inalterable_hash() {
-        return this.inalterable_hash;
-    },
-    set_reversed_entry_name(reversed_entry_name) {
-        this.reversed_entry_name = reversed_entry_name;
-    },
-    get_reversed_entry_name() {
-        return this.reversed_entry_name;
-    },
-    set_account_move_state(account_move_state) {
-        this.account_move_state = account_move_state;
-    },
-    get_account_move_state() {
-        return this.account_move_state;
-    },
-    set_credit_reason(credit_reason) {
-        this.credit_reason = credit_reason;
-    },
-    get_credit_reason() {
-        return this.credit_reason;
-    },
-    set_account_move_name(account_move_name) {
-        this.account_move_name = account_move_name;
-    },
-    get_account_move_name() {
-        return this.account_move_name;
-    },
-    set_document_name(document_name) {
-        this.document_name = document_name;
-    },
-    get_document_name() {
-        return this.document_name;
-    },
-    set_exemption_codes(exemption_codes) {
-        this.exemption_codes = exemption_codes;
-    },
-    wait_for_push_order() {
-        var result = super.wait_for_push_order(...arguments);
-        result = Boolean(result || this.pos.is_pt_ao_country());
-        return result;
-    },
-    destroy(option) {
-        if (option && option.reason == 'abandon' && this.pos.is_pt_ao_country() && this.get_orderlines().length) {
-            self.popup.add(ErrorPopup, {
-                'title': _t("Fiscal Data Module error"),
-                'body': _t("Deleting of orders is not allowed."),
-            });
-            return false;
+
+    is_pt_ao_country() {
+        if (['PT', 'AO'].includes(this.company_id.country_id.code)) {
+            return true;
         } else {
-            super.destroy(...arguments);
+            return false;
         }
     },
-    export_for_printing() {
-        let result = super.export_for_printing(...arguments);
-        result.inalterable_hash = this.get_inalterable_hash();
-        result.account_move_name = this.get_account_move_name();
-        result.customer_vat = this.get_customer_vat();
-        result.customer_name = this.get_customer_name();
-        result.document_name = this.get_document_name();
-        result.credit_reason = this.get_credit_reason();
-        result.reversed_entry_name = this.get_reversed_entry_name();
-        result.account_move_state = this.get_account_move_state();
-        result.cashier_name = this.get_cashier_name();
-        result.partner = this.partner;
-        result.doc_printed = this.doc_printed || false;
 
-        // Parse exemption codes here in JavaScript, not in template
-        if (this.exemption_codes) {
-            try {
-                if (typeof this.exemption_codes === 'string') {
-                    result.exemption_codes = JSON.parse(this.exemption_codes);
-                } else {
-                    result.exemption_codes = this.exemption_codes;
-                }
-            } catch (error) {
-                console.error('Error parsing exemption codes:', error);
-                result.exemption_codes = {};
-            }
+    // v19: PosOrder.setToInvoice replaces set_to_invoice
+    setToInvoice(to_invoice) {
+        if (this.is_pt_ao_country()) {
+            this.assertEditable();
+            this.to_invoice = true;
+        } else {
+            super.setToInvoice(...arguments);
         }
+    },
 
+    get_customer_vat(receipt) {
+        if (this.company_id.country_id.code === 'PT' && (this.customer_vat === '999999990' || !this.customer_vat)) {
+            return '---------'
+        }
+        if (this.company_id.country_id.code === 'AO' && this.customer_vat === '999999999' || !this.customer_vat) {
+            return '---------'
+        }
+        return this.partner_id.vat
+    },
+
+    // Simple getters and setters
+    set_inalterable_hash(inalterable_hash) { this.inalterable_hash = inalterable_hash; },
+    get_inalterable_hash() { return this.inalterable_hash; },
+    set_reversed_entry_name(reversed_entry_name) { this.reversed_entry_name = reversed_entry_name; },
+    get_reversed_entry_name() { return this.reversed_entry_name; },
+    set_credit_reason(credit_reason) { this.credit_reason = credit_reason; },
+    get_credit_reason() { return this.credit_reason; },
+    set_account_move_name(account_move_name) { this.account_move_name = account_move_name; },
+    get_account_move_name() { return this.account_move_name; },
+    set_document_name(document_name) { this.document_name = document_name; },
+    get_document_name() { return this.document_name; },
+    set_account_move_state(account_move_state) { this.account_move_state = account_move_state; },
+    get_account_move_state() { return this.account_move_state; },
+    set_cashier_name(cashier_name) { this.cashier_name = cashier_name; },
+    get_cashier_name() { return this.cashier_name; },
+    set_customer_name(customer_name) { this.customer_name = customer_name; },
+    get_customer_name() { return this.customer_name; },
+    set_customer_vat(customer_vat) { this.customer_vat = customer_vat; },
+
+    // v19: PosOrder.waitForPushOrder replaces wait_for_push_order
+    waitForPushOrder() {
+        var result = super.waitForPushOrder(...arguments);
+        result = Boolean(result || this.is_pt_ao_country());
         return result;
     },
 
-    export_as_JSON() {
-        let json = super.export_as_JSON(...arguments);
-        json.inalterable_hash = this.inalterable_hash;
-        json.account_move_name = this.account_move_name;
-        json.credit_reason = this.credit_reason;
-        json.reversed_entry_name = this.reversed_entry_name;
-        json.document_name = this.document_name;
-        json.account_move_state = this.account_move_state;
-        json.cashier_name = this.cashier_name;
-        json.customer_name = this.customer_name;
-        json.customer_vat = this.customer_vat;
-        json.exemption_codes = this.exemption_codes;
+    // v19: OrderReceipt reads certified fields straight off the order (no more
+    // export_for_printing dict). The parsed exemption codes are exposed via a
+    // getter the receipt template can read.
+    get exemptionCodesForReceipt() {
+        if (!this.exemption_codes) {
+            return {};
+        }
+        try {
+            if (typeof this.exemption_codes === 'string') {
+                return JSON.parse(this.exemption_codes);
+            }
+            return this.exemption_codes;
+        } catch (error) {
+            console.error('Error parsing exemption codes:', error);
+            return {};
+        }
+    },
+
+    // v19: export_as_JSON was renamed serializeForORM
+    serializeForORM(opts = {}) {
+        const json = super.serializeForORM(...arguments);
         json.doc_printed = this.doc_printed || false;
         return json;
-    },
-});
-
-patch(Orderline.prototype, {
-    getDisplayData() {
-        let display_tax = 0;
-        if (this.tax_ids) {
-            display_tax = this.tax_ids.length > 0 ? this.pos.taxes_by_id[this.tax_ids[0]].invoice_label : 0
-        } else {
-            display_tax = this.product.taxes_id.length > 0 ? this.pos.taxes_by_id[this.product.taxes_id[0]].invoice_label : 0
-        }
-        return {
-            ...super.getDisplayData(),
-            tax: display_tax,
-        };
     },
 });

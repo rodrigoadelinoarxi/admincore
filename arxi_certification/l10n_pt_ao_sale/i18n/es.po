@@ -41,7 +41,7 @@ msgid "Config Settings"
 msgstr "Opciones de configuración"
 
 #. module: l10n_pt_ao_sale
-#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_cancel__convert_proforma
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_arxi_sale_order_cancel_wizard__convert_proforma
 msgid "Convert Proforma"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgid "Downpayment Origin"
 msgstr ""
 
 #. module: l10n_pt_ao_sale
-#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_cancel__is_rewrite
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_arxi_sale_order_cancel_wizard__is_rewrite
 msgid "Is a Rewrite"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgid "Post"
 msgstr "Emitir"
 
 #. module: l10n_pt_ao_sale
-#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_sale_order_cancel__reason
+#: model:ir.model.fields,field_description:l10n_pt_ao_sale.field_arxi_sale_order_cancel_wizard__reason
 msgid "Reason"
 msgstr "Razón"
 
@@ -138,7 +138,7 @@ msgid "Sales Order"
 msgstr "Pedido de venta"
 
 #. module: l10n_pt_ao_sale
-#: model:ir.model,name:l10n_pt_ao_sale.model_sale_order_cancel
+#: model:ir.model,name:l10n_pt_ao_sale.model_arxi_sale_order_cancel_wizard
 msgid "Sales Order Cancel"
 msgstr "Cancelar pedido de venta"
 

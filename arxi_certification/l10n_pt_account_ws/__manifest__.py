@@ -6,7 +6,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Accounting',
-    'version': '17.0.1.0.1',
+    'version': '1.0',
     'license': 'OPL-1',
     'depends': ['l10n_pt_certificate'],
     'data': [

@@ -1,5 +1,4 @@
 from . import account_move
-from . import account_journal
 from . import res_config_settings
 from . import res_company
 from . import account_generic_tax_report

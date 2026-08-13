@@ -4,10 +4,10 @@
         Module that adds discount fields to account move line
     """,
 
-    'author': 'Arxi',
+    'author': "ARXILEAD",
     'website': 'https://www.arxi.pt',
     'category': 'Accounting & Finance',
-    'version': '17.0.0.1.6',
+    'version': '1.1',
     'license': 'OPL-1',
     'depends': ['display_total_discount', 'sale_second_discount'],
     'data': [

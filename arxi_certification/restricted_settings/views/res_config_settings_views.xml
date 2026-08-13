@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><record id="base.menu_config" model="ir.ui.menu"><field name="groups_id" eval="[(4, ref('restricted_settings.group_basic_settings'))]"/></record><!--<record id="base.menu_config" model="ir.ui.menu">--><!--    <field name="groups_id" eval="[(4, ref('restricted_settings.group_basic_settings'))]"/>--><!--</record>--><!--<record id="account.menu_account_config" model="ir.ui.menu">--><!--    <field name="groups_id" eval="[(4, ref('restricted_settings.group_basic_settings'))]"/>--><!--</record>--></odoo>

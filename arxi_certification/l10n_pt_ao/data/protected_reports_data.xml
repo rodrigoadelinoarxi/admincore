@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><!-- Bloco D: flag the certified report actions and their QWeb views as
+         protected — only the superuser can modify or delete them (replaces
+         studio_protected_reports without external dependencies).
+         Not noupdate: re-asserted on every upgrade on purpose. --><!-- Certified report actions (account; sale/stock/worksheets equivalents
+         are flagged by their own modules) --><record id="account.account_invoices" model="ir.actions.report"><field name="protected" eval="True"/></record><record id="account.action_report_payment_receipt" model="ir.actions.report"><field name="protected" eval="True"/></record><!-- QWeb views of the certified templates owned by this module --><record id="report_custom_invoice_document" model="ir.ui.view"><field name="protected" eval="True"/></record><record id="report_invoice" model="ir.ui.view"><field name="protected" eval="True"/></record><record id="report_terms_and_conditions" model="ir.ui.view"><field name="protected" eval="True"/></record><record id="report_payment_inherit" model="ir.ui.view"><field name="protected" eval="True"/></record><record id="report_payment_receipt" model="ir.ui.view"><field name="protected" eval="True"/></record><record id="print_copies_display" model="ir.ui.view"><field name="protected" eval="True"/></record></odoo>

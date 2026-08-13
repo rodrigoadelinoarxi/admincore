@@ -1,6 +1,13 @@
-from . import account_fiscal_position
-from . import account_move
-from . import pos_order
-from . import pos_config
-from . import pos_session
-from . import pos_payment
+from . import (
+    account_fiscal_position,
+    account_journal,
+    account_move,
+    account_move_reason,
+    account_payment,
+    pos_config,
+    pos_order,
+    pos_payment,
+    pos_session,
+    res_config_settings,
+    tax_report_refund_type,
+)
