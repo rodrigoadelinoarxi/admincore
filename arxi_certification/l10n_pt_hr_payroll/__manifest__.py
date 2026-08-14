@@ -20,7 +20,7 @@
         'hr_payroll_account',
         'hr_payroll_account_sepa'
     ],
-    'version'    : '17.0.0.0.62',
+    'version'    : '19.0.0.0.62',
     'license'    : 'OPL-1',
     'description': """
 

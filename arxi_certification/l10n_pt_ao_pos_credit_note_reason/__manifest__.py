@@ -13,7 +13,7 @@
     'author'      : "Arxi",
     'website'     : "https://www.arxi.pt",
     'category'    : 'Sales/Point Of Sale',
-    'version'     : '17.0.0.0.6',
+    'version'     : '19.0.0.0.6',
     'license'     : 'OPL-1',
     'depends'     : [
         'point_of_sale',

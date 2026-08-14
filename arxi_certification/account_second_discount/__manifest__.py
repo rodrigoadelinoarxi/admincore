@@ -15,7 +15,7 @@
     'author': 'Arxi',
     'website': 'https://www.arxi.pt',
     'category': 'Accounting & Finance',
-    'version': '17.0.0.1.6',
+    'version': '19.0.0.1.6',
     'license': 'OPL-1',
     'depends': ['display_total_discount', 'sale_second_discount'],
     'data': [

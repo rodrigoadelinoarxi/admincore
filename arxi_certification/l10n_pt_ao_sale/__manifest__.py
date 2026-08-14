@@ -13,7 +13,7 @@
     'author'               : "ARXILEAD",
     'website'              : "https://www.arxi.pt",
     'category'             : 'Accounting & Finance',
-    'version'              : '17.0.1.0.43',
+    'version'              : '19.0.1.0.43',
     'license'              : 'OPL-1',
     'depends'              : [
         'l10n_pt_ao',

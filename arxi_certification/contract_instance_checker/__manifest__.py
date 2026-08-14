@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Contract Instance Checker',
-    'version': '17.0.1.0.2',
+    'version': '19.0.1.0.2',
     'category': 'Services/Contract',
     'summary': 'Validação automática de contratos em instâncias controladas',
     'description': """

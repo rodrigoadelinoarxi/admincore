@@ -8,7 +8,7 @@
     "category": "Accounting",
     "summary": "Import Journal Entries From CSV Import Journal Entries From Excel Import Journal Entry From CSV import Journal Entry From Excel Import Mass Journal Import Multiple Journal import account move import opening journal import opening balance Odoo",
     "description": """This module is used to import multiple journal entries from CSV/Excel files. We provide the option to import analytic tags and all related to analytic accounts with journal entries. You can import multiple entries in a single click!""",
-    "version": "17.0.0.1.2",
+    "version": "19.0.0.1.2",
     "depends": [
         "sh_message",
         "account",

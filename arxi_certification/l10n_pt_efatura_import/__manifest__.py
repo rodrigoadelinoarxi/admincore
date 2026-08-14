@@ -1,6 +1,6 @@
 {
     'name'                 : 'Portugal - Import Bills from E-Fatura ',
-    'version'              : '17.0.0.0.1',
+    'version'              : '19.0.0.0.1',
     'category'             : 'Accounting/Localizations/Account Charts',
     'license'              : 'OPL-1',
     'author'               : 'ARXILEAD',

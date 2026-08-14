@@ -13,7 +13,7 @@
     'author'  : "ARXILEAD",
     'website' : "https://www.arxi.pt",
     'category': 'Tools',
-    'version' : '17.0.0.0.7',
+    'version' : '19.0.0.0.7',
     'depends' : ['base', 'l10n_pt_ao'],
     'data'    : [
         'security/ir.model.access.csv',

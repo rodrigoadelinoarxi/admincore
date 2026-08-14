@@ -13,7 +13,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Sales/Subscriptions',
-    'version': '17.0.0.0.4',
+    'version': '19.0.0.0.4',
     'license': 'OPL-1',
     'depends': ['l10n_pt_ao_sale', 'sale_subscription'],
     'external_dependencies' : {

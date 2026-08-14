@@ -14,7 +14,7 @@
     'author'               : "ARXILEAD",
     'website'              : "https://www.arxi.pt",
     'category'             : 'Warehouse',
-    'version'              : '17.0.1.0.6',
+    'version'              : '19.0.1.0.6',
     'license'              : 'OPL-1',
     'depends'              : ['l10n_pt_stock', 'sale_stock', 'l10n_pt_ao_sale'],
     'data'                 : [

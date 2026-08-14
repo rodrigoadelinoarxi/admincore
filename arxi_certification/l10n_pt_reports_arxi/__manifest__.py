@@ -9,7 +9,7 @@
 
     'name'         : 'Portugal - Accounting Reports',
     'icon'         : '/l10n_pt_certificate/static/description/icon.png',
-    'version'      : '17.0.1.0.60',
+    'version'      : '19.0.1.0.60',
     'summary'      : 'Accounting reports for Portugal',
     'category'     : 'Accounting/Localizations/Reporting',
     'depends'      : ['l10n_pt_arxi_coa', 'l10n_pt_certificate', 'l10n_pt_ao_reports', 'account_asset_law'],

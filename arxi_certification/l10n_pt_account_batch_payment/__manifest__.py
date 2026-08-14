@@ -16,7 +16,7 @@
     'website'     : "https://www.arxi.pt",
 
     'category'    : 'Accounting & Finance',
-    'version'     : '17.0.0.0.1',
+    'version'     : '19.0.0.0.1',
     'license'     : 'OPL-1',
 
     'depends'     : ['account_batch_payment', 'l10n_pt_certificate'],

@@ -14,7 +14,7 @@
     'website'              : 'https://www.arxi.pt',
     'category'             : 'Warehouse',
     'sequence'             : 151,
-    'version'              : '17.0.1.0.32',
+    'version'              : '19.0.1.0.32',
     'license'              : 'OPL-1',
     'depends'              : [
         'l10n_pt_certificate', 'sh_message', 'stock', 'stock_restrictions', 'stock_report_by_country', 'stock_account', 'stock_sms'

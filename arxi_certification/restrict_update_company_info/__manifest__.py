@@ -14,7 +14,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Technical',
-    'version': '17.0.1.0.0',
+    'version': '19.0.1.0.0',
     'license': 'OPL-1',
     'depends': ['base'],
     'data': [

@@ -14,7 +14,7 @@
     'author'  : "ARXILEAD",
     'website' : "https://www.arxi.pt",
     'category': 'Tools',
-    'version' : '17.0.0.0.7',
+    'version' : '19.0.0.0.7',
     'depends' : ['account'],
     'data'    : [
         'views/res_config_settings_views.xml',

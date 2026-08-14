@@ -16,7 +16,7 @@
     'website': 'https://www.arxi.pt',
     'category': 'Accounting & Finance',
     'sequence': 151,
-    'version': '17.0.0.0.10',
+    'version': '19.0.0.0.10',
     'license': 'OPL-1',
     'depends': ['l10n_pt_ao_sale', 'display_total_discount'],
     'data': [

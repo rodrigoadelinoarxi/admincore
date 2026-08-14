@@ -5,7 +5,7 @@
     'author': "Arxi",
     'website': "http://www.arxi.pt",
     'category': 'Human Resources',
-    'version': '17.0.0.0.1',
+    'version': '19.0.0.0.1',
     'license': 'OPL-1',
     'depends': ['hr_expense'],
     'data': [

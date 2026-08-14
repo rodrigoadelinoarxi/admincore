@@ -14,7 +14,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Print Configuration',
-    'version': '17.0.0.0.4',
+    'version': '19.0.0.0.4',
     'license': 'OPL-1',
     'depends': ['sale', 'print_conf_copies'],
     'data': [

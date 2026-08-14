@@ -4,7 +4,7 @@
     'author'  : 'Arxi',
     'website' : 'https://www.arxi.pt',
     'category': 'Human Resources',
-    'version' : '17.0.0.0.0',
+    'version' : '19.0.0.0.0',
     'price': 18.0,
     'currency': 'EUR',
     'license' : 'OPL-1',

@@ -8,7 +8,7 @@
     'installable': False,
 
     'name': 'Portugal - E-Invoicing (CIUS-PT) - Feature Partner Filter',
-    'version': '17.0.0.0.3',
+    'version': '19.0.0.0.3',
     'license': 'OPL-1',
     'category': 'Accounting/Localizations/EDI',
     'summary': 'E-Invoicing, CIUS-PT standard',

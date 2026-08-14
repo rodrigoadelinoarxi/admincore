@@ -12,7 +12,7 @@
     'author'  : "ARXILEAD",
     'website' : "https://www.arxi.pt",
     'category': 'Invoicing',
-    'version' : '17.0.1.0.10',
+    'version' : '19.0.1.0.10',
     'license' : 'OPL-1',
     'depends' : ['account'],
     'data'    : [

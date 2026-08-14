@@ -11,7 +11,7 @@
     'summary': 'Adds legislation fields to create asset models',
     'category': 'Accounting/Accounting',
     'depends': ['account_asset'],
-    'version': '17.0.1.0.5',
+    'version': '19.0.1.0.5',
     'license': 'OPL-1',
     'data': [
         'security/ir.model.access.csv',

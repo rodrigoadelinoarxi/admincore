@@ -7,7 +7,7 @@
     "category": "Extra Tools",
     # "live_test_url": "",
     "images": ["images/banner.png"],
-    "version": "17.0.2.0.1",
+    "version": "19.0.2.0.1",
     "application": False,
     "author": "IT-Projects LLC, Ivan Yelizariev",
     "support": "apps@itpp.dev",

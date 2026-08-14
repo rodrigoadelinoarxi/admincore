@@ -12,7 +12,7 @@
     'author': "Arxi",
     'website': "https://www.arxi.pt",
     'category': 'Accounting & Finance',
-    'version': '17.0.0.0.3',
+    'version': '19.0.0.0.3',
     'license': 'OPL-1',
     'depends': ['l10n_pt_multi_payment', 'l10n_pt_payment_term_discount'],
     'data': [

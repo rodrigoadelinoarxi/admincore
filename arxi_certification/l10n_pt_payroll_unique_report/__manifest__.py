@@ -16,7 +16,7 @@
     'depends'    : [
         'l10n_pt_hr_payroll',
     ],
-    'version'    : '17.0.0.0.11',
+    'version'    : '19.0.0.0.11',
     'license'    : 'OPL-1',
     'description': """
     """,

@@ -1,6 +1,6 @@
 {
     'name': 'Portugal - E-Invoicing (CIUS-PT)',
-    'version': '17.0.0.0.9',
+    'version': '19.0.0.0.9',
     'license': 'OPL-1',
     'category': 'Accounting/Localizations/EDI',
     'summary': 'E-Invoicing, CIUS-PT standard',

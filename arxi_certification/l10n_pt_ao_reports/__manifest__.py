@@ -12,7 +12,7 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Accounting/Localizations/Reporting',
-    'version': '17.0.1.0.9',
+    'version': '19.0.1.0.9',
     'license': 'OPL-1',
     'depends': ['account_reports', 'account_asset_law'],
     'external_dependencies' : {

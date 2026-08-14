@@ -9,7 +9,7 @@
 
     'name': 'Restricted Settings',
     'summary': """Non-superuser admins change reports or install apps""",
-    'version': '17.0.0.0.1',
+    'version': '19.0.0.0.1',
     'author': 'Arxi',
     'website' : 'https://www.arxi.pt',
     'category': 'Extra Tools',
