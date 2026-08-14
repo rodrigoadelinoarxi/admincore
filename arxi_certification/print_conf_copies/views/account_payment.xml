@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><!--Form view--><record id="view_account_payment_form_print_conf_copies" model="ir.ui.view"><field name="name">view.account.payment.form.print_conf_copies</field><field name="model">account.payment</field><field name="inherit_id" ref="account.view_account_payment_form"/><field name="arch" type="xml"><xpath expr="//sheet" position="inside"><group><group string="Print Settings" name="print_conf"><field name="print_copies"/></group></group></xpath></field></record></odoo>

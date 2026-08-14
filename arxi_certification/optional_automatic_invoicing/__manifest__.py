@@ -14,11 +14,11 @@
     'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
     'category': 'Website',
-    'version': '17.0.0.0.2',
+    'version': '1.0',
     'license': 'OPL-1',
     'depends': [
+        'account_payment',
         'l10n_pt_ao',
-        'payment',
     ],
     'auto_install': True,
 }

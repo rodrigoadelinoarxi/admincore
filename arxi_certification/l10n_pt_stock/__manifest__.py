@@ -14,10 +14,10 @@
     'website'              : 'https://www.arxi.pt',
     'category'             : 'Warehouse',
     'sequence'             : 151,
-    'version'              : '17.0.1.0.32',
+     'version'              : '1.7',
     'license'              : 'OPL-1',
     'depends'              : [
-        'l10n_pt_certificate', 'sh_message', 'stock', 'stock_restrictions', 'stock_report_by_country', 'stock_account', 'stock_sms'
+        'l10n_pt_certificate', 'l10n_pt_ao', 'stock', 'stock_account', 'stock_sms'
     ],
     'data'                 : [
         'security/ir.model.access.csv',
@@ -34,6 +34,9 @@
         'wizard/stock_quantity_history_views.xml',
         'report/stock_picking_templates.xml',
         'report/transport_document_report.xml',
+        # Absorbed from print_conf_copies_pt
+        'report/delivery_slip_report.xml',
+        'report/picking_operations.xml',
     ],
     'auto_install'         : ['l10n_pt_certificate', 'stock_account'],
     'post_init_hook'       : '_post_init_hook'

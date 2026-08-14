@@ -1,72 +1,60 @@
 <?xml version="1.0"?>
 <templates id="template" xml:space="preserve">
+    <!-- v19: the base OrderReceipt takes the order itself as `props.order` (the
+         v18 `props.data` export dict is gone). All certified fields are read
+         straight off the order model, where they are set in models.js setup(). -->
     <t t-name="l10n_pt_ao_pos.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
-
         <xpath expr="//ReceiptHeader" position="after">
-            <!-- Base case: not duplicate/triplicate -->
-            <span t-if="!props.data.is_duplicated_print and !props.data.is_triplicate_print">
-                <t t-if="!props.data.doc_printed">Original</t>
+            <span t-if="!props.order.is_duplicated_print and !props.order.is_triplicate_print">
+                <t t-if="!props.order.doc_printed">Original</t>
                 <t t-else="">Copy of the document</t>
                 <br/>
             </span>
-
-            <!-- Duplicate print case -->
-            <span t-if="props.data.is_duplicated_print">
-                <t t-if="!props.data.doc_printed">Duplicate Receipt</t>
+            <span t-if="props.order.is_duplicated_print">
+                <t t-if="!props.order.doc_printed">Duplicate Receipt</t>
                 <t t-else="">Copy of the document - Duplicate</t>
                 <br/>
             </span>
-
-            <!-- Triplicate print case -->
-            <span t-if="props.data.is_triplicate_print">
-                <t t-if="!props.data.doc_printed">Triplicate Receipt</t>
+            <span t-if="props.order.is_triplicate_print">
+                <t t-if="!props.order.doc_printed">Triplicate Receipt</t>
                 <t t-else="">Copy of the document - Triplicate</t>
                 <br/>
             </span>
-
-            <span t-if="props.data.reversed_entry_name">
-                Credit Note n. <t t-esc="props.data.account_move_name"/>
+            <span t-if="props.order.reversed_entry_name">
+                Credit Note n. <t t-esc="props.order.account_move_name"/>
             </span>
             <span t-else="">
-                Invoice n. <t t-esc="props.data.account_move_name"/>
+                Invoice n. <t t-esc="props.order.account_move_name"/>
             </span>
-            <span t-if="props.data.reversed_entry_name">
+            <span t-if="props.order.reversed_entry_name">
                 <br/>
                 Relating to document
-                <t t-esc="props.data.reversed_entry_name"/>
+                <t t-esc="props.order.reversed_entry_name"/>
             </span>
-            <span t-if="props.data.reversed_entry_name and props.data.credit_reason">
+            <span t-if="props.order.reversed_entry_name and props.order.credit_reason">
                 <br/>
                 Reason:
-                <t t-esc="props.data.credit_reason"/>
+                <t t-esc="props.order.credit_reason"/>
             </span>
-        </xpath>
-
-        <xpath expr="//div[@t-esc='props.data.name']" position="before">
             <div>
                 <span>Customer: </span>
-                <t t-esc="props.data.customer_name"/>
+                <t t-esc="props.order.customer_name"/>
             </div>
             <div>
                 <span>VAT: </span>
-                <t t-esc="props.data.customer_vat"/>
+                <t t-esc="props.order.get_customer_vat()"/>
             </div>
         </xpath>
 
-        <xpath expr="//div[@class='pos-receipt-order-data']//p" position="replace"/>
-
-        <xpath expr="//div[@t-esc='props.data.date']" position="after">
-            <t>Goods sent or made available to the purchaser at </t>
-            <div t-esc="props.data.date"/>
-        </xpath>
-
+        <!-- Exemption codes, parsed in models.js (exemptionCodesForReceipt) -->
         <xpath expr="//div[hasclass('paymentlines')]" position="after">
-            <t t-if="props.data.exemption_codes and Object.keys(props.data.exemption_codes).length &gt; 0">
+            <t t-set="exemptionCodes" t-value="props.order.exemptionCodesForReceipt"/>
+            <t t-if="exemptionCodes and Object.keys(exemptionCodes).length &gt; 0">
                 <br/>
                 <div class="pos-receipt-exemption-codes" style="font-size: 0.9em;">
                     <strong>Exemption Codes</strong>
                     <br/>
-                    <t t-foreach="Object.values(props.data.exemption_codes)" t-as="exemption" t-key="exemption_index">
+                    <t t-foreach="Object.values(exemptionCodes)" t-as="exemption" t-key="exemption_index">
                         <div class="exemption-line">
                             <strong><t t-esc="exemption.code"/>:</strong> <t t-esc="exemption.name"/>
                         </div>
@@ -75,18 +63,10 @@
             </t>
         </xpath>
 
-        <xpath expr="//div[@class='pos-receipt']" position="inside">
-            <t t-if="props.data.account_move_state == 'cancel'">
+        <xpath expr="//div[hasclass('pos-receipt')]" position="inside">
+            <t t-if="props.order.account_move_state == 'cancel'">
                 <span class="diagonal-text cancelled"/>
             </t>
         </xpath>
-
     </t>
-
-    <t t-name="l10n_pt_ao.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
-        <xpath expr="//em[@t-esc='line.qty']" position="before">
-            <span>Tax:<t t-esc="line.tax"/> </span>
-        </xpath>
-    </t>
-
 </templates>

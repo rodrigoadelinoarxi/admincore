@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 14:07+0000\n"
-"PO-Revision-Date: 2026-06-05 14:07+0000\n"
+"POT-Creation-Date: 2026-06-05 12:00+0000\n"
+"PO-Revision-Date: 2026-06-05 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid ""
 "\n"
 "If you see 'Missing required field' errors, please ensure all mandatory COPE fields are filled in the account moves."
@@ -29,7 +28,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid ""
 "\n"
 "Note: These are technical validation errors from the XML schema."
@@ -40,7 +38,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid ""
 "\n"
 "Please complete the missing fields in the account moves and try again.\n"
@@ -56,28 +53,24 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_assets_32_report.py:0
-#, python-format
 msgid "(No Asset Law)"
-msgstr "(Sem Lei de Ativo)"
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
 msgid "(No Group)"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#, python-format
 msgid "(No name)"
 msgstr "(Sem nome)"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#, python-format
 msgid "(Sem nome)"
 msgstr ""
 
@@ -261,6 +254,48 @@ msgstr ""
 "específicos por Empresa\"/>"
 
 #. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "<span>Crédito</span>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "<span>Código</span>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "<span>Débito</span>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "<span>Nome da Conta</span>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "<span>Saldo Acumulado</span>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "<span>Saldo Final</span>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "<strong>Data Fim:</strong>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "<strong>Data Início:</strong>"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.trp_r_ac_quadro_06A_A
 #: model:account.report.line,name:l10n_pt_reports_arxi.trp_r_ma_quadro_06A_A
 #: model:account.report.line,name:l10n_pt_reports_arxi.trp_r_pt_quadro_06A_A
@@ -315,7 +350,6 @@ msgstr "Tipo de Movimentos de Conta"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_move.py:0
-#, python-format
 msgid "Account Movement Types"
 msgstr "Tipos de Movimentos de Conta"
 
@@ -329,14 +363,13 @@ msgstr "Recebimentos de clientes"
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_statistical_classification
 #: model:ir.ui.menu,name:l10n_pt_reports_arxi.l10n_pt_account_statistical_classification_menu
 msgid "Account Statistical Classification"
-msgstr "Classificação"
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_account_type
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_res_bank__account_type
-#, python-format
 msgid "Account Type"
 msgstr "Tipo de Conta"
 
@@ -354,17 +387,16 @@ msgstr "Relatórios Contabilísticos"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_report_expression
 msgid "Accounting Report Expression"
-msgstr "Expressão do relatório financeiro"
+msgstr "Expressão do Relatório Financeiro"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_report_line
 msgid "Accounting Report Line"
-msgstr "Linha do relatório financeiro"
+msgstr "Linha do Relatório Financeiro"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
-#, python-format
 msgid "Accumulated Balance"
 msgstr "Saldo Acumulado"
 
@@ -372,7 +404,6 @@ msgstr "Saldo Acumulado"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_cope_report_handler.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "Activate the COPE report in the company settings before exporting."
 msgstr "Ative o relatório COPE nas definições da empresa antes de exportar."
 
@@ -380,14 +411,11 @@ msgstr "Ative o relatório COPE nas definições da empresa antes de exportar."
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_cope_export_wizard
 msgid "Activate the COPE report in the company settings to use this wizard."
 msgstr ""
-"Ative o relatório COPE nas definições da empresa para usar este wizard."
+"Ative o relatório COPE nas definições da empresa para usar este assistente."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#, python-format
 msgid "Activate the Model 30 report in the company settings before using it."
 msgstr ""
 "Ative o relatório Modelo 30 nas definições da empresa antes de o usar."
@@ -401,7 +429,7 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.res_config_settings_view_form
 msgid ""
-"Activate to enable the Model 30 report and expose Model 30-specific fields."
+"Activate to enable the Model 30 report and expose Model 30 specific fields."
 msgstr ""
 "Ative para ativar o relatório Modelo 30 e expor os campos específicos do "
 "Modelo 30."
@@ -460,14 +488,13 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_amount
-#, python-format
 msgid "Amount"
-msgstr "Valor"
+msgstr "Montante"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_bank_statement_line__model_30_amount
+#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_move__model_30_amount
 msgid "Amount for Model 30 reporting."
-msgstr "Montante para o relatório do Modelo 30."
+msgstr "Taxa a reportar no Modelo 30."
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_analytic_balance_report_handler
@@ -476,8 +503,18 @@ msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
+#: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
+msgid "Analytic Balance Sheet"
+msgstr "Balancete Razão"
+
+#. module: l10n_pt_reports_arxi
+#: model:ir.actions.report,name:l10n_pt_reports_arxi.analytic_balance_sheet_report
+msgid "Analytic Balance Sheet Report"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
 msgid "Analytical Ledger"
 msgstr "Balancete Analítico"
 
@@ -532,14 +569,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_asset_32_report_handler
 msgid "Asset 32 Report Custom Handler"
-msgstr ""
-
-#. module: l10n_pt_reports_arxi
-#. odoo-python
-#: code:addons/l10n_pt_reports_arxi/models/account_asset.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_asset.py:0
-#, python-format
-msgid "Asset Cancelled"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
@@ -629,6 +658,16 @@ msgid "Balance Sheet"
 msgstr "Balanço"
 
 #. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.analytic_balance_sheet_template
+msgid "Balancete Razão"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Balancete de Encerramento"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_bank
 #: model:ir.model,name:l10n_pt_reports_arxi.model_res_bank
 msgid "Bank"
@@ -637,7 +676,7 @@ msgstr "Banco"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_res_bank__bank_identifier
 msgid "Bank Identifier"
-msgstr "Identificador de Banco"
+msgstr "Identificador do Banco"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.tax_report_pt_anexo_40_column_base
@@ -701,12 +740,12 @@ msgstr ""
 #: model:ir.ui.menu,name:l10n_pt_reports_arxi.menu_action_cope_report
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_form_inherit_l10n_reports
 msgid "COPE"
-msgstr ""
+msgstr "COPE"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_due_date
 msgid "COPE Due Date"
-msgstr "Data de vencimento"
+msgstr "Data de Vencimento"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_notes
@@ -727,7 +766,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "COPE schema file not found. Please contact system administrator."
 msgstr ""
 
@@ -826,9 +864,14 @@ msgstr "Fechar"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
+#: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
+msgid "Closing Balance Sheet"
+msgstr "Balancete de Encerramento"
+
+#. module: l10n_pt_reports_arxi
+#. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_report__filter_closing
-#, python-format
 msgid "Closing Ledger"
 msgstr ""
 
@@ -861,11 +904,6 @@ msgid "Companies"
 msgstr "Empresas"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_cope_export_wizard__company_l10n_pt_reports_arxi_enable_cope
-msgid "Company L10N Pt Reports Arxi Enable Cope"
-msgstr ""
-
-#. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cap_participation_company_percentage
 msgid "Company Participation Percentage"
 msgstr "Participação no Capital (Declarante)"
@@ -873,7 +911,6 @@ msgstr "Participação no Capital (Declarante)"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Company VAT is required!"
 msgstr "O NIF da Empresa é obrigatório!"
 
@@ -881,7 +918,7 @@ msgstr "O NIF da Empresa é obrigatório!"
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__account_move__cope_account_type__c
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__res_bank__account_type__c
 msgid "Compensation Account"
-msgstr "Conta de compensação"
+msgstr "Conta de Compensação"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_report_expression__engine
@@ -891,12 +928,12 @@ msgstr "Mecanismo de computação"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_res_config_settings
 msgid "Config Settings"
-msgstr "Configurações"
+msgstr "Definições de Configuração"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_account_country
 msgid "Cope Account Country"
-msgstr "País da conta"
+msgstr "País da Conta"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_account_type
@@ -911,12 +948,7 @@ msgstr "Banco"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_counterpart_country
 msgid "Cope Counterpart Country"
-msgstr "País da contraparte"
-
-#. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_bank_statement_line__cope_counterpart_visible
-msgid "Cope Counterpart Visible"
-msgstr ""
+msgstr "País Contraparte"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_country
@@ -931,7 +963,7 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_bank_statement_line__cope_currency
 msgid "Cope Currency"
-msgstr "Moeda Cope"
+msgstr "Moeda"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__cope_statistical_classification_code
@@ -941,7 +973,6 @@ msgstr "Classificação"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
 msgid "Could not parse taxonomy_code formula from token '%s'"
 msgstr ""
 
@@ -954,7 +985,7 @@ msgstr "Contraparte"
 #. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_country_counterpart
 msgid "Counterpart Country"
-msgstr "País da contraparte"
+msgstr "País Contraparte"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_res_country
@@ -1010,6 +1041,16 @@ msgid "Credit"
 msgstr "Crédito"
 
 #. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Crédito"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Crédito Mês"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.balance_ativo_nao_corrente_creditos_a_receber
 msgid "Créditos a receber"
 msgstr ""
@@ -1018,7 +1059,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_currency
-#, python-format
 msgid "Currency"
 msgstr "Moeda"
 
@@ -1035,14 +1075,20 @@ msgstr "Anexos de Cliente e Fornecedor"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Customer and Supplier annex dates must be set when annexes are active."
-msgstr "As datas dos anexos de cliente e fornecedor devem ser definidas."
+msgstr ""
+"As datas dos anexos de Cliente e Fornecedor devem ser definidas quando os "
+"anexos estão ativos."
 
 #. module: l10n_pt_reports_arxi
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.tax_report_export_wizard_view
 msgid "Customer/Supplier Annexes"
-msgstr "Anexos de Cliente/Fornecedor"
+msgstr "Anexos de Clientes/Fornecedores"
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Código"
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.trp_r_ac_quadro_06A_D_c72
@@ -1171,7 +1217,7 @@ msgid "Do you have transactions in which you did not pay tax?"
 msgstr "Tem operações em que não liquidou imposto?"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_bank_statement_line__model_30_doc_number
+#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_move__model_30_doc_number
 msgid "Document number for Model 30 reporting."
 msgstr "Nº Guia de Pagamento para Modelo 30."
 
@@ -1195,6 +1241,16 @@ msgstr ""
 "adquirente, liquidou o imposto?"
 
 #. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Débito"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Débito Mês"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.trp_clientes_3
 msgid "EXPORTAÇÃO DE BENS"
 msgstr ""
@@ -1207,7 +1263,6 @@ msgstr "Efeito das diferenças de câmbio"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "Element"
 msgstr "Elemento"
 
@@ -1228,7 +1283,6 @@ msgstr "Ativar Modelo 30"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
-#, python-format
 msgid "End Balance"
 msgstr "Saldo Final"
 
@@ -1241,21 +1295,18 @@ msgstr "Data de Fim"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "End date must align with the end of a quarter."
 msgstr "A data de fim deve alinhar-se com o fim de um trimestre."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "End date must be the last day of the month."
 msgstr "A data de fim deve ser o último dia do mês."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "End date must be the last day of the quarter (Mar, Jun, Sep, Dec)."
 msgstr ""
 "A data de fim deve ser o último dia do trimestre (Mar, Jun, Set, Dez)."
@@ -1268,7 +1319,6 @@ msgstr "Posições em fim do período"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/annex_40_report_handler.py:0
-#, python-format
 msgid "Entries - Annex 40"
 msgstr "Lançamentos - Anexo 40"
 
@@ -1298,16 +1348,14 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
-#, python-format
 msgid "Error during schema validation: %s"
 msgstr "Erro durante a validação do schema: %s"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Error getting report lines: %s"
-msgstr "Erro ao obter linhas do relatório: %s"
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.balance_ativo_corrente_estado_e_outros_entes_publicos
@@ -1327,22 +1375,20 @@ msgid "Exchange Differences in Financial Statements"
 msgstr "Diferenças de conversão de demonstrações financeiras"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_bank_statement_line__journal_l10n_pt_cope_exclude
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_journal__l10n_pt_cope_exclude
-msgid "Exclude from COPE"
-msgstr "Excluir do COPE"
-
-#. module: l10n_pt_reports_arxi
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__account_move__import_export_cope__export
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.tax_report_export_wizard_view
 msgid "Export"
 msgstr "Exportar"
 
 #. module: l10n_pt_reports_arxi
+#: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__account_move__import_export_cope__import
+msgid "Import"
+msgstr "Importar"
+
+#. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_cope_report_handler.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_cope_export_wizard
-#, python-format
 msgid "Export COPE"
 msgstr "Exportar COPE"
 
@@ -1360,7 +1406,6 @@ msgstr "Exportar Ficheiro"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_10_handler.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_model10_export_wizard
-#, python-format
 msgid "Export Modelo 10"
 msgstr "Exportar Modelo 10"
 
@@ -1368,7 +1413,6 @@ msgstr "Exportar Modelo 10"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_tax_recap_handler.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_tax_recap_export_wizard
-#, python-format
 msgid "Export VAT Summary Declaration"
 msgstr "Exportar Declaração Recapitulativa"
 
@@ -1383,7 +1427,6 @@ msgstr "Exportar XML"
 #: code:addons/l10n_pt_reports_arxi/models/account_cope_report_handler.py:0
 #: code:addons/l10n_pt_reports_arxi/models/account_generic_tax_report.py:0
 #: code:addons/l10n_pt_reports_arxi/models/account_tax_recap_handler.py:0
-#, python-format
 msgid "Export to XML"
 msgstr "Exportar XML"
 
@@ -1460,15 +1503,11 @@ msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_cope_export_wizard__file_id
-msgid "Ficheiro"
-msgstr ""
-
-#. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_model10_export_wizard__file_id
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_tax_recap_export_wizard__file_id
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_tax_reports_export_wizard__file_id
 msgid "File"
-msgstr ""
+msgstr "Ficheiro"
 
 #. module: l10n_pt_reports_arxi
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.tax_report_export_wizard_view
@@ -1519,7 +1558,7 @@ msgstr "Primeira declaração do Ano"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_model10_export_wizard__first_or_replacement
 msgid "First declaration of the year / Replacement declaration"
-msgstr "Primeira declaração do Ano / Declaração de Substituição"
+msgstr "Primeira declaração do Ano/ Declaração de Substituição"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.cash_flow_statement_fixed_assets
@@ -1545,24 +1584,22 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid ""
 "For monthly periodicity, the selected report range must be exactly one full "
 "month."
 msgstr ""
-"Para periodicidade mensal, o intervalo de relatório deve ser exatamente um "
-"mês."
+"Para periodicidade mensal, o intervalo de relatório selecionado deve ser "
+"exatamente um mês completo."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid ""
 "For quarterly periodicity, the selected report range must be exactly one "
 "full quarter (3 months)."
 msgstr ""
-"Para periodicidade trimestral, o intervalo de relatório deve ser exatamente "
-"um trimestre (3 meses)."
+"Para periodicidade trimestral, o intervalo de relatório selecionado deve ser"
+" exatamente um trimestre completo (3 meses)."
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.balance_passivo_corrente_fornecedores
@@ -1598,7 +1635,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
-#, python-format
 msgid "General Ledger"
 msgstr "Registo Geral"
 
@@ -1615,7 +1651,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/annex_40_report_handler.py:0
-#, python-format
 msgid "Grouping by ID is not supported in Annex 40 custom engine."
 msgstr ""
 
@@ -1624,7 +1659,6 @@ msgstr ""
 #: code:addons/l10n_pt_reports_arxi/models/account_model_10_handler.py:0
 #: code:addons/l10n_pt_reports_arxi/models/customer_report_handler.py:0
 #: code:addons/l10n_pt_reports_arxi/models/supplier_report_handler.py:0
-#, python-format
 msgid "Grouping by ID key is not supported by partner VAT custom engine."
 msgstr ""
 
@@ -1648,6 +1682,11 @@ msgid "ID"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
+#: model:account.account.tag,name:l10n_pt_reports_arxi.supplier_import_prefix_tag
+msgid "IM"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.tax_report_pt_anexo_fornecedores_column_tax
 msgid "IVA Deduzido"
 msgstr ""
@@ -1655,7 +1694,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_10_handler.py:0
-#, python-format
 msgid "IVA Recuperado"
 msgstr ""
 
@@ -1682,7 +1720,7 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__import_export_cope
 msgid "Import Export Cope"
-msgstr "Importar/Exportar Cope"
+msgstr "Importar/Exportar COPE"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.model_10_withheld_amount
@@ -1736,17 +1774,15 @@ msgstr "Tipo de Rendimento"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
 msgid ""
-"Inconsistent report_id in options dictionary. Options says %(option)s; "
-"report is %(report)s."
+"Inconsistent report_id in options dictionary. Options says "
+"%(options_report)s; report is %(report)s."
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_bank_statement_line__non_resident_income
+#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_move__non_resident_income
 msgid "Indicates if the move is related to non-resident income."
-msgstr ""
-"Indica se o lançamento está relacionado com rendimentos de não residentes."
+msgstr "Indica se o lançamento está relacionado com rendimentos de não residentes."
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_asset__initial_use_date
@@ -1802,27 +1838,24 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.trp_clientes_int_op
 msgid "International Tag Operations"
-msgstr "Tag Operações Internacionais "
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "Invalid data format found"
 msgstr "Formato de dados inválido encontrado"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Invalid date format in report options."
-msgstr "Formato de data inválido nas opções do relatório."
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
-msgid "Invalid token '%s' in taxonomy_codes formula '%s'"
+msgid "Invalid token '%(token)s' in taxonomy_codes formula '%(formula)s'"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
@@ -1851,33 +1884,26 @@ msgid "Is tax deductible and/or regularizations?"
 msgstr "Tem imposto dedutível e/ou regularizações?"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_bank_statement_line__issuer_entity_vat
+#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__issuer_entity_vat
 msgid "Issuer Entity VAT"
-msgstr ""
-
-#. module: l10n_pt_reports_arxi
-#: model:ir.model,name:l10n_pt_reports_arxi.model_account_journal
-msgid "Journal"
-msgstr "Diário"
+msgstr "NIF Entidade Emitente"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_move
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_line_tree_movement_type
 msgid "Journal Entry"
-msgstr "Entrada do Diário"
+msgstr "Lançamento em Diário"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_move_line
 msgid "Journal Item"
-msgstr "Item do Diário"
+msgstr "Item no Diário"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
 #: code:addons/l10n_pt_reports_arxi/models/account_tax_recap_handler.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_tax_recap_handler.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_line_tree_movement_type
-#, python-format
 msgid "Journal Items"
 msgstr "Itens do Diário"
 
@@ -1947,9 +1973,27 @@ msgid "Legal Representative VAT"
 msgstr "NIF Representante Legal"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_bank_statement_line__liquidity_number
+#. odoo-python
+#: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
+msgid ""
+"Line '%(child)s' is configured to appear before its parent '%(parent)s'. "
+"This is not allowed."
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__liquidity_number
 msgid "Liquidity Number"
 msgstr "Número de Liquidação"
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_form_inherit_l10n_reports
+msgid "Please check if a Liquidity Number is needed based on the tax configuration of this document."
+msgstr "Por favor, verifique se é necessário um Número de Liquidação com base na configuração fiscal deste documento."
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_form_inherit_l10n_reports
+msgid "Please check if an Export Declaration is needed based on the tax configuration of this document."
+msgstr "Por favor, verifique se é necessária uma Declaração de Exportação com base na configuração fiscal deste documento."
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.model10_pt_table_5_column_05
@@ -1975,7 +2019,6 @@ msgstr "Interesses que não controlam"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "Missing required field"
 msgstr "Campo obrigatório em falta"
 
@@ -2004,7 +2047,7 @@ msgstr "Tipo de Rendimento (Modelo 30)"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__model30_regimen_tax
 msgid "Model 30 Regimen Tax"
-msgstr "Taxa de Regime"
+msgstr "Taxa de Tributação(Modelo 30)"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_account_model30_taxation_regimen
@@ -2025,7 +2068,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/model10_export_wizard.py:0
-#, python-format
 msgid "Modelo 10 file has invalid line length."
 msgstr "Ficheiro com linhas inválidas"
 
@@ -2057,7 +2099,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_10_handler.py:0
-#, python-format
 msgid "Montante a Reembolsar"
 msgstr ""
 
@@ -2106,12 +2147,11 @@ msgstr "Natureza"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__nature_of_record
 msgid "Nature Of Record"
-msgstr "Natureza do Registo"
+msgstr "Natureza"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "Nature of Record"
 msgstr "Natureza"
 
@@ -2140,8 +2180,8 @@ msgid "No"
 msgstr "Não"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__account_move__cope_account_type__x
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__res_bank__account_type__x
+#: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__account_move__cope_account_type__x
 msgid "No Account Movement"
 msgstr "Sem Movimentação de Conta"
 
@@ -2153,7 +2193,6 @@ msgstr "Sem alterações no respetivo período"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/model10_export_wizard.py:0
-#, python-format
 msgid "No data found for Modelo 10 in the selected year."
 msgstr "Não há registos para o Modelo 10 no ano selecionado."
 
@@ -2166,19 +2205,17 @@ msgstr "Sem transferências de bens à consignação declaradas"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
-#, python-format
 msgid "No movements found in the selected period from %s to %s."
 msgstr "Nenhum movimento encontrado no período selecionado de %s a %s."
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_tax_recap_export_wizard__no_operations
 msgid "No operations in the period"
-msgstr "Sem alterações no respetivo período"
+msgstr "Inexistência de Operações no respetivo período"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "No valid data to export for the selected period from %s to %s."
 msgstr "Sem dados válidos para exportar no período selecionado de %s a %s."
 
@@ -2233,32 +2270,27 @@ msgstr "Financiamentos obtidos"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_assets_32_report.py:0
-#, python-format
 msgid "Open Asset"
 msgstr "Abrir Ativo"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#, python-format
 msgid "Open Entry"
-msgstr "Abrir Movimento"
+msgstr "Abrir Lançamento"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_cope_report_handler.py:0
-#, python-format
 msgid "Open Move"
-msgstr "Abrir Movimento"
+msgstr "Abrir Lançamento"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_date
-#, python-format
 msgid "Operation Date"
-msgstr "Data Operação"
+msgstr "Data da Operação"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.report_recapitulativa_operation_type
@@ -2377,6 +2409,12 @@ msgid "Own shares"
 msgstr "Ações (quotas) próprias"
 
 #. module: l10n_pt_reports_arxi
+#. odoo-python
+#: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
+msgid "PDF"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_report_xml_struct__parent_struct_id
 msgid "Parent Tag Structure"
 msgstr ""
@@ -2392,9 +2430,9 @@ msgid "Partner Capital Participation Percentage"
 msgstr "Percentagem de Participação de Capital (SP)"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_bank_statement_line__partner_export_declaration
+#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__partner_export_declaration
 msgid "Partner Export Declaration"
-msgstr ""
+msgstr "Declaração de Exportação do Parceiro"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.account_financial_report_line_pt_balanco_passivo
@@ -2456,6 +2494,24 @@ msgstr "Alteração da periodicidade de envio de trimestral para mensal"
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_tax_recap_export_wizard__periodicity_changed_answer
 msgid "Periodicity changed from quarterly to monthly?"
 msgstr "Houve alteração de periodicidade de envio de trimestral para mensal?"
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_form_inherit_l10n_reports
+msgid ""
+"Please check if a Liquidity Number is needed based on the tax configuration "
+"of this document."
+msgstr ""
+"Por favor, verifique se é necessário um Número de Liquidação com base na "
+"configuração fiscal deste documento."
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.view_move_form_inherit_l10n_reports
+msgid ""
+"Please check if an Export Declaration is needed based on the tax "
+"configuration of this document."
+msgstr ""
+"Por favor, verifique se é necessária uma Declaração de Exportação com base "
+"na configuração fiscal deste documento."
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report,name:l10n_pt_reports_arxi.analytic_balance_report
@@ -2555,15 +2611,13 @@ msgstr "Trimestral"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Quarterly exports must include complete consecutive quarters."
 msgstr ""
-"Exportações trimestrais devem incluir trimestres completos e consecutivos."
+"Relatório trimestral deve incluir trimestres completos e consecutivos."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
 msgid "Questionnaire"
 msgstr "Exportação"
 
@@ -2638,9 +2692,8 @@ msgstr "Declaração de Substituição"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/model10_export_wizard.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
-#, python-format
 msgid "Report File"
-msgstr ""
+msgstr "Ficheiro"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_model10_export_wizard__report_info
@@ -2691,6 +2744,11 @@ msgid "Resultados transitados"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
+#: model:ir.actions.report,name:l10n_pt_reports_arxi.results_template_report
+msgid "Results Template Report"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.statement_of_changes_in_equity_column_retained_earnings
 msgid "Retained Earnings"
 msgstr "Resultados transitados"
@@ -2722,6 +2780,16 @@ msgid "Revaluation surpluses"
 msgstr "Excedentes de revalorização"
 
 #. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Saldo Crédito"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
+#: model_terms:ir.ui.view,arch_db:l10n_pt_reports_arxi.results_template
+msgid "Saldo Débito"
+msgstr ""
+
+#. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.statement_of_changes_in_equity_column_share_issuance_premiums
 msgid "Share Issuance Premiums"
 msgstr "Prémios de emissão"
@@ -2736,15 +2804,13 @@ msgstr "Realizações de prémios de emissão"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_report__filter_simplified
-#, python-format
 msgid "Simplified Ledger"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-javascript
 #: code:addons/l10n_pt_reports_arxi/static/src/components/sales_report/warnings.xml:0
-#, python-format
-msgid "Some partners have a negative balance:"
+msgid "Some partners have a negative balance in the EC Sales report:"
 msgstr "Alguns parceiros têm um saldo negativo:"
 
 #. module: l10n_pt_reports_arxi
@@ -2762,28 +2828,24 @@ msgstr "Data de Início"
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
-#, python-format
 msgid "Start Date cannot be after End Date."
 msgstr "A data de início não pode ser posterior à data de fim."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Start date must align with the beginning of a quarter."
 msgstr "A data de início deve alinhar-se com o início de um trimestre."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Start date must be the first day of the month."
 msgstr "A data de início deve ser o primeiro dia do mês."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Start date must be the first day of the quarter (Jan, Apr, Jul, Oct)."
 msgstr ""
 "A data de início deve ser o primeiro dia do trimestre (Jan, Abr, Jul, Out)."
@@ -2832,7 +2894,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_assets_32_report.py:0
-#, python-format
 msgid "Subtotal"
 msgstr ""
 
@@ -2855,7 +2916,6 @@ msgstr "Código Serviço de Finanças"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_generic_tax_report.py:0
-#, python-format
 msgid "Tax Paid Adjustment"
 msgstr "Ajuste de Imposto Pago"
 
@@ -2867,7 +2927,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_generic_tax_report.py:0
-#, python-format
 msgid "Tax Received Adjustment"
 msgstr "Ajuste de Imposto Recebido"
 
@@ -2894,7 +2953,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_asset.py:0
-#, python-format
 msgid "The Duration can not be 0 for this Asset since it is has Asset Law."
 msgstr ""
 "A duração não pode ser 0 para este Ativo dado que tem uma Lei de Ativo "
@@ -2902,34 +2960,21 @@ msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
-#: code:addons/l10n_pt_reports_arxi/models/account_asset.py:0
-#, python-format
-msgid ""
-"The account %(exp_acc)s has been credited by %(exp_delta)s, while the "
-"account %(dep_acc)s has been debited by %(dep_delta)s. This corresponds to "
-"%(move_count)s cancelled %(word)s:"
-msgstr ""
-
-#. module: l10n_pt_reports_arxi
-#. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "The annex date range must fully include the selected report period."
 msgstr ""
-"O intervalo de datas do anexo deve incluir totalmente o período do relatório"
-" selecionado."
+"O intervalo de datas dos anexos deve incluir totalmente o período do "
+"relatório selecionado."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "The end date cannot be earlier than the start date."
 msgstr "A data de fim não pode ser anterior à data de início."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid ""
 "The following required fields are missing:\n"
 "\n"
@@ -2940,16 +2985,14 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "The selected dates must match the start and end of a full quarter."
 msgstr ""
-"As datas selecionadas devem corresponder ao início e ao fim de um trimestre "
-"completo."
+"Os intervalos selecionados devem corresponder ao início e ao fim de um "
+"trimestre completo."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid ""
 "The selected range corresponds to a quarter, but the company is not set for "
 "quarterly periodicity."
@@ -2960,7 +3003,6 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid ""
 "The selected range corresponds to one month, but the company is not set for "
 "monthly periodicity."
@@ -2997,11 +3039,9 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_assets_32_report.py:0
 #: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_model_30_handler.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/model10_export_wizard.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
 #: model:account.report.column,name:l10n_pt_reports_arxi.statement_of_changes_in_equity_column_sub_total
-#, python-format
 msgid "Total"
 msgstr ""
 
@@ -3018,27 +3058,23 @@ msgstr "Transferências de bens à consignação"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_model10_export_wizard__turnover_percentage
 msgid "Turnover Percentage"
-msgstr "Percentagem do Volume de Negócios"
+msgstr "Percentagem do Volume de Negócios "
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#: code:addons/l10n_pt_reports_arxi/models/account_report.py:0
-#, python-format
 msgid "Unknown"
 msgstr "Desconhecido"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/models/annex_40_report_handler.py:0
-#, python-format
 msgid "Unsupported column."
-msgstr "Coluna não suportada."
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "Unsupported tax periodicity."
 msgstr "Periodicidade de imposto não suportada."
 
@@ -3058,14 +3094,27 @@ msgid "VAT Summary Declaration"
 msgstr "Declaração Recapitulativa de IVA"
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_move__issuer_entity_vat
-msgid "VAT number of the issuer entity."
-msgstr "NIF Entidade Emitente."
+#. odoo-python
+#: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
+msgid ""
+"VAT Summary Declaration schema file not found. Please contact system "
+"administrator."
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_move__residing_country_vat
+#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_bank_statement_line__issuer_entity_vat
+msgid "VAT number of the issuer entity."
+msgstr "NIF Entidade Emitente"
+
+#. module: l10n_pt_reports_arxi
+#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_bank_statement_line__residing_country_vat
 msgid "VAT number of the residing country."
-msgstr "NIF País de Residência."
+msgstr "NIF País de Residência"
+
+#. module: l10n_pt_reports_arxi
+#: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_model10_export_wizard__validation_message
+msgid "Validation Message"
+msgstr ""
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.column,name:l10n_pt_reports_arxi.model_10_cash_flow_balance
@@ -3079,9 +3128,8 @@ msgstr ""
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: model:account.report.column,name:l10n_pt_reports_arxi.cope_col_value_type
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_move__value_type
-#, python-format
 msgid "Value Type"
-msgstr "Tipo Valor"
+msgstr "Tipo de Valor"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.cash_flow_statement_cash_variation
@@ -3120,14 +3168,6 @@ msgstr ""
 " empresa."
 
 #. module: l10n_pt_reports_arxi
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_bank_statement_line__journal_l10n_pt_cope_exclude
-#: model:ir.model.fields,help:l10n_pt_reports_arxi.field_account_journal__l10n_pt_cope_exclude
-msgid ""
-"When enabled, payments in this journal are ignored by COPE validation and "
-"XML export."
-msgstr "Quando ativo, pagamentos deste diário não serão considerados no COPE."
-
-#. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_tax_recap_export_wizard__consignment_with_changes
 msgid "With changes in the period"
 msgstr "Com alterações no respetivo período"
@@ -3135,8 +3175,7 @@ msgstr "Com alterações no respetivo período"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_tax_recap_export_wizard__consignment_declared_transfers
 msgid "With declared transfers of goods on consignment"
-msgstr ""
-"Quando ativo, pagamentos deste diário não serão considerados no COPE."
+msgstr "Com transferências de bens à consignação declaradas"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_cope_export_wizard
@@ -3151,19 +3190,16 @@ msgstr "Wizard de exportação Modelo 10"
 #. module: l10n_pt_reports_arxi
 #: model:ir.model,name:l10n_pt_reports_arxi.model_tax_recap_export_wizard
 msgid "Wizard to export VAT Summary Declaration XML File"
-msgstr "Wizard de Exportação de XML Declaração Recapitulativa"
+msgstr "Wizard para exportar ficheiro XML Declaração Recapitulativa"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_recap_export_wizard.py:0
-#, python-format
 msgid ""
 "XML Schema validation errors found:\n"
 "\n"
-msgstr ""
-"Erros de validação do esquema XML encontrados:\n"
-"\n"
+msgstr "Erros de validação do schema XML encontrados:\n"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_report_xml_struct__code
@@ -3184,7 +3220,7 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_model10_export_wizard__year
 msgid "Year"
-msgstr ""
+msgstr "Ano"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields,field_description:l10n_pt_reports_arxi.field_account_asset__years_of_use_expected
@@ -3208,7 +3244,6 @@ msgstr "Sim"
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid ""
 "You can access the moves by going to Accounting > Journal Entries > COPE."
 msgstr ""
@@ -3218,18 +3253,28 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid "You can only export data for up to 4 months (including current month)."
-msgstr "Apenas pode exportar dados para 4 meses (incluindo o mês atual)."
+msgstr "Apenas pode exportar dados para até 4 meses (incluindo o mês atual)."
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/tax_report_export_wizard.py:0
-#, python-format
 msgid ""
-"You can only export up to 4 quarters (12 months) for quarterly periodicity."
+"You can only export up to 4 quarters (including current quarter) for "
+"quarterly periodicity."
 msgstr ""
-"Só pode exportar até 4 trimestres (12 meses) para periodicidade trimestral."
+"Apenas pode exportar até 4 trimestres (incluindo o atual) para periodicidade"
+" trimestral."
+
+#. module: l10n_pt_reports_arxi
+#. odoo-python
+#: code:addons/l10n_pt_reports_arxi/models/account_analytic_ledger_report.py:0
+msgid ""
+"You may only print results of a whole year. Ex: This Fiscal Year / Last "
+"Fiscal Year"
+msgstr ""
+"Só pode imprimir resultados de um ano completo. Ex: Este Ano Fiscal / Ano "
+"Fiscal Anterior"
 
 #. module: l10n_pt_reports_arxi
 #: model:account.report.line,name:l10n_pt_reports_arxi.model_10_dependent_work
@@ -3916,25 +3961,11 @@ msgid "alínea e)"
 msgstr ""
 
 #. module: l10n_pt_reports_arxi
-#. odoo-python
-#: code:addons/l10n_pt_reports_arxi/models/account_asset.py:0
-#, python-format
-msgid "entries"
-msgstr "lançamentos"
-
-#. module: l10n_pt_reports_arxi
-#. odoo-python
-#: code:addons/l10n_pt_reports_arxi/models/account_asset.py:0
-#, python-format
-msgid "entry"
-msgstr "lançamento"
-
-#. module: l10n_pt_reports_arxi
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__cope_export_wizard__state__exported
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__model10_export_wizard__state__exported
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__tax_recap_export_wizard__state__exported
 msgid "exported"
-msgstr ""
+msgstr "exportado"
 
 #. module: l10n_pt_reports_arxi
 #: model:ir.model.fields.selection,name:l10n_pt_reports_arxi.selection__tax_reports_export_wizard__state__exported_file
@@ -3961,21 +3992,18 @@ msgstr ""
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "has invalid format"
-msgstr "formato inválido"
+msgstr "tem formato inválido"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "is not expected"
 msgstr "inesperado"
 
 #. module: l10n_pt_reports_arxi
 #. odoo-python
 #: code:addons/l10n_pt_reports_arxi/wizard/cope_export_wizard.py:0
-#, python-format
 msgid "not allowed"
 msgstr "não permitido"
 

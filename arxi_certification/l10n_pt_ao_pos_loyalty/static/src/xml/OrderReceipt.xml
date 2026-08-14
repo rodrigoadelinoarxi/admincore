@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<templates id="template" xml:space="preserve">
-    <t t-name="l10n_pt_ao_pos_loyalty.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
-        <xpath expr="//t[@t-if='props.data.partner']" position="replace"/>
-    </t>
-</templates>

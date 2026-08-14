@@ -9,15 +9,18 @@
 
     'name'          : 'Portugal - Certified Point of Sale',
     'summary'       : """
-        Module for POS certification and exporting SAF-T""",
+        QR Code and ATCUD on the certified POS receipt""",
 
-    'author'        : "ARXILEAD",
-    'website'       : "https://www.arxi.pt",
-    'category'      : 'Sales/Point Of Sale',
-    'version'       : '17.0.0.0.3',
-    'license'       : 'OPL-1',
-    'depends'       : ['l10n_pt_certificate', 'l10n_pt_ao_pos'],
-    'data'          : [
+    'author': "ARXILEAD",
+    'website': "https://www.arxi.pt",
+    'category': 'Sales/Point Of Sale',
+    'version': '1.2',
+    'license': 'OPL-1',
+    'depends': ['l10n_pt_certificate', 'l10n_pt_ao_pos'],
+    'external_dependencies': {
+        'python': ['qrcode'],
+    },
+    'data': [
         'data/pos_qr_parameters.xml',
     ],
     'assets'        : {
@@ -26,6 +29,6 @@
             'l10n_pt_pos/static/src/xml/**/*',
         ],
     },
+    'auto_install' : ['l10n_pt_certificate', 'l10n_pt_ao_pos'],
     'application'   : False,
-    'post_init_hook': '_post_init_hook'
 }

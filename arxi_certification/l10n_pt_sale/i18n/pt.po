@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-23 17:34+0000\n"
-"PO-Revision-Date: 2025-10-23 17:34+0000\n"
+"POT-Creation-Date: 2025-10-23 16:02+0000\n"
+"PO-Revision-Date: 2025-10-23 16:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_pt_sale
+#. odoo-python
+#: code:addons/l10n_pt_sale/models/sale_order.py:0
+msgid ""
+"%(name)s is an invalid format for the sale order number. EX: OR "
+"%(year)s/0001"
+msgstr ""
+"%(name)s é um formato inválido para o número da ordem de venda. Ex: OR "
+"%(year)s/0001"
+
+#. module: l10n_pt_sale
 #: model:ir.actions.report,print_report_name:l10n_pt_sale.action_report_saleorder_mock
 msgid "(object._get_report_base_filename())"
 msgstr ""
 
 #. module: l10n_pt_sale
-#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
-msgid "- Processed by certified software ndoc. 2790/AT"
-msgstr ""
-"- Processado por programa\n"
-"                    certificado n.º 2790/AT"
+#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.qr_code_container_sale_order
+msgid ""
+"- Processed by certified\n"
+"                    software ndoc. 2790/AT"
+msgstr "- Processado por software certificado nº 2790/AT"
 
 #. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
@@ -39,20 +49,16 @@ msgstr ""
 #. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
 msgid ""
-"<span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
-"                                <span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_included\">Total Price</span>"
-msgstr ""
-"<span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_excluded\">Valor</span>\n"
-"                                <span groups=\"l10n_pt_ao.group_show_line_subtotals_tax_included\">Total</span>"
-
-#. module: l10n_pt_sale
-#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
-msgid ""
 "<span name=\"not_invoice\" class=\"small\">This document is not an "
 "invoice.</span>"
 msgstr ""
 "<span name=\"not_invoice\" class=\"small\">Este documento não serve de "
 "fatura.</span>"
+
+#. module: l10n_pt_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
+msgid "<span>Amount</span>"
+msgstr "<span>Montante</span>"
 
 #. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
@@ -84,6 +90,11 @@ msgid "<strong name=\"main_subtotal_string\" class=\"mr16\">Subtotal</strong>"
 msgstr ""
 
 #. module: l10n_pt_sale
+#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document_mock
+msgid "<strong name=\"main_subtotal_string\" class=\"mr16\">{+0+}</strong>"
+msgstr ""
+
+#. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
 msgid "<strong>Carried:</strong>"
 msgstr "<strong>Transportado:</strong>"
@@ -94,21 +105,19 @@ msgid "<strong>Emission Date:</strong>"
 msgstr "<strong>Data de Emissão:</strong>"
 
 #. module: l10n_pt_sale
-#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:l10n_pt_sale.qr_code_container_sale_order
 msgid "ATCUD:"
 msgstr ""
 
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/wizard/sale_advance_payment_inv.py:0
-#, python-format
 msgid "Archived Taxes have been eliminated from lines."
 msgstr "Impostos Arquivados foram eliminados das Linhas."
 
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order_journal.py:0
-#, python-format
 msgid "Can't change certification of a Journal with Entries."
 msgstr ""
 "Não é possível alterar o estado de Certificação num Diário com Lançamentos."
@@ -121,7 +130,7 @@ msgstr "Anulado"
 #. module: l10n_pt_sale
 #: model:ir.model.fields,field_description:l10n_pt_sale.field_sale_order_journal__country_code
 msgid "Country Code"
-msgstr "Código do País"
+msgstr ""
 
 #. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
@@ -130,7 +139,7 @@ msgstr "Descrição"
 
 #. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
-msgid "Exchange rate:"
+msgid "Exchange Rate:"
 msgstr "Taxa de Câmbio:"
 
 #. module: l10n_pt_sale
@@ -172,7 +181,7 @@ msgstr "Ordem de Venda"
 #. module: l10n_pt_sale
 #: model:ir.model,name:l10n_pt_sale.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Linhas da Ordem de Vendas"
+msgstr "Linhas da Ordem de Venda"
 
 #. module: l10n_pt_sale
 #: model:ir.model.fields,field_description:l10n_pt_sale.field_sale_order_journal__series_ids
@@ -182,7 +191,6 @@ msgstr "Séries"
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order_journal.py:0
-#, python-format
 msgid "Subscription Journal must not have Portuguese Certification."
 msgstr "O Diário de Subscrições deve ter Certificação Portuguesa desativada."
 
@@ -201,16 +209,12 @@ msgstr ""
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order.py:0
-#: code:addons/l10n_pt_sale/models/sale_order.py:0
-#: code:addons/l10n_pt_sale/models/sale_order.py:0
-#, python-format
 msgid "The code sequence on ATCUD is different from the Sale sequence"
 msgstr "O código de sequence no ATCUD é diferente da sequência de Venda"
 
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order.py:0
-#, python-format
 msgid ""
 "The date of the document must be equal or after the series initial date (%s)"
 msgstr ""
@@ -219,9 +223,8 @@ msgstr ""
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order.py:0
-#, python-format
 msgid "There must be one VAT tax per line."
-msgstr "Deve existir um imposto e apenas um imposto por linha."
+msgstr "Deve existir um e apenas um imposto de IVA por linha."
 
 #. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
@@ -231,7 +234,6 @@ msgstr "Preço Unitário"
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order.py:0
-#, python-format
 msgid "VAT taxes should appear after the fixed amount taxes."
 msgstr "Os impostos do tipo IVA deve estar depois dos impostos fixos."
 
@@ -243,6 +245,5 @@ msgstr "Assistente de SAF-T"
 #. module: l10n_pt_sale
 #. odoo-python
 #: code:addons/l10n_pt_sale/models/sale_order.py:0
-#, python-format
 msgid "You can not cancel a draft quotation."
 msgstr "Não é possível cancelar um orçamento em rascunho."

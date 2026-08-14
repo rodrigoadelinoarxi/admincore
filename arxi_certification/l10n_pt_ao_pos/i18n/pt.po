@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-11 20:24+0000\n"
-"PO-Revision-Date: 2025-09-11 20:24+0000\n"
+"POT-Creation-Date: 2025-09-11 19:41+0000\n"
+"PO-Revision-Date: 2025-09-11 19:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,37 +21,41 @@ msgid ""
 "Accounting journal used to post POS session journal entries and POS invoice "
 "payments."
 msgstr ""
+"Diário utilizado para registar as lançamentos da sessão do Ponto de Venda e "
+"os pagamentos das faturas do Ponto de Venda."
 
 #. module: l10n_pt_ao_pos
 #: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__cashier_name
 msgid "Cashier Name"
-msgstr "Nome do Funcionário"
+msgstr ""
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Copy of the document"
 msgstr "2ª Via do Documento"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Copy of the document - Duplicate"
 msgstr "2ª Via do Documento - Duplicado"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Copy of the document - Triplicate"
 msgstr "2ª Via do Documento - Triplicado"
+
+#. module: point_of_sale
+#. odoo-javascript
+#: code:addons/point_of_sale/static/src/app/screens/receipt_screen/receipt_screen.xml:0
+msgid "Print Full Receipt"
+msgstr "Imprimir Talão"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Credit Note n."
 msgstr "Nota de Crédito n."
 
@@ -64,58 +68,56 @@ msgstr "Nome do Cliente"
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/js/ticketscreen.js:0
 #: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__customer_vat
-#, python-format
 msgid "Customer VAT"
 msgstr "NIF"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Customer:"
-msgstr "Cliente:"
+msgstr "Cliente"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/js/models.js:0
-#, python-format
 msgid "Deleting of orders is not allowed."
 msgstr "Eliminação de Ordens não é permitida."
+
+#. module: l10n_pt_ao_pos
+#: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__doc_printed
+msgid "Doc Printed"
+msgstr ""
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/js/ticketscreen.js:0
 #: code:addons/l10n_pt_ao_pos/static/src/xml/ticket_screen.xml:0
-#, python-format
 msgid "Document Number"
-msgstr ""
+msgstr "Nº do Documento"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Duplicate Receipt"
 msgstr "Duplicado"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
-#: code:addons/l10n_pt_ao_pos/static/src/js/PaymentScreen.js:0
-#, python-format
-msgid "Error in Taxes on Lines"
-msgstr ""
+#: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
+#: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__exemption_codes
+msgid "Exemption Codes"
+msgstr "Códigos de Isenção"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
 #: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__exemption_codes
-#, python-format
 msgid "Exemption Codes"
 msgstr "Códigos de Isenção"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/js/models.js:0
-#, python-format
 msgid "Fiscal Data Module error"
 msgstr ""
 
@@ -127,7 +129,6 @@ msgstr "Posição Fiscal"
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Goods sent or made available to the purchaser at"
 msgstr "Bens foram colocados à disposição do adquirente a "
 
@@ -144,7 +145,6 @@ msgstr "Estado da Fatura"
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Invoice n."
 msgstr "Fatura nº"
 
@@ -154,14 +154,18 @@ msgid "JSON field storing exemption codes for receipt printing"
 msgstr ""
 
 #. module: l10n_pt_ao_pos
+#: model:ir.model,name:l10n_pt_ao_pos.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento em Diário"
+
+#. module: l10n_pt_ao_pos
 #: model:ir.model,name:l10n_pt_ao_pos.model_account_move_line
 msgid "Journal Item"
-msgstr "Item do Diário"
+msgstr "Item no Diário"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/js/pos.js:0
-#, python-format
 msgid "Missing Country"
 msgstr "País em Falta"
 
@@ -171,23 +175,31 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: l10n_pt_ao_pos
-#. odoo-javascript
-#: code:addons/l10n_pt_ao_pos/static/src/js/Screens/TicketScreen/ControlButtons/InvoiceButton.js:0
-#, python-format
-msgid "Network Error"
-msgstr "Erro de Rede"
-
-#. module: l10n_pt_ao_pos
 #: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__account_move_name
 msgid "Number"
-msgstr ""
+msgstr "Nº"
+
+#. module: l10n_pt_ao_pos
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos/static/src/js/PaymentScreen.js:0
+msgid "Order Validation Error"
+msgstr "Erro na Validação da Ordem"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Original"
 msgstr "Original"
+
+#. module: l10n_pt_ao_pos
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos/static/src/js/PaymentScreen.js:0
+msgid ""
+"Please fix the following issues:\n"
+"\n"
+msgstr ""
+"Por favor corrija os seguintes problemas:\n"
+"\n"
 
 #. module: l10n_pt_ao_pos
 #: model:ir.model,name:l10n_pt_ao_pos.model_pos_config
@@ -222,28 +234,14 @@ msgstr ""
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/receipt_screen.xml:0
-#: code:addons/l10n_pt_ao_pos/static/src/xml/reprint_receipt_screen.xml:0
-#, python-format
 msgid "Print Duplicate Receipt"
-msgstr "Imprimir Recibo Duplicado"
-
-#. module: l10n_pt_ao_pos
-#: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_config__print_in_duplicate
-msgid "Print In Duplicate"
-msgstr "Imprimir em Duplicado"
-
-#. module: l10n_pt_ao_pos
-#: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_config__print_in_triplicate
-msgid "Print In Triplicate"
-msgstr "Imprimir em Triplicado"
+msgstr "Imprimir Talão Duplicado"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/receipt_screen.xml:0
-#: code:addons/l10n_pt_ao_pos/static/src/xml/reprint_receipt_screen.xml:0
-#, python-format
 msgid "Print Triplicate Receipt"
-msgstr "Imprimir Recibo Triplicado"
+msgstr "Imprimir Talão Triplicado"
 
 #. module: l10n_pt_ao_pos
 #: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__credit_reason
@@ -258,85 +256,68 @@ msgstr "Razão para atualização de Estado"
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Reason:"
 msgstr "Razão:"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Relating to document"
 msgstr "Referente ao documento"
 
 #. module: l10n_pt_ao_pos
 #: model:ir.model.fields,field_description:l10n_pt_ao_pos.field_pos_order__reversed_entry_name
 msgid "Reversed Entry"
-msgstr "Movimento Revertido"
+msgstr "Entrada Revertida"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/receipt_header.xml:0
-#, python-format
 msgid "Served by"
 msgstr "Atendido por"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
-#: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
-msgid "Tax:"
-msgstr "Imposto:"
-
-#. module: l10n_pt_ao_pos
-#. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/js/pos.js:0
-#, python-format
 msgid "The company %s doesn't have a country set."
 msgstr "A Empresa %s não tem País definido."
 
 #. module: l10n_pt_ao_pos
-#. odoo-javascript
-#: code:addons/l10n_pt_ao_pos/static/src/js/PaymentScreen.js:0
-#, python-format
-msgid "There are lines without taxes."
-msgstr "Existem Linhas sem Imposto."
-
-#. module: l10n_pt_ao_pos
 #. odoo-python
 #: code:addons/l10n_pt_ao_pos/models/pos_session.py:0
-#, python-format
 msgid "This session is already closed."
-msgstr "Esta sessão já está fechada."
+msgstr "Essa sessão já foi fechada."
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "Triplicate Receipt"
 msgstr "Triplicado"
 
 #. module: l10n_pt_ao_pos
 #. odoo-javascript
-#: code:addons/l10n_pt_ao_pos/static/src/js/Screens/TicketScreen/ControlButtons/InvoiceButton.js:0
-#, python-format
-msgid "Unable to download invoice."
-msgstr ""
-
-#. module: l10n_pt_ao_pos
-#. odoo-javascript
 #: code:addons/l10n_pt_ao_pos/static/src/xml/OrderReceipt.xml:0
-#, python-format
 msgid "VAT:"
 msgstr "NIF:"
 
 #. module: l10n_pt_ao_pos
 #. odoo-python
 #: code:addons/l10n_pt_ao_pos/models/account_fiscal_position.py:0
-#, python-format
 msgid ""
 "You cannot modify a fiscal position used in a POS order. You should archive "
 "it and create a new one."
 msgstr ""
 "Não é possível alterar uma Posição Fiscal utilizada numa ordem do POS. Deve "
 "arquivar e criar uma nova."
+
+#. module: l10n_pt_ao_pos
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos/static/src/js/PaymentScreen.js:0
+msgid "• Combo products are not compatible with PT/AO POS Orders"
+msgstr "• Produtos do tipo Combo não são compatíveis com Ordens de POS PT/AO"
+
+#. module: l10n_pt_ao_pos
+#. odoo-javascript
+#: code:addons/l10n_pt_ao_pos/static/src/js/PaymentScreen.js:0
+msgid "• Some products do not have taxes configured"
+msgstr "• Há produtos sem impostos configurados"

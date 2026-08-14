@@ -4,10 +4,42 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+ANALYTIC_REQUIRED_ACCOUNT_TYPES = [
+    'expense', 'income_other', 'income', 'expense_depreciation', 'expense_direct_cost'
+]
+
 
 class BankRecWidget(models.Model):
     _name = "bank.rec.widget"
     _inherit = "bank.rec.widget"
+
+    def _check_analytic_distribution_required(self):
+        """Block validation of the bank reconciliation widget if a line hitting a class 6/7-like
+        (expense/income) account has no analytic distribution.
+
+        NOTE: as of the current bank_rec_widget implementation, reconciliation is posted through
+        `_action_validate()` (called by `_js_action_validate()` / `_action_to_check()`), not
+        through `js_action_reconcile_st_line` anymore. This check is called from `_action_validate`
+        so it actually runs.
+        """
+        if self.env.context.get('force_certified_import'):
+            return
+        st_line = self.st_line_id
+        if st_line.journal_id == st_line.company_id.currency_exchange_journal_id:
+            return
+        offending_lines = self.line_ids.filtered(
+            lambda l: l.flag not in ('liquidity', 'exchange_diff', 'tax_line', 'early_payment')
+            and not l.analytic_distribution
+            and l.account_id.account_type in ANALYTIC_REQUIRED_ACCOUNT_TYPES
+        )
+        if offending_lines:
+            raise ValidationError(_(
+                "To post this invoice, you'll need to have an analytic account on every line!"
+            ))
+
+    def _action_validate(self):
+        self._check_analytic_distribution_required()
+        return super()._action_validate()
 
     @api.model
     def js_action_reconcile_st_line(self, st_line_id, params):

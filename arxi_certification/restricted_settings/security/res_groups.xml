@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><record id="group_basic_settings" model="res.groups"><field name="name">Restricted Settings</field><field name="implied_ids" eval="[Command.link(ref('base.group_erp_manager'))]"/><field name="category_id" ref="base.module_category_administration_administration"/></record><record id="base.group_system" model="res.groups"><field name="implied_ids" eval="[Command.unlink(ref('base.group_erp_manager')),Command.link(ref('restricted_settings.group_basic_settings'))]"/></record></odoo>

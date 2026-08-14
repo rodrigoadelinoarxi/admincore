@@ -1,2 +1,0 @@
-<?xml version="1.0"?>
-<odoo noupdate="1"><record id="edi_digital_signed_invoice_pt" model="account.edi.format"><field name="name">Electronic Invoicing Multicert</field><field name="code">dsi_pt</field></record></odoo>

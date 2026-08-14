@@ -1,2 +1,0 @@
-<?xml version="1.0"?>
-<odoo noupdate="1"><record id="edi_cius_pt" model="account.edi.format"><field name="name">Fatura&#xE7;&#xE3;o Eletr&#xF3;nica - Entidades P&#xFA;blicas</field><field name="code">cius_pt</field></record><record id="edi_cius_pt_token" model="ir.config_parameter"><field name="key">edi_cius_pt_token</field><field name="value"/></record></odoo>

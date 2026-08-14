@@ -12,10 +12,10 @@
         Module responsible for implementing Global Discount in the sales
     """,
 
-    'author': 'Arxi',
+    'author': "ARXILEAD",
     'website': 'https://www.arxi.pt',
     'category': 'Accounting & Finance',
-    'version': '17.0.0.1.3',
+    'version': '1.2',
     'license': 'OPL-1',
     'depends': ['delivery', 'sale', 'account'],
     'data': [

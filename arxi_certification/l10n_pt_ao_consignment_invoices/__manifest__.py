@@ -15,14 +15,14 @@
         Added Menu Item and Action to view and create Consignment Invoices.
     """,
 
-    'author': "Arxi",
+    'author': "ARXILEAD",
     'website': "https://www.arxi.pt",
 
     'category': 'Uncategorized',
-    'version': '17.0.1.0.3',
+    'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['sale_journals'],
+    'depends': ['l10n_pt_ao_sale'],
 
     # always loaded
     'data': [

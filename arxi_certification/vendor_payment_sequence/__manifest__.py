@@ -13,7 +13,7 @@
     'website': 'https://www.arxi.pt',
     'category': 'Invoicing',
     'sequence': 151,
-    'version': '17.0.0.0.1',
+    'version': '1.0',
     'license': 'OPL-1',
     'depends': [
         'l10n_pt_ao',

@@ -4,7 +4,7 @@ def migrate(cr, version):
     ADD COLUMN IF NOT EXISTS payment_journal_id INT,
     ADD COLUMN IF NOT EXISTS payment_mechanism_id INT,
     ADD COLUMN IF NOT EXISTS l10n_pt_at_sent BOOLEAN,
-    ADD COLUMN IF NOT EXISTS validated_date TIMESTAMP,
+    ADD COLUMN IF NOT EXISTS pt_arxi_validated_date TIMESTAMP,
     ADD COLUMN IF NOT EXISTS hash_control VARCHAR(70)
     """)
     cr.execute(
@@ -13,8 +13,8 @@ def migrate(cr, version):
         SET payment_journal_id = ai.payment_journal_id,
             payment_mechanism_id = ai.payment_mechanism_id,
             l10n_pt_at_sent = ai.l10n_pt_at_sent,
-            inalterable_hash = ai.hash,
-            validated_date = ai.validated_date,
+            pt_arxi_inalterable_hash = ai.hash,
+            pt_arxi_validated_date = ai.pt_arxi_validated_date,
             hash_control = ai.hash_control
         FROM account_invoice ai
         WHERE ai.move_id = account_move.id

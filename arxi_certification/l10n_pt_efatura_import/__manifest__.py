@@ -1,6 +1,6 @@
 {
     'name'                 : 'Portugal - Import Bills from E-Fatura ',
-    'version'              : '17.0.0.0.1',
+    'version'              : '18.0.0.0.2',
     'category'             : 'Accounting/Localizations/Account Charts',
     'license'              : 'OPL-1',
     'author'               : 'ARXILEAD',
@@ -76,7 +76,6 @@ Usage:
         'web.assets_backend': [
             'l10n_pt_efatura_import/static/src/js/efatura_tree_extend.js',
             'l10n_pt_efatura_import/static/src/xml/efatura_list_button.xml',
-            'l10n_pt_efatura_import/static/src/scss/efatura_import.scss',
         ],
     },
 

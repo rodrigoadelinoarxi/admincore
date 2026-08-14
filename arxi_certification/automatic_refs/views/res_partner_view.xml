@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><!--Form view--><record id="view_partner_form_automatic_ref" model="ir.ui.view"><field name="name">view.partner.form.automatic_ref</field><field name="model">res.partner</field><field name="inherit_id" ref="base.view_partner_form"/><field name="arch" type="xml"><xpath expr="//field[@name='ref']" position="attributes"><attribute name="required">1</attribute></xpath><xpath expr="//field[@name='child_ids']/form//field[@name='mobile']" position="after"><field name="ref" required="1"/></xpath></field></record></odoo>

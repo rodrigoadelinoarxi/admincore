@@ -1,4 +1,4 @@
-                                                                   # Translation of Odoo Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* l10n_pt_ao
 #
@@ -59,15 +59,18 @@ msgid "<strong>Transaction Date: </strong>"
 msgstr "<strong>Fecha de Transacción: </strong>"
 
 #. module: l10n_pt_ao
-#: model:ir.model.fields,help:l10n_pt_ao.field_product_product__detailed_type
-#: model:ir.model.fields,help:l10n_pt_ao.field_product_template__detailed_type
+#: model:ir.model.fields,help:l10n_pt_ao.field_product_product__type
+#: model:ir.model.fields,help:l10n_pt_ao.field_product_template__type
 msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A storable product is a product for which you manage stock. The Inventory "
+"app has to be installed.\n"
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
-"Un producto almacenable es un producto para el que gestiona stock. La aplicación de inventario debe estar instalada.\n"
-"Un producto consumible es un producto para el que no se gestionan las existencias.\n"
+"Un producto almacenable es un producto para el que gestiona stock. La "
+"aplicación de inventario debe estar instalada.\n"
+"Un producto consumible es un producto para el que no se gestionan las "
+"existencias.\n"
 "Un servicio es un producto no material."
 
 #. module: l10n_pt_ao
@@ -431,7 +434,6 @@ msgid "Enable to show the transaction date in payment reports."
 msgstr ""
 
 #. module: l10n_pt_ao
-#: model:ir.model.fields.selection,name:l10n_pt_ao.selection__product_template__detailed_type__excise_duty
 #: model:ir.model.fields.selection,name:l10n_pt_ao.selection__product_template__type__excise_duty
 msgid "Excise Duty Code"
 msgstr ""
@@ -447,7 +449,6 @@ msgid "File Sent to TA"
 msgstr ""
 
 #. module: l10n_pt_ao
-#: model:ir.model.fields.selection,name:l10n_pt_ao.selection__product_template__detailed_type__parafiscal_expenses
 #: model:ir.model.fields.selection,name:l10n_pt_ao.selection__product_template__type__parafiscal_expenses
 msgid "Fiscal and parafiscal expenses"
 msgstr ""
@@ -487,8 +488,8 @@ msgstr ""
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_bank_statement_line__l10n_cert
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_journal__l10n_cert
 msgid ""
-"If active: will be using for legal invoicing (invoices, debit/credit notes)."
-" If not set means that will be used to register accounting entries not "
+"If active: will be using for legal invoicing (invoices, debit/credit notes). "
+"If not set means that will be used to register accounting entries not "
 "related to invoicing legal documents. For Example: Receipts, Tax Payments, "
 "Register journal entries"
 msgstr ""
@@ -607,7 +608,7 @@ msgstr ""
 #. module: l10n_pt_ao
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_bank_statement_line__tax_point_date
 msgid "Leave empty to use the invoice date"
-msgstr ""
+msgstr "Dejar en blanco para usar la fecha de la factura"
 
 #. module: l10n_pt_ao
 #: code:addons/l10n_pt_ao/models/account_move.py:0
@@ -656,11 +657,17 @@ msgstr ""
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_bank_statement_line__payment_method_line_id
 msgid ""
 "Manual: Pay or Get paid by any method outside of Odoo.\n"
-"Payment Acquirers: Each payment acquirer has its own Payment Method. Request a transaction on/to a card thanks to a payment token saved by the partner when buying or subscribing online.\n"
+"Payment Acquirers: Each payment acquirer has its own Payment Method. Request "
+"a transaction on/to a card thanks to a payment token saved by the partner "
+"when buying or subscribing online.\n"
 "Check: Pay bills by check and print it from Odoo.\n"
-"Batch Deposit: Collect several customer checks at once generating and submitting a batch deposit to your bank. Module account_batch_payment is necessary.\n"
-"SEPA Credit Transfer: Pay in the SEPA zone by submitting a SEPA Credit Transfer file to your bank. Module account_sepa is necessary.\n"
-"SEPA Direct Debit: Get paid in the SEPA zone thanks to a mandate your partner will have granted to you. Module account_sepa is necessary.\n"
+"Batch Deposit: Collect several customer checks at once generating and "
+"submitting a batch deposit to your bank. Module account_batch_payment is "
+"necessary.\n"
+"SEPA Credit Transfer: Pay in the SEPA zone by submitting a SEPA Credit "
+"Transfer file to your bank. Module account_sepa is necessary.\n"
+"SEPA Direct Debit: Get paid in the SEPA zone thanks to a mandate your "
+"partner will have granted to you. Module account_sepa is necessary.\n"
 msgstr ""
 
 #. module: l10n_pt_ao
@@ -725,7 +732,6 @@ msgid "Original Amount"
 msgstr "Valor Original"
 
 #. module: l10n_pt_ao
-#: model:ir.model.fields.selection,name:l10n_pt_ao.selection__product_template__detailed_type__other
 #: model:ir.model.fields.selection,name:l10n_pt_ao.selection__product_template__type__other
 #: model:payment.mechanism,name:l10n_pt_ao.other
 msgid "Other"
@@ -824,8 +830,8 @@ msgstr "Fecha de Emisión:"
 #, python-format
 msgid "Posting date is behind last document posting date: %s"
 msgstr ""
-"A fecha de emisión deve ser anterior a la fecha de emisión del último documento: "
-"%s"
+"A fecha de emisión deve ser anterior a la fecha de emisión del último "
+"documento: %s"
 
 #. module: l10n_pt_ao
 #: model:ir.model.fields,field_description:l10n_pt_ao.field_account_payment_line__previous_payment
@@ -859,8 +865,8 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: l10n_pt_ao
-#: model:ir.model.fields,field_description:l10n_pt_ao.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:l10n_pt_ao.field_product_template__detailed_type
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_product_product__type
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_product_template__type
 msgid "Product Type"
 msgstr "Tipo de producto"
 
@@ -1045,8 +1051,9 @@ msgstr ""
 
 #. module: l10n_pt_ao
 #: model:ir.model.fields,field_description:l10n_pt_ao.field_account_bank_statement_line__tax_point_date
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.view_move_form
 msgid "Tax Point Date"
-msgstr ""
+msgstr "Fecha de Envío de Mercancías"
 
 #. module: l10n_pt_ao
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_move_reversal__rappel_taxes_id
@@ -1154,8 +1161,7 @@ msgstr "Este documento no sirve de factura."
 
 #. module: l10n_pt_ao
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_payment_register__transaction_date
-msgid ""
-"This is the date of the transaction (when the amount was paid/received)"
+msgid "This is the date of the transaction (when the amount was paid/received)"
 msgstr ""
 
 #. module: l10n_pt_ao
@@ -1176,8 +1182,7 @@ msgstr ""
 
 #. module: l10n_pt_ao
 #: model:ir.model.fields,help:l10n_pt_ao.field_account_payment_line__amount_company
-msgid ""
-"Total amount in the currency of the company, negative for credit notes."
+msgid "Total amount in the currency of the company, negative for credit notes."
 msgstr ""
 
 #. module: l10n_pt_ao
@@ -1243,8 +1248,6 @@ msgstr ""
 
 #. module: l10n_pt_ao
 #: code:addons/l10n_pt_ao/models/account_move.py:0
-#: code:addons/l10n_pt_ao/models/account_move.py:0
-#: code:addons/l10n_pt_ao/models/account_move.py:0
 #: code:addons/l10n_pt_ao/models/account_payment.py:0
 #, python-format
 msgid "Warning!"
@@ -1292,8 +1295,7 @@ msgstr ""
 #: code:addons/l10n_pt_ao/models/account_move_reversal.py:0
 #, python-format
 msgid ""
-"You can not create credit notes for different move types in the same "
-"journal."
+"You can not create credit notes for different move types in the same journal."
 msgstr ""
 
 #. module: l10n_pt_ao
@@ -1401,8 +1403,7 @@ msgstr ""
 #. module: l10n_pt_ao
 #: code:addons/l10n_pt_ao/models/account_move.py:0
 #, python-format
-msgid ""
-"You can not validate invoices with products without Internal Reference."
+msgid "You can not validate invoices with products without Internal Reference."
 msgstr ""
 
 #. module: l10n_pt_ao
@@ -1456,3 +1457,67 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_pt_ao.field_res_users__zip
 msgid "Zip"
 msgstr "C.P."
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.report_invoice_document
+msgid "<span>Goods sent or made available to the purchaser at&amp;nbsp;</span>"
+msgstr ""
+"<span>Las mercancías enviadas o puestas a disposición del comprador en&amp;"
+"nbsp;</span>"
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.report_invoice_document
+msgid "<strong>Gross Weight:&amp;nbsp;</strong>"
+msgstr "<strong>Peso Bruto:&amp;nbsp;</strong>"
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.report_invoice_document
+msgid "<strong>Net Weight:&amp;nbsp;</strong>"
+msgstr "<strong>Peso Neto:&amp;nbsp;</strong>"
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.report_invoice_document
+msgid "<strong>Number of Parcels:&amp;nbsp;</strong>"
+msgstr "<strong>Número de Parcelas:&amp;nbsp;</strong>"
+
+#. module: l10n_pt_ao
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_account_bank_statement_line__gross_weight
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.view_move_form
+msgid "Gross Weight"
+msgstr "Peso Bruto"
+
+#. module: l10n_pt_ao
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_account_bank_statement_line__net_weight
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.view_move_form
+msgid "Net Weight"
+msgstr "Peso Neto"
+
+#. module: l10n_pt_ao
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_account_bank_statement_line__number_of_parcels
+msgid "Number Of Parcels"
+msgstr "Número de Parcelas"
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.view_move_form
+msgid "Number of Parcels"
+msgstr "Número de Parcelas"
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.view_move_form
+msgid "Shipping"
+msgstr "Expedición"
+
+#. module: l10n_pt_ao
+#: model_terms:ir.ui.view,arch_db:l10n_pt_ao.view_move_form
+msgid "Shipping Info"
+msgstr "Datos de Envío"
+
+#. module: l10n_pt_ao
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_account_bank_statement_line__show_shipping_info
+msgid "Show Shipping Info"
+msgstr "Información de Envío"
+
+#. module: l10n_pt_ao
+#: model:ir.model.fields,field_description:l10n_pt_ao.field_account_bank_statement_line__weight_uom
+msgid "Weight Uom"
+msgstr ""
