@@ -4,7 +4,7 @@
     'author': 'Casperventures',
     'summary': 'History for Product sales by Partner',
     'category': 'Products/Sales',
-    'depends': ['mail', 'sale', 'sale_management', 'account_taxcloud', 'portal', 'stock', 'contacts'],
+    'depends': ['mail', 'sale', 'sale_management', 'portal', 'stock', 'contacts'],
     'data': [
         'security/ir.model.access.csv',
         'data/product_category_data.xml',

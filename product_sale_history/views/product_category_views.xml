@@ -17,17 +17,8 @@
         </field>
     </record>
 
-    <record id="product_category_view_form_inherit_account_taxcloud_prod_hist" model="ir.ui.view">
-        <field name="model">product.category.view.form.inherit.account.taxcloud.prod.hist</field>
-        <field name="model">product.category</field>
-        <field name="inherit_id" ref="account_taxcloud.product_category_view_form_inherit_account_taxcloud"/>
-        <field type="xml" name="arch">
-            <xpath expr="//group[@name='sale_taxcloud']" position="after">
-                <group string="Email">
-                    <field name="auto_validate_and_email"/>
-                    <field name="email_template_id" invisible="not auto_validate_and_email"/>
-                </group>
-            </xpath>
-        </field>
-    </record>
+    <!-- auto-fix: account_taxcloud descontinuado no Odoo 19 (modulo Enterprise
+         ja nao existe nesta versao) - vista que dependia dele removida, os
+         campos auto_validate_and_email/email_template_id continuam a existir
+         no modelo, so deixam de ser editaveis a partir desta vista -->
 </odoo>
