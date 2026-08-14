@@ -23,7 +23,10 @@
                 />
             </xpath>
             <!-- Trick for allowing to set this field via Form -->
-            <xpath expr="//header" position="inside">
+            <!-- auto-fix: <header> ja nao existe na vista raiz do product.template
+                 no Odoo 19 (restruturada) - <form> continua a existir e serve
+                 igualmente para disponibilizar este campo invisivel no contexto -->
+            <xpath expr="//form" position="inside">
                 <field name="company_id" class="invisible" />
             </xpath>
         </field>
