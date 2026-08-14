@@ -8,7 +8,7 @@
     'website'    : "https://www.arxi.pt",
 
     'category'   : 'Manufacturing/Quality',
-    'version'    : '2.0.4',
+    'version'    : '19.0.4',
 
     'depends'    : [
         'account',
