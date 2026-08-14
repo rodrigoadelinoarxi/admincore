@@ -4,7 +4,7 @@
         Create and visualize Expenses and Revenues deferrals in their respective menus and forms for Portuguese Chart of Accounts.
     """,
 
-    "version": "17.0.0.0.12",
+    "version": "19.0.0.0.12",
     'price'   : 0.00,
     'currency': 'EUR',
     "category": "Accounting & Finance",

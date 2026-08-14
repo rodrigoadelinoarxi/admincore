@@ -6,7 +6,7 @@
     'website': "https://www.arxi.pt",
     'license': 'OPL-1',
     'category': 'Uncategorized',
-    'version': '17.0.0.0.0',
+    'version': '19.0.0.0.0',
     'depends': [
         'hr',
         'portal',
