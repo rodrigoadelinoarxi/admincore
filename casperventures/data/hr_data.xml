@@ -1,7 +1,7 @@
 <odoo noupdate="1">
     <record id="ir_cron_hr_contract_alerts" model="ir.cron">
         <field name="name">Hr Contract: Generate contracts alerts for contracts to expire</field>
-        <field name="model_id" ref="model_hr_contract"/>
+        <field name="model_id" ref="hr.model_hr_version"/>
         <field name="state">code</field>
         <field name="code">model.run_scheduler_contract()</field>
         <field name="user_id" ref="base.user_root"/>

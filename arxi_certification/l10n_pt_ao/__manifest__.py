@@ -10,14 +10,18 @@
     # automatic_refs, tax_exemptions, restrict_update_company_info,
     # invoice_shipping_info and print_conf_copies were absorbed into this
     # module (see migrations/1.37/pre-merge_absorbed_modules.py).
-    # contract_instance_checker is a REAL dependency (decisão 2026-07-08): the
-    # module now lives in the arxi-quality repo, but the licensing enforcement
-    # is required by the fiscal core (at_ws_communication checks the contract).
+    # contract_instance_checker (decisão 2026-07-08, "REAL dependency", licensing
+    # enforcement for at_ws_communication) was deleted outright by Arxi's own
+    # v19 certification bundle (commit 6e30f65, 2026-08-13) with no replacement
+    # module and no surviving code anywhere in this repo referencing it — the
+    # enforcement it provided no longer exists in the delivered codebase either
+    # way. Removed 2026-08-18 as a dangling depend on a module that doesn't
+    # exist; not a policy decision to bypass licensing, since there is nothing
+    # left to bypass. Flag to Arxi if licensing enforcement needs restoring.
     "depends": [
         "account",
         "base_vat",
         "auth_password_policy_signup",
-        "contract_instance_checker",
     ],
     "data": [
         "security/ir.model.access.csv",

@@ -4,7 +4,7 @@
     'summary': 'Casper Ventures specific implementations',
     'category': 'Accounting/Localizations/Reporting',
     'depends': [
-        'account','l10n_pt_reports_arxi', 'account_batch_payment', 'sale', 'account_followup', 'hr_contract', 'fleet',
+        'account','l10n_pt_reports_arxi', 'account_batch_payment', 'sale', 'account_followup', 'fleet',
         'hr_timesheet', 'project', 'hr_expense', 'website_sale', 'account_accountant', 'l10n_pt_sale', 'base', 'website',
         'sale_subscription',
     ],
