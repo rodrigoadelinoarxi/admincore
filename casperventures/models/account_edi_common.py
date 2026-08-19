@@ -1,7 +1,7 @@
 from odoo import _, models, Command
 from odoo.addons.base.models.res_bank import sanitize_account_number
 from odoo.exceptions import UserError, ValidationError
-from odoo.tools import float_repr, find_xml_value
+from odoo.tools import float_repr
 from odoo.tools.float_utils import float_round
 from odoo.tools.misc import formatLang
 from odoo.tools.zeep import Client
