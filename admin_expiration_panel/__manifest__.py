@@ -6,7 +6,7 @@
     'website'    : 'http://www.arxi.pt',
     'category'   : 'Product',
 
-    'version'    : '17.0.0.0.5',
+    'version'    : '19.0.0.0.5',
     'license'    : 'OPL-1',
 
     'price': 0.00,
