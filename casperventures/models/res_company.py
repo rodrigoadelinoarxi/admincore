@@ -1,4 +1,5 @@
 from odoo import models, fields
+import datetime
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -28,7 +29,7 @@ class ResCompany(models.Model):
             ('company_id', '=', self.id),
             ('move_type', 'in', ['out_invoice', 'out_refund']),
             ('state', '=', 'posted'),
-            ('invoice_date', '=', fields.datetime.today())
+            ('invoice_date', '=', datetime.datetime.today())
         ])
 
         for team_id in move_ids.mapped('team_id'):

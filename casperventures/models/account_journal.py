@@ -1,6 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.tools import date_utils
 from odoo.exceptions import ValidationError
+import datetime
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -22,7 +23,7 @@ class AccountJournal(models.Model):
         return res
 
     def get_today_move_data(self):
-        today = fields.datetime.today()
+        today = datetime.datetime.today()
         yesterday = date_utils.subtract(today, days=1)
 
         # {{ object.partner_id.lang }}
