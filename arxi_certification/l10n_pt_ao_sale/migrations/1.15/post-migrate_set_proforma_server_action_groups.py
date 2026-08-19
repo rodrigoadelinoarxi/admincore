@@ -19,4 +19,4 @@ def migrate(cr, version):
         if rec
     ]
     if action_ids:
-        env['ir.actions.server'].browse(action_ids).write({'groups_id': [(6, 0, proforma_group.ids)]})
+        env['ir.actions.server'].browse(action_ids).write({'group_ids': [(6, 0, proforma_group.ids)]})
