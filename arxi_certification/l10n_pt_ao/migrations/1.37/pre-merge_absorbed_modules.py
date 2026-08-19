@@ -29,6 +29,48 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+
+def _delete_view_and_inherited_children(cr, module, name):
+    """Delete a view (by its xmlid) together with any views that inherit
+    from it (directly or transitively), plus their ir_model_data entries.
+
+    Needed because a plain ``DELETE FROM ir_ui_view WHERE ...`` violates
+    ``ir_ui_view_inherit_id_fkey`` (ON DELETE RESTRICT) when another view
+    still has ``inherit_id`` pointing at the row being removed (same bug
+    already fixed 2026-08-19 in ../1.1/pre-migration.py for
+    report_custom_invoice_document/casperventures.override_narration_custom_report;
+    here it hit invoice_shipping_info.report_invoice_document, still
+    inherited by casperventures.report_goods_available_brainr).
+    """
+    cr.execute(
+        """
+        WITH RECURSIVE view_tree AS (
+            SELECT id FROM ir_ui_view
+            WHERE id = (
+                SELECT res_id FROM ir_model_data
+                WHERE module = %s AND name = %s AND model = 'ir.ui.view'
+            )
+            UNION ALL
+            SELECT v.id FROM ir_ui_view v
+            JOIN view_tree vt ON v.inherit_id = vt.id
+        )
+        SELECT id FROM view_tree
+        """,
+        (module, name),
+    )
+    ids = [row[0] for row in cr.fetchall()]
+    if not ids:
+        return
+
+    cr.execute("DELETE FROM ir_ui_view WHERE id = ANY(%s)", (ids,))
+    if cr.rowcount:
+        _logger.info('l10n_pt_ao merge: dropped obsolete view %s.%s (+%s inherited child view(s))', module, name, cr.rowcount - 1)
+
+    cr.execute(
+        "DELETE FROM ir_model_data WHERE model = 'ir.ui.view' AND res_id = ANY(%s)",
+        (ids,),
+    )
+
 MERGED_MODULES = [
     'automatic_refs',
     'tax_exemptions',
@@ -111,22 +153,10 @@ def migrate(cr, version):
         return
 
     # 0. drop the inherited views whose specs were merged into the core views
+    # (and any surviving views that still inherit from them, recursively —
+    # see _delete_view_and_inherited_children)
     for module, name in OBSOLETE_VIEWS:
-        cr.execute(
-            """
-            DELETE FROM ir_ui_view v
-             USING ir_model_data d
-             WHERE d.module = %s AND d.name = %s
-               AND d.model = 'ir.ui.view' AND v.id = d.res_id
-            """,
-            (module, name),
-        )
-        if cr.rowcount:
-            _logger.info('l10n_pt_ao merge: dropped obsolete view %s.%s', module, name)
-        cr.execute(
-            "DELETE FROM ir_model_data WHERE module = %s AND name = %s AND model = 'ir.ui.view'",
-            (module, name),
-        )
+        _delete_view_and_inherited_children(cr, module, name)
 
     # 0a-bis. flag the removed modules for a REAL uninstall (data cleanup)
     cr.execute(
