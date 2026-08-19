@@ -194,7 +194,7 @@
     </template>
 
     <!-- Remove goods available from original location and move to footer -->
-    <template id="report_goods_available_brainr" inherit_id="invoice_shipping_info.report_invoice_document">
+    <template id="report_goods_available_brainr" inherit_id="l10n_pt_certificate.report_invoice_document">
         <!-- Remove goods available from original location when using custom report -->
         <xpath expr="//div[@name='goods_available']" position="attributes">
             <attribute name="t-if">not o.company_id.use_custom_report</attribute>
