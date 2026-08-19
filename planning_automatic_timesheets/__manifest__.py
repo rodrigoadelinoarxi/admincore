@@ -1,6 +1,6 @@
 {
 	'name': 'Planning Automatic Timesheets',
-	'version': '17.0.1.0.5',
+	'version': '19.0.1.0.5',
 	'author': 'Casperventures',
 	'summary': 'Creates timesheets automatically when a planning slot is published or sent.',
 	'category': 'Human Resources/Planning',
