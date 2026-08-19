@@ -24,11 +24,12 @@
     'website': 'https://arxi.pt',
     'depends': ['l10n_pt_certificate'],
     'data': [],
-    # Desativado temporariamente na migracao 17->19 (2026-07-30): depende de
-    # l10n_pt_certificate, que por sua vez esta desativado por ter o mesmo
-    # problema de binario PyArmor incompativel com Python 3.12 (ver nota em
-    # arxi_certification/l10n_pt_certificate/__manifest__.py).
-    'installable': False,
+    # CORRIGIDO 2026-08-19: o motivo original (dependia de l10n_pt_certificate,
+    # que por sua vez estava bloqueado por l10n_pt_ao_saft/l10n_pt_ao_access
+    # com 'installable': False por engano no merge 41a25a7) ja nao se aplica -
+    # a Arxi entregou este modulo com 'installable': True (commit 6e30f65,
+    # 2026-08-13) e os dois bloqueadores reais foram corrigidos.
+    'installable': True,
     'auto_install': False,
     'application': False,
     'license': 'LGPL-3',

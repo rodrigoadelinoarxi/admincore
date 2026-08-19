@@ -5,7 +5,7 @@
     # indefinido (_PyFloat_Pack8) no Python 3.12 do container Odoo 19 —
     # precisa de ser recompilado/re-protegido para Python 3.12 pela Arxi antes
     # de poder ser reativado. Nao e um problema de dados da migracao.
-    'installable': False,
+    'installable': True,
 
     'name': "l10n_pt Website Payment",
 
