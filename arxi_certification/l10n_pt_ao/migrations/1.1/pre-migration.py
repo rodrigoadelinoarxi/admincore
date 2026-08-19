@@ -3,6 +3,46 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
+def _delete_view_and_inherited_children(cr, module, name):
+    """Delete a view (by its xmlid) together with any views that inherit
+    from it (directly or transitively), plus their ir_model_data entries.
+
+    Needed because a plain ``DELETE FROM ir_ui_view WHERE id IN (...)``
+    violates ``ir_ui_view_inherit_id_fkey`` when another view still has
+    ``inherit_id`` pointing at the row being removed (confirmed
+    2026-08-19, admincore: report_custom_invoice_document still had
+    casperventures.override_narration_custom_report inheriting from it).
+    """
+    cr.execute(
+        """
+        WITH RECURSIVE view_tree AS (
+            SELECT id FROM ir_ui_view
+            WHERE id = (
+                SELECT res_id FROM ir_model_data
+                WHERE module = %s AND name = %s AND model = 'ir.ui.view'
+            )
+            UNION ALL
+            SELECT v.id FROM ir_ui_view v
+            JOIN view_tree vt ON v.inherit_id = vt.id
+        )
+        SELECT id FROM view_tree
+        """,
+        (module, name),
+    )
+    ids = [row[0] for row in cr.fetchall()]
+    if not ids:
+        return
+
+    cr.execute("DELETE FROM ir_ui_view WHERE id = ANY(%s)", (ids,))
+    _logger.info(f"Deleted {cr.rowcount} view(s) (incl. inherited children) for {module}.{name}")
+
+    cr.execute(
+        "DELETE FROM ir_model_data WHERE model = 'ir.ui.view' AND res_id = ANY(%s)",
+        (ids,),
+    )
+    _logger.info(f"Deleted {cr.rowcount} external ID record(s) for {module}.{name} and its children")
+
+
 def migrate(cr, version):
     """
     Remove old views before module update:
@@ -13,85 +53,11 @@ def migrate(cr, version):
     """
     _logger.info("Running l10n_pt_ao pre-migration: removing old views")
 
-    # Delete the old account list view if it exists
-    cr.execute("""
-        DELETE FROM ir_ui_view
-        WHERE id IN (
-            SELECT res_id FROM ir_model_data
-            WHERE module = 'l10n_pt_ao'
-            AND name = 'l10n_pt_ao_view_account_list'
-            AND model = 'ir.ui.view'
-        )
-    """)
-
-    deleted_views = cr.rowcount
-    if deleted_views > 0:
-        _logger.info(f"Deleted {deleted_views} l10n_pt_ao_view_account_list view(s)")
-
-    # Delete the external ID record
-    cr.execute("""
-        DELETE FROM ir_model_data
-        WHERE module = 'l10n_pt_ao'
-        AND name = 'l10n_pt_ao_view_account_list'
-        AND model = 'ir.ui.view'
-    """)
-
-    deleted_ids = cr.rowcount
-    if deleted_ids > 0:
-        _logger.info(f"Deleted {deleted_ids} external ID record(s) for l10n_pt_ao_view_account_list")
-
-    # Delete the old report_custom_invoice_document view if it exists
-    cr.execute("""
-        DELETE FROM ir_ui_view
-        WHERE id IN (
-            SELECT res_id FROM ir_model_data
-            WHERE module = 'l10n_pt_ao'
-            AND name = 'report_custom_invoice_document'
-            AND model = 'ir.ui.view'
-        )
-    """)
-
-    deleted_views = cr.rowcount
-    if deleted_views > 0:
-        _logger.info(f"Deleted {deleted_views} report_custom_invoice_document view(s)")
-
-    # Delete the external ID record
-    cr.execute("""
-        DELETE FROM ir_model_data
-        WHERE module = 'l10n_pt_ao'
-        AND name = 'report_custom_invoice_document'
-        AND model = 'ir.ui.view'
-    """)
-
-    deleted_ids = cr.rowcount
-    if deleted_ids > 0:
-        _logger.info(f"Deleted {deleted_ids} external ID record(s) for report_custom_invoice_document")
-
-    # Delete the old view_account_form view if it exists
-    cr.execute("""
-        DELETE FROM ir_ui_view
-        WHERE id IN (
-            SELECT res_id FROM ir_model_data
-            WHERE module = 'l10n_pt_ao'
-            AND name = 'view_account_form'
-            AND model = 'ir.ui.view'
-        )
-    """)
-
-    deleted_views = cr.rowcount
-    if deleted_views > 0:
-        _logger.info(f"Deleted {deleted_views} view_account_form view(s)")
-
-    # Delete the external ID record
-    cr.execute("""
-        DELETE FROM ir_model_data
-        WHERE module = 'l10n_pt_ao'
-        AND name = 'view_account_form'
-        AND model = 'ir.ui.view'
-    """)
-
-    deleted_ids = cr.rowcount
-    if deleted_ids > 0:
-        _logger.info(f"Deleted {deleted_ids} external ID record(s) for view_account_form")
+    for view_name in (
+        "l10n_pt_ao_view_account_list",
+        "report_custom_invoice_document",
+        "view_account_form",
+    ):
+        _delete_view_and_inherited_children(cr, "l10n_pt_ao", view_name)
 
     _logger.info("Finished l10n_pt_ao pre-migration")
