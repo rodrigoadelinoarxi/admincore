@@ -283,9 +283,9 @@
         <field name="domain">[('state', '=', 'model'), ('deferral_type','=', False)]</field>
     </record>
 
-    <menuitem parent="account.account_management_menu" id="menu_action_account_asset_deferral_form"
+    <menuitem parent="account.account_account_menu" id="menu_action_account_asset_deferral_form"
               action="action_account_asset_deferral_form" sequence="1" groups="account.group_account_readonly"/>
-    <menuitem parent="account.account_management_menu" id="menu_action_account_asset_revenue_form"
+    <menuitem parent="account.account_account_menu" id="menu_action_account_asset_revenue_form"
               action="action_account_asset_revenue_form" sequence="1" groups="account.group_account_readonly"/>
 
 
@@ -619,7 +619,7 @@
         </field>
     </record>
 
-    <menuitem parent="account.menu_finance_entries_management" id="menu_action_account_asset_deferral_tree"
+    <menuitem parent="accountant.account_assets_liabilities_menu" id="menu_action_account_asset_deferral_tree"
               action="action_account_asset_deferral_tree" sequence="99" groups="account.group_account_readonly"/>
 
     <!--Deferred Revenues-->
@@ -659,7 +659,7 @@
         </field>
     </record>
 
-    <menuitem parent="account.menu_finance_entries_management" id="menu_action_account_deferred_revenues_tree"
+    <menuitem parent="accountant.account_assets_liabilities_menu" id="menu_action_account_deferred_revenues_tree"
               action="action_account_asset_deferred_revenues_tree" sequence="99"
               groups="account.group_account_readonly"/>
 

@@ -16,6 +16,7 @@
     'depends': [
         'account_asset',
         'account',
+        'accountant',
     ],
 
     'data': [
