@@ -16,7 +16,7 @@ class IrUiMenu(models.Model):
     _inherit = 'ir.ui.menu'
 
     @api.model
-    @tools.ormcache('frozenset(self.env.user.groups_id.ids)', 'debug')
+    @tools.ormcache('frozenset(self.env.user.group_ids.ids)', 'debug')
     def _visible_menu_ids(self, debug=False):
         res = super(IrUiMenu, self)._visible_menu_ids(debug)
         return res - set(self.env.user.hidden_menu_ids.ids)
