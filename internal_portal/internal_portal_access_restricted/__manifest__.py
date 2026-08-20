@@ -1,7 +1,7 @@
 {
     "name": "INTERNAL PORTAL Restricted administration rights",
     "summary": "",
-    "version": "17.0.1.0.1",
+    "version": "19.0.1.0.1",
     "author": "ARXI",
     "category": "Extra Tools",
     "license": "Other OSI approved licence",
