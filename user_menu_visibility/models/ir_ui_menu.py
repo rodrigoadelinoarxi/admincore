@@ -1,5 +1,6 @@
 import logging
 from odoo import models, fields, api, _, tools
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ class IrUiMenu(models.Model):
     _inherit = 'ir.ui.menu'
 
     @api.model
-    @tools.ormcache('frozenset(self.env.user.groups_id.ids)', 'debug')
+    @tools.ormcache('frozenset(self.env.user.group_ids.ids)', 'debug')
     def _visible_menu_ids(self, debug=False):
         res = super(IrUiMenu, self)._visible_menu_ids(debug)
         return res - set(self.env.user.hidden_menu_ids.ids)
@@ -40,6 +41,9 @@ class IrUiMenu(models.Model):
             [('users_ids', '!=', self.env.user.id), ('protected', '=', False)])
         if ir_act_report:
             ir_act_report.sudo().unlink_action()
-        if ir_act_report1:
-            ir_act_report1.sudo().create_action()
+        for report in ir_act_report1.sudo():
+            try:
+                report.create_action()
+            except UserError:
+                continue
         return super(IrUiMenu, self).load_menus(debug)
