@@ -5,8 +5,16 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='active_group']/field[@name='user_id']" position="replace">
-                <field name="user_id" string="Related User" domain="[]"/>
+            <!-- v19: o group 'active_group' deixou de existir; user_id esta em
+                 group[@name='user'] e ha 2 instancias (groups diferentes).
+                 Mantem-se a intencao original: remover o domain. -->
+            <xpath expr="//group[@name='user']//field[@name='user_id'][1]" position="attributes">
+                <attribute name="domain">[]</attribute>
+                <attribute name="string">Related User</attribute>
+            </xpath>
+            <xpath expr="//group[@name='user']//field[@name='user_id'][2]" position="attributes">
+                <attribute name="domain">[]</attribute>
+                <attribute name="string">Related User</attribute>
             </xpath>
             <xpath expr="//field[@name='ssnid']" position="attributes">
                 <attribute name="invisible">1</attribute>
