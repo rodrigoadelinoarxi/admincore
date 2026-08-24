@@ -7,7 +7,7 @@
     'website': 'https://www.arxi.pt/',
 
     'category': 'Tools',
-    'version' : '17.0.0.0.1',
+    'version' : '19.0.0.0.1',
     'license': 'OPL-1',
 
     'depends' : ['documents', 'mail_smtp_imap_by_company'],

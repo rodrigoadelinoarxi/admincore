@@ -6,7 +6,7 @@
     'author': 'ARXI',
     'website': 'http://arxi.pt/',
     'depends': ['l10n_pt_hr_payroll'],
-    'version': '17.0.0.1.9',
+    'version': '19.0.0.1.9',
     'license': 'OPL-1',
     'description': """
 

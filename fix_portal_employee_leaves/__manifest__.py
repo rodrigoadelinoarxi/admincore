@@ -1,6 +1,6 @@
 {
     'name': 'Portal employee leaves',
-    'version': '17.0.0.0.1',
+    'version': '19.0.0.0.1',
     'author': 'Casper Ventures',
     'summary': 'Fix the issue confirming leaves for portal employees',
     'category': 'Human Resources',

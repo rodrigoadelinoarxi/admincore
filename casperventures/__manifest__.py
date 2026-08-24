@@ -1,6 +1,6 @@
 {
     'name': 'Casper Ventures',
-    'version': '17.0.0.1.44',
+    'version': '19.0.0.1.44',
     'summary': 'Casper Ventures specific implementations',
     'category': 'Accounting/Localizations/Reporting',
     'depends': [

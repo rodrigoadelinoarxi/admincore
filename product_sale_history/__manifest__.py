@@ -1,6 +1,6 @@
 {
     'name': 'Product Sale History',
-    'version': '17.0.0.1.5',
+    'version': '19.0.0.1.5',
     'author': 'Casperventures',
     'summary': 'History for Product sales by Partner',
     'category': 'Products/Sales',

@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name' : 'Mail SMTP and IMAP + Alias Domain By Company',
-    'version' : '17.0.1.1.0',
+    'version' : '19.0.1.1.0',
     'author': 'Geminate Consultancy Services',
     'company': 'Geminate Consultancy Services',
     'category': 'sales',
