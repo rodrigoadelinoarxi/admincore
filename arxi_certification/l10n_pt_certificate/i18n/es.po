@@ -22,11 +22,6 @@ msgid "%s is an invalid format for the invoice number. EX: FT %s/0001"
 msgstr ""
 
 #. module: l10n_pt_certificate
-#: model:ir.actions.report,print_report_name:l10n_pt_certificate.account_invoices_mock
-msgid "(object._get_report_base_filename())"
-msgstr ""
-
-#. module: l10n_pt_certificate
 #: model_terms:ir.ui.view,arch_db:l10n_pt_certificate.report_invoice_document
 msgid ""
 "- Processed by certified\n"
@@ -712,11 +707,6 @@ msgstr ""
 #. module: l10n_pt_certificate
 #: model_terms:ir.ui.view,arch_db:l10n_pt_certificate.saft_import_wizard_view_form
 msgid "Invoices"
-msgstr ""
-
-#. module: l10n_pt_certificate
-#: model:ir.actions.report,name:l10n_pt_certificate.account_invoices_mock
-msgid "Invoices Mock"
 msgstr ""
 
 #. module: l10n_pt_certificate

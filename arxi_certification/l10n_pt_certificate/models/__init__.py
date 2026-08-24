@@ -4,6 +4,7 @@ from . import account_mixin
 from . import res_partner
 from . import uom_uom
 from . import account_move
+from . import account_move_line
 from . import account_payment
 from . import account_tax
 from . import res_company

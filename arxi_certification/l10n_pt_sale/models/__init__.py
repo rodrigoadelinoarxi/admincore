@@ -1,3 +1,1 @@
-from . import sale_order
-from . import sale_order_journal
-from . import account_series
+from . import account_series, sale_order, sale_order_journal, sale_order_line

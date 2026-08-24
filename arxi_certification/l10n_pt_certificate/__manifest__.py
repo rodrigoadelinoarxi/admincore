@@ -6,7 +6,7 @@
     "website": "https://www.arxi.pt",
     "category": "Accounting/Localizations/Account Charts",
     "sequence": 150,
-    "version": "1.48",
+    "version": "1.49",
     "license": "OPL-1",
     # l10n_pt_arxi_coa was absorbed into this module (see
     # migrations/1.43/pre-merge_arxi_coa.py); sh_message was replaced by the
@@ -46,6 +46,7 @@
         "report/report_templates.xml",
         "report/account_payment_templates.xml",
         "report/account_self_billing_template.xml",
+        "data/protected_reports_data.xml",
         # Views
         "views/account_move_views.xml",
         "views/account_journal_views.xml",

@@ -16,11 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_pt_sale
-#: model:ir.actions.report,print_report_name:l10n_pt_sale.action_report_saleorder_mock
-msgid "(object._get_report_base_filename())"
-msgstr ""
-
-#. module: l10n_pt_sale
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
 msgid ""
 "- Processed by certified\n"
@@ -101,11 +96,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_pt_sale.report_saleorder_document
 msgid "Quantity"
 msgstr "Cantidad"
-
-#. module: l10n_pt_sale
-#: model:ir.actions.report,name:l10n_pt_sale.action_report_saleorder_mock
-msgid "Quotation / Order Mock"
-msgstr ""
 
 #. module: l10n_pt_sale
 #: model:ir.model,name:l10n_pt_sale.model_sale_order_journal

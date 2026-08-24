@@ -22,6 +22,22 @@ To install this module, you need to:
 #. Unzip to the addons path
 #. Install module in Odoo Community or Enterprise
 
+Sale order report pagination
+=============================
+
+Sale orders (PT and AO, certified journals) use the same **measured**
+pagination engine as ``l10n_pt_certificate``'s invoices — see that
+module's README ("Invoice report pagination") for the full explanation
+and, most importantly, the **contract of what must never be broken**
+(documented as the single source of truth right above
+``_arxi_uses_measured_pagination()`` in
+``l10n_pt_ao/models/account_mixin.py``). ``sale_order.py`` here only
+supplies the mixin's hooks (``_arxi_pagination_probe_report()`` ->
+``l10n_pt_sale.action_report_saleorder_probe``,
+``_arxi_pagination_line_marker()``, ``_arxi_pagination_lines()``); the
+probe template itself is ``report_saleorder_document_probe`` in
+``report/sale_order_templates.xml``.
+
 Known issues / Roadmap
 ======================
 

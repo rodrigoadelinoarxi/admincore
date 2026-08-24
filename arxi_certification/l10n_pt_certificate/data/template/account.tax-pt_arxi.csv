@@ -186,3 +186,5 @@
 "ret0_h","Retenção 0% - Rendimentos Isentos (H)","RET0H","RET0H","187","0","percent","purchase","tax_group_ret_0","","","IRS","NS","PT","","","",""
 "ret25_h","Retenção à Taxa Liberatória 25% - Pensões","RET25","RET25","188","-25","percent","purchase","tax_group_ret_25","","","IRS","NS","PT","","","",""
 "ret35_h","Retenção à Taxa Liberatória 35% - Pensões","RET35","RET35","189","-35","percent","purchase","tax_group_ret_35","","","IRS","NS","PT","","","",""
+"iva0_m35_sale","IVA 0% Autoliquidação - M35","IVA0 - M35","IVA0 - M35","190","0","percent","sale","tax_group_iva_0","","","ISE","IVA","PT","l10n_pt_certificate.m35","","",""
+"iva0_m35","IVA 0% Autoliquidação - M35","IVA0 - M35","IVA0 - M35","191","23","percent","purchase","tax_group_iva_0","","","ISE","IVA","PT","l10n_pt_certificate.m35","","",""
