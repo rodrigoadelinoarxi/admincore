@@ -26,6 +26,8 @@ Registo das correções feitas ao restaurar o dump do servidor externo no ambien
 | 8 | `_gc_user_apikeys()` falha no autovacuum | **RESOLVIDO** |
 | 9 | `casperventures` não instalava (12 vistas/relatórios) | **RESOLVIDO** |
 | 10 | `product_uom` -> `product_uom_id` em `l10n_pt_sale` | por resolver (é `arxi_certification`) |
+| 11 | 16 módulos não carregavam (`l10n_pt*`, `casperventures`) | **RESOLVIDO** |
+| 12 | `view_mode` com `tree` em 132 ações (resíduo v17) | **RESOLVIDO** |
 
 ---
 
@@ -271,7 +273,8 @@ funciona normalmente.
 **excluindo `arxi_certification`**:
 
 - **31 módulos de cada lado, correspondência 1:1** — nenhum perdido, nenhum a mais.
-- Todas as versões dos manifests bumpadas para `19.0.*`.
+- Versões dos manifests bumpadas para `19.0.*` — **exceto `deferrals_option`**,
+  que ficou em `17.0.0.0.12` e por isso nem era instalável (corrigido; ver secção 11c).
 - XML limpo: zero `<tree>`, zero `attrs=`/`states=`, `view_mode` já em `list`.
 - Migração real feita em 11 módulos (`<tree>`→`<list>`, `@api.returns` removido,
   `ormcache_context`→`ormcache`).
@@ -464,6 +467,173 @@ código de certificação.
 
 ---
 
+## 11. 16 módulos não carregavam — RESOLVIDO
+
+### Sintoma
+Ao abrir as Definições:
+```
+OwlError: The following error occurred in onWillStart:
+"res.config.settings"."partner_ref" field is undefined.
+```
+
+E no arranque:
+```
+ERROR odoo.modules.loading: Some modules are not loaded: ['ARXI_CERTIFICATION_PATCH',
+'arxi_quality_saft_api_client', 'casperventures', 'l10n_pt_ao', 'l10n_pt_ao_access',
+'l10n_pt_ao_journal_entry', 'l10n_pt_ao_saft', 'l10n_pt_ao_sale', 'l10n_pt_certificate',
+'l10n_pt_delivery', 'l10n_pt_reports_arxi', 'l10n_pt_sale', 'l10n_pt_sale_stock',
+'l10n_pt_stock', 'l10n_pt_website_payment', ...]
+```
+
+O `partner_ref` era **sintoma, não causa**: a vista `l10n_pt_ao.res_config_settings_view_form`
+existia na BD, mas o módulo `l10n_pt_ao` não carregava, por isso o campo nunca era definido
+em Python.
+
+Havia **3 bloqueios independentes**, em cascata.
+
+### 11a. `contract_instance_checker` fora do `addons_path`
+
+O `l10n_pt_ao` declara `contract_instance_checker` nos `depends`, e o módulo não estava
+em nenhum caminho carregado:
+
+```
+WARNING odoo.modules.module_graph: module l10n_pt_ao: some depends are not loaded
+    (contract_instance_checker), skipped
+```
+Tudo o resto (`l10n_pt_*`, `casperventures`, ...) caía por dependência indireta.
+
+**Resolução:** o módulo foi **movido para fora da certificação e passou para o bundle
+`arxi-quality`** — de `arxi_certification/` para
+`custom/addons/admincore-arxi/arxi-quality/contract_instance_checker`.
+Esse caminho já constava do `addons_path`, pelo que não foi preciso alterar a config.
+
+### 11b. `ir_model_fields.translate` com a string `'false'` (2315 campos)
+
+Instalar o módulo rebentava com:
+```
+psycopg2.errors.CannotCoerce: cannot cast type integer to jsonb
+LINE 1: ...TER COLUMN "company_id" TYPE jsonb USING "company_id"::jsonb
+```
+num **Many2one** (`contract.instance.status.company_id`), que nunca deveria ser jsonb.
+
+**Causa raiz.** `ir_model_fields.translate` é `varchar`, e a v19 só reconhece
+`NULL`, `standard`, `html_translate`, `xml_translate`. O dump trouxe **2315 campos com a
+string `'false'`** e 16 com `'true'`. O core faz:
+
+```python
+# odoo/modules/loading.py:395
+cr.execute("SELECT model || '.' || name, translate FROM ir_model_fields WHERE translate IS NOT NULL")
+```
+
+`'false'` **não é NULL**, por isso esses campos entram na lista de "traduzidos na BD".
+Depois, em `odoo/orm/model_classes.py:386`:
+
+```python
+field_translate = FIELD_TRANSLATE.get(<valor>, True)   # 'false' não está no dict -> True
+fields_.append(type(fields_[0])(translate=field_translate))
+```
+
+`FIELD_TRANSLATE` só tem `{None: False, 'standard': True, 'html_translate': ..., 'xml_translate': ...}`,
+logo `.get('false', True)` devolve **`True`** e o campo é forçado a traduzível → coluna `jsonb`,
+mesmo sendo Many2one.
+
+**Correção:**
+```sql
+UPDATE ir_model_fields SET translate = NULL       WHERE translate = 'false';  -- 2315
+UPDATE ir_model_fields SET translate = 'standard' WHERE translate = 'true';   -- 16
+```
+(os 16 `'true'` eram todos char/html genuinamente traduzíveis — verificados um a um)
+
+### 11c. `deferrals_option` com manifest em `17.0`
+
+```
+WARNING odoo.modules.module_graph: module deferrals_option: not installable, skipped
+```
+As dependências existiam todas; o manifest é que ainda dizia `"version": "17.0.0.0.12"`.
+Corrigido para `19.0.0.0.12`.
+
+> **Correção a um levantamento anterior (secção 6):** ficou escrito que *todas* as versões
+> estavam bumpadas para `19.0`. Estava errado — este manifest usa **aspas duplas** e escapou
+> à verificação, que só apanhava aspas simples. Ao verificar com `ast.literal_eval` em vez de
+> regex, apareceu como o único fora de `19.0`.
+
+### Verificação
+```
+addons paths          -> sem caminhos temporários
+Registry loaded       -> só faltam theme_avantgarde/cobalt/common (secção 5)
+load_menus            -> 37 apps
+Definições            -> 473 campos, partner_ref presente, 0 campos do arch em falta
+get_views OK          -> account.journal, account.move, sale.order, res.company,
+                         hr.employee, account.payment, stock.picking
+```
+
+---
+
+## 12. `View types not defined tree found in act_window action` — RESOLVIDO
+
+### Sintoma
+```
+UncaughtPromiseError
+Uncaught Promise > View types not defined tree found in act_window action 667
+    _executeActWindowAction@.../web.assets_web.min.js:10702:26
+```
+A ação 667 é a `sale.product_template_action` ("Products").
+
+### Causa
+Na v19 o tipo de vista `tree` foi renomeado para **`list`**. A ação tinha ficado com o
+valor da v17:
+```
+view_mode = kanban,tree,form,activity
+```
+O webclient lê o `view_mode` diretamente e rejeita `tree`.
+
+**Não era um problema pontual:** o varrimento à BD encontrou **132 ações** com `tree`,
+mais **8** registos em `ir_act_window_view`. Praticamente todas de módulos **core/enterprise**
+(`base` 27, `hr_payroll` 21, `account_consolidation` 12, `stock` 9, `documents` 7,
+`account` 6, ...) — resíduo do dump v17 que o upgrade não converteu. Nada a ver com os
+addons custom.
+
+### Correção
+```sql
+BEGIN;
+UPDATE ir_act_window
+SET view_mode = regexp_replace(view_mode, '(^|,)tree(,|$)', '\1list\2', 'g')
+WHERE view_mode LIKE '%tree%';          -- 132
+UPDATE ir_act_window_view SET view_mode = 'list' WHERE view_mode = 'tree';   -- 8
+COMMIT;
+```
+
+### Verificação
+```
+ir_act_window com 'tree'      -> 0
+ir_act_window_view com 'tree' -> 0
+ação 667                      -> kanban,list,form,activity
+/web/action/load (8 ações)    -> 8 OK, 0 com erro
+```
+
+### O que ficou deliberadamente por corrigir
+
+**63 archs de vistas ainda com `<tree>`** em `ir_ui_view`. Os donos estão **todos
+`uninstalled`** (`hr_payroll` 20, `account_consolidation` 16, `documents` 9,
+`l10n_pt_hr_payroll` 3, `l10n_pt_payroll_unique_report` 3, ...), pelo que nunca são
+carregados e não causam erro. Se algum destes módulos vier a ser instalado, os archs
+precisam de `<tree>` -> `<list>` primeiro.
+
+### Falso positivo registado: `grid` é válido
+
+Um varrimento a `view_mode` inválidos assinalou 7 ações de folhas de horas com `grid`
+(ids 133, 625, 628, 696, 967, 1423, 1710). **`grid` é um tipo de vista legítimo na v19**,
+adicionado pelo `web_grid` (instalado, 15 vistas do tipo):
+```python
+# enterprise/addons/web_grid/models/ir_actions.py:10
+view_mode = fields.Selection(selection_add=[('grid', "Grid")], ondelete={'grid': 'cascade'})
+```
+Não foram alteradas. Fica o registo para não serem "corrigidas" por engano no futuro.
+
+---
+
+
+
 
 
 ## Comandos úteis
@@ -484,4 +654,29 @@ kill $(ss -ltnp | grep 8017 | grep -oP 'pid=\K[0-9]+')
 # forçar reconstrução dos assets (se voltar a dar erro de JS)
 psql -d admincore_19_1 -c \
   "DELETE FROM ir_attachment WHERE res_model='ir.ui.view' AND name LIKE '%assets%';"
+```
+
+## Diagnóstico — resíduos v17 na BD
+
+O padrão recorrente desta migração é **a BD trazer valores da v17 que o código v19 já não
+aceita**. Corrigir só o ficheiro XML/Python não chega: o Odoo lê e valida o que está na BD.
+
+```sql
+-- 'tree' onde a v19 espera 'list'  (secção 12)
+SELECT count(*) FROM ir_act_window      WHERE view_mode LIKE '%tree%';
+SELECT count(*) FROM ir_act_window_view WHERE view_mode = 'tree';
+SELECT count(*) FROM ir_ui_view         WHERE arch_db::text LIKE '%<tree%';
+
+-- translate com string 'false'/'true' em vez de NULL/'standard'  (secção 11b)
+SELECT translate, count(*) FROM ir_model_fields GROUP BY translate;
+
+-- campos renomeados na v19 ainda em archs  (secção 9)
+SELECT count(*) FROM ir_ui_view WHERE arch_db::text ~ '(^|[^_])inalterable_hash';
+
+-- manifests que ficaram em 17.0/18.0  (secção 11c)
+--   usar ast.literal_eval, NÃO regex: há manifests com aspas duplas
+find . -name __manifest__.py -not -path "*__pycache__*" | while read f; do
+  python3 -c "import ast;m=ast.literal_eval(open('$f').read());v=m.get('version','?');
+print(v,'$f') if not str(v).startswith('19') else None"
+done
 ```

@@ -40,8 +40,10 @@ class AccountMove(models.Model):
             # Keep the partner on the original invoice if there is only one
             partner = asset.original_move_line_ids.mapped('partner_id')
             partner = partner[:1] if len(partner) <= 1 else self.env['res.partner']
+
             depreciation_start_date = vals['depreciation_beginning_date']
             depreciation_end_date = fields.Date.from_string(depreciation_start_date) + relativedelta(days=vals['asset_number_days'] - 1)
+
             move_line_1 = {
                 'name': asset.name,
                 'partner_id': partner.id,
@@ -82,6 +84,7 @@ class AccountMove(models.Model):
                 'asset_value_change': vals.get('asset_value_change', False),
                 'move_type': 'entry',
                 'currency_id': current_currency.id,
+                'asset_move_type': vals.get('asset_move_type', 'depreciation'),
                 'company_id': asset.company_id.id,
             }
             return move_vals
@@ -99,6 +102,39 @@ class AccountMove(models.Model):
                         })
             return move_vals
 
+    def _post(self, soft=True):
+        deferral_moves = self.filtered(lambda move: move.asset_id and move.asset_id.deferral_type in ('expense', 'revenue'))
+        deferred_line_values = {}
+        for move in deferral_moves:
+            deferred_line_values[move.id] = move.line_ids.filtered(
+                lambda line: line.deferred_start_date and line.deferred_end_date
+            ).mapped(lambda line: (line.id, line.deferred_start_date, line.deferred_end_date))
+
+        if deferred_line_values:
+            for move in deferral_moves:
+                if deferred_line_values.get(move.id):
+                    move.line_ids.write({
+                        'deferred_start_date': False,
+                        'deferred_end_date': False,
+                    })
+
+        posted = super()._post(soft)
+
+        # Restore against deferral_moves (the set identified up-front), not
+        # against `posted`: a soft post (soft=True, the default) on a
+        # future-dated move doesn't post it -- it schedules auto_post and
+        # excludes it from `posted` -- which used to leave the dates cleared
+        # above never restored for any move dated in the future.
+        for move in deferral_moves:
+            values = deferred_line_values.get(move.id)
+            if values:
+                for line_id, deferred_start_date, deferred_end_date in values:
+                    self.env['account.move.line'].browse(line_id).write({
+                        'deferred_start_date': deferred_start_date,
+                        'deferred_end_date': deferred_end_date,
+                    })
+
+        return posted
 
     @api.depends('asset_id', 'depreciation_value', 'asset_id.total_depreciable_value',
                  'asset_id.already_depreciated_amount_import', 'state')
@@ -125,15 +161,20 @@ class AccountMove(models.Model):
                     super(AccountMove, self)._compute_depreciation_cumulative_value()
 
     @api.model
-    def _get_deferred_amounts_by_line(self, lines, periods):
+    def _get_deferred_amounts_by_line(self, lines, periods, deferred_type):
         values = []
         current_periods = [period for period in periods if period[2] == 'current']
         report_period_from = min((period[0] for period in current_periods), default=None)
         report_period_to = max((period[1] for period in current_periods), default=None)
         for line in lines:
-            move = self.browse(line['move_id'])
+            # `line` can either be a dict (coming from an SQL query, e.g. from
+            # the base _generate_deferred_entries) or a real account.move.line
+            # record (e.g. when called from _get_deferred_lines / the asset
+            # deferral flow), so `move_id` must be resolved accordingly.
+            is_dict = isinstance(line, dict)
+            move = self.browse(line['move_id']) if is_dict else line['move_id']
             if move.company_id.account_fiscal_country_id.code == 'PT' and move.asset_id:
-                move_date = fields.Date.to_date(move.date)
+                move_date = fields.Date.to_date((is_dict and line.get('move_date')) or move.date)
                 balance = line['balance']
                 columns = {}
                 for period in periods:
@@ -153,15 +194,15 @@ class AccountMove(models.Model):
                 })
                 continue
 
-            values.extend(super()._get_deferred_amounts_by_line([line], periods))
+            values.extend(super()._get_deferred_amounts_by_line([line], periods, deferred_type))
         return values
 
 
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
-    def _is_compatible_account(self):
-        res = super()._is_compatible_account()
+    def _has_deferred_compatible_account(self):
+        res = super()._has_deferred_compatible_account()
         if not res:
             return self.account_id.code and (self.account_id.code.startswith('272') or self.account_id.code.startswith('28'))
         return res

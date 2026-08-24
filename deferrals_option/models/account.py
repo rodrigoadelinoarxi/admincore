@@ -7,12 +7,12 @@ class AccountAccount(models.Model):
     account_asset_type = fields.Selection(selection=[('expense', 'Expense'), ('revenue', 'Revenue')],
                                      compute="_check_account_asset_type", store=True, copy=False)
 
-    @api.depends('account_type')
+    @api.depends('account_type', 'code')
     def _check_account_asset_type(self):
         for rec in self:
-            if rec.code.startswith('28'):
+            if rec.code and rec.code.startswith('28'):
                 rec.account_asset_type = 'expense'
-            elif rec.code.startswith('272'):
+            elif rec.code and rec.code.startswith('272'):
                 rec.account_asset_type = 'revenue'
             else:
                 rec.account_asset_type = False
