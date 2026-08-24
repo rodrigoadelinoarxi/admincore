@@ -15,6 +15,6 @@ class Users(models.Model):
     def action_create_employee(self):
         for user in self:
             user.write({
-                'groups_id': [(4, self.env.ref('internal_portal_attendances.group_internal_portal_attendances').id)]
+                'group_ids': [(4, self.env.ref('internal_portal_attendances.group_internal_portal_attendances').id)]
             })
         return super(Users, self).action_create_employee()

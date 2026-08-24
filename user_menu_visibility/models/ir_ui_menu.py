@@ -41,12 +41,9 @@ class IrUiMenu(models.Model):
             [('users_ids', '!=', self.env.user.id), ('protected', '=', False)])
         if ir_act_report:
             ir_act_report.sudo().unlink_action()
-        for report in ir_act_report1:
+        for report in ir_act_report1.sudo():
             try:
-                report.sudo().create_action()
-            except UserError as e:
-                # alguns relatórios (ex.: Planning) recusam create_action() no
-                # Odoo 19 e obrigam a usar o botão Imprimir da própria vista;
-                # ignorar em vez de rebentar o load_menus para todos os users
-                _logger.warning("create_action() recusado para o relatório '%s': %s", report.display_name, e)
+                report.create_action()
+            except UserError:
+                continue
         return super(IrUiMenu, self).load_menus(debug)
