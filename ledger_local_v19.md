@@ -26,6 +26,7 @@ Registo das correções feitas ao restaurar o dump do servidor externo no ambien
 | 8 | `_gc_user_apikeys()` falha no autovacuum | **RESOLVIDO** |
 | 9 | `casperventures` não instalava (12 vistas/relatórios) | **RESOLVIDO** |
 | 10 | `product_uom` -> `product_uom_id` em `l10n_pt_sale` | por resolver (é `arxi_certification`) |
+| 11 | Risco de `account.account` apagada em silêncio pelo core | **RESOLVIDO** (bloqueado na fonte) |
 
 ---
 
@@ -485,3 +486,81 @@ kill $(ss -ltnp | grep 8017 | grep -oP 'pid=\K[0-9]+')
 psql -d admincore_19_1 -c \
   "DELETE FROM ir_attachment WHERE res_model='ir.ui.view' AND name LIKE '%assets%';"
 ```
+
+---
+
+## 11. Risco de `account.account` apagada em silêncio pelo core — RESOLVIDO (bloqueado na fonte)
+
+Investigação pedida pelo cliente (2026-08-24) depois de um incidente noutra tentativa de
+migração (Odoo 18, ambiente `adminarxi` local) em que contas do plano de contas
+desapareceram. Não é um problema desta branch/BD (ver "Verificação" abaixo), mas o
+mecanismo é do próprio Odoo e aplica-se a qualquer migração, por isso foi bloqueado na
+fonte para todos os clientes.
+
+### Causa raiz — `ir.model.data._process_end()` (core, não é código do cliente)
+
+`odoo/addons/base/models/ir_model.py`, chamado no fim de qualquer `-u`:
+
+```python
+def _process_end_unlink_record(self, record):
+    record.unlink()
+
+def _process_end(self, modules):
+    """ Clear records removed from updated module data. ...
+    Such records are recognised as the one with an xml id and a module in
+    ir_model_data and noupdate set to false, but not present in
+    self.pool.loaded_xmlids. """
+    ...
+    for (id, xmlid, model, res_id) in self.env.cr.fetchall():
+        if xmlid in loaded_xmlids:
+            continue
+        ...
+        self._process_end_unlink_record(record)   # <- unlink() direto, sem proteção
+```
+
+Qualquer registo com `noupdate=false` cujo xmlid **não seja "tocado"** pelos dados XML
+do módulo nesta run é apagado automaticamente — é o mecanismo geral do Odoo para limpar
+dados obsoletos de módulos. Para `account.account`, isto significa: se o chart template
+(ex.: `l10n_pt_arxi_coa`, ou o `account` core) deixar de (re)declarar uma conta que
+existia antes, a conta é apagada, **sem aviso**, exceto se algo a impedir por FK.
+
+Já havia um patch anterior no motor (`patch_odoo_core_stale_xmlid_fk_violation_bug`,
+2026-08-13) para o caso em que a conta **ainda tem movimentos** (`account_move_line`
+aponta para ela): nesse caso o `unlink()` rebentava com `ForeignKeyViolation` e
+**parava a migração toda** — o patch só evitava a paragem (guarda a conta, regista
+aviso). **Não protegia contas sem nenhuma referência viva** (configuradas mas sem
+movimentos, ou só referenciadas por `account.tax`/`account.journal`/
+`account.fiscal.position`/`product.category`, nenhuma com FK que bloqueie o DELETE)
+— essas eram apagadas de facto, em silêncio.
+
+### Correção
+
+Patch novo, `patch_odoo_core_never_delete_account_account`, intercepta na fonte
+(`_process_end_unlink_record`): para `account.account`, nunca chama `unlink()` —
+arquiva (`active=False`) e regista aviso com id/código/nome. Cobre os dois casos (com
+e sem FK) na mesma correção. Aplicado ao container em execução e ao motor
+(`migrate.sh`, containers de setup e definitivo, em qualquer migração futura).
+
+### Auditoria automática (nova, todas as migrações futuras)
+
+`snapshot_account_accounts()` tira uma foto de `account.account` (id, código, nome,
+empresa, ativo, tipo, reconciliável, moeda, xmlid) logo após o restauro e outra no
+fim, com sucesso. `compare_account_snapshots()` compara os IDs: arquivar é aceitável
+e esperado, mas se **algum ID desaparecer fisicamente**, a migração fica marcada
+(`RESULT_ACCOUNT_AUDIT=FALHOU`) e não deve ser dada como validada sem investigação.
+
+### Verificação — esta branch/BD nunca teve o problema
+
+```
+Contas no backup de origem (v17, dump.sql):        15.451
+Contas na BD atual (v19, admincore_19_odoo):        15.451
+IDs no backup ausentes da BD atual:                      0
+IDs na BD atual ausentes do backup:                      0
+```
+
+Confirmado por comparação direta de todos os IDs (não só a contagem) — **nenhuma
+conta foi perdida nesta migração**. O incidente relatado pelo cliente é de outra
+tentativa (Odoo 18, ambiente local `adminarxi`), fora do alcance desta investigação
+(sem acesso a esse ambiente) — mas o mecanismo de causa raiz encontrado aqui é do
+próprio Odoo core, não específico da v19 nem desta branch, por isso é muito provável
+que seja a mesma causa. Recomenda-se aplicar o mesmo patch nesse ambiente.
