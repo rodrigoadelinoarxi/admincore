@@ -1,0 +1,12 @@
+<odoo>
+    <template id="remove_original_block_after_shipping"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="241">
+
+        <!-- Remove todo o bloco original que injeta ATCUD/QR depois do shipping -->
+        <xpath expr="//span[contains(text(),'ATCUD')]/ancestor::div[@class='row']"
+               position="replace"
+               optional="1"/>
+    </template>
+
+</odoo>

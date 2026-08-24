@@ -1,4 +1,5 @@
 from odoo import models, fields
+from odoo.tools import SQL
 
 
 class AccountInvoiceReport(models.Model):
@@ -10,6 +11,7 @@ class AccountInvoiceReport(models.Model):
         help="Raw partner ID from the account move"
     )
 
-    def _select(self):
+    def _select(self) -> SQL:
         """Add move.partner_id to the SELECT clause"""
-        return super()._select() + ", move.partner_id AS partner_id_value"
+        # v19: _select() devolve um objeto SQL (nao string) -> compor com SQL()
+        return SQL("%s, move.partner_id AS partner_id_value", super()._select())

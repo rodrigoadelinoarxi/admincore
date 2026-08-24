@@ -1,0 +1,20 @@
+<odoo>
+    <template id="report_invoice_remove_original_qr"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="240">
+
+        <!-- Remove original top QR codes from base template -->
+        <xpath expr="//div[@id='qrcode_pt'][@name='qrcode_pt_top_with_shipping'][not(ancestor::*[@id='address_block_anchor'])]"
+               position="replace" optional="1"/>
+
+        <xpath expr="//div[@id='qrcode_pt'][@name='qrcode_pt_top_without_shipping'][not(ancestor::*[@id='address_block_anchor'])]"
+               position="replace" optional="1"/>
+
+        <!-- Remove original QR do fundo -->
+        <xpath expr="//div[@name='atcud_qr_code']"
+               position="replace" optional="1"/>
+
+
+    </template>
+
+</odoo>

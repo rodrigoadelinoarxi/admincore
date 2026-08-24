@@ -7,7 +7,7 @@
             <xpath expr="//page[@name='internal_notes']" position="after">
                 <page name="purchase_limit" string="Purchase Quantity Limit">
                     <field name="products_limit_ids">
-                        <list editable="true" create = 'true' >
+                        <list editable="bottom" create="true">
                             <field name="product_id"/>
                             <field name="quant"/>
                         </list>

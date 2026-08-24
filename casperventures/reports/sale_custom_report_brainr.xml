@@ -19,13 +19,11 @@
         </xpath>
 
         <!-- Substituir a descrição -->
-        <xpath expr="//td[@name='td_name']/span" position="replace">
-            <span t-if="doc.company_id.use_custom_report"
-                  t-field="line.name"
-                  t-options="{'widget': 'text'}"/>
-            <span t-if="not doc.company_id.use_custom_report"
-                  t-out="line._get_report_name()"
-                  t-options="{'widget': 'text'}"/>
+        <!-- v19: o l10n_pt_sale envolveu o conteudo num <div class="pt_arxi_line_clip">,
+             logo o <span> deixou de ser filho directo do <td>. Mantem-se t-esc como no pai. -->
+        <xpath expr="//td[@name='td_name']//span[@t-esc='line.name']" position="replace">
+            <span t-if="doc.company_id.use_custom_report" t-esc="line.name"/>
+            <span t-if="not doc.company_id.use_custom_report" t-esc="line._get_report_name()"/>
         </xpath>
 
         <!-- Preço unitário com símbolo € -->

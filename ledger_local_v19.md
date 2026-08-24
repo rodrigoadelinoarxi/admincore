@@ -25,9 +25,17 @@ Registo das correções feitas ao restaurar o dump do servidor externo no ambien
 | 7 | `Missing model` x118 (resíduos em `ir_model`) | por resolver, cosmético |
 | 8 | `_gc_user_apikeys()` falha no autovacuum | **RESOLVIDO** |
 | 9 | `casperventures` não instalava (12 vistas/relatórios) | **RESOLVIDO** |
-| 10 | `product_uom` -> `product_uom_id` em `l10n_pt_sale` | por resolver (é `arxi_certification`) |
+| 10 | `product_uom` -> `product_uom_id` em `l10n_pt_sale` | **RESOLVIDO** (upstream, pelo colega) |
 | 11 | 16 módulos não carregavam (`l10n_pt*`, `casperventures`) | **RESOLVIDO** |
 | 12 | `view_mode` com `tree` em 132 ações (resíduo v17) | **RESOLVIDO** |
+| 13 | Contas sem empresa: `account_account_res_company_rel` vazia | **BLOQUEANTE — precisa da BD v17** |
+| 15 | `res.groups.category_id` removido (`base_internal_portal`) | **RESOLVIDO** |
+| 16 | Vistas SQL desatualizadas (3 relatórios) | **RESOLVIDO** |
+| 17 | `_select()` devolve `SQL`, não string (`casperventures`) | **RESOLVIDO** |
+| 18 | `tz='Portugal'` inválido em PostgreSQL (257 registos) | **RESOLVIDO** |
+| 19 | `budget_line` sem colunas `x_plan*_id` | **RESOLVIDO** |
+| 20 | Ciclo financeiro parado (faturar/pagar/NC) | **BLOQUEADO pela secção 13** |
+| 22 | Teste Playwright: 293 ecrãs, 0 regressões | **CONCLUÍDO** |
 
 ---
 
@@ -442,7 +450,7 @@ render payment receipt       -> OK, 6.944 bytes
 
 ---
 
-## 10. `product_uom` -> `product_uom_id` em `l10n_pt_sale` — POR RESOLVER
+## 10. `product_uom` -> `product_uom_id` em `l10n_pt_sale` — RESOLVIDO (upstream)
 
 Ao renderizar um sale order:
 ```
@@ -458,8 +466,9 @@ Na v19 `sale.order.line.product_uom` passou a **`product_uom_id`**
 nenhuma referência a `product_uom`. O template afetado está em
 `arxi_certification/l10n_pt_sale/`, que por indicação do utilizador **não foi tocado**.
 
-Impacto: o relatório de sale order não renderiza. Requer autorização para mexer em
-código de certificação.
+**Estado (2026-08-24, após novo código do colega):** já **corrigido upstream** — o
+`l10n_pt_sale/report/sale_order_templates.xml` passou a usar `product_uom_id`.
+Não foi preciso alterar nada do nosso lado.
 
 ### Nota — `wkhtmltopdf` em falta
 `_render_qweb_pdf` falha com "Não é possível localizar Wkhtmltopdf neste sistema".
@@ -632,6 +641,598 @@ Não foram alteradas. Fica o registo para não serem "corrigidas" por engano no 
 
 ---
 
+## 13. Contas sem empresa (`account_account_res_company_rel` vazia) — BLOQUEANTE
+
+### Sintoma
+```
+UserError: Uh-oh! You've got some company inconsistencies here:
+- "account.tax.repartition.line,36102" belongs to company "Admincore, Unipessoal Lda"
+  while "Account" (account_id: 'IVA - Dedutível - Outros bens e serviços')
+  belongs to another company.
+```
+E, silenciosamente: `account.account` devolve **0 registos** a qualquer utilizador.
+
+### Causa raiz
+Na v19 o `account.account.company_id` (many2one) foi substituído por **`company_ids`**
+(many2many, tabela `account_account_res_company_rel`). Nesta BD:
+
+```sql
+SELECT count(*) FROM account_account;                    -- 15451
+SELECT count(*) FROM account_account_res_company_rel;    --     0   <-- vazia
+-- e a coluna antiga já não existe:
+SELECT column_name FROM information_schema.columns
+ WHERE table_name='account_account' AND column_name LIKE '%compan%';   -- 0 linhas
+```
+
+**As 15.451 contas do plano não estão associadas a nenhuma empresa.**
+
+**Confirmado que vem da origem, não do restore local** — inspeção direta ao ficheiro `.dump`:
+```bash
+pg_restore -t account_account_res_company_rel -a -f - <dump> | grep -c '^[0-9]'   # 0
+```
+A tabela já vinha vazia. Um novo dump da mesma origem não resolve.
+
+Só o `account.account` foi afetado: `account_journal` e `account_tax` mantêm `company_id`.
+
+### Confirmação visual na interface (2026-08-24)
+
+Ao abrir uma fatura (`Faturação > Clientes > Faturas`, doc `FT 2026/0012`), o utilizador
+recebe o diálogo **"Erro de Acesso"**:
+
+```
+"Parece que se deparou com alguns registos secretos."
+"Desculpe, Administrator (id=2) não tem acesso a 'leitura':"
+ - Conta, Serviços principais PT (account.account: 3562)
+
+"A responsabilidade é das seguintes regras:"
+ - Account multi-company
+```
+
+A regra citada é exactamente a `account.account_comp_rule` da secção 12. Verificado:
+
+```sql
+SELECT a.id, a.code,
+       (SELECT count(*) FROM account_account_res_company_rel r
+         WHERE r.account_account_id = a.id) AS n_empresas
+FROM account_account a WHERE a.id = 3562;
+--  3562 | 7211 | 0      <-- zero empresas associadas
+```
+
+**Não é um problema de permissões do utilizador** (o uid 2 é administrador e
+`check_access` passa) — a conta simplesmente não pertence a nenhuma empresa, por isso a
+regra multi-company esconde-a de todos.
+
+### O que isto explica
+- **abrir uma fatura existente dá "Erro de Acesso"** (confirmado na UI)
+- `account.account` -> 0 registos (a regra multi-company filtra tudo)
+- a regra 62, mesmo corrigida para `company_ids` (secção 12), continua a devolver zero
+- **7 módulos não atualizam** (ver abaixo)
+
+### Por que não foi reconstruído
+
+Fontes possíveis para inferir a empresa de cada conta:
+
+| Fonte | Contas cobertas |
+|---|---|
+| xmlid `account.<company_id>_chart_...` | 3.241 |
+| `account_move_line` | 1.932 |
+| `account_tax_repartition_line` + defaults de journals | ~370 |
+| **sem qualquer origem** | **10.619** |
+
+Tentou-se ainda inferir por proximidade de `id` (os planos foram criados em blocos
+sequenciais por empresa; o padrão é bom — **492 códigos repetem-se exatamente 17×**,
+coerente com plano individual por cada uma das 17 empresas `pt_arxi`). Mas o teste de
+coerência reprovou:
+
+```sql
+-- atribuindo cada conta à empresa da conta conhecida mais próxima por id:
+-- 85 empresas ficariam com o MESMO código de conta duplicado
+```
+
+Isso prova que a inferência mistura planos entre empresas. **Não foi aplicada**: são dados
+fiscais e uma atribuição errada tem impacto legal.
+
+### Resolução necessária (fora do alcance local)
+
+O preenchimento de `company_ids` é feito pelo **serviço de upgrade da Odoo** (o
+`odoo-server/odoo/upgrade` local está vazio) e falhou silenciosamente no upgrade da origem.
+
+1. **BD v17 original** (pré-upgrade), onde `account_account.company_id` ainda existe —
+   reconstrução trivial e 100% fiável; **é o caminho recomendado**; ou
+2. repetir o upgrade com o serviço oficial, verificando no fim que
+   `account_account_res_company_rel` **não** fica vazia.
+
+### Módulos bloqueados por isto (7)
+`l10n_pt_certificate`, `l10n_pt_reports_arxi`, `l10n_pt_ao`, `l10n_pt_ao_saft`,
+`l10n_pt_ao_reports`, `l10n_pt_ao_access`, `account_asset_law`, `contract_instance_checker`.
+
+Todos falham com o mesmo `UserError`. **Não são 7 problemas — é 1.**
+O primeiro a tropeçar é o script `l10n_pt_reports_arxi/migrations/1.43/post-create_m35_taxes.py`,
+que cria as taxas M35 por empresa: o script está correto (usa `with_company()` + `_load_data`),
+falha apenas porque as contas não pertencem a empresa nenhuma.
+
+---
+
+## 14. Atualização para o código novo do colega (2026-08-24)
+
+Entrou código novo por git (`5fa8061`, `60cfa41`): nova versão de `deferrals_option`,
+`contract_instance_checker` e vários módulos de certificação.
+
+> **Nota de método:** o `-u all` foi tentado e **rebentou num menuitem do `stock`** (core),
+> sem relação com o que mudou. Passou-se a atualizar **módulo a módulo**, por ordem de
+> dependência, para isolar falhas.
+
+### Atualizados com sucesso (8)
+```
+product_sale_history     l10n_pt_ao_journal_entry
+deferrals_option         l10n_pt_stock
+l10n_pt_website_payment  l10n_pt_sale_stock
+l10n_pt_delivery         l10n_pt_sale + casperventures
+```
+
+### Correções necessárias (3 ficheiros, todos fora de `arxi_certification`)
+
+**14a. `product_sale_history/views/partner_views.xml`** — `<list editable="true">`
+
+Resíduo da conversão `<tree>`->`<list>`: `editable="true"` era válido em `<tree>` na v17,
+mas a v19 só aceita `top`/`bottom`.
+```
+The "editable" attribute of list views must be "top" or "bottom", received true
+```
+Corrigido para `editable="bottom"`.
+
+**14b/14c. Relatórios do `casperventures` (fatura e venda)**
+
+O código novo envolveu o conteúdo das linhas num `<div class="pt_arxi_line_clip">`, pelo
+que o `<span>` deixou de ser filho direto do `<td>`:
+
+```xml
+<!-- antes -->  //td[@name='account_invoice_line_name']/span
+<!-- v19   -->  //td[@name='account_invoice_line_name']//span[@t-esc='line.name']
+
+<!-- antes -->  //td[@name='td_name']/span
+<!-- v19   -->  //td[@name='td_name']//span[@t-esc='line.name']
+```
+
+Passou-se também de `t-field` + `t-options="{'widget':'text'}"` para **`t-esc`**,
+acompanhando o pai. O comentário no template do colega explica porquê: o widget `text`
+chama `nl2br()`, transformando newlines em `<br/>` literais em vez de deixar o browser
+decidir a quebra por largura.
+
+### Ainda por atualizar (7)
+Bloqueados pela secção 13. Assim que as contas tiverem empresa, devem atualizar em cadeia.
+
+### Verificação
+```
+Registry loaded    -> só faltam os 3 themes (secção 5)
+load_menus         -> 37 apps
+account.move       -> 113.824 registos     sale.order       -> 3.687
+account.asset      ->   1.121 registos     res.partner      -> 5.187
+product.template   ->     926 registos     stock.picking    ->   492
+account.account    ->       0 registos     <-- bloqueio da secção 13
+```
+
+---
+
+## 15. `res.groups.category_id` removido — RESOLVIDO
+
+### Sintoma
+```
+Occured on model crm.team
+ValueError: Invalid field res.groups.category_id in condition ('category_id', '=', 127)
+  File ".../internal_portal/base_internal_portal/models/res_groups.py", line 45,
+      in get_portal_groups_to_view
+    groups = self.search([('category_id', '=', categ_id.id)])
+```
+
+O erro aparecia no `crm.team`, mas a origem é o `base_internal_portal`: faz override de
+`fields_get` em `res.users`, por isso rebentava em **qualquer vista que carregasse
+utilizadores** — o modelo no erro é acidental.
+
+### Causa
+Na v19 o `res.groups.category_id` **deixou de existir**. A categoria passou para um modelo
+intermédio novo:
+
+```
+res.groups --privilege_id--> res.groups.privilege --category_id--> ir.module.category
+```
+
+### Três APIs removidas no mesmo ficheiro
+
+Ficheiro: `internal_portal/base_internal_portal/models/res_groups.py`
+
+| Linha | v17 | v19 |
+|---|---|---|
+| 24, 45 | `('category_id', ...)` | `('privilege_id.category_id', ...)` |
+| 39 | `g.trans_implied_ids` | `g.all_implied_ids` |
+| 25 | `super().get_application_groups(domain)` | **o método já nem existe no core v19** |
+
+O terceiro era o mais traiçoeiro: não dava erro no arranque, só quando o método fosse
+efetivamente chamado. Ficou defensivo — se o core não o tiver, faz `search()` direto:
+
+```python
+_super = getattr(super(GroupsView, self), 'get_application_groups', None)
+if _super is None:
+    return self.search(domain)
+return _super(domain)
+```
+
+Corrigido também um efeito secundário no mesmo método: fazia `domain.append(...)`, mutando
+a lista recebida do chamador. Passou a `domain = list(domain) + [...]`.
+
+### Verificação
+```
+-u base_internal_portal  -> Registry loaded
+get_views OK             -> crm.team, res.users, res.groups, crm.lead, sale.order
+```
+
+---
+
+## 16. Vistas SQL desatualizadas — RESOLVIDO
+
+Modelos de relatório (`_auto = False`) mantinham na BD o SQL da v17, sem colunas que a v19
+adicionou:
+
+```
+UndefinedColumn: column event_sale_report.is_published does not exist
+UndefinedColumn: column report_project_task_user.sale_line_id does not exist
+UndefinedColumn: column helpdesk_ticket_report_analysis.remaining_hours_so does not exist
+```
+
+Resolvido com `-u event_sale,project,helpdesk`, que recria as vistas SQL. O `sign.request`
+(`Expected singleton`) também deixou de falhar.
+
+### Falso positivo: `board.board`
+```
+UndefinedTable: relation "board_board" does not exist
+```
+**Não é um bug.** O modelo tem `_auto = False` e **não tem tabela por design**
+(`odoo/addons/board/models/board.py:10`). O erro veio do meu varrimento a fazer `search()`
+num modelo virtual; a ação real usa vista `form` e nunca toca na tabela.
+Confirmado: `board.board.get_views()` -> OK, o painel abre.
+
+---
+
+## 17. `_select()` devolve `SQL`, não string — RESOLVIDO
+
+`casperventures/models/account_invoice_report.py` estendia a query do relatório de faturas
+concatenando uma string:
+
+```python
+# v17
+return super()._select() + ", move.partner_id AS partner_id_value"
+# TypeError: unsupported operand type(s) for +: 'SQL' and 'str'
+```
+
+Na v19 `_select()` está anotado `-> SQL` e devolve um objeto `SQL`
+(`addons/account/report/account_invoice_report.py:80`), que não suporta `+` com `str`.
+
+```python
+# v19
+from odoo.tools import SQL
+def _select(self) -> SQL:
+    return SQL("%s, move.partner_id AS partner_id_value", super()._select())
+```
+
+Rebentava a **Análise de Faturas** (`Faturação/Relatórios/Gestão`).
+
+---
+
+## 18. `tz='Portugal'` inválido em PostgreSQL — RESOLVIDO
+
+```
+InvalidParameterValue: time zone "Portugal" not recognized
+```
+(em `project.timesheet.forecast.report.analysis`)
+
+**A subtileza:** `Portugal` **é** um alias válido em Python/pytz, mas **não existe** em
+`pg_timezone_names`. Por isso o ORM nunca se queixava — só rebentava em queries SQL que
+fazem `AT TIME ZONE`, o que tornava o problema quase invisível.
+
+| Tabela | Registos |
+|---|---|
+| `res_partner` | 158 |
+| `resource_resource` | 76 |
+| `resource_calendar` | 23 |
+
+```sql
+UPDATE res_partner       SET tz='Europe/Lisbon' WHERE tz='Portugal';
+UPDATE resource_calendar SET tz='Europe/Lisbon' WHERE tz='Portugal';
+UPDATE resource_resource SET tz='Europe/Lisbon' WHERE tz='Portugal';
+```
+`Europe/Lisbon` é equivalente e válido em pytz **e** em PostgreSQL. Zero inválidos restantes.
+
+---
+
+## 19. `budget_line` sem colunas `x_plan*_id` — RESOLVIDO
+
+```
+ValueError: Invalid field budget.line.x_plan7_id in condition ('x_plan7_id', 'in', ...)
+```
+(ao abrir `Faturação/Configuração/Contabilidade Analítica/Contas Analíticas`)
+
+### Causa
+**Não é um campo Studio órfão** (foi a primeira hipótese, errada). O Odoo **gera
+automaticamente** uma coluna por cada plano analítico, com o nome `x_plan<id>_id`
+(`analytic/models/analytic_plan.py:118`, `_strict_column_name()`).
+
+Modelos que herdam `analytic.plan.fields.mixin`:
+`account.analytic.line`, `budget.line`, `budget.report`, `project.project`.
+
+Estado antes da correção:
+- `account_analytic_line` -> ~400 colunas `x_plan*_id`
+- `budget_line` -> **0 colunas**, apesar de herdar o mixin
+
+O `_sync_all_plan_column()` não correu para o `budget.line` durante o upgrade.
+
+### Correção
+Usado o método **oficial** do Odoo (não SQL manual, para os `ir.model.fields` ficarem
+coerentes com as colunas):
+
+```python
+env['account.analytic.plan'].sudo().search([])._sync_all_plan_column()
+# 460 planos -> 413 colunas criadas em budget_line
+```
+
+Requer **restart do servidor** a seguir, para o registry carregar os campos novos.
+
+> **Nota de método:** ao investigar procurou-se `analytic.plan.fields.mixin` em
+> `odoo-server/addons/account_budget/` e concluiu-se (erradamente) que `budget.line` não
+> herdava o mixin. O `account_budget` é **enterprise** — o ficheiro certo é
+> `enterprise/addons/account_budget/models/budget_line.py:12`. Confirmar sempre em que
+> repositório vive o módulo antes de concluir.
+
+---
+
+## 20. Ciclo financeiro bloqueado (faturar/pagar/nota de crédito) — consequência da secção 13
+
+Teste de **fluxos de negócio reais** (criar/confirmar/faturar/pagar, em transação revertida):
+
+### Resultado final (após corrigir os dados de teste)
+
+| Fluxo | Resultado |
+|---|---|
+| **Compras**: encomenda **com linhas** -> confirmar | **OK** (61,50 EUR, estado `purchase`) |
+| **Compras**: -> receber mercadoria | **OK** |
+| **RH**: ausência -> aprovar | **OK** (estado `validate`) |
+| **Email**: render do template de orçamento | **OK** (1164 chars) |
+| **Email**: render do template de fatura | **OK** (928 chars) |
+| **Email**: `message_post` ao cliente | **OK** (1 destinatário) |
+| **Inventário**: validar transferência | sem transferências pendentes para testar |
+| Vendas: orçamento -> confirmar | bloqueado: webservice ATCUD (**esperado**, ver abaixo) |
+| Faturação: registar pagamento | **FALHA**: `company inconsistencies` |
+| Faturação: nota de crédito | **FALHA**: `AccessError` |
+
+### Alcance real do bloqueio da secção 13
+
+O problema das contas sem empresa **não afeta apenas emitir faturas**: atinge também
+**registar pagamentos** e **emitir notas de crédito**. O ciclo financeiro completo está
+parado, não só a emissão.
+
+### Fluxo real das Vendas: draft -> **Publicar** -> Confirmar
+
+**Descoberto por inspeção do DOM no browser** (o Playwright não o revela: reporta apenas
+"guardado, OK"). Num orçamento novo a barra de botões é:
+
+```
+Enviar | Imprimir | Pré-visualizar | Publicar        <-- NÃO há "Confirmar"
+```
+
+Causa, em `arxi_certification/l10n_pt_ao_sale/views/sale_order_views.xml`:
+```xml
+<!--Hide draft confirm button-->
+<xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+    <attribute name="invisible">True</attribute>
+<!-- e acrescenta: -->
+<button name="action_quotation_sent" string="Post" invisible="state != 'draft'" class="btn-primary"/>
+```
+O `action_confirm` do core tem `invisible="state != 'sent'"`.
+
+| Estado | Botão principal visível |
+|---|---|
+| `draft` | **Publicar** (`action_quotation_sent`) |
+| `sent` | **Confirmar** (`action_confirm`) |
+| `sale` | (nenhum) |
+
+**É intencional**, não é bug: a certificação obriga a publicar (atribuir numeração/ATCUD)
+antes de confirmar. Validado contra registos reais dos 3 estados.
+
+> **Erro de método corrigido:** o primeiro teste de fluxos fazia `create()` ->
+> `action_confirm()` directamente, saltando o `action_quotation_sent()`. Estava a testar um
+> caminho que **na interface nem é possível**. Testar sempre pela ordem que a UI impõe.
+
+### Falha ESPERADA: webservice da certificação
+
+```
+UserError: Comunicação com Webservice não é suportada no modo de Teste.
+  at_webservice_mixin.at_ws_communication  (via get_atcud_for_sale -> account_series.action_activate)
+```
+
+Dispara no **Publicar** (não no Confirmar). **Não é um bug** — o módulo bloqueia a
+comunicação com a AT a partir de uma BD neutralizada. Comportamento **correto e desejado**;
+não deve ser "corrigido".
+
+Causa concreta: existem **140 séries** (`l10n_pt.account.series`), 138 `active` com código
+de validação da AT. A Casper Ventures tem séries 2026 para *Invoice* e *Recibo*, mas
+**não para Orçamentos** — ao publicar um orçamento de 2026 o módulo tenta criar a série
+via webservice, e a neutralização trava.
+
+### Dois bloqueios INDEPENDENTES (importante)
+
+| # | Bloqueio | Onde bate | Natureza |
+|---|---|---|---|
+| 1 | Webservice ATCUD (série 2026 de orçamentos em falta) | ao **Publicar** um orçamento | esperado, por design |
+| 2 | Contas sem empresa (secção 13) | ao **criar** qualquer fatura | **defeito a corrigir** |
+
+Testado com diário de vendas certificado **e** série 2026 válida: a fatura direta nem
+chega ao webservice — rebenta antes com `AccessError` das contas.
+
+**Conclusão prática: resolver o webservice NÃO desbloqueia a faturação.** O bloqueio de
+raiz é a secção 13.
+
+### Falsos negativos por dados de teste (não eram bugs)
+
+Os primeiros resultados deste teste eram enganadores por escolha errada de registos:
+
+| Erro | Causa real |
+|---|---|
+| `ValidationError: Deve existir um e apenas um imposto de IVA por linha` | o artigo do `search(limit=1)` tinha 0 ou 2 impostos |
+| `UserError: É necessário definir um local de fornecedor` | fornecedor sem localização configurada |
+| `ValidationError: You do not have any allocation for this time off type` | tipo de ausência que exige alocação |
+
+Com um artigo de 1 imposto, um fornecedor de encomendas reais e um tipo de ausência
+`requires_allocation='no'`, **Compras e RH passam**. Ver secção 21 para como escolher
+dados válidos.
+
+### O `AccessError` NÃO é um problema de permissões
+Rastreado: `check_access(read/write/create)` passa em `account.move.line`. A linha herda a
+empresa da conta; a conta não tem empresa (`company_ids: []`); a regra multi-company
+rejeita. **É a secção 13**, não um bug novo.
+
+**Impacto prático:** não é possível faturar nesta BD enquanto as contas não tiverem empresa.
+Esta é a tradução funcional concreta do bloqueio — mais útil do que "account.account
+devolve 0 registos".
+
+---
+
+## 21. Metodologia de teste funcional
+
+### O que NÃO chega
+Abrir vistas (`get_views`) valida que a vista compila, **não** que a aplicação funciona.
+Um varrimento de 545 ações de menu deu 504 OK — e mesmo assim **não se conseguia faturar**
+(secção 20). Vistas OK != aplicação funcional.
+
+### Teste de fluxos de negócio
+O que apanha problemas reais: **criar -> confirmar -> faturar -> pagar**, em savepoint
+revertido no fim (não grava nada):
+
+```python
+cr.execute("SAVEPOINT f")
+try:
+    so = env['sale.order'].create({...}); so.action_confirm()
+    inv = so._create_invoices(); inv.action_post()
+finally:
+    cr.execute("ROLLBACK TO SAVEPOINT f")
+```
+
+**Savepoints são obrigatórios num varrimento:** sem eles, o primeiro erro SQL aborta a
+transação (`InFailedSqlTransaction`) e todos os testes seguintes falham em cascata,
+escondendo os resultados.
+
+### Teste no browser (`quality_test.js`)
+O plano de referência do servidor (`/home/adminarxi/odoo19/PLANO_TESTES.md` +
+`quality_test.js`, Playwright) foi adaptado para correr localmente em
+`/home/adminarxi/odoo19/qtest/`:
+
+- `RESULTS_ROOT` -> `qtest/test-results`, `BASE` -> `http://localhost:8017`
+- sessão obtida por RPC para `/tmp/pw-smoke/session_id.txt` (o script não faz login por formulário)
+- `npm i playwright-core` + `npx playwright install chromium`
+
+```bash
+cd /home/adminarxi/odoo19/qtest
+node quality_test.js <job_id> http://localhost:8017 ["App"]   # App opcional, para debug
+```
+
+Vantagem sobre o varrimento backend: **descobre as secções lendo a própria UI** (não uma
+lista fixa) e **cria registos**, que é onde os bugs de migração aparecem. Produz
+`video.webm` + `log.txt` (PT-PT) + `results.json`, com timestamp de vídeo por erro.
+
+### Ruído a ignorar (do plano original)
+- Imagens em falta (`/web/image/`, `image_128`, previews de PDF) -> é o filestore
+  (secção 3), não regressão de código
+- `Failed to load resource:` genérico sem URL -> redundante com o `failedRequests`
+
+### Escolher dados de teste válidos (senão o teste mente)
+
+```python
+# artigo com EXACTAMENTE 1 imposto de venda da empresa em teste
+[p for p in Produtos.search([('sale_ok','=',True)], limit=400)
+   if len(p.taxes_id.filtered(lambda t: t.company_id == empresa)) == 1]
+
+# fornecedor comprovadamente utilizável (já usado em encomendas confirmadas)
+env['purchase.order'].search([('state','in',('purchase','done'))], limit=1).partner_id
+
+# tipo de ausência que não exige alocação
+env['hr.leave.type'].search([('requires_allocation','=','no')], limit=1)
+```
+
+Três das falhas iniciais da secção 20 eram **dados maus, não bugs**.
+
+### Emails numa BD neutralizada
+
+Não sai email real (é o objetivo da neutralização), mas o que apanha regressões **é**
+testável — renderizar o template QWeb, porque um campo removido rebenta o corpo do email:
+
+```python
+tpl = env.ref('sale.email_template_edi_sale')      # e account.email_template_edi_invoice
+body = tpl._render_field('body_html', doc.ids)[doc.id]
+subj = tpl._render_field('subject', doc.ids)[doc.id]
+```
+
+### Lição: reproduzir antes de corrigir
+Confirmado duas vezes nesta migração (`board.board` na secção 16; a primeira hipótese
+para o `x_plan7_id` na secção 19): **um "erro" isolado pode ser limitação do próprio
+teste, não da aplicação**. Reproduzir à mão antes de mexer em código.
+
+---
+
+## 22. Teste profundo Playwright — 293 ecrãs, 0 regressões
+
+Run completa do `quality_test.js` (ver secção 21 e `PLANO_TESTES.md`) contra
+`localhost:8017`.
+
+```
+Início 16:07 | Fim 16:52 | Duração 45 min
+Itens testados (apps + submenus): 293
+RESULTADO: 11 itens com problemas reais
+Artefactos: qtest/test-results/run_full_1707/{log.txt, results.json, video.webm (218 MB)}
+```
+
+### Os 11 "problemas" — nenhum é regressão de migração
+
+| # | Item | Erro | Verdicto |
+|---|---|---|---|
+| 1 | Faturação > Analytic Budget | `OwlError` no lifecycle | **já corrigido** — ver abaixo |
+| 2 | Faturação > Invoices To Be Issued | `ConnectionLostError` | restart do servidor a meio da run |
+| 3 | Contabilidade > (root) | `net::ERR_ABORTED` | o mesmo restart |
+| 4-8 | Documentos ×2, Projeto ×3 | "elemento escondido" | cascata do mesmo restart (25:40-26:36) |
+| 9-11 | Assiduidades ×2 | timeout de 3s | carga da máquina (browser a competir com a run) |
+
+**Item 1 — o único candidato a bug real:** o `OwlError` ocorreu às **14:10** do vídeo, ou
+seja **antes** de as 413 colunas `x_plan*_id` terem sido criadas em `budget_line`
+(secção 19, ~17:30). Revalidado depois no browser: a lista abre, o botão **Novo** abre o
+formulário sem erros, e as *Linhas do Orçamento* mostram as colunas dos planos analíticos
+(Office, Portfolio, Startups, Real Estate, Crypto, ...) — exactamente as colunas criadas
+pela correção. **Já não reproduz.**
+
+### `create=no "new" button found` — 106 ocorrências, 3 causas legítimas
+
+O relatório não distingue *"o botão não devia existir"* de *"o botão existe mas o script
+não o encontra"*. Investigados por inspeção (ver `PLANO_TESTES.md`):
+
+| Exemplo | Causa | Correto? |
+|---|---|---|
+| Revisão > Itens do Diário | `create="false"` no arch da vista | sim (não se criam movimentos à mão) |
+| Para Faturar > Encomendas/Upselling | `context: {'create': False}` na ação | sim (listas de trabalho sobre registos existentes) |
+| Vendas > Equipas | nenhuma das duas | **limitação do script** — `create()` funciona (testado: id=23) |
+
+### Nota de diagnóstico: separador do browser corrompido
+
+Durante a investigação, o separador do Chrome passou a devolver `body` com 655 bytes e
+`.o_action_manager = null` em **todas** as páginas — parecia falha grave da aplicação.
+Era o **separador**, degradado após horas de uso: num separador novo tudo renderiza.
+Confirmado por RPC em paralelo (HTML 13,6 KB + bundle JS 9,2 MB válidos).
+
+**Ao ver "ecrã em branco" no browser, validar sempre por RPC antes de concluir que é bug
+da aplicação.**
+
+---
+
+
+
+
+
+
 
 
 
@@ -672,6 +1273,15 @@ SELECT translate, count(*) FROM ir_model_fields GROUP BY translate;
 
 -- campos renomeados na v19 ainda em archs  (secção 9)
 SELECT count(*) FROM ir_ui_view WHERE arch_db::text ~ '(^|[^_])inalterable_hash';
+
+-- campos removidos na v19 ainda usados em código custom  (secção 15)
+--   res.groups.category_id -> privilege_id.category_id
+--   res.groups.trans_implied_ids -> all_implied_ids
+grep -rn "category_id\|trans_implied_ids\|get_application_groups" --include=*.py .
+
+-- contas sem empresa: DEVE ser ~= nº de contas, se der 0 é a secção 13
+SELECT (SELECT count(*) FROM account_account) AS contas,
+       (SELECT count(*) FROM account_account_res_company_rel) AS ligacoes;
 
 -- manifests que ficaram em 17.0/18.0  (secção 11c)
 --   usar ast.literal_eval, NÃO regex: há manifests com aspas duplas

@@ -19,13 +19,13 @@
         </xpath>
 
         <!-- Substituir a descrição (sem código quando em modo custom) -->
-        <xpath expr="//td[@name='account_invoice_line_name']/span" position="replace">
-            <span t-if="o.company_id.use_custom_report"
-                  t-field="line.name"
-                  t-options="{'widget': 'text'}"/>
+        <!-- v19: o l10n_pt_certificate envolveu o conteudo num <div class="pt_arxi_line_clip">,
+             por isso o <span> deixou de ser filho directo do <td>. Usa-se // para descer.
+             Mantem-se t-esc (nao t-field/widget=text) como no pai: o widget faz nl2br(). -->
+        <xpath expr="//td[@name='account_invoice_line_name']//span[@t-esc='line.name']" position="replace">
+            <span t-if="o.company_id.use_custom_report" t-esc="line.name"/>
             <span t-if="not o.company_id.use_custom_report"
-                  t-out="'[%s] %s' % (line.product_id.default_code, line.name)"
-                  t-options="{'widget': 'text'}"/>
+                  t-esc="'[%s] %s' % (line.product_id.default_code, line.name)"/>
         </xpath>
 
         <!-- Preço unitário com símbolo € -->
