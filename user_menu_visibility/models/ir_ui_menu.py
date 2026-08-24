@@ -1,5 +1,6 @@
 import logging
 from odoo import models, fields, api, _, tools
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ class IrUiMenu(models.Model):
     _inherit = 'ir.ui.menu'
 
     @api.model
-    @tools.ormcache('frozenset(self.env.user.groups_id.ids)', 'debug')
+    @tools.ormcache('frozenset(self.env.user.group_ids.ids)', 'debug')
     def _visible_menu_ids(self, debug=False):
         res = super(IrUiMenu, self)._visible_menu_ids(debug)
         return res - set(self.env.user.hidden_menu_ids.ids)
@@ -40,6 +41,12 @@ class IrUiMenu(models.Model):
             [('users_ids', '!=', self.env.user.id), ('protected', '=', False)])
         if ir_act_report:
             ir_act_report.sudo().unlink_action()
-        if ir_act_report1:
-            ir_act_report1.sudo().create_action()
+        for report in ir_act_report1:
+            try:
+                report.sudo().create_action()
+            except UserError as e:
+                # alguns relatórios (ex.: Planning) recusam create_action() no
+                # Odoo 19 e obrigam a usar o botão Imprimir da própria vista;
+                # ignorar em vez de rebentar o load_menus para todos os users
+                _logger.warning("create_action() recusado para o relatório '%s': %s", report.display_name, e)
         return super(IrUiMenu, self).load_menus(debug)
