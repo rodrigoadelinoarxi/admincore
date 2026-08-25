@@ -21,8 +21,17 @@ class GroupsView(models.Model):
 
     def get_application_groups(self, domain):
         """ Return the non-share groups that satisfy ``domain``. """
-        domain.append(('category_id', '!=', self.env.ref('base_internal_portal.module_category_internal_portal').id))
-        return super(GroupsView, self).get_application_groups(domain)
+        # v19: res.groups.category_id -> privilege_id.category_id
+        # (a categoria passou a estar em res.groups.privilege)
+        domain = list(domain) + [
+            ('privilege_id.category_id', '!=',
+             self.env.ref('base_internal_portal.module_category_internal_portal').id)
+        ]
+        # v19: o core deixou de definir get_application_groups
+        _super = getattr(super(GroupsView, self), 'get_application_groups', None)
+        if _super is None:
+            return self.search(domain)
+        return _super(domain)
 
     def get_portal_groups_to_view(self):
         """ Return all groups classified by application (module category), as a list::
@@ -36,13 +45,13 @@ class GroupsView(models.Model):
                 """
 
         def linearize(app, gs, category_name):
-            order = {g: len(g.trans_implied_ids & gs) for g in gs}
+            order = {g: len(g.all_implied_ids & gs) for g in gs}  # v19: trans_implied_ids -> all_implied_ids
             return (app, 'boolean', gs, (100, 'Other'))
 
         # classify all groups by application
         by_app, others = defaultdict(self.browse), self.browse()
         categ_id = self.env.ref('base_internal_portal.module_category_internal_portal')
-        groups = self.search([('category_id', '=', categ_id.id)])
+        groups = self.search([('privilege_id.category_id', '=', categ_id.id)])  # v19
         for g in groups:
             by_app[categ_id] += g
         # build the result

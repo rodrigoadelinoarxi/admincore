@@ -1,0 +1,12 @@
+    <template id="report_hash_footer_brainr" inherit_id="l10n_pt_certificate.report_invoice_document">
+        <!-- Remove spans with t-translation='off' containing hash from all locations -->
+        <xpath expr="//span[@t-translation='off'][contains(@t-out, 'inalterable_hash')]" position="replace"
+               optional="1"/>
+
+        <!-- Remove the entire span element that contains both hash and certification text -->
+        <xpath expr="//span[@t-if='o.inalterable_hash'][@class='small']" position="replace" optional="1"/>
+
+        <!-- Remove original ATCUD spans that don't have custom report condition -->
+        <xpath expr="//span[@t-if='o.inalterable_hash and o.is_sale_document()'][@class='small'][contains(., 'ATCUD')][not(ancestor::*[@id='address_block_anchor'])]"
+               position="replace" optional="1"/>
+    </template>

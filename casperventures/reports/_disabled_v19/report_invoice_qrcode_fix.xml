@@ -1,0 +1,72 @@
+<odoo>
+    <template id="report_invoice_qrcode_fix"
+              inherit_id="l10n_pt_certificate.report_invoice_document"
+              priority="250">
+
+        <!-- Inserir o QR Code depois do bloco de moradas -->
+        <xpath expr="//div[@id='address_block_anchor']" position="after">
+            <t t-if="o.qr_code_position == 'top'">
+
+                <!-- Caso exista Shipping address -->
+                <t t-if="o.partner_shipping_id and (o.partner_shipping_id != o.partner_id) and env.user.has_group('account.group_delivery_invoice_address')">
+                    <div class="row" style="margin:30px 0px 50px 0px;">
+                        <div class="col-6">
+                            <t t-set="visible_row_div"
+                               t-value="(o.pt_arxi_inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt) or o.has_mb_reference()"/>
+                            <span t-if="o.pt_arxi_inalterable_hash and o.is_sale_document()" class="small">
+                                ATCUD:
+                                <t t-out="o.atcud or '0'"/>
+                            </span>
+                            <div id="row_div" t-if="visible_row_div" class="d-flex flex-row">
+                                <div id="qrcode_pt" name="qrcode_pt_top_with_shipping"
+                                     t-if="o.pt_arxi_inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt"
+                                     style="height: 150px; width: 150px"
+                                     class="border border-dark rounded">
+                                    <img t-att-src="image_data_uri(o.build_qr_code())"
+                                         style="height: 100%; width: 100%;"/>
+                                </div>
+                            </div>
+                            <span t-if="o.pt_arxi_inalterable_hash and not o.company_id.use_custom_report" class="small">
+                                <span t-translation="off" class="small text-nowrap"
+                                      t-out="''.join([o.pt_arxi_inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by
+                                certified
+                                software no. 2790/AT
+                            </span>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- Caso NÃO exista Shipping address -->
+                <t t-else="">
+                    <div class="row" style="margin:30px 0px 50px 0px;">
+                        <div class="col-6">
+                            <t t-set="visible_row_div"
+                               t-value="(o.pt_arxi_inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt) or o.has_mb_reference()"/>
+                            <span t-if="o.pt_arxi_inalterable_hash and o.is_sale_document()" class="small">
+                                ATCUD:
+                                <t t-out="o.atcud or '0'"/>
+                            </span>
+                            <div id="row_div" t-if="visible_row_div" class="d-flex flex-row">
+                                <div id="qrcode_pt" name="qrcode_pt_top_without_shipping"
+                                     t-if="o.pt_arxi_inalterable_hash and o.is_sale_document() and o.company_id.qr_code_pt"
+                                     style="height: 150px; width: 150px"
+                                     class="border border-dark rounded">
+                                    <img t-att-src="image_data_uri(o.build_qr_code())"
+                                         style="height: 100%; width: 100%;"/>
+                                </div>
+                            </div>
+                            <span t-if="o.pt_arxi_inalterable_hash and not o.company_id.use_custom_report" class="small">
+                                <span t-translation="off" class="small text-nowrap"
+                                      t-out="''.join([o.pt_arxi_inalterable_hash[i] for i in range(0,40,10)])"/>- Processed by
+                                certified
+                                software no. 2790/AT
+                            </span>
+                        </div>
+                    </div>
+                </t>
+
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

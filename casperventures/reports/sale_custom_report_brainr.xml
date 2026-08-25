@@ -19,13 +19,11 @@
         </xpath>
 
         <!-- Substituir a descrição -->
-        <xpath expr="//td[@name='td_name']/span" position="replace">
-            <span t-if="doc.company_id.use_custom_report"
-                  t-field="line.name"
-                  t-options="{'widget': 'text'}"/>
-            <span t-if="not doc.company_id.use_custom_report"
-                  t-out="line._get_report_name()"
-                  t-options="{'widget': 'text'}"/>
+        <!-- v19: o l10n_pt_sale envolveu o conteudo num <div class="pt_arxi_line_clip">,
+             logo o <span> deixou de ser filho directo do <td>. Mantem-se t-esc como no pai. -->
+        <xpath expr="//td[@name='td_name']//span[@t-esc='line.name']" position="replace">
+            <span t-if="doc.company_id.use_custom_report" t-esc="line.name"/>
+            <span t-if="not doc.company_id.use_custom_report" t-esc="line._get_report_name()"/>
         </xpath>
 
         <!-- Preço unitário com símbolo € -->
@@ -95,7 +93,7 @@
 
     <!-- Remove "Document Not Certified" text -->
     <template id="sale_remove_not_certified" inherit_id="l10n_pt_sale.report_saleorder_document" priority="310">
-        <xpath expr="//span[@t-if='not doc.inalterable_hash'][@class='font-weight-bold']" position="replace">
+        <xpath expr="//span[@t-if='not doc.pt_arxi_inalterable_hash'][@class='font-weight-bold']" position="replace">
             <!-- Document Not Certified text removed -->
         </xpath>
     </template>
@@ -111,7 +109,7 @@
     <template id="sale_footer_standard" inherit_id="l10n_pt_ao.external_layout_standard" priority="320">
         <xpath expr="//span[@name='document_name']" position="replace">
             <span class="text-start" name="document_name"
-                  t-if="o and all(f in o._fields for f in ('company_id', 'inalterable_hash')) and o.company_id.country_id.code in ['PT', 'AO']">
+                  t-if="o and all(f in o._fields for f in ('company_id', 'pt_arxi_inalterable_hash')) and o.company_id.country_id.code in ['PT', 'AO']">
                 <t t-if="o._name == 'sale.order' and o.company_id.use_custom_report">
                     <t t-if="o.is_subscription">Order Form </t>
                     <t t-if="not o.is_subscription">Order Form </t>
@@ -158,46 +156,49 @@
 
     <!-- Change document title based on type and custom report setting -->
     <template id="sale_order_form_title" inherit_id="l10n_pt_sale.report_saleorder_document" priority="370">
-        <xpath expr="//h2[span[@t-field='doc.name']]" position="replace">
-            <h2 t-attf-class="mt-4 {{doc.company_id.use_custom_report and 'mb-4' or ''}}">
-                <span t-if="doc.is_subscription and doc.company_id.use_custom_report">Order Form</span>
-                <span t-if="not doc.is_subscription and doc.company_id.use_custom_report">Order Form</span>
-                <span t-if="not doc.company_id.use_custom_report" t-field="doc.type_name">
-                    Quotation
-                </span>
-                <span> </span>
-                <span t-field="doc.name"/>
-            </h2>
+        <!-- v19: deixou de haver <h2>; o titulo e o t-set="layout_document_title" -->
+        <xpath expr="//t[@t-set='layout_document_title']" position="replace">
+            <t t-set="layout_document_title">
+                <t t-if="doc.company_id.use_custom_report">
+                    <span>Order Form </span>
+                </t>
+                <t t-else="">
+                    <span t-if="is_proforma">Pro-Forma Invoice # </span>
+                    <span t-elif="doc.state in ['draft','sent']">Quotation # </span>
+                    <span t-else="">Order # </span>
+                </t>
+                <span t-field="doc.name">SO0000</span>
+            </t>
         </xpath>
     </template>
 
     <!-- Template removed - hash text conditional logic now handled in sale_qrcode_position_fix -->
 
     <!-- Reposition QR Code to match invoice layout (right aligned) - only when using custom report -->
-    <template id="sale_qrcode_position_fix" inherit_id="l10n_pt_sale.report_saleorder_document" priority="350">
+    <template id="sale_qrcode_position_fix" inherit_id="l10n_pt_sale.qr_code_container_sale_order" priority="350">
 
         <!-- Hide original Bottom QR Code when using custom report -->
-        <xpath expr="//div[@name='atcud_qr_code']" position="attributes">
+        <xpath expr="//div[@name='qr_code_container']" position="attributes">
             <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
         </xpath>
 
         <!-- Add custom Bottom QR Code position - align right (only when using custom report) -->
-        <xpath expr="//div[@name='atcud_qr_code']" position="after">
+        <xpath expr="//div[@name='qr_code_container']" position="after">
             <div name="atcud_qr_code_custom" t-if="doc.company_id.use_custom_report" class="row mt-4" style="page-break-inside: avoid;">
                 <div class="col-6">
                     <!-- Left side empty -->
                 </div>
                 <div class="col-6 text-end">
-                    <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                    <p t-if="doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt"
                        class="mb-0 mt-0 small d-block text-end mb-2">
                         ATCUD:
-                        <t t-out="doc.atcud or '0'"/>
+                        <t t-out="doc.pt_arxi_atcud or '0'"/>
                     </p>
                     <t t-set="visible_row_div"
-                       t-value="(doc.inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
+                       t-value="(doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
                     <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
                         <div id="qrcode_pt" name="qrcode_pt_sale_bottom"
-                             t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                             t-if="doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt"
                              style="height: 150px; width: 150px"
                              class="border border-dark rounded">
                             <img t-att-src="image_data_uri(doc.build_qr_code())" style="height: 100%; width: 100%;"/>
@@ -215,16 +216,16 @@
         <!-- Add custom Top QR Code (with shipping) - align right (only when using custom report) -->
         <xpath expr="//p[@name='vat_for_address']/following-sibling::t[1]//div[@class='col-6']" position="after">
             <div class="col-6 text-end" t-if="doc.company_id.use_custom_report">
-                <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                <p t-if="doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt"
                    class="mb-0 mt-0 small d-block text-end mb-2">
                     ATCUD:
-                    <t t-out="doc.atcud or '0'"/>
+                    <t t-out="doc.pt_arxi_atcud or '0'"/>
                 </p>
                 <t t-set="visible_row_div"
-                   t-value="(doc.inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
+                   t-value="(doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
                 <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
                     <div id="qrcode_pt" name="qrcode_pt_sale_top"
-                         t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                         t-if="doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt"
                          style="height: 150px; width: 150px"
                          class="border border-dark rounded">
                         <img t-att-src="image_data_uri(doc.build_qr_code())" style="height: 100%; width: 100%;"/>
@@ -242,16 +243,16 @@
         <xpath expr="//div[@class='col-6 qr_code_on_top']" position="after">
             <div class="col-6 qr_code_on_top text-end" t-if="doc.company_id.use_custom_report">
                 <div style="margin-top: -50px;">
-                    <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                    <p t-if="doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt"
                        class="mb-0 mt-0 small d-block text-end mb-2">
                         ATCUD:
-                        <t t-out="doc.atcud or '0'"/>
+                        <t t-out="doc.pt_arxi_atcud or '0'"/>
                     </p>
                     <t t-set="visible_row_div"
-                       t-value="(doc.inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
+                       t-value="(doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt) or doc.has_mb_reference()"/>
                     <div id="row_div" t-if="visible_row_div" class="d-flex flex-row justify-content-end">
                         <div id="qrcode_pt" name="qrcode_pt_sale_top_without_shipping"
-                             t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
+                             t-if="doc.pt_arxi_inalterable_hash and doc.company_id.qr_code_pt"
                              style="height: 150px; width: 150px"
                              class="border border-dark rounded">
                             <img t-att-src="image_data_uri(doc.build_qr_code())" style="height: 100%; width: 100%;"/>

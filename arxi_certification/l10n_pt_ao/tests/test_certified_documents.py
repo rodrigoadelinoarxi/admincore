@@ -314,6 +314,44 @@ class TestCertifiedDocuments(AccountTestCertifiedCommon):
         payment.unlink()
         self.assertFalse(payment.exists())
 
+    def test_certified_invoice_payment_blocked_on_uncertified_journal(self):
+        """A payment reconciling a certified invoice must itself be posted
+        on a certified journal, even when created manually (bypassing the
+        register-payment wizard, which only filters journal choices in the
+        UI — see ``_get_batch_available_journals``/
+        ``_compute_available_journal_ids`` in ``wizard/account_register_payment.py``).
+
+        Regression test: this used to be enforced nowhere at the model
+        level, so a manually-created ``account.payment`` (or one built via
+        API with ``invoice_ids`` set programmatically) could post fine on a
+        non-certified journal for a certified invoice.
+        """
+        invoice = self._create_invoice(self.sale_journal)
+        invoice.action_post()
+        uncertified_payment_journal = self.env["account.journal"].create(
+            {
+                "name": "Uncertified Bank",
+                "type": "bank",
+                "code": "UBNK",
+                "company_id": self.company.id,
+                "l10n_cert": False,
+            }
+        )
+        payment = self.env["account.payment"].create(
+            {
+                "payment_type": "inbound",
+                "partner_type": "customer",
+                "partner_id": invoice.partner_id.id,
+                "amount": invoice.amount_total,
+                "journal_id": uncertified_payment_journal.id,
+                "invoice_ids": [Command.set(invoice.ids)],
+                "date": fields.Date.today(),
+            }
+        )
+
+        with self.assertRaises(ValidationError):
+            payment.action_post()
+
     def test_non_self_billing_purchase_on_cert_journal_not_processed_as_certified(
         self,
     ):

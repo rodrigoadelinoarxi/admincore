@@ -1,7 +1,7 @@
 {
     "name": "Portugal - Accounting Reports",
     "icon": "/l10n_pt_certificate/static/description/icon.png",
-    "version": "1.42",
+    "version": "1.43",
     "summary": "Accounting reports for Portugal",
     "author": "ARXILEAD",
     "website": "https://www.arxi.pt",

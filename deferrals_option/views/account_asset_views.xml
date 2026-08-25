@@ -43,7 +43,7 @@
                 <attribute name="domain">[('account_type', 'in', ['asset_fixed', 'asset_non_current', 'asset_current',
                     'liability_current'])]
                 </attribute>
-                <attribute name="contex">{
+                <attribute name="context">{
                     'default_account_type': 'asset_non_current',
                     'hide_model_on_account': state == 'model' and not id,
                     'account_type_domain': [('account_type', 'in', (
@@ -99,7 +99,7 @@
                             <field name="currency_id" column_invisible="True" readonly="state in ['cancel', 'posted']"/>
                             <field name="date" string="Depreciation Date" readonly="state in ['cancel', 'posted']"/>
                             <field name="ref" invisible="0"/>
-                            
+                            <field name="reversal_move_ids" widget="deprec_lines_reversed" nolabel="1"/>
                             <field name="depreciation_value" widget="monetary" string="Depreciation"
                                    options="{'currency_field': 'currency_id'}" readonly="state == 'posted'"/>
                             <field name="asset_depreciated_value" readonly="1" force_save="1"
@@ -283,6 +283,9 @@
         <field name="domain">[('state', '=', 'model'), ('deferral_type','=', False)]</field>
     </record>
 
+    <!-- account.account_management_menu was removed in Odoo 19; account_account_menu
+         (Configuration > Accounting) is where account_asset's own model-list menu
+         (menu_action_account_asset_model_form) now lives, so mirror it there. -->
     <menuitem parent="account.account_account_menu" id="menu_action_account_asset_deferral_form"
               action="action_account_asset_deferral_form" sequence="1" groups="account.group_account_readonly"/>
     <menuitem parent="account.account_account_menu" id="menu_action_account_asset_revenue_form"
@@ -315,7 +318,7 @@
                 <attribute name="domain">[('account_type', 'in', ['asset_fixed', 'asset_non_current', 'asset_current',
                     'liability_current'])]
                 </attribute>
-                <attribute name="contex">{
+                <attribute name="context">{
                     'default_account_type': 'asset_non_current',
                     'hide_model_on_account': state == 'model' and not id,
                     'account_type_domain': [('account_type', 'in', (

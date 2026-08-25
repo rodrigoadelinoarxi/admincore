@@ -6,32 +6,26 @@
     <template id="shared_document_tax_totals_template_inherit"
               inherit_id="account.document_tax_totals_template"
               priority="500">
-        <xpath expr='//td/strong[contains(@t-out, "subtotal")]' position="replace">
+        <xpath expr="//span[@t-out=&quot;subtotal['name']&quot;]" position="replace">
             <strong t-if="(o and o._name == 'account.move' and o.company_id.use_custom_report) or (doc and doc._name == 'sale.order' and doc.company_id.use_custom_report)">
                 Untaxed Amount
             </strong>
-            <strong t-else="" t-out="subtotal['name']"/>
-        </xpath>
-    </template>
-
-    <!-- Customização impostos totais - handles both account.move and sale.order -->
-    <template id="shared_tax_groups_totals_inherit"
-              inherit_id="account.tax_groups_totals"
-              priority="500">
-        <xpath expr="//span[@t-out=&quot;amount_by_group['tax_group_name']&quot;]" position="replace">
-            <span t-if="((o and o._name == 'account.move' and o.company_id.use_custom_report) or (doc and doc._name == 'sale.order' and doc.company_id.use_custom_report)) and 'IVA' in amount_by_group.get('tax_group_name', '') and 'Retenção' not in amount_by_group.get('tax_group_name', '')">
-                Tax
-            </span>
-            <span t-else=""
-                  t-out="amount_by_group['tax_group_name']"/>
+            <span t-else="" t-out="subtotal['name']"/>
         </xpath>
 
-        <xpath expr="//span[@t-esc=&quot;amount_by_group['tax_group_name']&quot;]" position="replace">
-            <span t-if="((o and o._name == 'account.move' and o.company_id.use_custom_report) or (doc and doc._name == 'sale.order' and doc.company_id.use_custom_report)) and 'IVA' in amount_by_group.get('tax_group_name', '') and 'Retenção' not in amount_by_group.get('tax_group_name', '')">
+        <!-- Customização impostos totais: 'IVA ...' passa a 'Tax' -->
+        <xpath expr="(//span[@t-out=&quot;tax_group['group_name']&quot;])[1]" position="replace">
+            <span t-if="((o and o._name == 'account.move' and o.company_id.use_custom_report) or (doc and doc._name == 'sale.order' and doc.company_id.use_custom_report)) and 'IVA' in tax_group.get('group_name', '') and 'Retenção' not in tax_group.get('group_name', '')">
                 Tax
             </span>
-            <span t-else=""
-                  t-esc="amount_by_group['tax_group_name']"/>
+            <span t-else="" t-out="tax_group['group_name']"/>
+        </xpath>
+
+        <xpath expr="(//span[@t-out=&quot;tax_group['group_name']&quot;])[last()]" position="replace">
+            <span t-if="((o and o._name == 'account.move' and o.company_id.use_custom_report) or (doc and doc._name == 'sale.order' and doc.company_id.use_custom_report)) and 'IVA' in tax_group.get('group_name', '') and 'Retenção' not in tax_group.get('group_name', '')">
+                Tax
+            </span>
+            <span t-else="" t-out="tax_group['group_name']"/>
         </xpath>
     </template>
 </odoo>
