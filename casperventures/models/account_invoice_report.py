@@ -1,4 +1,5 @@
 from odoo import models, fields
+from odoo.tools import SQL
 
 
 class AccountInvoiceReport(models.Model):
@@ -11,5 +12,8 @@ class AccountInvoiceReport(models.Model):
     )
 
     def _select(self):
-        """Add move.partner_id to the SELECT clause"""
-        return super()._select() + ", move.partner_id AS partner_id_value"
+        # Odoo 19: _select() devolve um objeto SQL (nao uma string), para
+        # compor queries em segurança — nao se pode concatenar com "+"
+        # (TypeError: unsupported operand type(s) for +: 'SQL' and 'str').
+        # Compor sempre via SQL(), como o proprio core faz.
+        return SQL('%s, move.partner_id AS partner_id_value', super()._select())
