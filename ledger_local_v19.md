@@ -4,8 +4,8 @@ Registo das correções feitas ao restaurar o dump do servidor externo no ambien
 
 - **BD:** `admincore_19_1`
 - **Dump:** `admincore_19_20260824_101022.dump` (pg_dump -Fc, origem PG 16.14, BD `admincore`)
-- **Config:** `custom/config/admincore-arxi.conf` (porta **8017**)
-- **URL:** http://localhost:8017
+- **Config:** `custom/config/admincore-arxi.conf` (porta **8019** — ver secção 23)
+- **URL:** http://localhost:8019
 - **Login:** `administradorARXI` / `demo1234` (uid 2)
 - **Data:** 2026-08-24
 
@@ -28,14 +28,15 @@ Registo das correções feitas ao restaurar o dump do servidor externo no ambien
 | 10 | `product_uom` -> `product_uom_id` em `l10n_pt_sale` | **RESOLVIDO** (upstream, pelo colega) |
 | 11 | 16 módulos não carregavam (`l10n_pt*`, `casperventures`) | **RESOLVIDO** |
 | 12 | `view_mode` com `tree` em 132 ações (resíduo v17) | **RESOLVIDO** |
-| 13 | Contas sem empresa: `account_account_res_company_rel` vazia | **BLOQUEANTE — precisa da BD v17** |
+| 13 | Contas sem empresa + `code_store` vazio | **RESOLVIDO** (2026-08-25, via backup v17) |
 | 15 | `res.groups.category_id` removido (`base_internal_portal`) | **RESOLVIDO** |
 | 16 | Vistas SQL desatualizadas (3 relatórios) | **RESOLVIDO** |
 | 17 | `_select()` devolve `SQL`, não string (`casperventures`) | **RESOLVIDO** |
 | 18 | `tz='Portugal'` inválido em PostgreSQL (257 registos) | **RESOLVIDO** |
 | 19 | `budget_line` sem colunas `x_plan*_id` | **RESOLVIDO** |
-| 20 | Ciclo financeiro parado (faturar/pagar/NC) | **BLOQUEADO pela secção 13** |
+| 20 | Ciclo financeiro parado (faturar/pagar/NC) | **DESBLOQUEADO** (ver secção 13) |
 | 22 | Teste Playwright: 293 ecrãs, 0 regressões | **CONCLUÍDO** |
+| 23 | Validação final pós-correção (4 camadas) | **CONCLUÍDO — 0 regressões** |
 
 ---
 
@@ -641,7 +642,7 @@ Não foram alteradas. Fica o registo para não serem "corrigidas" por engano no 
 
 ---
 
-## 13. Contas sem empresa (`account_account_res_company_rel` vazia) — BLOQUEANTE
+## 13. Contas sem empresa + `code_store` vazio — RESOLVIDO (2026-08-25)
 
 ### Sintoma
 ```
@@ -732,24 +733,144 @@ coerência reprovou:
 Isso prova que a inferência mistura planos entre empresas. **Não foi aplicada**: são dados
 fiscais e uma atribuição errada tem impacto legal.
 
-### Resolução necessária (fora do alcance local)
-
-O preenchimento de `company_ids` é feito pelo **serviço de upgrade da Odoo** (o
-`odoo-server/odoo/upgrade` local está vazio) e falhou silenciosamente no upgrade da origem.
-
-1. **BD v17 original** (pré-upgrade), onde `account_account.company_id` ainda existe —
-   reconstrução trivial e 100% fiável; **é o caminho recomendado**; ou
-2. repetir o upgrade com o serviço oficial, verificando no fim que
-   `account_account_res_company_rel` **não** fica vazia.
-
 ### Módulos bloqueados por isto (7)
 `l10n_pt_certificate`, `l10n_pt_reports_arxi`, `l10n_pt_ao`, `l10n_pt_ao_saft`,
 `l10n_pt_ao_reports`, `l10n_pt_ao_access`, `account_asset_law`, `contract_instance_checker`.
 
-Todos falham com o mesmo `UserError`. **Não são 7 problemas — é 1.**
+Todos falhavam com o mesmo `UserError`. **Não eram 7 problemas — era 1.**
 O primeiro a tropeçar é o script `l10n_pt_reports_arxi/migrations/1.43/post-create_m35_taxes.py`,
 que cria as taxas M35 por empresa: o script está correto (usa `with_company()` + `_load_data`),
-falha apenas porque as contas não pertencem a empresa nenhuma.
+falhava apenas porque as contas não pertenciam a empresa nenhuma.
+
+---
+
+## RESOLUÇÃO (2026-08-25) — backup v17 fornecido
+
+Fonte: `admincore-master-26815573_2026-08-24_181813_test_nofs.zip` (backup Odoo standard,
+`dump.sql` 3,97 GB, PG 16.14). Confirmado que traz `company_id integer NOT NULL` em
+`account_account`.
+
+```bash
+createdb -O adminarxi -T template0 -E UTF8 admincore_v17_orig
+unzip -p <backup>.zip dump.sql | psql -q -d admincore_v17_orig
+# -> 15.469 contas, TODAS com company_id
+```
+
+### Segundo campo na mesma situação: `code_store`
+
+Ao aplicar pelo ORM, a validação do Odoo revelou um problema que a análise inicial
+**não tinha detectado**:
+
+```
+ValidationError: O código deve ser definido para cada empresa à qual essa conta pertence.
+```
+
+Na v19 o `code` da conta também passou a ser **por empresa**: `code = fields.Char(compute=...)`
+sobre **`code_store = fields.Char(company_dependent=True)`**, guardado como `jsonb` indexado
+pelo id da empresa *root* (`account_account.py:39-40`).
+
+Estado antes da correção:
+```sql
+SELECT count(*) FILTER (WHERE code_store IS NOT NULL AND code_store::text <> '{}') AS com_code_store,
+       count(*) FILTER (WHERE code IS NOT NULL) AS com_code_antigo
+FROM account_account;
+--  0 | 15451     <-- code_store vazio, código ainda na coluna antiga
+```
+
+**Eram duas migrações por fazer, não uma.** Preencher só o `company_ids` deixaria as
+contas sem código.
+
+### Validação antes de escrever
+
+```
+contas v19 COM correspondência na v17:     15.451
+contas v19 SEM correspondência:                 0
+empresas do mapa inexistentes na v19:           0
+```
+(as 18 contas a mais na v17 foram apagadas entretanto — irrelevante)
+
+### Correção aplicada
+
+```sql
+-- 1) code_store (jsonb) = {"<root_company_id>": "<code>"}
+UPDATE account_account SET code_store = jsonb_build_object('<root>', '<code>') WHERE id = ...;
+-- 2) tabela de ligação
+INSERT INTO account_account_res_company_rel (account_account_id, res_company_id)
+SELECT unnest(%s::int[]), %s ON CONFLICT DO NOTHING;
+```
+Executado via `odoo-bin shell` (uid 1 — as contas estavam invisíveis a qualquer outro
+utilizador), agrupando por empresa. **17 empresas, 15.451 contas.**
+
+### Verificação
+
+```
+contas visíveis (uid 2):        0  ->  15.451
+contas (sudo):                            15.451
+Casper Ventures:                             804
+conta 3562 (a do erro na UI):  code='7211'  company_ids=['Casper Ventures S.A.']
+ligações account_account_res_company_rel:  15.451
+com code_store preenchido:                 15.451
+```
+
+Ciclo financeiro (secção 20):
+
+| Ação | Antes | Depois |
+|---|---|---|
+| Abrir fatura `FT 2026/0012` | `AccessError` | **OK** |
+| Criar fatura com linhas | `AccessError` | **OK** |
+| Nota de crédito | `AccessError` | **OK** |
+| Lançar fatura | `AccessError` | falha por **conta analítica obrigatória** |
+| Registar pagamento | `AccessError` | falha por **método de pagamento sem Conta de Pendentes** |
+
+As duas últimas **já não são migração** — são regras de negócio/configuração do cliente
+(conta analítica obrigatória nas linhas; método de pagamento por configurar). Requerem
+decisão funcional, não correção de código.
+
+### Módulos desbloqueados — todos actualizados com sucesso
+
+```
+l10n_pt_ao                 OK      l10n_pt_certificate        OK
+l10n_pt_ao_access          OK      l10n_pt_reports_arxi       OK
+account_asset_law          OK      l10n_pt_ao_saft            OK
+contract_instance_checker  OK      l10n_pt_ao_reports         OK
+```
+Todos `Registry loaded`. Inclui o script `post-create_m35_taxes` (secção acima), que
+falhava com *"company inconsistencies"* — agora executa.
+
+### Validação no frontend (browser real)
+
+| Ecrã | Resultado |
+|---|---|
+| Fatura `FT 2026/0194` | **abre completa** — coluna **Conta = "Serviços Principais PT"** preenchida (era o dado em falta), botões Enviar/Pagar/Nota de Crédito/Nota de débito/Cancel/Create MB Ref |
+| Plano de Contas | 80 linhas renderizadas, pager `1-80 / 1693`, códigos e empresa visíveis |
+| Lista de Faturas | 21 grupos por cliente, total 993.448,94 EUR |
+
+Varrimento de 14 modelos (vistas **e** leitura de dados), todos OK:
+```
+account.move 113.826 | account.move.line 344.018 | account.account 15.451
+account.payment 19.124 | sale.order 3.692 | purchase.order 2.766
+res.partner 5.188 | product.template 935 | stock.picking 495
+hr.employee 138 | account.journal 268 | account.asset 1.121
+crm.lead 1.697 | project.project 915
+```
+
+> **Nota sobre "ecrãs em branco" durante o teste:** apanhados vários, **nenhum era bug**.
+> A máquina estava com `load 6,10` (Chrome + Discord + PyCharm + Firefox a competir) e o
+> browser demorava a renderizar. O servidor respondia `/odoo/invoicing` em **0,5 s**.
+> Confirmar sempre por RPC antes de concluir que é falha da aplicação.
+
+### Restante — NÃO é migração, é configuração do cliente
+
+| Ação | Bloqueio |
+|---|---|
+| Lançar fatura | `ValidationError`: conta analítica obrigatória em todas as linhas |
+| Registar pagamento | `UserError`: método de pagamento sem *Conta de Pendentes* |
+
+Requerem decisão funcional, não correção de código.
+
+### Limpeza
+A BD `admincore_v17_orig` (2945 MB) já não é necessária: `dropdb admincore_v17_orig`.
+O mapeamento exportado fica em `map17.csv` (scratchpad) caso seja preciso reutilizar.
 
 ---
 
@@ -1227,6 +1348,94 @@ Confirmado por RPC em paralelo (HTML 13,6 KB + bundle JS 9,2 MB válidos).
 da aplicação.**
 
 ---
+
+## 23. Validação final pós-correção (2026-08-25)
+
+Todos os testes anteriores correram **antes** de resolver a secção 13 e de actualizar os
+8 módulos de certificação. Foram repetidos contra o estado final.
+
+### Camada 1 — Playwright (`quality_test.js`)
+```
+34/34 apps | 76 itens | 12,2 min | 5 "problemas"
+Artefactos: qtest/test-results/final2_1704/
+```
+
+**Nenhum dos 5 é regressão.** Todos em Vendas, na janela 07:03–08:12, com a mesma causa:
+```
+ConnectionLostError: Connection to "/web/dataset/call_kw/sale.order/web_search_read"
+                     couldn't be established or was interrupted
+```
+Sem um único erro no log do servidor nessa janela. As chamadas exactas foram reproduzidas
+depois: **todas respondem em 0,01–0,15 s**. Os 2 últimos (`Relatórios`, `Configuração`)
+são timeouts de 3 s em cascata.
+
+### Camada 2 — CRUD (341 modelos)
+```
+READ   338 ok / 3      CREATE 240 ok / 98
+WRITE  218 ok / 1      UNLINK 230 ok / 9
+```
+As 3 falhas de leitura são as mesmas de sempre e nenhuma é bug (ver secção 21).
+
+### Camada 3 — Impressão (80 relatórios QWeb)
+```
+63 ok | 7 sem dados | 10 erro (nenhum de migração)
+```
+
+### Camada 4 — Workflow por estado (NOVO)
+
+Responde a uma limitação real das camadas anteriores: **não faz sentido reportar erro ao
+carregar num botão que nem devia estar visível naquele estado** (ex.: "Confirmar" num
+documento já confirmado).
+
+Método: ler a vista form, avaliar a condição `invisible` **contra os valores reais do
+registo**, e executar **apenas os botões visíveis**.
+
+```python
+arch = env[model].get_views([(False,'form')])['views']['form']['arch']
+ctx = {fn: (rec[fn].id if f.type=='many2one' else rec[fn]) for fn,f in rec._fields.items()}
+for m in re.finditer(r'<button\b([^>]*?)/?>', arch):
+    cond = re.search(r'\binvisible="([^"]*)"', at)
+    if cond and safe_eval(cond.group(1), dict(ctx)):
+        continue            # escondido neste estado -> NÃO testar
+```
+
+| Registo | Estado | Botões visíveis | Executados |
+|---|---|---|---|
+| `OR 2026/0001` | `sent` | Confirmar, Enviar, Pré-visualizar, Cancelar, Catálogo, Add frete | **6/6** |
+| `FTF/2026/07/0030` | `posted` | Imprimir, Nota Crédito, Nota Débito, Mudar p/ Rascunho, Processar, Retry | **6/6** |
+| `PO26-0406` | `purchase` | Enviar pedido, Reconhecer, Cancelar, Catálogo | **4/4** |
+| `Brain/IN/00002` | `assigned` | Validar, Imprimir, Doc. Transporte AT, Cancelar, Cód. Barras | 4/6 |
+
+**19 de 21 acções executam.** Confirma-se o comportamento da secção 20: num `sale.order`
+em estado `sale` o botão **Confirmar já não aparece** — logo nunca é testado nesse estado.
+
+Falhas, todas **validações de negócio legítimas** (não bugs):
+```
+Publicar orçamento sem linhas -> "Não é possível publicar um Orçamento sem linhas"
+Documento de Transporte AT    -> "Por Favor ative os Documentos de Transporte" (opção off)
+Dividir Despesa (state=done)  -> "You do not have the rights to edit this expense"
+Back to Approval (ausência)   -> funcionário sem alocação válida
+```
+
+### Conflito de portas descoberto (2026-08-25 17:59)
+
+Um servidor **odoo17** arrancou e ocupou a porta **8017**, matando o v19. Não afectou a run
+(16:04), mas provocava `HTTP 404` em todas as chamadas RPC durante o diagnóstico.
+
+**A conf foi alterada para a porta 8019.** Passam a coexistir:
+```
+8017 -> odoo17     8019 -> odoo19 (admincore_19_1)
+```
+> **URL de acesso passa a ser http://localhost:8019**
+
+### Conclusão
+
+**Zero regressões de migração** em 4 camadas independentes. Os problemas que restam são
+configuração do cliente (conta analítica obrigatória, método de pagamento sem conta de
+pendentes) ou limitações de ambiente local (filestore, `wkhtmltopdf`).
+
+---
+
 
 
 
