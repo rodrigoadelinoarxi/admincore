@@ -1,11 +1,44 @@
 ## Relatório automático da migração Odoo 17 → 19
 
-Gerado automaticamente pelo motor de migração em 2026-08-26 09:56:33 UTC.
+Gerado automaticamente pelo motor de migração em 2026-08-26 12:18:34 UTC.
 
 - **Cliente:** admincore
 - **Branch:** `migration-v17-to-v19-20260826091834`
 - **URL de teste:** http://localhost:8019/web?db=admincore
-- **35 correções automáticas** aplicadas ao código durante esta migração (lista completa abaixo).
+- **36 correções automáticas** aplicadas ao código dos módulos durante esta migração (lista completa abaixo).
+
+### Bugs conhecidos do core do Odoo 19, corrigidos preventivamente
+
+Aplicados sempre, em qualquer migração para esta versão — não são específicos deste cliente nem causados por este backup, são bugs reais do próprio Odoo 19 (não dos módulos do cliente), identificados em runs anteriores e corrigidos no motor antes do upgrade correr:
+
+- `patch_odoo_core_analytic_project_plan_missing_bug`
+- `patch_odoo_core_import_error_account_templates_bug`
+- `patch_odoo_core_menuitem_missing_action_bug`
+- `patch_odoo_core_missing_chart_template_mapping_bug`
+- `patch_odoo_core_never_delete_account_account`
+- `patch_odoo_core_stale_xmlid_fk_violation_bug`
+- `patch_odoo_core_timesheet_plan_field_mismatch_bug`
+- `patch_odoo_core_view_inheritance_missing_element_bug`
+
+### Erros de dados detetados durante o upgrade real da base de dados (`-u all`, mecanismo oficial de upgrade de módulos do Odoo)
+
+Problemas concretos encontrados NESTES dados enquanto o Odoo (via `odoo-bin -u all`, o mecanismo oficial de upgrade de módulos — não um script à parte) tentava aplicar as alterações de esquema/dados entre o v17 e o v19. Não são bugs de código dos módulos — são inconsistências nos dados restaurados do backup (índices duplicados, constraints obsoletas, registos que mudaram de módulo, xmlids órfãos ou com o modelo trocado), corrigidas para o Odoo poder recriar o estado correto sozinho:
+
+- **2026-08-26 09:30:57** — Xmlid com modelo trocado detetado (ir_model_data id=11263) — a remover o mapeamento antigo para o Odoo recriar do zero...
+- **2026-08-26 09:35:26** — Duplicado em índice único detetado (ir_act_window_view id=2191, constraint 'act_window_view_unique_mode_per_action', colunas=act_window_id, view_mode) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:35:48** — Duplicado em índice único detetado (ir_act_window_view id=2192, constraint 'act_window_view_unique_mode_per_action', colunas=act_window_id, view_mode) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:37:46** — Xmlid local renomeado dentro do mesmo módulo detetado (account_report_line id=48, tem dados dependentes, 'account_reports.account_financial_report_totalincome0' -> 'account_reports.account_financial_report_operating_income0' via code='INC' em account_reports/data/profit_and_loss.xml) — a mapear em vez de apagar...
+- **2026-08-26 09:39:21** — Duplicado em índice único detetado (account_report_expression id=48, constraint 'account_report_expression_line_label_uniq', colunas=report_line_id, label) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:41:00** — Duplicado em índice único detetado (ir_config_parameter id=89, constraint 'ir_config_parameter_key_uniq', colunas=key) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:41:43** — Duplicado em índice único detetado (ir_act_window_view id=185, constraint 'act_window_view_unique_mode_per_action', colunas=act_window_id, view_mode) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:43:21** — CHECK constraint obsoleto detetado (hr_leave_accrual_level.hr_leave_accrual_level_check_dates, referencia 'first_day' que mudou de tipo, já não declarado em nenhum código fonte carregado) — a largar para o Odoo poder converter a coluna...
+- **2026-08-26 09:44:14** — Duplicado em índice único detetado (hr_work_entry_type id=9, constraint 'hr_work_entry_type_unique_work_entry_code', colunas=code) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:45:00** — Registo nativo relocalizado entre módulos detetado (hr_work_entry_type id=2, tem dados dependentes, xmlid 'hr_work_entry_contract.work_entry_type_leave' -> módulo novo 'hr_work_entry') — a mapear em vez de apagar...
+- **2026-08-26 09:45:47** — Registo nativo relocalizado entre módulos detetado (hr_work_entry_type id=3, tem dados dependentes, xmlid 'hr_work_entry_contract.work_entry_type_compensatory' -> módulo novo 'hr_work_entry') — a mapear em vez de apagar...
+- **2026-08-26 09:46:36** — Duplicado em índice único detetado (hr_work_entry_type id=4, constraint 'hr_work_entry_type_unique_work_entry_code', colunas=code) — a remover a linha extra para o Odoo recriar...
+- **2026-08-26 09:47:25** — Registo nativo relocalizado entre módulos detetado (hr_work_entry_type id=5, tem dados dependentes, xmlid 'hr_work_entry_contract.work_entry_type_unpaid_leave' -> módulo novo 'hr_work_entry') — a mapear em vez de apagar...
+- **2026-08-26 09:48:11** — Registo nativo relocalizado entre módulos detetado (hr_work_entry_type id=6, tem dados dependentes, xmlid 'hr_work_entry_contract.work_entry_type_sick_leave' -> módulo novo 'hr_work_entry') — a mapear em vez de apagar...
+- **2026-08-26 09:48:57** — Registo nativo relocalizado entre módulos detetado (hr_work_entry_type id=7, tem dados dependentes, xmlid 'hr_work_entry_contract.work_entry_type_legal_leave' -> módulo novo 'hr_work_entry') — a mapear em vez de apagar...
 
 ### Módulos desativados / fora do âmbito desta migração
 
@@ -94,10 +127,11 @@ Marcados como não instalados no v19 — dados preservados na base de dados, só
 - `arxi_openai_client`
 - `l10n_pt_ao_sale_subscription`
 
-### Correções automáticas aplicadas ao código (histórico completo, mais recente primeiro)
+### Correções de código aplicadas aos módulos, para carregarem/funcionarem corretamente no Odoo 19 (histórico completo, mais recente primeiro)
 
-Cada linha corresponde a um commit real nesta branch, feito automaticamente pelo motor para resolver uma incompatibilidade concreta entre o Odoo 17 e o 19:
+Cada linha corresponde a um commit real nesta branch, feito automaticamente pelo motor para resolver uma incompatibilidade concreta de código entre o Odoo 17 e o 19:
 
+- `2b5770b` (2026-08-26 09:56) docs: relatório automático da migração v17→v19 (README_CLAUDE.md)
 - `7907070` (2026-08-26 09:50) auto-fix v19: filtra country_id.code em Python (campo deixou de ser stored no Odoo 19) em post-update_chart_template.py (iteração 16)
 - `f4a5957` (2026-08-26 09:18) chore: normaliza estrutura para v19 (renomeia ficheiros '~', corrige versão do manifesto)
 - `491450a` (2026-08-26 09:18) fix(arxi-quality): recupera contract_instance_checker perdido no merge de 25 ago
