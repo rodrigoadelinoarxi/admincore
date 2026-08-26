@@ -20,7 +20,7 @@ This module allows the creation of credit notes without an origin in Odoo. It is
     'website'    : "https://www.arxi.pt",
 
     'category'   : 'Uncategorized',
-    'version'    : '1.0.1',
+    'version'    : '19.0.1',
     'license': 'OPL-1',
 
     # any module necessary for this one to work correctly
