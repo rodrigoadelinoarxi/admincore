@@ -1,4 +1,12 @@
 <odoo>
+    <!-- DESATIVADO 2026-08-31 (migração v19): tanto
+         'account_followup.action_view_list_customer_statements' como
+         'account_followup.customer_statements_menu' foram removidos do
+         módulo account_followup no v19 (só sobram como strings residuais em
+         ficheiros .po de tradução, não em nenhum .xml de definição) - sem
+         equivalente direto de "Customer Statements"/"Billing Reports".
+         Efeito: nenhum, os dois registos já não existiam para o Odoo
+         atualizar; sem impacto em dados/certificação.
     <record id="account_followup.action_view_list_customer_statements" model="ir.actions.act_window">
         <field name="name">Billing Reports</field>
     </record>
@@ -6,4 +14,5 @@
     <record id="account_followup.customer_statements_menu" model="ir.ui.menu">
         <field name="name">Billing Reports</field>
     </record>
+    -->
 </odoo>

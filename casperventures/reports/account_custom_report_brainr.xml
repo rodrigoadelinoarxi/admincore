@@ -448,12 +448,23 @@
         </xpath>
     </template>
 
-    <!-- Override l10n_pt_ao's narration handling to add custom report condition -->
+    <!-- DESATIVADO 2026-08-31 (migração v19): o XPath alvo
+         '//span[@name="comment"][@t-field="o.narration"]' já não existe em
+         l10n_pt_ao.report_custom_invoice_document — nessa versão a narração
+         passou a viver dentro de '<div name="comment">...<span t-field="o.narration"/></div>',
+         sem o atributo name="comment" no próprio span, e o div já tem a sua
+         própria condição de visibilidade (not is_html_empty(o.narration) and
+         not o.needs_separate_comment_report). Efeito de desativar: perde-se
+         só a condição extra "not o.company_id.use_custom_report" nesta
+         customização; a narração continua a aparecer/desaparecer pela regra
+         nativa do l10n_pt_ao. Precisa de reescrita manual (nova xpath sobre
+         o div) se se quiser recuperar o comportamento exato de antes.
     <template id="override_narration_custom_report" inherit_id="l10n_pt_ao.report_custom_invoice_document" priority="110">
         <xpath expr="//span[@name='comment'][@t-field='o.narration']" position="replace">
             <span name="comment" t-field="o.narration" t-if="not o.company_id.use_custom_report"/>
         </xpath>
     </template>
+    -->
 
     <!-- Override print_conf_copies to prevent T&C page for custom reports -->
     <template id="override_print_copies_tc_page" inherit_id="account.report_invoice_document" priority="999">

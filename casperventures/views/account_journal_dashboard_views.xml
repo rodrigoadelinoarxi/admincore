@@ -1,4 +1,13 @@
 <odoo>
+    <!-- DESATIVADO 2026-08-31 (migração v19): a ação
+         'account_followup.action_view_list_customer_statements' já não existe
+         no módulo account_followup do v19 (Enterprise) - só restam
+         'action_account_followup_line_definition_form' e 'manual_reminder_action'
+         nesse módulo agora, sem equivalente direto de "Customer Statements".
+         Efeito: o link "Billing Reports" no dashboard de diários deixa de
+         aparecer; sem impacto em dados/certificação. Precisa de decisão de
+         negócio (ligar a outra ação/relatório, ou remover de vez) se se
+         quiser recuperar este atalho.
     <record id="account_followup_journal_dashboard_kanban_view" model="ir.ui.view">
         <field name="name">account.journal.dashboard.kanban.reports.inherit</field>
         <field name="model">account.journal</field>
@@ -12,6 +21,7 @@
             </xpath>
         </field>
     </record>
+    -->
 
     <record id="account_journal_form_view" model="ir.ui.view">
         <field name="name">account.journal.form.inherit</field>

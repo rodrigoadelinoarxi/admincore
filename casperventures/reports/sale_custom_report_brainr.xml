@@ -85,17 +85,27 @@
             </td>
         </xpath>
 
-        <!-- Hide signature when using custom report (signature moved to separate page) -->
+        <!-- DESATIVADO 2026-08-31 (migração v19): 'div[@name="signature"]' já não
+             existe em l10n_pt_sale.report_saleorder_document / sale.report_saleorder_document
+             no Odoo 19 - o bloco de assinatura no PDF impresso foi removido do
+             core (o e-signature agora vive só no portal, via módulo 'sign').
+             Efeito: a assinatura no PDF (que já não existe de qualquer forma)
+             deixa de poder ser condicionalmente escondida; sem impacto real. -->
+        <!--
         <xpath expr="//div[@name='signature']" position="attributes">
             <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
         </xpath>
+        -->
     </template>
 
     <!-- Tax totals handled by account template to avoid conflicts -->
 
     <!-- Remove "Document Not Certified" text -->
+    <!-- 2026-08-31: campo renomeado no l10n_pt_sale v19 -
+         'inalterable_hash' -> 'pt_arxi_inalterable_hash' - XPath atualizado
+         para o novo nome, comportamento inalterado. -->
     <template id="sale_remove_not_certified" inherit_id="l10n_pt_sale.report_saleorder_document" priority="310">
-        <xpath expr="//span[@t-if='not doc.inalterable_hash'][@class='font-weight-bold']" position="replace">
+        <xpath expr="//span[@t-if='not doc.pt_arxi_inalterable_hash'][@class='font-weight-bold']" position="replace">
             <!-- Document Not Certified text removed -->
         </xpath>
     </template>
@@ -173,19 +183,27 @@
 
     <!-- Template removed - hash text conditional logic now handled in sale_qrcode_position_fix -->
 
-    <!-- Reposition QR Code to match invoice layout (right aligned) - only when using custom report -->
+    <!-- DESATIVADO 2026-08-31 (migração v19): esta customização reposiciona/
+         estiliza (alinhamento à direita, layout custom) o QR Code/ATCUD que já
+         é desenhado nativamente por 'l10n_pt_sale.report_saleorder_document'
+         (via chamadas a 'l10n_pt_sale.qr_code_container_sale_order' em vez de
+         um <div name="atcud_qr_code"> inline como antes - mudança estrutural,
+         não um simples rename). O QR CODE E O ATCUD CONTINUAM A APARECER no
+         documento (obrigatório para certificação fiscal, não tocado por esta
+         desativação) - só o reposicionamento cosmético (alinhado à direita em
+         vez da posição nativa) deixa de acontecer quando use_custom_report
+         está ativo. Precisa de reescrita manual contra a nova estrutura
+         (baseada em chamadas de template, não em divs fixos) se se quiser
+         recuperar o layout custom.
     <template id="sale_qrcode_position_fix" inherit_id="l10n_pt_sale.report_saleorder_document" priority="350">
 
-        <!-- Hide original Bottom QR Code when using custom report -->
         <xpath expr="//div[@name='atcud_qr_code']" position="attributes">
             <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
         </xpath>
 
-        <!-- Add custom Bottom QR Code position - align right (only when using custom report) -->
         <xpath expr="//div[@name='atcud_qr_code']" position="after">
             <div name="atcud_qr_code_custom" t-if="doc.company_id.use_custom_report" class="row mt-4" style="page-break-inside: avoid;">
                 <div class="col-6">
-                    <!-- Left side empty -->
                 </div>
                 <div class="col-6 text-end">
                     <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
@@ -207,12 +225,10 @@
             </div>
         </xpath>
 
-        <!-- Hide original Top QR Code (with shipping) when using custom report -->
         <xpath expr="//p[@name='vat_for_address']/following-sibling::t[1]//div[@class='col-6']" position="attributes">
             <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
         </xpath>
 
-        <!-- Add custom Top QR Code (with shipping) - align right (only when using custom report) -->
         <xpath expr="//p[@name='vat_for_address']/following-sibling::t[1]//div[@class='col-6']" position="after">
             <div class="col-6 text-end" t-if="doc.company_id.use_custom_report">
                 <p t-if="doc.inalterable_hash and doc.company_id.qr_code_pt"
@@ -233,12 +249,10 @@
              </div>
         </xpath>
 
-        <!-- Hide original Top QR Code (without shipping) when using custom report -->
         <xpath expr="//div[@class='col-6 qr_code_on_top']" position="attributes">
             <attribute name="t-if">not doc.company_id.use_custom_report</attribute>
         </xpath>
 
-        <!-- Add custom Top QR Code (without shipping) - align right (only when using custom report) -->
         <xpath expr="//div[@class='col-6 qr_code_on_top']" position="after">
             <div class="col-6 qr_code_on_top text-end" t-if="doc.company_id.use_custom_report">
                 <div style="margin-top: -50px;">
@@ -262,6 +276,7 @@
         </xpath>
 
     </template>
+    -->
 
     <!-- Force partner language when calling Terms & Conditions template -->
     <template id="sale_terms_force_partner_lang" inherit_id="l10n_pt_ao_sale.report_saleorder_document_tweaks" priority="110">
