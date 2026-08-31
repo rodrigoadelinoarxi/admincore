@@ -56,28 +56,120 @@ Estas 4 correções foram necessárias **antes** de o pedido `production` conseg
 completar. Não tocam em código deste repo — são feitas na base de dados de origem
 (pré-upgrade) ou na forma como invocamos o script oficial.
 
-## A1-A3. `account.payment` sem/errado `payment_method_line_id` + menu órfão `tax_exemptions`
+## A1. `account.payment` sem `payment_method_line_id`
 
-A primeira tentativa oficial (2026-08-29) falhou logo com o erro nativo do Odoo
-*"Please define a payment method line on your payment"*. Diagnóstico feito num Postgres
-Docker temporário com o backup real restaurado:
+**Sintoma:** a primeira tentativa oficial (2026-08-29) falhou logo com o erro nativo do
+Odoo *"Please define a payment method line on your payment"*
+(`account/models/account_payment.py`, `_check_payment_method_line_id`).
 
-- 35 registos `account.payment` sem `payment_method_line_id` nenhum.
-- 15 registos com a linha preenchida mas a apontar para o diário errado (ou uma linha
-  órfã com `journal_id` NULL).
-- O menu `tax_exemptions.account_tax_exemption_menu_action` continuava ativo na cópia
-  local antes do upgrade (o módulo `tax_exemptions` só fica `installable: False` DEPOIS
-  do upgrade), o que fazia o crawler de teste do próprio script oficial registar esse
-  menu como "a funcionar antes" e depois falhar a comparação com "depois" (falso
-  positivo de regressão, não uma perda real de funcionalidade — já preservada em
-  `l10n_pt_ao`).
+**Causa raiz:** 35 registos `account.payment` (todos `posted`/`inbound`, criados em
+2023-06/2024-02, todos no diário "Banco Santander Totta EUR" id 86) nunca tiveram
+`payment_method_line_id` preenchido — campo introduzido depois desses registos terem
+sido criados/importados, nunca teve backfill. Só rebenta porque o arranque do registo
+força um recompute/validação geral de TODOS os campos.
 
-Estas 3 correções vivem como funções reutilizáveis em
-`/opt/odoo-migrations/engine/migrate.sh` (`fix_missing_payment_method_line_id` linha
-1540, `fix_stale_payment_method_line_journal` linha 1577,
-`fix_stale_tax_exemptions_menu` linha 1635), chamadas automaticamente pelo motor **antes**
-de qualquer `test`/`production` Odoo.sh — não é preciso repetir manualmente em migrações
-futuras. Ver os comentários extensos nessas funções para o diagnóstico SQL completo.
+**Correção (SQL):** atribui a linha "manual" do mesmo diário e do mesmo sentido
+(inbound/outbound) — é o método genérico que o próprio Odoo usa por omissão para
+pagamentos manuais. Não mexe em nenhum pagamento que já tenha linha definida.
+
+```sql
+UPDATE account_payment ap
+SET payment_method_line_id = pml.id
+FROM account_move am, account_payment_method_line pml, account_payment_method pm
+WHERE ap.move_id = am.id
+  AND ap.payment_method_line_id IS NULL
+  AND pml.journal_id = am.journal_id
+  AND pml.payment_method_id = pm.id
+  AND pm.code = 'manual'
+  AND pm.payment_type = ap.payment_type;
+```
+
+## A2. `account.payment` com linha de método de pagamento de outro diário
+
+**Sintoma:** mesmo erro *"Please define a payment method line on your payment"* voltou a
+aparecer DEPOIS da correção A1 (2026-08-28, 2ª tentativa).
+
+**Causa raiz:** sobravam 15 `account.payment` cuja `payment_method_line_id` ESTAVA
+preenchida mas apontava para uma linha de OUTRO diário (ou uma linha antiga com
+`journal_id` NULL, resíduo de antes das linhas de método serem por diário). O cálculo
+nativo do v19 restringe as linhas disponíveis ao próprio diário do pagamento
+(`available_payment_method_line_ids`), por isso recalcula estes para vazio no arranque
+do registo e cai na mesma constraint. Dois casos confirmados: 10 pagamentos do diário 159
+("Credit Card Santander") a apontar para uma linha manual órfã; 5 pagamentos do diário 67
+("Faturas de Fornecedor", tipo purchase) a apontar para a linha manual de outro diário
+errado — e o diário 67 nem sequer tinha nenhuma linha manual criada.
+
+**Correção (SQL):** 1) cria a linha manual em falta nos diários que não tenham nenhuma;
+2) reatribui todo o `account.payment` cuja linha atual não pertença ao diário do próprio
+pagamento para a linha manual correta desse diário/sentido.
+
+```sql
+INSERT INTO account_payment_method_line (name, sequence, payment_method_id, journal_id, create_uid, create_date, write_uid, write_date)
+SELECT 'Manual', 10, pm.id, need.journal_id, 1, now(), 1, now()
+FROM (
+    SELECT DISTINCT am.journal_id, ap.payment_type
+    FROM account_payment ap
+    JOIN account_move am ON am.id = ap.move_id
+    LEFT JOIN account_payment_method_line pml ON pml.id = ap.payment_method_line_id AND pml.journal_id = am.journal_id
+    WHERE pml.id IS NULL
+) need
+JOIN account_payment_method pm ON pm.code = 'manual' AND pm.payment_type = need.payment_type
+WHERE NOT EXISTS (
+    SELECT 1 FROM account_payment_method_line pml2
+    WHERE pml2.journal_id = need.journal_id AND pml2.payment_method_id = pm.id
+);
+
+UPDATE account_payment ap
+SET payment_method_line_id = pml.id
+FROM account_move am, account_payment_method_line pml, account_payment_method pm
+WHERE ap.move_id = am.id
+  AND pml.journal_id = am.journal_id
+  AND pml.payment_method_id = pm.id
+  AND pm.code = 'manual'
+  AND pm.payment_type = ap.payment_type
+  AND ap.payment_method_line_id IS DISTINCT FROM pml.id
+  AND (ap.payment_method_line_id IS NULL OR NOT EXISTS (
+        SELECT 1 FROM account_payment_method_line pml_cur
+        WHERE pml_cur.id = ap.payment_method_line_id AND pml_cur.journal_id = am.journal_id
+      ));
+```
+
+## A3. Menu órfão `tax_exemptions` (falso positivo no crawler de teste)
+
+**Sintoma:** o teste oficial do upgrade compara a app "antes" e "depois" a abrir menus
+automaticamente, e falhava com *"At least one menu or view working before upgrade is not
+working after upgrade"*.
+
+**Causa raiz:** o módulo `tax_exemptions` foi absorvido em `l10n_pt_ao` (confirmado no
+próprio `__manifest__.py`: "automatic_refs, tax_exemptions, restrict_update_company_info,
+invoice_shipping_info and print_conf_copies were absorbed into this module") e por isso
+fica corretamente `installable: False` no v19. Mas o caminho Odoo.sh restaura o backup
+tal e qual para o script oficial testar, sem passar pelo tratamento de módulos
+incompatíveis do caminho on-premise — o menu `Accounting > Configuration > Accounting >
+Tax Exemptions` continuava ativo na cópia local ANTES do upgrade, o crawler regista-o
+como "a funcionar antes", e depois do upgrade real o módulo fica skipped e o campo
+`account.tax.exemption.display_name` deixa de ser válido → o menu rebenta → falso
+positivo de regressão. A funcionalidade real já está preservada em `l10n_pt_ao`
+(confirmado por SQL direto no backup: menu ativo, módulo instalado na origem).
+
+**Correção (SQL):** desativa o menu órfão ANTES de chamar o `upgrade.py` oficial, para a
+fotografia "antes" do crawler deixar de o contar como funcional.
+
+```sql
+UPDATE ir_ui_menu m
+SET active = false
+FROM ir_model_data d
+WHERE d.model = 'ir.ui.menu' AND d.res_id = m.id
+  AND d.module = 'tax_exemptions' AND d.name = 'account_tax_exemption_menu_action'
+  AND m.active = true;
+```
+
+Estas 3 correções (A1-A3) estão automatizadas como funções reutilizáveis em
+`/opt/odoo-migrations/engine/migrate.sh` (`fix_missing_payment_method_line_id`,
+`fix_stale_payment_method_line_journal`, `fix_stale_tax_exemptions_menu`), chamadas
+automaticamente pelo motor antes de qualquer `test`/`production` Odoo.sh — o SQL acima é
+exatamente o que essas funções correm, colado aqui para não depender de acesso ao
+motor/servidor para o rever.
 
 ## A4. `pg_dump` remoto do script oficial incompatível
 
@@ -174,6 +266,10 @@ na BD `admincore_sh`, sem correspondência no código fonte atual, de julho) ref
 `l10n_pt_cope_exclude`, campo removido de `account.journal`. Neutralizada por SQL
 (`arch_db = '<data/>'`) — não existe em nenhum ficheiro deste repo, é resíduo antigo.
 
+```sql
+UPDATE ir_ui_view SET arch_db = '{"en_US": "<data/>"}'::jsonb WHERE id = 6088;
+```
+
 ## B10. Cluster PyArmor/payroll/documents preso em `to upgrade` (SQL na base já migrada)
 
 27 módulos com `installable: False` (o mesmo cluster documentado desde a migração do
@@ -185,6 +281,26 @@ installable" antes de decidir o estado final). Como 'to upgrade' ≠ 'uninstalle
 vistas deles continuavam ativas e combinadas em ecrãs partilhados (ex.: Definições),
 causando `OwlError: field is undefined` no browser. Corrigido por SQL:
 `state='uninstalled'` + `active=false` nas suas `ir_ui_view`.
+
+```sql
+-- lista completa dos 27+5 módulos: ver secção "Fase B" acima
+UPDATE ir_module_module SET state='uninstalled'
+WHERE name = ANY(ARRAY['documents','documents_account','documents_approvals',
+  'documents_fleet','documents_hr','documents_hr_expense','documents_hr_holidays',
+  'documents_hr_payroll','documents_product','documents_project','documents_project_sale',
+  'documents_project_sign','documents_sign','documents_spreadsheet',
+  'documents_spreadsheet_survey','arxi_openai_client','ir_rule_protected',
+  'l10n_pt_ao_sale_subscription','l10n_pt_hr_payroll','l10n_pt_payroll_unique_report',
+  'restricted_settings','sh_import_journal_entry','sh_message',
+  'spreadsheet_dashboard_documents','spreadsheet_dashboard_edition','spreadsheet_edition',
+  'website_documents','admincore_salary_structures','ai_documents','ai_documents_account',
+  'ai_documents_source','spreadsheet_sale_management']);
+
+UPDATE ir_ui_view v SET active=false
+FROM ir_model_data d
+WHERE d.model='ir.ui.view' AND d.res_id=v.id
+  AND d.module = ANY(ARRAY[/* mesma lista de módulos acima */]);
+```
 
 ## B11-B12. Pendências para revisão humana
 
